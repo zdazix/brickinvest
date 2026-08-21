@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  --color-*: initial;
+  --color-background: #f5f1e9;
+  --color-foreground: #20362b;
+  --color-surface: #fffdf8;
+  --color-surface-foreground: #20362b;
+  --color-primary: #557a62;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #dfe7d9;
+  --color-secondary-foreground: #20362b;
+  --color-accent: #dca77d;
+  --color-accent-foreground: #3d291e;
+  --color-muted: #ece7de;
+  --color-muted-foreground: #69736c;
+  --color-border: #d9d4ca;
+  --color-ring: #557a62;
+  --color-danger: #b5544d;
+  --color-danger-foreground: #ffffff;
+  --font-*: initial;
+  --font-primary: Georgia, "Times New Roman", serif;
+  --font-secondary: Inter, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply bg-background;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    @apply m-0 min-h-screen min-w-80 overflow-x-hidden bg-background font-secondary text-foreground antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-primary text-balance;
+  }
+
+  p {
+    @apply text-pretty;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  button:not(:disabled),
+  a[href],
+  [role="button"]:not([aria-disabled="true"]),
+  label[for] {
+    cursor: pointer;
+  }
+
+  :disabled,
+  [aria-disabled="true"] {
+    cursor: not-allowed;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-4 outline-ring;
+  }
+
+  ::selection {
+    @apply bg-primary text-primary-foreground;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

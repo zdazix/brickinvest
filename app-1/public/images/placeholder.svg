@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title description">
+  <title id="title">Image placeholder</title>
+  <desc id="description">Generic neutral image placeholder for scaffold content.</desc>
+  <rect width="1600" height="1000" fill="#dfe7d9" />
+  <path d="M0 720 380 405 650 620 920 330 1600 825v175H0Z" fill="#b9cbbd" />
+  <circle cx="1240" cy="250" r="92" fill="#f5f1e9" />
+</svg>
