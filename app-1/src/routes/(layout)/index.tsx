@@ -6,8 +6,12 @@ export const Route = createFileRoute("/(layout)/")({
   component: HomePage,
   head: () => ({
     meta: [
-      { title: "Home | Brand" },
-      { name: "description", content: "Landing page description text." },
+      { title: "BRICKINVEST | Costa del Sol Investment Platform" },
+      {
+        name: "description",
+        content:
+          "Development and investment opportunities on the Costa del Sol.",
+      },
     ],
   }),
 });

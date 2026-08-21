@@ -18,7 +18,7 @@ export const BrandMark = ({ tone = "dark" }: BrandMarkProps) => {
       <span className="grid size-9 place-items-center rounded-full bg-primary text-primary-foreground transition-transform duration-300 group-hover:-rotate-12">
         <Leaf aria-hidden="true" className="size-4" />
       </span>
-      Brand
+      BRICKINVEST
     </>
   );
 

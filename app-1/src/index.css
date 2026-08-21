@@ -2,24 +2,24 @@
 
 @theme {
   --color-*: initial;
-  --color-background: #f5f1e9;
-  --color-foreground: #20362b;
-  --color-surface: #fffdf8;
-  --color-surface-foreground: #20362b;
-  --color-primary: #557a62;
+  --color-background: #171716;
+  --color-foreground: #f2eee5;
+  --color-surface: #20201f;
+  --color-surface-foreground: #f2eee5;
+  --color-primary: #d8c4a1;
   --color-primary-foreground: #ffffff;
-  --color-secondary: #dfe7d9;
-  --color-secondary-foreground: #20362b;
-  --color-accent: #dca77d;
-  --color-accent-foreground: #3d291e;
-  --color-muted: #ece7de;
-  --color-muted-foreground: #69736c;
-  --color-border: #d9d4ca;
-  --color-ring: #557a62;
-  --color-danger: #b5544d;
+  --color-secondary: #2c2b28;
+  --color-secondary-foreground: #f2eee5;
+  --color-accent: #b99a6b;
+  --color-accent-foreground: #171716;
+  --color-muted: #262523;
+  --color-muted-foreground: #b4aea2;
+  --color-border: #514b40;
+  --color-ring: #d8c4a1;
+  --color-danger: #e17c70;
   --color-danger-foreground: #ffffff;
   --font-*: initial;
-  --font-primary: Georgia, "Times New Roman", serif;
+  --font-primary: "Cormorant Garamond", Georgia, serif;
   --font-secondary: Inter, "Helvetica Neue", Arial, sans-serif;
   --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }

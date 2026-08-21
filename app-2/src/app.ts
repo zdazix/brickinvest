@@ -1,15 +1,16 @@
+import cors from "cors";
 import express, { type Express } from "express";
 import helmet from "helmet";
 import type { Logger } from "pino";
 import { pinoHttp } from "pino-http";
 
-import type { DatabaseHealth } from "./lib/database/database.js";
+import type { Database } from "./lib/database/database.js";
 import { errorHandler } from "./lib/http/error-handler.js";
 import { notFoundHandler } from "./lib/http/not-found-handler.js";
 import { createApiRouter } from "./routes.js";
 
 type CreateAppOptions = {
-  readonly database?: DatabaseHealth;
+  readonly database?: Database;
   readonly logger: Logger;
 };
 
@@ -18,6 +19,7 @@ export const createApp = ({ database, logger }: CreateAppOptions): Express => {
 
   app.disable("x-powered-by");
   app.use(helmet());
+  app.use(cors({ methods: ["GET", "POST", "OPTIONS"], origin: true }));
   app.use(
     pinoHttp({
       autoLogging: {
@@ -35,7 +37,7 @@ export const createApp = ({ database, logger }: CreateAppOptions): Express => {
   app.get("/health", (_request, response) => {
     response.json({ status: "ok" });
   });
-  app.use("/api", createApiRouter({ database }));
+  app.use("/api", createApiRouter({ database, client: database?.client }));
 
   app.use(notFoundHandler);
   app.use(errorHandler);

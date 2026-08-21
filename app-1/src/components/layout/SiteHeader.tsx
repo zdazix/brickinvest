@@ -1,101 +1,53 @@
-import { Link, useRouterState } from "@tanstack/react-router";
-import { useEffect, useState, type MouseEvent } from "react";
-
+import { useEffect, useState } from "react";
 import { BrandMark } from "@/components/layout/BrandMark";
-import { ButtonLink } from "@/components/ui/Button";
-import { scrollCurrentHomeToTop } from "@/lib/navigation/scroll-home";
+import { Button } from "@/components/ui/Button";
 
-const scrollThreshold = 24;
+const navigation = [
+  "Investment Opportunities",
+  "Development",
+  "Property Intelligence",
+  "Market Intelligence",
+  "AI & Data Intelligence",
+  "About",
+  "Contact",
+];
 
 export const SiteHeader = () => {
-  const pathname = useRouterState({
-    select: (state) => state.location.pathname,
-  });
-  const [isScrolled, setIsScrolled] = useState(false);
-  const usesOverlayStyle = pathname === "/" && !isScrolled;
-  const activeLinkClass = usesOverlayStyle
-    ? "font-semibold text-primary"
-    : "font-semibold text-secondary/65";
-  const navigationLinkClass =
-    "px-2 py-2 font-medium transition-colors duration-200";
-
-  const scrollHomeToTop = (event: MouseEvent<HTMLAnchorElement>) =>
-    scrollCurrentHomeToTop(event, pathname);
-
+  const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
-    const updateScrollState = () => {
-      setIsScrolled(window.scrollY > scrollThreshold);
-    };
-
-    updateScrollState();
-    window.addEventListener("scroll", updateScrollState, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", updateScrollState);
-    };
-  }, [pathname]);
-
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   return (
-    <div className="fixed inset-x-0 top-3 z-50 h-0 px-3 sm:top-5 sm:px-5">
+    <div className="fixed inset-x-0 top-4 z-40 px-4 sm:px-8">
       <header
-        className={`mx-auto flex max-w-7xl items-center justify-between gap-5 rounded-full border px-4 py-3 transition-[background-color,border-color,box-shadow,color] duration-300 sm:px-5 ${
-          usesOverlayStyle
-            ? "border-transparent bg-transparent text-primary-foreground"
-            : "border-background/10 bg-foreground/50 text-background shadow-lg shadow-foreground/10 backdrop-blur-xl"
-        }`}
+        className={`mx-auto flex max-w-[1600px] items-center justify-between gap-4 border px-4 py-3 transition-all ${scrolled ? "border-primary/20 bg-background/90 shadow-2xl backdrop-blur-xl" : "border-primary/20 bg-background/20 backdrop-blur-md"}`}
       >
         <BrandMark tone="light" />
         <nav
           aria-label="Primary navigation"
-          className={`hidden items-center gap-2 rounded-full px-4 py-2 text-base transition-colors duration-300 md:flex ${
-            usesOverlayStyle
-              ? "bg-background/85 text-foreground shadow-sm backdrop-blur-lg"
-              : "bg-transparent text-background"
-          }`}
+          className="hidden items-center gap-1 text-[10px] tracking-[0.08em] text-primary-foreground/80 uppercase xl:flex"
         >
-          {pathname === "/" ? (
+          {navigation.map((item) => (
             <a
-              aria-current="page"
-              className={`${navigationLinkClass} ${activeLinkClass}`}
-              href="/"
-              onClick={scrollHomeToTop}
+              className="px-2 py-2 transition-colors hover:text-primary"
+              href="#opportunities"
+              key={item}
             >
-              Home
+              {item}
             </a>
-          ) : (
-            <Link className={navigationLinkClass} to="/">
-              Home
-            </Link>
-          )}
-          <Link
-            activeProps={{ className: activeLinkClass }}
-            className={navigationLinkClass}
-            to="/profile"
-          >
-            Profile
-          </Link>
-          <Link
-            activeProps={{ className: activeLinkClass }}
-            className={navigationLinkClass}
-            to="/privacy"
-          >
-            Privacy
-          </Link>
-          <Link
-            activeProps={{ className: activeLinkClass }}
-            className={navigationLinkClass}
-            to="/news"
-          >
-            News
-          </Link>
+          ))}
         </nav>
-        <ButtonLink
-          className="min-h-0 px-5 py-3 text-sm shadow-sm"
-          to="/contact"
-          variant="surface"
+        <Button
+          className="min-h-0 rounded-none border border-primary/70 bg-transparent px-4 py-3 text-[10px] tracking-[0.16em] text-primary-foreground hover:bg-primary hover:text-primary-foreground"
+          onClick={() =>
+            window.dispatchEvent(new CustomEvent("open-investor-quiz"))
+          }
         >
-          Contact us
-        </ButtonLink>
+          REQUEST OPPORTUNITIES
+        </Button>
       </header>
     </div>
   );
