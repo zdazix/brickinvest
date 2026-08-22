@@ -55,7 +55,7 @@ export const SiteHeader = () => {
 
   return (
     <div className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-8 sm:pt-6">
-      <header className="text-white relative mx-auto flex max-w-[1600px] items-center justify-center px-1 py-2">
+      <header className="text-white relative mx-auto flex max-w-[1600px] items-center justify-between px-1 py-2">
         <nav
           aria-label="Primary navigation"
           className="hidden w-full items-center justify-center gap-x-7 gap-y-2 lg:flex xl:gap-x-10"
@@ -71,12 +71,12 @@ export const SiteHeader = () => {
           ))}
         </nav>
 
-        <div className="absolute right-14 lg:right-0" data-language-selector>
+        <div className="absolute right-0" data-language-selector>
           <button
             aria-expanded={isLanguageOpen}
             aria-haspopup="menu"
             aria-label={t("openLanguage")}
-            className="border-white/30 bg-black/10 text-white flex min-h-11 items-center gap-2 rounded-full border px-3 text-[11px] tracking-[0.12em] backdrop-blur-sm transition-colors hover:border-primary/80 hover:text-primary focus-visible:border-primary"
+            className="border-white/45 text-white flex min-h-12 items-center gap-2 rounded-lg border bg-[#141914]/20 px-4 text-[11px] tracking-[0.12em] backdrop-blur-sm transition-colors hover:border-primary hover:bg-[#141914]/45 hover:text-primary focus-visible:border-primary"
             onClick={(event) => {
               event.stopPropagation();
               setIsLanguageOpen((open) => !open);
@@ -92,13 +92,13 @@ export const SiteHeader = () => {
           </button>
           {isLanguageOpen && (
             <div
-              className="shadow-black/30 absolute top-[calc(100%+0.75rem)] right-0 z-20 min-w-52 rounded-xl border border-primary/35 bg-[#171716]/90 p-2 shadow-2xl backdrop-blur-xl"
+              className="shadow-black/40 absolute top-[calc(100%+0.5rem)] right-0 z-20 min-w-52 rounded-lg border border-primary/80 bg-[#0d1411]/95 p-2 shadow-2xl backdrop-blur-xl"
               role="menu"
             >
               {locales.map((item) => (
                 <button
                   aria-checked={item.key === locale}
-                  className="text-white/90 flex w-full items-center gap-3 rounded-lg px-3 py-3 text-left text-sm transition-colors hover:bg-primary/15 hover:text-primary focus-visible:bg-primary/15"
+                  className="text-white/90 hover:text-white flex w-full items-center gap-3 rounded-md px-3 py-3 text-left text-[15px] transition-colors hover:bg-primary/15 focus-visible:bg-primary/15"
                   key={item.key}
                   onClick={() => {
                     setLocale(item.key as LocaleKey);
@@ -124,7 +124,7 @@ export const SiteHeader = () => {
           aria-controls="mobile-navigation"
           aria-expanded={isMenuOpen}
           aria-label={isMenuOpen ? t("closeMenu") : t("openMenu")}
-          className="border-white/35 bg-black/10 text-white hover:border-white/70 hover:bg-white/10 ml-auto grid size-11 place-items-center rounded-full border backdrop-blur-sm transition-colors lg:hidden"
+          className="border-white/35 bg-black/10 text-white hover:border-white/70 hover:bg-white/10 mr-auto grid size-11 place-items-center rounded-full border backdrop-blur-sm transition-colors lg:hidden"
           onClick={() => setIsMenuOpen((open) => !open)}
           type="button"
         >
