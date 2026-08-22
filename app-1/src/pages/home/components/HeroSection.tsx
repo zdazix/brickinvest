@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowUpRight, Check, ChevronLeft, X } from "lucide-react";
 
+import { useLocale } from "@/lib/i18n";
+
 const questions = [
   [
     "What is your primary investment objective?",
@@ -66,6 +68,7 @@ type Answers = Record<number, string> & {
 };
 
 const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
+  const { t } = useLocale();
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Answers>({});
   const [error, setError] = useState("");
@@ -83,7 +86,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
       !answers.phone?.trim() ||
       !answers.consent
     ) {
-      setError("Please complete your details and accept the privacy notice.");
+      setError(t("validation"));
       return;
     }
     setStatus("sending");
@@ -109,7 +112,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
       if (!response.ok) throw new Error("Request failed");
       setStatus("success");
     } catch {
-      setError("We could not send your request. Please try again.");
+      setError(t("failed"));
       setStatus("idle");
     }
   };
@@ -134,30 +137,27 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
               <Check />
             </div>
             <p className="text-xs tracking-[0.2em] text-[#8b704e] uppercase">
-              Request received
+              {t("requestReceived")}
             </p>
             <h2 className="mt-5 max-w-md font-primary text-5xl leading-none">
-              Your opportunities are being prepared.
+              {t("preparing")}
             </h2>
-            <p className="mt-6 max-w-md text-[#5c574f]">
-              A BRICKINVEST advisor will be in touch with a considered
-              selection.
-            </p>
+            <p className="mt-6 max-w-md text-[#5c574f]">{t("advisor")}</p>
             <button
               className="mt-8 border-b border-[#211f1b] pb-2 text-xs tracking-[0.15em] uppercase"
               onClick={onClose}
             >
-              Return to BRICKINVEST
+              {t("return")}
             </button>
           </div>
         ) : (
           <>
             <div className="mb-10 flex items-center justify-between">
               <p className="text-xs tracking-[0.2em] text-[#8b704e] uppercase">
-                Investor qualification
+                {t("qualification")}
               </p>
               <p className="font-mono text-xs text-[#777168]">
-                {isContact ? "DETAILS" : `0${step + 1} / 05`}
+                {isContact ? t("details") : `0${step + 1} / 05`}
               </p>
             </div>
             {!isContact ? (
@@ -185,7 +185,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                 </h2>
                 <div className="mt-10 grid gap-5 sm:grid-cols-2">
                   <label className="text-xs tracking-[0.12em] uppercase">
-                    First Name
+                    {t("firstName")}
                     <input
                       className="mt-2 w-full border-b border-[#aaa195] bg-transparent px-0 py-3 outline-none"
                       onChange={(e) =>
@@ -194,7 +194,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                     />
                   </label>
                   <label className="text-xs tracking-[0.12em] uppercase">
-                    Email
+                    {t("email")}
                     <input
                       className="mt-2 w-full border-b border-[#aaa195] bg-transparent px-0 py-3 outline-none"
                       type="email"
@@ -204,7 +204,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                     />
                   </label>
                   <label className="text-xs tracking-[0.12em] uppercase sm:col-span-2">
-                    Phone Number with international country code
+                    {t("phone")}
                     <input
                       className="mt-2 w-full border-b border-[#aaa195] bg-transparent px-0 py-3 outline-none"
                       placeholder="+34 000 000 000"
@@ -222,17 +222,14 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                       setAnswers({ ...answers, consent: e.target.checked })
                     }
                   />{" "}
-                  I agree to the GDPR/privacy notice and consent to BRICKINVEST
-                  using my details to respond to this request.
+                  {t("privacy")}
                 </label>
                 <button
                   className="mt-8 w-full bg-[#211f1b] px-6 py-5 text-xs tracking-[0.14em] text-[#f0ece3] transition hover:bg-[#8b704e] disabled:opacity-60"
                   disabled={status === "sending"}
                   onClick={() => void submit()}
                 >
-                  {status === "sending"
-                    ? "SENDING…"
-                    : "REQUEST MY INVESTMENT OPPORTUNITIES"}
+                  {status === "sending" ? t("send") : t("submit")}
                 </button>
               </>
             )}
@@ -257,6 +254,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
 };
 
 export const HeroSection = () => {
+  const { t } = useLocale();
   const [active, setActive] = useState(0);
   const [quizOpen, setQuizOpen] = useState(false);
   const sources = useMemo(
@@ -303,11 +301,10 @@ export const HeroSection = () => {
             BRICKINVEST
           </h1>
           <p className="mt-7 max-w-xl text-lg leading-7 text-primary-foreground/85 sm:text-xl">
-            Your Trusted Partner for Development and Investment on the Costa del
-            Sol.
+            {t("trusted")}
           </p>
           <p className="mt-3 text-sm tracking-[0.16em] text-primary uppercase">
-            High-ROI Property Investment Opportunities
+            {t("highRoi")}
           </p>
           <button
             className="mt-9 flex w-fit items-center gap-4 border border-primary bg-primary px-6 py-4 text-xs font-semibold tracking-[0.14em] text-primary-foreground transition hover:bg-transparent hover:text-primary"
