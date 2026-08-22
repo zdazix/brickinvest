@@ -299,9 +299,6 @@ export const HeroSection = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-[#171716]/85 via-transparent to-[#171716]/30" />
         </div>
         <div className="relative z-10 mx-auto flex h-full max-w-[1600px] flex-col justify-end px-6 pb-12 text-primary-foreground sm:px-12 sm:pb-16 lg:px-20 lg:pb-24">
-          <p className="mb-6 text-xs tracking-[0.3em] text-primary uppercase">
-            Private investment platform · Costa del Sol
-          </p>
           <h1 className="max-w-5xl font-primary text-6xl leading-[0.84] tracking-[-0.04em] sm:text-8xl lg:text-[9.5rem]">
             BRICKINVEST
           </h1>
