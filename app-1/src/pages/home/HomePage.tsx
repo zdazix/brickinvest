@@ -5,6 +5,7 @@ import { OffersSection } from "@/pages/home/components/OffersSection";
 import { ServicesSection } from "@/pages/home/components/ServicesSection";
 import { ProjectsSection } from "@/pages/home/components/ProjectsSection";
 import { InvestmentSolutionsSection } from "@/pages/home/components/InvestmentSolutionsSection";
+import { IntelligenceSection } from "@/pages/home/components/IntelligenceSection";
 
 export const HomePage = () => (
   <>
@@ -15,5 +16,6 @@ export const HomePage = () => (
     <ServicesSection />
     <ProjectsSection />
     <InvestmentSolutionsSection />
+    <IntelligenceSection />
   </>
 );

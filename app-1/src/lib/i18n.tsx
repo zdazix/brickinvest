@@ -101,6 +101,16 @@ const english: Dictionary = {
   requestSuccess: "Thank you. Your request has been received.",
   requestValidation: "Please enter your name and email or phone number.",
   requestFailed: "We could not send your request. Please try again.",
+  intelligenceHeading: "AI & DATA INTELLIGENCE",
+  intelligenceIntro:
+    "At BRICKINVEST, we build the core intelligence that powers every investment recommendation and project evaluation on the Costa del Sol. Our data infrastructure and analytical systems underpin every valuation, ranking, and opportunity assessment.",
+  intelligenceUnmatchedHeading: "Unmatched Property Intelligence",
+  intelligenceUnmatchedBody:
+    "We process millions of data points across historical transactions, rental trends, demographic shifts, and micro-market movements to identify opportunities that outperform. Our analysis doesn’t just show properties — it simulates outcomes, ranks risk-adjusted returns, and maps the path to optimal portfolio performance.",
+  intelligenceReasoningHeading:
+    "Understand the Reasoning Behind Every Investment",
+  intelligenceReasoningBody:
+    "Our models analyze thousands of data points to deliver explained predictions, not just numbers. Every recommendation incorporates local market conditions, price movements, and profitability trends so you know exactly why a property stands out.",
 };
 
 const translations: Record<LocaleKey, Dictionary> = {
