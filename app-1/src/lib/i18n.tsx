@@ -60,6 +60,16 @@ const english: Dictionary = {
   deepInsight: "Deep local insight",
   deepInsightBody:
     "Our long-standing presence in the market and trusted network give us access to opportunities before they reach the wider market. This allows us to identify high-value properties and development prospects with strong potential.",
+  offerHeading: "WHAT WE OFFER",
+  offerProjectManagement:
+    "Project management with implementation in digital screen AI system",
+  offerConstruction: "In-house construction company",
+  offerArchitecture: "In-house architects and engineering team",
+  offerPlots: "The unique plots",
+  offerDevelopments: "Bespoke ready-made development",
+  offerRoi: "ROI of 40%+ per year",
+  offerMultilingual: "Multilingual support",
+  offerLegacy: "Legacy and transparency",
 };
 
 const translations: Record<LocaleKey, Dictionary> = {
