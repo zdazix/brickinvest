@@ -300,7 +300,8 @@ export const HeroSection = () => {
           <h1 className="max-w-5xl font-primary text-6xl leading-[0.84] tracking-[-0.04em] sm:text-8xl lg:text-[9.5rem]">
             BRICKINVEST
           </h1>
-          <p className="mt-7 max-w-xl text-lg leading-7 text-primary-foreground/85 sm:text-xl">
+          <div className="mt-10 h-px w-24 bg-primary sm:mt-12 sm:w-36" />
+          <p className="mt-8 max-w-2xl text-lg leading-8 text-primary-foreground/85 sm:text-xl sm:leading-9">
             {t("trusted")}
           </p>
           <p className="mt-3 text-sm tracking-[0.16em] text-primary uppercase">
