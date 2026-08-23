@@ -57,6 +57,8 @@ const english: Dictionary = {
     "At BRICKINVEST, we specialize in identifying high-quality residential and commercial investment opportunities across the Costa del Sol and throughout Spain. With years of cultivated market experience and a strong network of trusted local and international partners, we provide our clients with access to opportunities that are often off-market and carefully selected.",
   whyHeading: "WHY US?",
   whySupporting: "Tailored investment guidance on the Costa del Sol",
+  whyBody:
+    "With years of market experience, we provide case-specific consulting designed around each client’s investment goals, risk profile, and project scope.",
   deepInsight: "Deep local insight",
   deepInsightBody:
     "Our long-standing presence in the market and trusted network give us access to opportunities before they reach the wider market. This allows us to identify high-value properties and development prospects with strong potential.",
