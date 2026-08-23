@@ -298,7 +298,7 @@ export const HeroSection = () => {
         </div>
         <div className="relative z-10 mx-auto flex h-full max-w-[1600px] flex-col justify-end px-6 pb-12 text-primary-foreground sm:px-12 sm:pb-16 lg:px-20 lg:pb-24">
           <h1 className="max-w-5xl font-primary text-6xl leading-[0.84] tracking-[-0.04em] sm:text-8xl lg:text-[9.5rem]">
-            BRICKINVEST
+            BRICK INVEST
           </h1>
           <p className="mt-7 max-w-xl text-lg leading-7 text-primary-foreground/85 sm:text-xl">
             {t("trusted")}
