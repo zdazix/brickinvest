@@ -9,7 +9,7 @@ type IntroSectionProps = {
 
 export const IntroSection = ({ features, image }: IntroSectionProps) => (
   <section
-    className="bg-background px-5 py-16 sm:px-8 lg:px-12 lg:py-24"
+    className="bg-background px-5 py-12 sm:px-8 lg:px-12 lg:py-24"
     id="section-one"
   >
     <div className="mx-auto max-w-7xl">

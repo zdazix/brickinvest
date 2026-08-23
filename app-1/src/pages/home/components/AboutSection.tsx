@@ -6,7 +6,7 @@ export const AboutSection = () => {
   return (
     <section
       aria-labelledby="about-us-heading"
-      className="relative overflow-hidden border-t border-border bg-background px-6 py-16 sm:px-12 sm:py-20 lg:px-20 lg:py-24"
+      className="relative overflow-hidden border-t border-border bg-background px-6 py-12 sm:px-12 sm:py-16 lg:px-20 lg:py-24"
       id="about-us"
     >
       <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-[radial-gradient(circle_at_70%_35%,rgba(216,196,161,0.08),transparent_55%)]" />

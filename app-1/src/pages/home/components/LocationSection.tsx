@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { LocationMap } from "@/pages/home/components/LocationMap";
 
 export const LocationSection = () => (
-  <section className="bg-background px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
+  <section className="bg-background px-5 py-12 sm:px-8 lg:px-12 lg:py-24">
     <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
       <div>
         <p className="text-sm text-primary">Section eyebrow</p>

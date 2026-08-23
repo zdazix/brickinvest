@@ -11,7 +11,7 @@ export const IntelligenceSection = () => {
   return (
     <section
       aria-labelledby="ai-data-intelligence-heading"
-      className="relative overflow-hidden border-t border-border bg-background px-6 py-16 sm:px-12 sm:py-20 lg:px-20 lg:py-24"
+      className="relative overflow-hidden border-t border-border bg-background px-6 py-12 sm:px-12 sm:py-16 lg:px-20 lg:py-24"
       id="ai-data-intelligence"
     >
       <div className="pointer-events-none absolute top-0 right-0 h-full w-1/2 bg-[radial-gradient(circle_at_80%_25%,rgba(216,196,161,0.08),transparent_58%)]" />
@@ -32,7 +32,7 @@ export const IntelligenceSection = () => {
             <p className="max-w-2xl text-base leading-8 text-foreground/70 sm:text-lg sm:leading-9">
               {t("intelligenceIntro")}
             </p>
-            <div className="mt-9 border-t border-primary/35 sm:mt-12">
+            <div className="mt-8 border-t border-primary/35 sm:mt-10">
               {intelligenceItems.map(([heading, body], index) => (
                 <article
                   className="border-b border-primary/20 py-6 sm:py-7"

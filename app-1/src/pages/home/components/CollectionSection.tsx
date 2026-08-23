@@ -7,7 +7,7 @@ type CollectionSectionProps = {
 
 export const CollectionSection = ({ cards, image }: CollectionSectionProps) => (
   <section
-    className="bg-surface px-5 pt-16 pb-20 sm:px-8 lg:px-12 lg:pt-24 lg:pb-28"
+    className="bg-surface px-5 pt-12 pb-16 sm:px-8 lg:px-12 lg:pt-24 lg:pb-24"
     id="section-two"
   >
     <div className="mx-auto max-w-7xl">

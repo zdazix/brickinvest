@@ -6,7 +6,7 @@ export const WhyUsSection = () => {
   return (
     <section
       aria-labelledby="why-us-heading"
-      className="relative overflow-hidden border-t border-border bg-surface px-6 py-16 sm:px-12 sm:py-20 lg:px-20 lg:py-24"
+      className="relative overflow-hidden border-t border-border bg-surface px-6 py-12 sm:px-12 sm:py-16 lg:px-20 lg:py-24"
       id="why-us"
     >
       <div className="pointer-events-none absolute top-0 right-0 h-full w-1/2 bg-[linear-gradient(135deg,transparent_30%,rgba(216,196,161,0.045)_100%)]" />
@@ -26,7 +26,7 @@ export const WhyUsSection = () => {
           <p className="mt-7 max-w-2xl text-base leading-8 text-foreground/70 sm:text-lg sm:leading-9">
             {t("whyBody")}
           </p>
-          <div className="mt-10 border-t border-primary/35 pt-6 sm:mt-12 sm:pt-7">
+          <div className="mt-8 border-t border-primary/35 pt-6 sm:mt-10 sm:pt-7">
             <h3 className="mt-5 font-primary text-3xl tracking-[-0.02em] text-foreground sm:text-4xl">
               {t("deepInsight")}
             </h3>
