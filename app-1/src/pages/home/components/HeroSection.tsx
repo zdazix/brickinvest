@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowUpRight, Check, ChevronLeft, X } from "lucide-react";
 
 import { useLocale } from "@/lib/i18n";
@@ -53,13 +53,6 @@ const questions = [
     "Exploring opportunities",
   ],
 ] as const;
-const videos = [
-  "hero-01.mp4",
-  "hero-02.mp4",
-  "hero-03.mp4",
-  "hero-04.mp4",
-  "hero-05.mp4",
-];
 type Answers = Record<number, string> & {
   firstName?: string;
   email?: string;
@@ -255,56 +248,30 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
 
 export const HeroSection = () => {
   const { t } = useLocale();
-  const [active, setActive] = useState(0);
   const [quizOpen, setQuizOpen] = useState(false);
-  const sources = useMemo(
-    () => videos.map((video) => `${import.meta.env.BASE_URL}videos/${video}`),
-    [],
-  );
   useEffect(() => {
-    const timer = window.setInterval(
-      () => setActive((current) => (current + 1) % videos.length),
-      9000,
-    );
     const open = () => setQuizOpen(true);
     window.addEventListener("open-investor-quiz", open);
     return () => {
-      window.clearInterval(timer);
       window.removeEventListener("open-investor-quiz", open);
     };
   }, []);
   return (
     <main id="main-content">
       <section
-        className="relative h-dvh min-h-[680px] overflow-hidden bg-[#171716]"
+        className="relative flex min-h-[680px] items-center overflow-hidden bg-white"
         id="opportunities"
       >
-        <div className="absolute inset-0">
-          {sources.map((source, index) => (
-            <video
-              aria-hidden={index !== active}
-              autoPlay
-              className={`absolute inset-0 size-full object-cover transition-opacity duration-[1800ms] ${index === active ? "opacity-100" : "opacity-0"}`}
-              key={source}
-              loop
-              muted
-              playsInline
-              poster={`${import.meta.env.BASE_URL}images/placeholder.svg`}
-              src={source}
-            />
-          ))}
-          <div className="absolute inset-0 bg-[#171716]/35" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#171716]/85 via-transparent to-[#171716]/30" />
-        </div>
-        <div className="relative z-10 mx-auto flex h-full w-full max-w-[1600px] flex-col items-center justify-center px-6 pt-28 pb-16 text-center text-white sm:px-12 sm:pb-20 lg:px-20">
-          <h1 className="max-w-4xl font-primary text-4xl leading-[1.02] tracking-[-0.035em] text-white sm:text-6xl lg:text-7xl">
+        <div className="mx-auto flex w-full max-w-[1600px] flex-col items-center justify-center px-6 pt-36 pb-24 text-center text-foreground sm:px-12 sm:pt-40 sm:pb-32 lg:px-20">
+          <div className="mb-10 h-px w-20 bg-primary sm:mb-14" />
+          <h1 className="max-w-4xl font-primary text-5xl leading-[0.98] tracking-[-0.035em] sm:text-7xl lg:text-8xl">
             {t("trusted")}
           </h1>
-          <p className="mt-7 max-w-2xl text-base tracking-[0.16em] text-primary uppercase sm:text-lg">
+          <p className="mt-8 max-w-2xl text-sm tracking-[0.16em] text-accent uppercase sm:text-lg">
             {t("highRoi")}
           </p>
           <button
-            className="group mt-10 flex w-fit items-center gap-4 border border-primary bg-primary px-7 py-4 text-xs font-semibold tracking-[0.14em] text-primary-foreground transition-all hover:bg-transparent hover:text-primary sm:mt-12"
+            className="group mt-12 flex w-fit items-center gap-4 border border-primary bg-primary px-7 py-4 text-xs font-semibold tracking-[0.14em] text-primary-foreground transition-all hover:bg-transparent hover:text-accent sm:mt-14"
             onClick={() => setQuizOpen(true)}
           >
             <span>
@@ -314,17 +281,6 @@ export const HeroSection = () => {
             </span>
             <ArrowUpRight className="size-4" />
           </button>
-          <div
-            className="mt-12 flex items-center justify-center gap-2"
-            aria-label="Cinematic sequence progress"
-          >
-            {videos.map((video, index) => (
-              <span
-                className={`h-px transition-all duration-500 ${index === active ? "w-12 bg-primary" : "w-5 bg-white/45"}`}
-                key={video}
-              />
-            ))}
-          </div>
         </div>
       </section>
       {quizOpen && <InvestorQuiz onClose={() => setQuizOpen(false)} />}

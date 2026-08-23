@@ -62,9 +62,7 @@ export const SiteHeader = () => {
     <div
       className={`fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-8 sm:pt-6 ${isHome ? "" : "border-b border-border/50 bg-background/95 backdrop-blur-sm"}`}
     >
-      <header
-        className={`relative mx-auto flex max-w-[1600px] items-center justify-between gap-5 px-1 py-2 ${isHome ? "text-white" : "text-foreground"}`}
-      >
+      <header className="relative mx-auto flex max-w-[1600px] items-center justify-between gap-5 px-1 py-2 text-foreground">
         <a
           aria-label="BRICKINVEST home"
           className="hidden shrink-0 font-primary text-2xl tracking-[-0.035em] transition-colors hover:text-primary lg:block"
@@ -78,7 +76,7 @@ export const SiteHeader = () => {
         >
           {navigation.map(({ href, key }) => (
             <a
-              className={`relative py-2 text-center text-[11px] font-medium tracking-[0.08em] whitespace-nowrap transition-colors after:absolute after:right-0 after:bottom-0 after:left-0 after:h-px after:origin-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 hover:after:origin-left hover:after:scale-x-100 ${isHome ? "text-white/90 hover:text-white" : "text-foreground/80 hover:text-foreground"}`}
+              className="relative py-2 text-center text-[11px] font-medium tracking-[0.08em] whitespace-nowrap text-foreground/80 transition-colors after:absolute after:right-0 after:bottom-0 after:left-0 after:h-px after:origin-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 hover:text-foreground hover:after:origin-left hover:after:scale-x-100"
               href={href}
               key={href}
             >
@@ -92,7 +90,7 @@ export const SiteHeader = () => {
             aria-expanded={isLanguageOpen}
             aria-haspopup="menu"
             aria-label={t("openLanguage")}
-            className={`flex min-h-12 items-center gap-2 rounded-lg border px-4 text-[11px] tracking-[0.12em] backdrop-blur-sm transition-colors hover:border-primary hover:text-primary focus-visible:border-primary ${isHome ? "border-white/45 bg-[#141914]/20 text-white hover:bg-[#141914]/45" : "border-border bg-surface/70 text-foreground hover:bg-secondary"}`}
+            className="flex min-h-12 items-center gap-2 rounded-lg border border-border bg-surface/70 px-4 text-[11px] tracking-[0.12em] text-foreground backdrop-blur-sm transition-colors hover:border-primary hover:bg-secondary hover:text-primary focus-visible:border-primary"
             onClick={(event) => {
               event.stopPropagation();
               setIsLanguageOpen((open) => !open);
