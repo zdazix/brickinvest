@@ -1,2 +1,9 @@
 import { HeroSection } from "@/pages/home/components/HeroSection";
-export const HomePage = () => <HeroSection />;
+import { AboutSection } from "@/pages/home/components/AboutSection";
+
+export const HomePage = () => (
+  <>
+    <HeroSection />
+    <AboutSection />
+  </>
+);

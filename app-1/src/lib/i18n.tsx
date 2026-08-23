@@ -50,6 +50,11 @@ const english: Dictionary = {
   openMenu: "Open navigation menu",
   closeMenu: "Close navigation menu",
   openLanguage: "Open language selector",
+  aboutHeading: "ABOUT US",
+  aboutSupporting:
+    "Experienced real estate developers with 25 years of market presence, local expertise, trusted relationships, and an international perspective.",
+  aboutBody:
+    "At BRICKINVEST, we specialize in identifying high-quality residential and commercial investment opportunities across the Costa del Sol and throughout Spain. With years of cultivated market experience and a strong network of trusted local and international partners, we provide our clients with access to opportunities that are often off-market and carefully selected.",
 };
 
 const translations: Record<LocaleKey, Dictionary> = {
