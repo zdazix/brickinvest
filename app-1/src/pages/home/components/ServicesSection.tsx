@@ -18,16 +18,13 @@ export const ServicesSection = () => {
       id="our-services"
     >
       <div className="relative mx-auto max-w-[1600px]">
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] lg:gap-16">
-          <div>
-            <p className="font-mono text-xs tracking-[0.28em] text-primary uppercase">
-              04
-            </p>
-            <h2 className="section-title" id="our-services-heading">
-              {t("servicesHeading")}
-            </h2>
-          </div>
-          <p className="editorial-intro">{t("servicesSupporting")}</p>
+        <div>
+          <p className="font-mono text-xs tracking-[0.28em] text-primary uppercase">
+            04
+          </p>
+          <h2 className="section-title" id="our-services-heading">
+            {t("servicesHeading")}
+          </h2>
         </div>
         <p className="body-copy mb-8">{t("servicesIntro")}</p>
         <div className="border-t border-primary/35">
