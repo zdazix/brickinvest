@@ -52,7 +52,7 @@ export const InvestmentSolutionsSection = () => {
             06
           </p>
           <h2
-            className="mt-5 max-w-md font-primary text-6xl leading-[0.9] tracking-[-0.04em] text-primary-foreground sm:text-8xl"
+            className="mt-5 max-w-md font-primary text-5xl leading-[0.92] tracking-[-0.035em] text-primary-foreground sm:text-7xl"
             id="investment-solutions-heading"
           >
             {t("investmentHeading")}
