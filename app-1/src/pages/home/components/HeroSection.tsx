@@ -296,22 +296,26 @@ export const HeroSection = () => {
           <div className="absolute inset-0 bg-[#171716]/35" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#171716]/85 via-transparent to-[#171716]/30" />
         </div>
-        <div className="relative z-10 mx-auto flex h-full max-w-[1600px] flex-col justify-end px-6 pb-12 text-primary-foreground sm:px-12 sm:pb-16 lg:px-20 lg:pb-24">
-          <h1 className="max-w-3xl font-primary text-4xl leading-[1.02] tracking-[-0.035em] text-primary-foreground sm:text-6xl lg:text-7xl">
+        <div className="relative z-10 mx-auto flex h-full w-full max-w-[1600px] flex-col items-center justify-center px-6 pt-28 pb-16 text-center text-primary-foreground sm:px-12 sm:pb-20 lg:px-20">
+          <h1 className="max-w-4xl font-primary text-4xl leading-[1.02] tracking-[-0.035em] text-primary-foreground sm:text-6xl lg:text-7xl">
             {t("trusted")}
           </h1>
-          <p className="mt-6 max-w-2xl text-base tracking-[0.16em] text-primary uppercase sm:text-lg">
+          <p className="mt-7 max-w-2xl text-base tracking-[0.16em] text-primary uppercase sm:text-lg">
             {t("highRoi")}
           </p>
           <button
             className="group mt-10 flex w-fit items-center gap-4 border border-primary bg-primary px-7 py-4 text-xs font-semibold tracking-[0.14em] text-primary-foreground transition-all hover:bg-transparent hover:text-primary sm:mt-12"
             onClick={() => setQuizOpen(true)}
           >
-            REQUEST EXCLUSIVE INVESTMENT OPPORTUNITIES{" "}
+            <span>
+              REQUEST EXCLUSIVE NEWS
+              <br />
+              WITH HIGH ROI INVESTMENT PROJECTS
+            </span>
             <ArrowUpRight className="size-4" />
           </button>
           <div
-            className="mt-10 flex items-center gap-2"
+            className="mt-12 flex items-center justify-center gap-2"
             aria-label="Cinematic sequence progress"
           >
             {videos.map((video, index) => (
