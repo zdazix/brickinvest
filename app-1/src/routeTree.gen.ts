@@ -12,9 +12,11 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as layoutRouteRouteImport } from './routes/(layout)/route'
 import { Route as layoutIndexRouteImport } from './routes/(layout)/index'
 import { Route as layoutContactRouteRouteImport } from './routes/(layout)/contact/route'
+import { Route as layoutCookiesRouteRouteImport } from './routes/(layout)/cookies/route'
 import { Route as layoutNewsRouteRouteImport } from './routes/(layout)/news/route'
 import { Route as layoutPrivacyRouteRouteImport } from './routes/(layout)/privacy/route'
 import { Route as layoutProfileRouteRouteImport } from './routes/(layout)/profile/route'
+import { Route as layoutTermsRouteRouteImport } from './routes/(layout)/terms/route'
 
 const layoutRouteRoute = layoutRouteRouteImport.update({
   id: '/(layout)',
@@ -28,6 +30,11 @@ const layoutIndexRoute = layoutIndexRouteImport.update({
 const layoutContactRouteRoute = layoutContactRouteRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => layoutRouteRoute,
+} as any)
+const layoutCookiesRouteRoute = layoutCookiesRouteRouteImport.update({
+  id: '/cookies',
+  path: '/cookies',
   getParentRoute: () => layoutRouteRoute,
 } as any)
 const layoutNewsRouteRoute = layoutNewsRouteRouteImport.update({
@@ -45,42 +52,57 @@ const layoutProfileRouteRoute = layoutProfileRouteRouteImport.update({
   path: '/profile',
   getParentRoute: () => layoutRouteRoute,
 } as any)
+const layoutTermsRouteRoute = layoutTermsRouteRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => layoutRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/contact': typeof layoutContactRouteRoute
+  '/cookies': typeof layoutCookiesRouteRoute
   '/news': typeof layoutNewsRouteRoute
   '/privacy': typeof layoutPrivacyRouteRoute
   '/profile': typeof layoutProfileRouteRoute
+  '/terms': typeof layoutTermsRouteRoute
   '/': typeof layoutIndexRoute
 }
 export interface FileRoutesByTo {
   '/contact': typeof layoutContactRouteRoute
+  '/cookies': typeof layoutCookiesRouteRoute
   '/news': typeof layoutNewsRouteRoute
   '/privacy': typeof layoutPrivacyRouteRoute
   '/profile': typeof layoutProfileRouteRoute
+  '/terms': typeof layoutTermsRouteRoute
   '/': typeof layoutIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/(layout)': typeof layoutRouteRouteWithChildren
   '/(layout)/contact': typeof layoutContactRouteRoute
+  '/(layout)/cookies': typeof layoutCookiesRouteRoute
   '/(layout)/news': typeof layoutNewsRouteRoute
   '/(layout)/privacy': typeof layoutPrivacyRouteRoute
   '/(layout)/profile': typeof layoutProfileRouteRoute
+  '/(layout)/terms': typeof layoutTermsRouteRoute
   '/(layout)/': typeof layoutIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/contact' | '/news' | '/privacy' | '/profile' | '/'
+  fullPaths:
+    '/contact' | '/cookies' | '/news' | '/privacy' | '/profile' | '/terms' | '/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/contact' | '/news' | '/privacy' | '/profile' | '/'
+  to:
+    '/contact' | '/cookies' | '/news' | '/privacy' | '/profile' | '/terms' | '/'
   id:
     | '__root__'
     | '/(layout)'
     | '/(layout)/contact'
+    | '/(layout)/cookies'
     | '/(layout)/news'
     | '/(layout)/privacy'
     | '/(layout)/profile'
+    | '/(layout)/terms'
     | '/(layout)/'
   fileRoutesById: FileRoutesById
 }
@@ -111,6 +133,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof layoutContactRouteRouteImport
       parentRoute: typeof layoutRouteRoute
     }
+    '/(layout)/cookies': {
+      id: '/(layout)/cookies'
+      path: '/cookies'
+      fullPath: '/cookies'
+      preLoaderRoute: typeof layoutCookiesRouteRouteImport
+      parentRoute: typeof layoutRouteRoute
+    }
     '/(layout)/news': {
       id: '/(layout)/news'
       path: '/news'
@@ -132,22 +161,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof layoutProfileRouteRouteImport
       parentRoute: typeof layoutRouteRoute
     }
+    '/(layout)/terms': {
+      id: '/(layout)/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof layoutTermsRouteRouteImport
+      parentRoute: typeof layoutRouteRoute
+    }
   }
 }
 
 interface layoutRouteRouteChildren {
   layoutContactRouteRoute: typeof layoutContactRouteRoute
+  layoutCookiesRouteRoute: typeof layoutCookiesRouteRoute
   layoutNewsRouteRoute: typeof layoutNewsRouteRoute
   layoutPrivacyRouteRoute: typeof layoutPrivacyRouteRoute
   layoutProfileRouteRoute: typeof layoutProfileRouteRoute
+  layoutTermsRouteRoute: typeof layoutTermsRouteRoute
   layoutIndexRoute: typeof layoutIndexRoute
 }
 
 const layoutRouteRouteChildren: layoutRouteRouteChildren = {
   layoutContactRouteRoute: layoutContactRouteRoute,
+  layoutCookiesRouteRoute: layoutCookiesRouteRoute,
   layoutNewsRouteRoute: layoutNewsRouteRoute,
   layoutPrivacyRouteRoute: layoutPrivacyRouteRoute,
   layoutProfileRouteRoute: layoutProfileRouteRoute,
+  layoutTermsRouteRoute: layoutTermsRouteRoute,
   layoutIndexRoute: layoutIndexRoute,
 }
 
