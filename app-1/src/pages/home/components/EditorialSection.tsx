@@ -10,11 +10,11 @@ type EditorialSectionProps = {
 
 export const EditorialSection = ({ cards, image }: EditorialSectionProps) => (
   <section
-    className="bg-background px-5 py-24 sm:px-8 lg:px-12 lg:py-36"
+    className="bg-background px-5 py-16 sm:px-8 lg:px-12 lg:py-24"
     id="section-three"
   >
     <div className="mx-auto max-w-7xl">
-      <div className="mb-14 max-w-2xl">
+      <div className="mb-8 max-w-2xl">
         <p className="text-sm text-primary">Section eyebrow</p>
         <h2 className="mt-4 text-4xl tracking-[-0.035em] sm:text-5xl">
           H2 editorial section title
@@ -41,11 +41,11 @@ export const EditorialSection = ({ cards, image }: EditorialSectionProps) => (
               <h3 className="mt-4 text-4xl tracking-[-0.035em] sm:text-5xl">
                 {card.title}
               </h3>
-              <p className="mt-6 max-w-lg text-lg leading-8 text-muted-foreground">
+              <p className="mt-5 max-w-lg text-lg leading-8 text-muted-foreground">
                 {card.description}
               </p>
               <Link
-                className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-primary"
+                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary"
                 to="/contact"
               >
                 Button text
