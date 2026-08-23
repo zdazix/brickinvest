@@ -43,7 +43,7 @@ export const InvestmentSolutionsSection = () => {
   return (
     <section
       aria-labelledby="investment-solutions-heading"
-      className="relative overflow-hidden border-t border-primary/15 bg-[#1b211d] px-6 py-24 sm:px-12 sm:py-32 lg:px-20 lg:py-40"
+      className="relative overflow-hidden border-t border-border bg-surface px-6 py-24 sm:px-12 sm:py-32 lg:px-20 lg:py-40"
       id="investment-solutions"
     >
       <div className="relative mx-auto grid max-w-[1600px] gap-14 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24">
@@ -52,19 +52,19 @@ export const InvestmentSolutionsSection = () => {
             06
           </p>
           <h2
-            className="mt-5 max-w-md font-primary text-5xl leading-[0.92] tracking-[-0.035em] text-primary-foreground sm:text-7xl"
+            className="mt-5 max-w-md font-primary text-5xl leading-[0.92] tracking-[-0.035em] text-foreground sm:text-7xl"
             id="investment-solutions-heading"
           >
             {t("investmentHeading")}
           </h2>
         </div>
         <div className="max-w-3xl min-w-0 lg:pt-10">
-          <p className="max-w-full font-primary text-xl leading-[1.15] tracking-[-0.02em] text-primary-foreground sm:text-3xl lg:text-4xl">
+          <p className="max-w-full font-primary text-xl leading-[1.15] tracking-[-0.02em] text-foreground sm:text-3xl lg:text-4xl">
             {t("investmentBody")}
           </p>
           <div className="mt-12 border-t border-primary/35 pt-8 sm:mt-16">
             {status === "success" ? (
-              <p className="font-primary text-3xl text-primary-foreground sm:text-4xl">
+              <p className="font-primary text-3xl text-foreground sm:text-4xl">
                 {t("requestSuccess")}
               </p>
             ) : (
@@ -73,18 +73,18 @@ export const InvestmentSolutionsSection = () => {
                   {t("requestPrompt")}
                 </p>
                 <div className="mt-7 grid items-start gap-6 sm:grid-cols-2">
-                  <label className="min-w-0 text-xs tracking-[0.14em] text-primary-foreground/70 uppercase">
+                  <label className="min-w-0 text-xs tracking-[0.14em] text-foreground/70 uppercase">
                     {t("requestName")}
                     <input
-                      className="mt-2 block h-12 w-full border-b border-primary/40 bg-transparent px-0 py-3 text-base text-primary-foreground normal-case outline-none placeholder:text-primary-foreground/35"
+                      className="mt-2 block h-12 w-full border-b border-primary/40 bg-transparent px-0 py-3 text-base text-foreground normal-case outline-none placeholder:text-foreground/35"
                       onChange={(event) => setName(event.target.value)}
                       placeholder={t("requestNamePlaceholder")}
                     />
                   </label>
-                  <label className="min-w-0 text-xs tracking-[0.1em] whitespace-nowrap text-primary-foreground/70 uppercase sm:text-[11px] lg:text-xs">
+                  <label className="min-w-0 text-xs tracking-[0.1em] whitespace-nowrap text-foreground/70 uppercase sm:text-[11px] lg:text-xs">
                     {t("requestContact")}
                     <input
-                      className="mt-2 block h-12 w-full border-b border-primary/40 bg-transparent px-0 py-3 text-base text-primary-foreground normal-case outline-none placeholder:text-primary-foreground/35"
+                      className="mt-2 block h-12 w-full border-b border-primary/40 bg-transparent px-0 py-3 text-base text-foreground normal-case outline-none placeholder:text-foreground/35"
                       onChange={(event) => setContact(event.target.value)}
                       placeholder={t("requestContactPlaceholder")}
                     />

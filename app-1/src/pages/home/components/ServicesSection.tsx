@@ -14,7 +14,7 @@ export const ServicesSection = () => {
   return (
     <section
       aria-labelledby="our-services-heading"
-      className="relative overflow-hidden border-t border-primary/15 bg-[#171716] px-6 py-24 sm:px-12 sm:py-32 lg:px-20 lg:py-40"
+      className="relative overflow-hidden border-t border-border bg-surface px-6 py-24 sm:px-12 sm:py-32 lg:px-20 lg:py-40"
       id="our-services"
     >
       <div className="relative mx-auto max-w-[1600px]">
@@ -24,17 +24,17 @@ export const ServicesSection = () => {
               04
             </p>
             <h2
-              className="mt-5 font-primary text-6xl leading-[0.9] tracking-[-0.04em] text-primary-foreground sm:text-8xl"
+              className="mt-5 font-primary text-6xl leading-[0.9] tracking-[-0.04em] text-foreground sm:text-8xl"
               id="our-services-heading"
             >
               {t("servicesHeading")}
             </h2>
           </div>
-          <p className="max-w-2xl self-end font-primary text-3xl leading-[1.08] tracking-[-0.025em] text-primary-foreground sm:text-5xl lg:pb-2">
+          <p className="max-w-2xl self-end font-primary text-3xl leading-[1.08] tracking-[-0.025em] text-foreground sm:text-5xl lg:pb-2">
             {t("servicesSupporting")}
           </p>
         </div>
-        <p className="mb-8 max-w-2xl text-base leading-8 text-primary-foreground/65 sm:text-lg">
+        <p className="mb-8 max-w-2xl text-base leading-8 text-foreground/70 sm:text-lg">
           {t("servicesIntro")}
         </p>
         <div className="border-t border-primary/35">
@@ -46,10 +46,10 @@ export const ServicesSection = () => {
               <p className="font-mono text-xs tracking-[0.18em] text-primary uppercase">
                 04.{String(index + 1).padStart(2, "0")}
               </p>
-              <h3 className="font-primary text-3xl leading-tight text-primary-foreground sm:text-4xl">
+              <h3 className="font-primary text-3xl leading-tight text-foreground sm:text-4xl">
                 {title}
               </h3>
-              <p className="max-w-xl text-base leading-8 text-primary-foreground/70 sm:text-lg sm:leading-9">
+              <p className="max-w-xl text-base leading-8 text-foreground/70 sm:text-lg sm:leading-9">
                 {t(body)}
               </p>
             </article>

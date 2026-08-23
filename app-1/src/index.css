@@ -2,22 +2,23 @@
 
 @theme {
   --color-*: initial;
-  --color-background: #171716;
-  --color-foreground: #f2eee5;
-  --color-surface: #20201f;
-  --color-surface-foreground: #f2eee5;
+  --color-background: #f6f3ed;
+  --color-foreground: #242521;
+  --color-surface: #ffffff;
+  --color-surface-foreground: #242521;
   --color-primary: #d8c4a1;
-  --color-primary-foreground: #ffffff;
-  --color-secondary: #2c2b28;
-  --color-secondary-foreground: #f2eee5;
+  --color-primary-foreground: #242521;
+  --color-secondary: #ece8df;
+  --color-secondary-foreground: #242521;
   --color-accent: #b99a6b;
   --color-accent-foreground: #171716;
-  --color-muted: #262523;
-  --color-muted-foreground: #b4aea2;
-  --color-border: #514b40;
+  --color-muted: #eeeae2;
+  --color-muted-foreground: #686860;
+  --color-border: #d8d1c5;
   --color-ring: #d8c4a1;
   --color-danger: #e17c70;
   --color-danger-foreground: #ffffff;
+  --color-white: #ffffff;
   --font-*: initial;
   --font-primary: "Cormorant Garamond", Georgia, serif;
   --font-secondary: Inter, "Helvetica Neue", Arial, sans-serif;

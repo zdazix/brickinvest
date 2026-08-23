@@ -13,7 +13,7 @@ export const ErrorPage = ({ reset }: ErrorPageProps) => (
         The experience could not be displayed, but it can be safely restarted.
       </p>
       <button
-        className="mt-8 rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground transition hover:bg-foreground hover:text-background"
+        className="mt-8 rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground transition hover:bg-accent hover:text-accent-foreground"
         onClick={reset}
         type="button"
       >

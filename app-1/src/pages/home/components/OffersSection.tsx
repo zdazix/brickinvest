@@ -17,7 +17,7 @@ export const OffersSection = () => {
   return (
     <section
       aria-labelledby="what-we-offer-heading"
-      className="relative overflow-hidden border-t border-primary/15 bg-[#1b211d] px-6 py-24 sm:px-12 sm:py-32 lg:px-20 lg:py-40"
+      className="relative overflow-hidden border-t border-border bg-background px-6 py-24 sm:px-12 sm:py-32 lg:px-20 lg:py-40"
       id="what-we-offer"
     >
       <div className="relative mx-auto max-w-[1600px]">
@@ -27,7 +27,7 @@ export const OffersSection = () => {
               03
             </p>
             <h2
-              className="mt-5 max-w-md font-primary text-6xl leading-[0.9] tracking-[-0.04em] text-primary-foreground sm:text-8xl"
+              className="mt-5 max-w-md font-primary text-6xl leading-[0.9] tracking-[-0.04em] text-foreground sm:text-8xl"
               id="what-we-offer-heading"
             >
               {t("offerHeading")}
@@ -42,7 +42,7 @@ export const OffersSection = () => {
                 <p className="font-mono text-xs tracking-[0.18em] text-primary uppercase">
                   03.{String(index + 1).padStart(2, "0")}
                 </p>
-                <p className="mt-4 max-w-xs font-primary text-2xl leading-tight text-primary-foreground sm:text-3xl">
+                <p className="mt-4 max-w-xs font-primary text-2xl leading-tight text-foreground sm:text-3xl">
                   {t(key)}
                 </p>
               </div>

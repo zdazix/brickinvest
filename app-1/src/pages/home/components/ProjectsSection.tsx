@@ -8,7 +8,7 @@ export const ProjectsSection = () => {
   return (
     <section
       aria-labelledby="projects-heading"
-      className="relative overflow-hidden border-t border-primary/15 bg-[#1b211d] px-6 py-24 sm:px-12 sm:py-32 lg:px-20 lg:py-40"
+      className="relative overflow-hidden border-t border-border bg-background px-6 py-24 sm:px-12 sm:py-32 lg:px-20 lg:py-40"
       id="projects"
     >
       <div className="relative mx-auto max-w-[1600px]">
@@ -18,7 +18,7 @@ export const ProjectsSection = () => {
               05
             </p>
             <h2
-              className="mt-5 font-primary text-6xl leading-[0.9] tracking-[-0.04em] text-primary-foreground sm:text-8xl"
+              className="mt-5 font-primary text-6xl leading-[0.9] tracking-[-0.04em] text-foreground sm:text-8xl"
               id="projects-heading"
             >
               {t("projectsHeading")}
@@ -34,7 +34,7 @@ export const ProjectsSection = () => {
                   <span className="pt-1 font-mono text-xs tracking-[0.18em] text-primary">
                     05.0{index + 1}
                   </span>
-                  <span className="font-primary text-3xl leading-tight text-primary-foreground sm:text-5xl">
+                  <span className="font-primary text-3xl leading-tight text-foreground sm:text-5xl">
                     {t(key)}
                   </span>
                 </div>

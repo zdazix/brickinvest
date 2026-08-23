@@ -1,3 +1,4 @@
+import { useRouterState } from "@tanstack/react-router";
 import { ChevronDown, Globe2, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -25,6 +26,10 @@ export const SiteHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const { locale, setLocale, t } = useLocale();
+  const pathname = useRouterState({
+    select: (state) => state.location.pathname,
+  });
+  const isHome = pathname === "/";
 
   useEffect(() => {
     if (!isMenuOpen) return;
@@ -54,11 +59,15 @@ export const SiteHeader = () => {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <div className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-8 sm:pt-6">
-      <header className="text-white relative mx-auto flex max-w-[1600px] items-center justify-between gap-5 px-1 py-2">
+    <div
+      className={`fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-8 sm:pt-6 ${isHome ? "" : "border-b border-border/50 bg-background/95 backdrop-blur-sm"}`}
+    >
+      <header
+        className={`relative mx-auto flex max-w-[1600px] items-center justify-between gap-5 px-1 py-2 ${isHome ? "text-white" : "text-foreground"}`}
+      >
         <a
           aria-label="BRICKINVEST home"
-          className="hidden shrink-0 font-primary text-2xl tracking-[-0.035em] text-primary-foreground transition-colors hover:text-primary lg:block"
+          className="hidden shrink-0 font-primary text-2xl tracking-[-0.035em] transition-colors hover:text-primary lg:block"
           href="/"
         >
           BRICKINVEST
@@ -69,7 +78,7 @@ export const SiteHeader = () => {
         >
           {navigation.map(({ href, key }) => (
             <a
-              className="text-white/90 hover:text-white relative py-2 text-center text-[11px] font-medium tracking-[0.08em] whitespace-nowrap transition-colors after:absolute after:right-0 after:bottom-0 after:left-0 after:h-px after:origin-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 hover:after:origin-left hover:after:scale-x-100"
+              className={`relative py-2 text-center text-[11px] font-medium tracking-[0.08em] whitespace-nowrap transition-colors after:absolute after:right-0 after:bottom-0 after:left-0 after:h-px after:origin-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 hover:after:origin-left hover:after:scale-x-100 ${isHome ? "text-white/90 hover:text-white" : "text-foreground/80 hover:text-foreground"}`}
               href={href}
               key={href}
             >
@@ -83,7 +92,7 @@ export const SiteHeader = () => {
             aria-expanded={isLanguageOpen}
             aria-haspopup="menu"
             aria-label={t("openLanguage")}
-            className="border-white/45 text-white flex min-h-12 items-center gap-2 rounded-lg border bg-[#141914]/20 px-4 text-[11px] tracking-[0.12em] backdrop-blur-sm transition-colors hover:border-primary hover:bg-[#141914]/45 hover:text-primary focus-visible:border-primary"
+            className={`flex min-h-12 items-center gap-2 rounded-lg border px-4 text-[11px] tracking-[0.12em] backdrop-blur-sm transition-colors hover:border-primary hover:text-primary focus-visible:border-primary ${isHome ? "border-white/45 bg-[#141914]/20 text-white hover:bg-[#141914]/45" : "border-border bg-surface/70 text-foreground hover:bg-secondary"}`}
             onClick={(event) => {
               event.stopPropagation();
               setIsLanguageOpen((open) => !open);
@@ -105,7 +114,7 @@ export const SiteHeader = () => {
               {locales.map((item) => (
                 <button
                   aria-checked={item.key === locale}
-                  className="text-white/90 hover:text-white flex w-full items-center gap-3 rounded-md px-3 py-3 text-left text-[15px] transition-colors hover:bg-primary/15 focus-visible:bg-primary/15"
+                  className="flex w-full items-center gap-3 rounded-md px-3 py-3 text-left text-[15px] text-white/90 transition-colors hover:bg-primary/15 hover:text-white focus-visible:bg-primary/15"
                   key={item.key}
                   onClick={() => {
                     setLocale(item.key as LocaleKey);
@@ -131,7 +140,7 @@ export const SiteHeader = () => {
           aria-controls="mobile-navigation"
           aria-expanded={isMenuOpen}
           aria-label={isMenuOpen ? t("closeMenu") : t("openMenu")}
-          className="border-white/35 bg-black/10 text-white hover:border-white/70 hover:bg-white/10 mr-auto grid size-11 place-items-center rounded-full border backdrop-blur-sm transition-colors lg:hidden"
+          className={`mr-auto grid size-11 place-items-center rounded-full border backdrop-blur-sm transition-colors lg:hidden ${isHome ? "bg-black/10 border-white/35 text-white hover:border-white/70 hover:bg-white/10" : "border-border bg-surface text-foreground hover:border-primary hover:bg-secondary"}`}
           onClick={() => setIsMenuOpen((open) => !open)}
           type="button"
         >
@@ -155,7 +164,7 @@ export const SiteHeader = () => {
         >
           {navigation.map(({ href, key }) => (
             <a
-              className="border-white/15 text-white border-b py-4 text-left text-2xl font-light tracking-[-0.02em] transition-colors hover:text-primary focus-visible:text-primary sm:text-3xl"
+              className="border-b border-white/15 py-4 text-left text-2xl font-light tracking-[-0.02em] text-white transition-colors hover:text-primary focus-visible:text-primary sm:text-3xl"
               href={href}
               key={href}
               onClick={closeMenu}

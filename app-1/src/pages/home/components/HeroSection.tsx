@@ -296,8 +296,8 @@ export const HeroSection = () => {
           <div className="absolute inset-0 bg-[#171716]/35" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#171716]/85 via-transparent to-[#171716]/30" />
         </div>
-        <div className="relative z-10 mx-auto flex h-full w-full max-w-[1600px] flex-col items-center justify-center px-6 pt-28 pb-16 text-center text-primary-foreground sm:px-12 sm:pb-20 lg:px-20">
-          <h1 className="max-w-4xl font-primary text-4xl leading-[1.02] tracking-[-0.035em] text-primary-foreground sm:text-6xl lg:text-7xl">
+        <div className="relative z-10 mx-auto flex h-full w-full max-w-[1600px] flex-col items-center justify-center px-6 pt-28 pb-16 text-center text-white sm:px-12 sm:pb-20 lg:px-20">
+          <h1 className="max-w-4xl font-primary text-4xl leading-[1.02] tracking-[-0.035em] text-white sm:text-6xl lg:text-7xl">
             {t("trusted")}
           </h1>
           <p className="mt-7 max-w-2xl text-base tracking-[0.16em] text-primary uppercase sm:text-lg">
@@ -320,7 +320,7 @@ export const HeroSection = () => {
           >
             {videos.map((video, index) => (
               <span
-                className={`h-px transition-all duration-500 ${index === active ? "w-12 bg-primary" : "w-5 bg-primary-foreground/40"}`}
+                className={`h-px transition-all duration-500 ${index === active ? "w-12 bg-primary" : "w-5 bg-white/45"}`}
                 key={video}
               />
             ))}
