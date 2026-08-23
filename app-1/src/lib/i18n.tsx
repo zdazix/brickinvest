@@ -88,6 +88,19 @@ const english: Dictionary = {
   plots: "PLOTS",
   renovation: "RENOVATION APARTMENTS AND VILLAS",
   newDevelopment: "NEW DEVELOPMENT",
+  investmentHeading: "TAILORED INVESTMENT SOLUTIONS",
+  investmentBody:
+    "Whether you are a seasoned professional or a new investor, our team provides personalized services tailored to your specific needs. From initial consultation to final transaction, we are dedicated to ensuring the success of your investment projects.",
+  requestPrompt: "Leave your request",
+  leaveRequest: "LEAVE REQUEST",
+  requestName: "Name",
+  requestNamePlaceholder: "Your name",
+  requestContact: "Email or phone number",
+  requestContactPlaceholder: "Your email or phone",
+  requestSending: "SENDING…",
+  requestSuccess: "Thank you. Your request has been received.",
+  requestValidation: "Please enter your name and email or phone number.",
+  requestFailed: "We could not send your request. Please try again.",
 };
 
 const translations: Record<LocaleKey, Dictionary> = {

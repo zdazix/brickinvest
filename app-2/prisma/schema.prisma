@@ -17,15 +17,15 @@ model AppSetting {
 
 model InvestorSubmission {
   id              String   @id @default(cuid())
-  objective       String
-  budget          String
-  opportunityType String   @map("opportunity_type")
-  locations       String
-  timing          String
+  objective       String?
+  budget          String?
+  opportunityType String?  @map("opportunity_type")
+  locations       String?
+  timing          String?
   firstName       String   @map("first_name")
-  email           String
-  phone           String
-  consent         Boolean
+  email           String?
+  phone           String?
+  consent         Boolean  @default(false)
   consentAt       DateTime @map("consent_at") @db.Timestamptz(3)
   submittedAt     DateTime @default(now()) @map("submitted_at") @db.Timestamptz(3)
 

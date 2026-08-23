@@ -1,0 +1,9 @@
+-- AlterTable
+ALTER TABLE "investor_submissions" ALTER COLUMN "objective" DROP NOT NULL,
+ALTER COLUMN "budget" DROP NOT NULL,
+ALTER COLUMN "opportunity_type" DROP NOT NULL,
+ALTER COLUMN "locations" DROP NOT NULL,
+ALTER COLUMN "timing" DROP NOT NULL,
+ALTER COLUMN "email" DROP NOT NULL,
+ALTER COLUMN "phone" DROP NOT NULL,
+ALTER COLUMN "consent" SET DEFAULT false;

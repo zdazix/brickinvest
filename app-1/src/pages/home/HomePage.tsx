@@ -4,6 +4,7 @@ import { WhyUsSection } from "@/pages/home/components/WhyUsSection";
 import { OffersSection } from "@/pages/home/components/OffersSection";
 import { ServicesSection } from "@/pages/home/components/ServicesSection";
 import { ProjectsSection } from "@/pages/home/components/ProjectsSection";
+import { InvestmentSolutionsSection } from "@/pages/home/components/InvestmentSolutionsSection";
 
 export const HomePage = () => (
   <>
@@ -13,5 +14,6 @@ export const HomePage = () => (
     <OffersSection />
     <ServicesSection />
     <ProjectsSection />
+    <InvestmentSolutionsSection />
   </>
 );
