@@ -259,10 +259,10 @@ export const HeroSection = () => {
   return (
     <main id="main-content">
       <section
-        className="relative flex min-h-[680px] items-center overflow-hidden bg-white"
+        className="relative flex min-h-[680px] items-start overflow-hidden bg-white"
         id="opportunities"
       >
-        <div className="mx-auto flex w-full max-w-[1600px] flex-col items-center justify-center px-6 pt-36 pb-24 text-center text-foreground sm:px-12 sm:pt-40 sm:pb-32 lg:px-20">
+        <div className="mx-auto flex w-full max-w-[1600px] flex-col items-center px-6 pt-28 pb-20 text-center text-foreground sm:px-12 sm:pt-32 sm:pb-24 lg:px-20">
           <div className="mb-10 h-px w-20 bg-primary sm:mb-14" />
           <h1 className="max-w-4xl font-primary text-5xl leading-[0.98] tracking-[-0.035em] sm:text-7xl lg:text-8xl">
             {t("trusted")}
