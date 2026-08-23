@@ -84,6 +84,10 @@ const english: Dictionary = {
     "Supporting the acquisition and development of hotels, resorts, and hospitality ventures.",
   serviceBusinessBody:
     "Identifying existing businesses with potential for operational improvement and higher returns.",
+  projectsHeading: "PROJECTS",
+  plots: "PLOTS",
+  renovation: "RENOVATION APARTMENTS AND VILLAS",
+  newDevelopment: "NEW DEVELOPMENT",
 };
 
 const translations: Record<LocaleKey, Dictionary> = {
