@@ -11,12 +11,12 @@ export const IntelligenceSection = () => {
   return (
     <section
       aria-labelledby="ai-data-intelligence-heading"
-      className="relative overflow-hidden border-t border-border bg-background px-6 py-24 sm:px-12 sm:py-32 lg:px-20 lg:py-40"
+      className="relative overflow-hidden border-t border-border bg-background px-6 py-16 sm:px-12 sm:py-20 lg:px-20 lg:py-24"
       id="ai-data-intelligence"
     >
       <div className="pointer-events-none absolute top-0 right-0 h-full w-1/2 bg-[radial-gradient(circle_at_80%_25%,rgba(216,196,161,0.08),transparent_58%)]" />
       <div className="relative mx-auto max-w-[1600px]">
-        <div className="grid gap-14 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24">
+        <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-16">
           <div>
             <p className="font-mono text-xs tracking-[0.28em] text-primary uppercase">
               07
@@ -28,14 +28,14 @@ export const IntelligenceSection = () => {
               {t("intelligenceHeading")}
             </h2>
           </div>
-          <div className="min-w-0 lg:pt-10">
+          <div className="min-w-0 lg:pt-6">
             <p className="max-w-2xl text-base leading-8 text-foreground/70 sm:text-lg sm:leading-9">
               {t("intelligenceIntro")}
             </p>
-            <div className="mt-12 border-t border-primary/35 sm:mt-16">
+            <div className="mt-9 border-t border-primary/35 sm:mt-12">
               {intelligenceItems.map(([heading, body], index) => (
                 <article
-                  className="border-b border-primary/20 py-8 sm:py-10"
+                  className="border-b border-primary/20 py-6 sm:py-7"
                   key={heading}
                 >
                   <p className="font-mono text-xs tracking-[0.18em] text-primary uppercase">

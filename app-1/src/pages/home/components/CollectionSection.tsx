@@ -7,7 +7,7 @@ type CollectionSectionProps = {
 
 export const CollectionSection = ({ cards, image }: CollectionSectionProps) => (
   <section
-    className="bg-surface px-5 pt-24 pb-32 sm:px-8 lg:px-12 lg:pt-36 lg:pb-44"
+    className="bg-surface px-5 pt-16 pb-20 sm:px-8 lg:px-12 lg:pt-24 lg:pb-28"
     id="section-two"
   >
     <div className="mx-auto max-w-7xl">
@@ -23,7 +23,7 @@ export const CollectionSection = ({ cards, image }: CollectionSectionProps) => (
           below.
         </p>
       </div>
-      <div className="mt-12 grid gap-5 lg:grid-cols-3">
+      <div className="mt-8 grid gap-5 lg:grid-cols-3">
         {cards.map((title) => (
           <ImageCard
             description="Card description text goes here."

@@ -9,7 +9,7 @@ export const PrivacyPage = () => {
 
   return (
     <main
-      className="min-h-dvh bg-background px-5 pt-28 pb-24 sm:px-8 lg:px-12 lg:pt-32 lg:pb-36"
+      className="min-h-dvh bg-background px-5 pt-24 pb-16 sm:px-8 lg:px-12 lg:pt-28 lg:pb-24"
       id="main-content"
     >
       <div className="mx-auto max-w-7xl">
@@ -29,7 +29,7 @@ export const PrivacyPage = () => {
             Ask a privacy question
           </Link>
         </aside>
-        <article className="mx-auto mt-16 max-w-7xl rounded-[2rem] border border-border/50 bg-surface px-6 shadow-sm shadow-foreground/5 sm:px-10">
+        <article className="mx-auto mt-10 max-w-7xl rounded-[2rem] border border-border/50 bg-surface px-6 shadow-sm shadow-foreground/5 sm:px-10">
           {privacyQuery.isError ? (
             <p className="py-10 text-danger">
               The policy sections could not be loaded.

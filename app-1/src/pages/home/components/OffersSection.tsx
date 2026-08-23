@@ -17,11 +17,11 @@ export const OffersSection = () => {
   return (
     <section
       aria-labelledby="what-we-offer-heading"
-      className="relative overflow-hidden border-t border-border bg-background px-6 py-24 sm:px-12 sm:py-32 lg:px-20 lg:py-40"
+      className="relative overflow-hidden border-t border-border bg-background px-6 py-16 sm:px-12 sm:py-20 lg:px-20 lg:py-24"
       id="what-we-offer"
     >
       <div className="relative mx-auto max-w-[1600px]">
-        <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24">
+        <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-16">
           <div>
             <p className="font-mono text-xs tracking-[0.28em] text-primary uppercase">
               03

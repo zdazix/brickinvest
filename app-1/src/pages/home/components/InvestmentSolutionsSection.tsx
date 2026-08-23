@@ -43,10 +43,10 @@ export const InvestmentSolutionsSection = () => {
   return (
     <section
       aria-labelledby="investment-solutions-heading"
-      className="relative overflow-hidden border-t border-border bg-surface px-6 py-24 sm:px-12 sm:py-32 lg:px-20 lg:py-40"
+      className="relative overflow-hidden border-t border-border bg-surface px-6 py-16 sm:px-12 sm:py-20 lg:px-20 lg:py-24"
       id="investment-solutions"
     >
-      <div className="relative mx-auto grid max-w-[1600px] gap-14 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24">
+      <div className="relative mx-auto grid max-w-[1600px] gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-16">
         <div>
           <p className="font-mono text-xs tracking-[0.28em] text-primary uppercase">
             06
@@ -58,11 +58,11 @@ export const InvestmentSolutionsSection = () => {
             {t("investmentHeading")}
           </h2>
         </div>
-        <div className="max-w-3xl min-w-0 lg:pt-10">
+        <div className="max-w-3xl min-w-0 lg:pt-6">
           <p className="max-w-full font-primary text-xl leading-[1.15] tracking-[-0.02em] text-foreground sm:text-3xl lg:text-4xl">
             {t("investmentBody")}
           </p>
-          <div className="mt-12 border-t border-primary/35 pt-8 sm:mt-16">
+          <div className="mt-9 border-t border-primary/35 pt-6 sm:mt-12">
             {status === "success" ? (
               <p className="font-primary text-3xl text-foreground sm:text-4xl">
                 {t("requestSuccess")}

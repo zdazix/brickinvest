@@ -8,11 +8,11 @@ export const ProjectsSection = () => {
   return (
     <section
       aria-labelledby="projects-heading"
-      className="relative overflow-hidden border-t border-border bg-background px-6 py-24 sm:px-12 sm:py-32 lg:px-20 lg:py-40"
+      className="relative overflow-hidden border-t border-border bg-background px-6 py-16 sm:px-12 sm:py-20 lg:px-20 lg:py-24"
       id="projects"
     >
       <div className="relative mx-auto max-w-[1600px]">
-        <div className="grid gap-14 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24">
+        <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-16">
           <div>
             <p className="font-mono text-xs tracking-[0.28em] text-primary uppercase">
               05
@@ -27,7 +27,7 @@ export const ProjectsSection = () => {
           <div className="border-t border-primary/35">
             {projectKeys.map((key, index) => (
               <div
-                className="group flex items-center justify-between gap-6 border-b border-primary/20 py-8 transition-colors hover:bg-primary/5 sm:py-10"
+                className="group flex items-center justify-between gap-6 border-b border-primary/20 py-6 transition-colors hover:bg-primary/5 sm:py-7"
                 key={key}
               >
                 <div className="flex items-start gap-6 sm:gap-10">

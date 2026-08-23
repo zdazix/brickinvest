@@ -11,7 +11,7 @@ export const ProfilePage = () => {
 
   return (
     <main
-      className="min-h-dvh bg-background px-5 pt-28 pb-24 sm:px-8 lg:px-12 lg:pt-32 lg:pb-36"
+      className="min-h-dvh bg-background px-5 pt-24 pb-16 sm:px-8 lg:px-12 lg:pt-28 lg:pb-24"
       id="main-content"
     >
       <div className="mx-auto max-w-7xl">
@@ -19,7 +19,7 @@ export const ProfilePage = () => {
           description="A reusable account page for editing the core identity fields most products need."
           title="Your profile."
         />
-        <section className="mt-10 grid gap-10 rounded-[2rem] border border-border/60 bg-surface p-6 sm:p-9 lg:grid-cols-[0.45fr_1.55fr] lg:gap-16">
+        <section className="mt-8 grid gap-8 rounded-[2rem] border border-border/60 bg-surface p-6 sm:p-9 lg:grid-cols-[0.45fr_1.55fr] lg:gap-14">
           <div>
             <div className="relative w-fit">
               {profileQuery.data && (

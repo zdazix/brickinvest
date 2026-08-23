@@ -262,16 +262,16 @@ export const HeroSection = () => {
         className="relative flex min-h-[100svh] items-start overflow-hidden bg-white"
         id="opportunities"
       >
-        <div className="mx-auto flex w-full max-w-[1600px] flex-col items-center px-6 pt-24 pb-16 text-center text-foreground sm:px-12 sm:pt-28 sm:pb-20 lg:px-20">
-          <div className="mb-10 h-px w-20 bg-primary sm:mb-14" />
+        <div className="mx-auto flex w-full max-w-[1600px] flex-col items-center px-6 pt-20 pb-14 text-center text-foreground sm:px-12 sm:pt-24 sm:pb-18 lg:px-20">
+          <div className="mb-8 h-px w-20 bg-primary sm:mb-10" />
           <h1 className="max-w-4xl font-primary text-5xl leading-[0.98] tracking-[-0.035em] sm:text-7xl lg:text-8xl">
             {t("trusted")}
           </h1>
-          <p className="mt-8 max-w-2xl text-sm tracking-[0.16em] text-accent uppercase sm:text-lg">
+          <p className="mt-7 max-w-2xl text-sm tracking-[0.16em] text-accent uppercase sm:text-lg">
             {t("highRoi")}
           </p>
           <button
-            className="group mt-12 flex w-fit items-center gap-4 border border-primary bg-primary px-7 py-4 text-xs font-semibold tracking-[0.14em] text-primary-foreground transition-all hover:bg-transparent hover:text-accent sm:mt-14"
+            className="group mt-10 flex w-fit items-center gap-4 border border-primary bg-primary px-7 py-4 text-xs font-semibold tracking-[0.14em] text-primary-foreground transition-all hover:bg-transparent hover:text-accent sm:mt-12"
             onClick={() => setQuizOpen(true)}
           >
             <span>

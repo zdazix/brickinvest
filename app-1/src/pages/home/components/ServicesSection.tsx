@@ -14,11 +14,11 @@ export const ServicesSection = () => {
   return (
     <section
       aria-labelledby="our-services-heading"
-      className="relative overflow-hidden border-t border-border bg-surface px-6 py-24 sm:px-12 sm:py-32 lg:px-20 lg:py-40"
+      className="relative overflow-hidden border-t border-border bg-surface px-6 py-16 sm:px-12 sm:py-20 lg:px-20 lg:py-24"
       id="our-services"
     >
       <div className="relative mx-auto max-w-[1600px]">
-        <div className="mb-16 grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24">
+        <div className="mb-10 grid gap-6 lg:grid-cols-[0.7fr_1.3fr] lg:gap-16">
           <div>
             <p className="font-mono text-xs tracking-[0.28em] text-primary uppercase">
               04
@@ -40,7 +40,7 @@ export const ServicesSection = () => {
         <div className="border-t border-primary/35">
           {services.map(([title, body], index) => (
             <article
-              className="grid gap-5 border-b border-primary/20 py-8 sm:grid-cols-[5rem_0.7fr_1.3fr] sm:items-start sm:gap-8 sm:py-10"
+              className="grid gap-4 border-b border-primary/20 py-6 sm:grid-cols-[5rem_0.7fr_1.3fr] sm:items-start sm:gap-8 sm:py-7"
               key={title}
             >
               <p className="font-mono text-xs tracking-[0.18em] text-primary uppercase">

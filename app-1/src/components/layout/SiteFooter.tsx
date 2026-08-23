@@ -1,6 +1,6 @@
 export const SiteFooter = () => (
-  <footer className="w-full bg-background px-5 pb-7 text-foreground sm:px-8 lg:px-12">
-    <div className="mx-auto flex max-w-[1600px] flex-col gap-5 border-t border-primary/20 pt-6 text-xs tracking-[0.08em] sm:flex-row sm:items-center sm:justify-between sm:gap-8">
+  <footer className="w-full bg-background px-5 pb-5 text-foreground sm:px-8 lg:px-12">
+    <div className="mx-auto flex max-w-[1600px] flex-col gap-4 border-t border-primary/20 pt-5 text-xs tracking-[0.08em] sm:flex-row sm:items-center sm:justify-between sm:gap-8">
       <p className="text-foreground/55">
         ©2026 BRICKINVEST. All Rights Reserved.
       </p>

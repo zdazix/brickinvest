@@ -9,7 +9,7 @@ type IntroSectionProps = {
 
 export const IntroSection = ({ features, image }: IntroSectionProps) => (
   <section
-    className="bg-background px-5 py-24 sm:px-8 lg:px-12 lg:py-36"
+    className="bg-background px-5 py-16 sm:px-8 lg:px-12 lg:py-24"
     id="section-one"
   >
     <div className="mx-auto max-w-7xl">
@@ -25,12 +25,12 @@ export const IntroSection = ({ features, image }: IntroSectionProps) => (
           <h2 className="mt-5 max-w-3xl text-4xl leading-tight tracking-[-0.035em] sm:text-5xl lg:text-6xl">
             H2 section title
           </h2>
-          <p className="mt-7 max-w-2xl text-lg leading-8 text-muted-foreground">
+          <p className="mt-5 max-w-2xl text-lg leading-8 text-muted-foreground">
             Section description text goes here. Replace this placeholder with
             useful supporting copy for the section.
           </p>
           <a
-            className="mt-8 inline-flex items-center gap-2 border-b border-primary/30 pb-1 text-sm font-semibold text-primary"
+            className="mt-6 inline-flex items-center gap-2 border-b border-primary/30 pb-1 text-sm font-semibold text-primary"
             href="#section-two"
           >
             Text link

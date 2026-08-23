@@ -6,7 +6,7 @@ type ReviewsSectionProps = {
 };
 
 export const ReviewsSection = ({ reviews }: ReviewsSectionProps) => (
-  <section className="bg-surface px-5 py-24 sm:px-8 lg:px-12 lg:py-36">
+  <section className="bg-surface px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
     <div className="mx-auto max-w-7xl">
       <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
         <div>

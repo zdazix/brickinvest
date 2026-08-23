@@ -9,7 +9,7 @@ export const NewsPage = () => {
 
   return (
     <main
-      className="min-h-dvh bg-background px-5 pt-28 pb-24 sm:px-8 lg:px-12 lg:pt-32 lg:pb-36"
+      className="min-h-dvh bg-background px-5 pt-24 pb-16 sm:px-8 lg:px-12 lg:pt-28 lg:pb-24"
       id="main-content"
     >
       <div className="mx-auto max-w-7xl">
