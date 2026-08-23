@@ -59,7 +59,7 @@ export const InvestmentSolutionsSection = () => {
           </h2>
         </div>
         <div className="max-w-3xl min-w-0 lg:pt-10">
-          <p className="max-w-full font-primary text-2xl leading-[1.15] tracking-[-0.02em] text-primary-foreground sm:text-4xl lg:text-5xl">
+          <p className="max-w-full font-primary text-xl leading-[1.15] tracking-[-0.02em] text-primary-foreground sm:text-3xl lg:text-4xl">
             {t("investmentBody")}
           </p>
           <div className="mt-12 border-t border-primary/35 pt-8 sm:mt-16">
