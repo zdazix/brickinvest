@@ -72,19 +72,19 @@ export const InvestmentSolutionsSection = () => {
                 <p className="font-mono text-xs tracking-[0.2em] text-primary uppercase">
                   {t("requestPrompt")}
                 </p>
-                <div className="mt-7 grid gap-6 sm:grid-cols-2">
-                  <label className="text-xs tracking-[0.14em] text-primary-foreground/70 uppercase">
+                <div className="mt-7 grid items-start gap-6 sm:grid-cols-2">
+                  <label className="min-w-0 text-xs tracking-[0.14em] text-primary-foreground/70 uppercase">
                     {t("requestName")}
                     <input
-                      className="mt-2 w-full border-b border-primary/40 bg-transparent px-0 py-3 text-base text-primary-foreground normal-case outline-none placeholder:text-primary-foreground/35"
+                      className="mt-2 block h-12 w-full border-b border-primary/40 bg-transparent px-0 py-3 text-base text-primary-foreground normal-case outline-none placeholder:text-primary-foreground/35"
                       onChange={(event) => setName(event.target.value)}
                       placeholder={t("requestNamePlaceholder")}
                     />
                   </label>
-                  <label className="text-xs tracking-[0.14em] text-primary-foreground/70 uppercase">
+                  <label className="min-w-0 text-xs tracking-[0.1em] whitespace-nowrap text-primary-foreground/70 uppercase sm:text-[11px] lg:text-xs">
                     {t("requestContact")}
                     <input
-                      className="mt-2 w-full border-b border-primary/40 bg-transparent px-0 py-3 text-base text-primary-foreground normal-case outline-none placeholder:text-primary-foreground/35"
+                      className="mt-2 block h-12 w-full border-b border-primary/40 bg-transparent px-0 py-3 text-base text-primary-foreground normal-case outline-none placeholder:text-primary-foreground/35"
                       onChange={(event) => setContact(event.target.value)}
                       placeholder={t("requestContactPlaceholder")}
                     />
