@@ -297,18 +297,14 @@ export const HeroSection = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-[#171716]/85 via-transparent to-[#171716]/30" />
         </div>
         <div className="relative z-10 mx-auto flex h-full max-w-[1600px] flex-col justify-end px-6 pb-12 text-primary-foreground sm:px-12 sm:pb-16 lg:px-20 lg:pb-24">
-          <h1 className="max-w-5xl font-primary text-6xl leading-[0.84] tracking-[-0.04em] sm:text-8xl lg:text-[9.5rem]">
-            BRICKINVEST
-          </h1>
-          <div className="mt-10 h-px w-24 bg-primary sm:mt-12 sm:w-36" />
-          <p className="mt-8 max-w-2xl text-lg leading-8 text-primary-foreground/85 sm:text-xl sm:leading-9">
+          <h1 className="max-w-3xl font-primary text-4xl leading-[1.02] tracking-[-0.035em] text-primary-foreground sm:text-6xl lg:text-7xl">
             {t("trusted")}
-          </p>
-          <p className="mt-3 text-sm tracking-[0.16em] text-primary uppercase">
+          </h1>
+          <p className="mt-6 max-w-2xl text-base tracking-[0.16em] text-primary uppercase sm:text-lg">
             {t("highRoi")}
           </p>
           <button
-            className="mt-9 flex w-fit items-center gap-4 border border-primary bg-primary px-6 py-4 text-xs font-semibold tracking-[0.14em] text-primary-foreground transition hover:bg-transparent hover:text-primary"
+            className="group mt-10 flex w-fit items-center gap-4 border border-primary bg-primary px-7 py-4 text-xs font-semibold tracking-[0.14em] text-primary-foreground transition-all hover:bg-transparent hover:text-primary sm:mt-12"
             onClick={() => setQuizOpen(true)}
           >
             REQUEST EXCLUSIVE INVESTMENT OPPORTUNITIES{" "}
