@@ -70,6 +70,20 @@ const english: Dictionary = {
   offerRoi: "ROI of 40%+ per year",
   offerMultilingual: "Multilingual support",
   offerLegacy: "Legacy and transparency",
+  servicesHeading: "OUR SERVICES",
+  servicesSupporting: "Comprehensive investment services on the Costa del Sol",
+  servicesIntro:
+    "We deliver a full suite of investment and development services for corporate clients and qualified individual investors, including:",
+  serviceLandBody:
+    "Identifying prime land parcels for new construction projects with strong development potential.",
+  serviceResidentialBody:
+    "Sourcing opportunities for luxury residences, apartments, and residential communities across the Costa del Sol.",
+  serviceCommercialBody:
+    "Selecting high-yield commercial assets, including retail spaces, office buildings, and industrial properties.",
+  serviceHotelBody:
+    "Supporting the acquisition and development of hotels, resorts, and hospitality ventures.",
+  serviceBusinessBody:
+    "Identifying existing businesses with potential for operational improvement and higher returns.",
 };
 
 const translations: Record<LocaleKey, Dictionary> = {
