@@ -17,19 +17,16 @@ export const OffersSection = () => {
   return (
     <section
       aria-labelledby="what-we-offer-heading"
-      className="relative overflow-hidden border-t border-border bg-background px-6 py-12 sm:px-12 sm:py-16 lg:px-20 lg:py-24"
+      className="section-shell relative overflow-hidden bg-background"
       id="what-we-offer"
     >
       <div className="relative mx-auto max-w-[1600px]">
-        <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-16">
+        <div className="section-grid">
           <div>
             <p className="font-mono text-xs tracking-[0.28em] text-primary uppercase">
               03
             </p>
-            <h2
-              className="mt-5 max-w-md font-primary text-6xl leading-[0.9] tracking-[-0.04em] text-foreground sm:text-8xl"
-              id="what-we-offer-heading"
-            >
+            <h2 className="section-title" id="what-we-offer-heading">
               {t("offerHeading")}
             </h2>
           </div>

@@ -25,7 +25,7 @@ export const IntroSection = ({ features, image }: IntroSectionProps) => (
           <h2 className="mt-5 max-w-3xl text-4xl leading-tight tracking-[-0.035em] sm:text-5xl lg:text-6xl">
             H2 section title
           </h2>
-          <p className="mt-5 max-w-2xl text-lg leading-8 text-muted-foreground">
+          <p className="body-copy-muted mt-5">
             Section description text goes here. Replace this placeholder with
             useful supporting copy for the section.
           </p>

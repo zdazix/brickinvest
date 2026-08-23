@@ -11,7 +11,7 @@ export const LocationSection = () => (
         <h2 className="mt-4 text-4xl tracking-[-0.035em] sm:text-5xl">
           H2 location title
         </h2>
-        <p className="mt-5 max-w-lg text-lg leading-8 text-muted-foreground">
+        <p className="body-copy-muted mt-5">
           Location or section description text goes here. Replace it with the
           appropriate information for this block.
         </p>

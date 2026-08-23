@@ -43,25 +43,20 @@ export const InvestmentSolutionsSection = () => {
   return (
     <section
       aria-labelledby="investment-solutions-heading"
-      className="relative overflow-hidden border-t border-border bg-surface px-6 py-12 sm:px-12 sm:py-16 lg:px-20 lg:py-24"
+      className="section-shell relative overflow-hidden bg-surface"
       id="investment-solutions"
     >
-      <div className="relative mx-auto grid max-w-[1600px] gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-16">
+      <div className="section-grid relative">
         <div>
           <p className="font-mono text-xs tracking-[0.28em] text-primary uppercase">
             06
           </p>
-          <h2
-            className="mt-5 max-w-md font-primary text-5xl leading-[0.92] tracking-[-0.035em] text-foreground sm:text-7xl"
-            id="investment-solutions-heading"
-          >
+          <h2 className="section-title" id="investment-solutions-heading">
             {t("investmentHeading")}
           </h2>
         </div>
-        <div className="max-w-3xl min-w-0 lg:pt-6">
-          <p className="max-w-full font-primary text-xl leading-[1.15] tracking-[-0.02em] text-foreground sm:text-3xl lg:text-4xl">
-            {t("investmentBody")}
-          </p>
+        <div className="max-w-3xl min-w-0 lg:pt-8">
+          <p className="editorial-intro max-w-[600px]">{t("investmentBody")}</p>
           <div className="mt-8 border-t border-primary/35 pt-6 sm:mt-10">
             {status === "success" ? (
               <p className="font-primary text-3xl text-foreground sm:text-4xl">

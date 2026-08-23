@@ -15,7 +15,7 @@ export const ReviewsSection = ({ reviews }: ReviewsSectionProps) => (
             H2 reviews title
           </h2>
         </div>
-        <p className="max-w-xl text-lg leading-8 text-muted-foreground">
+        <p className="body-copy-muted">
           Section description text goes here. Replace it with supporting copy
           for customer reviews or social proof.
         </p>

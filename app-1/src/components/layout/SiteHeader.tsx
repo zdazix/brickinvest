@@ -76,7 +76,7 @@ export const SiteHeader = () => {
         >
           {navigation.map(({ href, key }) => (
             <a
-              className="relative py-2 text-center text-[11px] font-medium tracking-[0.08em] whitespace-nowrap text-foreground/80 transition-colors after:absolute after:right-0 after:bottom-0 after:left-0 after:h-px after:origin-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 hover:text-foreground hover:after:origin-left hover:after:scale-x-100"
+              className="relative py-2 text-center text-xs font-medium tracking-[0.06em] whitespace-nowrap text-foreground/80 transition-colors after:absolute after:right-0 after:bottom-0 after:left-0 after:h-px after:origin-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 hover:text-foreground hover:after:origin-left hover:after:scale-x-100"
               href={href}
               key={href}
             >

@@ -11,27 +11,22 @@ export const IntelligenceSection = () => {
   return (
     <section
       aria-labelledby="ai-data-intelligence-heading"
-      className="relative overflow-hidden border-t border-border bg-background px-6 py-12 sm:px-12 sm:py-16 lg:px-20 lg:py-24"
+      className="section-shell relative overflow-hidden bg-background"
       id="ai-data-intelligence"
     >
       <div className="pointer-events-none absolute top-0 right-0 h-full w-1/2 bg-[radial-gradient(circle_at_80%_25%,rgba(216,196,161,0.08),transparent_58%)]" />
       <div className="relative mx-auto max-w-[1600px]">
-        <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-16">
+        <div className="section-grid">
           <div>
             <p className="font-mono text-xs tracking-[0.28em] text-primary uppercase">
               07
             </p>
-            <h2
-              className="mt-5 max-w-md font-primary text-5xl leading-[0.92] tracking-[-0.035em] text-foreground sm:text-7xl"
-              id="ai-data-intelligence-heading"
-            >
+            <h2 className="section-title" id="ai-data-intelligence-heading">
               {t("intelligenceHeading")}
             </h2>
           </div>
-          <div className="min-w-0 lg:pt-6">
-            <p className="max-w-2xl text-base leading-8 text-foreground/70 sm:text-lg sm:leading-9">
-              {t("intelligenceIntro")}
-            </p>
+          <div className="min-w-0 lg:pt-8">
+            <p className="body-copy">{t("intelligenceIntro")}</p>
             <div className="mt-8 border-t border-primary/35 sm:mt-10">
               {intelligenceItems.map(([heading, body], index) => (
                 <article
@@ -44,9 +39,7 @@ export const IntelligenceSection = () => {
                   <h3 className="mt-4 max-w-2xl font-primary text-3xl leading-tight text-foreground sm:text-4xl">
                     {t(heading)}
                   </h3>
-                  <p className="mt-5 max-w-2xl text-base leading-8 text-foreground/70 sm:text-lg sm:leading-9">
-                    {t(body)}
-                  </p>
+                  <p className="body-copy mt-5">{t(body)}</p>
                 </article>
               ))}
             </div>

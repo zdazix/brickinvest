@@ -19,7 +19,7 @@ export const EditorialSection = ({ cards, image }: EditorialSectionProps) => (
         <h2 className="mt-4 text-4xl tracking-[-0.035em] sm:text-5xl">
           H2 editorial section title
         </h2>
-        <p className="mt-6 text-lg leading-8 text-muted-foreground">
+        <p className="body-copy-muted mt-6">
           Section description text goes here. Replace it with a clear
           introduction to the content items.
         </p>
@@ -41,9 +41,7 @@ export const EditorialSection = ({ cards, image }: EditorialSectionProps) => (
               <h3 className="mt-4 text-4xl tracking-[-0.035em] sm:text-5xl">
                 {card.title}
               </h3>
-              <p className="mt-5 max-w-lg text-lg leading-8 text-muted-foreground">
-                {card.description}
-              </p>
+              <p className="body-copy-muted mt-5">{card.description}</p>
               <Link
                 className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary"
                 to="/contact"
