@@ -91,6 +91,12 @@ export const SiteHeader = () => {
             type="button"
           >
             <Globe2 aria-hidden="true" className="size-4" />
+            <span
+              aria-hidden="true"
+              className="inline-flex w-5 items-center justify-center text-sm leading-none"
+            >
+              {selectedLocale.flag}
+            </span>
             <span>{selectedLocale.code}</span>
             <ChevronDown
               aria-hidden="true"
@@ -114,7 +120,10 @@ export const SiteHeader = () => {
                   role="menuitemradio"
                   type="button"
                 >
-                  <span aria-hidden="true" className="text-base">
+                  <span
+                    aria-hidden="true"
+                    className="inline-flex w-5 items-center justify-center text-sm leading-none"
+                  >
                     {item.flag}
                   </span>
                   <span>{item.label}</span>
