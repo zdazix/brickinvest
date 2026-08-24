@@ -54,8 +54,8 @@ export const SiteHeader = () => {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <div className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-white px-4 pt-4 shadow-sm shadow-foreground/5 sm:px-8 sm:pt-6">
-      <header className="relative mx-auto flex max-w-[1600px] items-center justify-between gap-5 px-1 py-2 text-foreground">
+    <div className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-white px-4 py-5 shadow-sm shadow-foreground/5 sm:px-8 sm:py-7">
+      <header className="relative mx-auto flex max-w-[1600px] items-center justify-between gap-5 px-1 text-foreground">
         <a
           aria-label="BRICKINVEST home"
           className="hidden shrink-0 font-primary text-2xl tracking-[-0.035em] transition-colors hover:text-primary lg:block"
