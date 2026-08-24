@@ -270,7 +270,7 @@ export const HeroSection = () => {
             {t("highRoi")}
           </p>
           <button
-            className="group mt-8 flex w-fit items-center gap-4 border border-primary bg-primary px-7 py-4 text-xs font-semibold tracking-[0.14em] text-primary-foreground transition-all hover:bg-transparent hover:text-accent sm:mt-10"
+            className="group mt-8 flex w-fit items-center gap-4 border border-primary bg-primary px-7 py-4 text-xs font-semibold tracking-[0.14em] text-primary-foreground transition-colors duration-300 hover:bg-accent hover:text-accent-foreground sm:mt-10"
             onClick={() => setQuizOpen(true)}
           >
             <span>
@@ -278,7 +278,7 @@ export const HeroSection = () => {
               <br />
               WITH HIGH ROI INVESTMENT PROJECTS
             </span>
-            <ArrowUpRight className="size-4" />
+            <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
           </button>
         </div>
       </section>

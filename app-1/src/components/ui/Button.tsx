@@ -4,13 +4,14 @@ import type { ComponentProps, ComponentPropsWithoutRef } from "react";
 type ButtonVariant = "primary" | "secondary" | "surface";
 
 const variantClasses: Record<ButtonVariant, string> = {
-  primary: "bg-primary text-primary-foreground hover:bg-primary/90",
+  primary:
+    "bg-primary text-primary-foreground transition-colors duration-300 hover:bg-accent hover:text-accent-foreground [&_svg]:transition-transform [&_svg]:duration-300 hover:[&_svg]:translate-x-1",
   secondary: "border border-border/70 bg-transparent hover:bg-secondary",
   surface: "bg-background text-foreground hover:bg-secondary",
 };
 
 const buttonClasses = (variant: ButtonVariant, className = "") =>
-  `inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 font-semibold transition disabled:opacity-50 ${variantClasses[variant]} ${className}`;
+  `group inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 font-semibold transition disabled:opacity-50 ${variantClasses[variant]} ${className}`;
 
 type ButtonProps = ComponentPropsWithoutRef<"button"> & {
   readonly variant?: ButtonVariant;

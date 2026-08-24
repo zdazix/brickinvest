@@ -86,7 +86,7 @@ export const InvestmentSolutionsSection = () => {
                   </label>
                 </div>
                 <button
-                  className="mt-8 flex items-center gap-4 border border-primary bg-primary px-6 py-4 text-xs font-semibold tracking-[0.14em] text-primary-foreground transition hover:bg-transparent hover:text-primary disabled:opacity-60"
+                  className="group mt-8 flex items-center gap-4 border border-primary bg-primary px-6 py-4 text-xs font-semibold tracking-[0.14em] text-primary-foreground transition-colors duration-300 hover:bg-accent hover:text-accent-foreground disabled:opacity-60"
                   disabled={status === "sending"}
                   onClick={() => void submitRequest()}
                   type="button"
@@ -94,7 +94,7 @@ export const InvestmentSolutionsSection = () => {
                   {status === "sending"
                     ? t("requestSending")
                     : t("leaveRequest")}{" "}
-                  <ArrowUpRight className="size-4" />
+                  <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </button>
                 {error && (
                   <p aria-live="polite" className="mt-4 text-sm text-danger">
