@@ -34,9 +34,9 @@ const LocationSequence = ({
 export const LocationMarquee = () => (
   <section
     aria-label="Costa del Sol locations"
-    className="overflow-hidden border-y border-border bg-white py-6 sm:py-7"
+    className="overflow-hidden border-y border-border bg-white py-4 sm:py-5"
   >
-    <div className="flex w-max animate-[location-marquee_38s_linear_infinite] font-primary text-3xl tracking-[0.04em] text-foreground uppercase sm:text-4xl lg:text-5xl">
+    <div className="flex w-max animate-[location-marquee_38s_linear_infinite] font-primary text-2xl tracking-[0.04em] text-foreground uppercase sm:text-[26px] lg:text-[30px]">
       <LocationSequence />
       <LocationSequence ariaHidden />
     </div>
