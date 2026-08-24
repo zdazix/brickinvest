@@ -33,13 +33,13 @@ export const OffersSection = () => {
           <div className="grid gap-x-10 border-t border-primary/35 sm:grid-cols-2">
             {offerKeys.map((key, index) => (
               <div
-                className="border-b border-primary/20 py-7 sm:py-8"
+                className="grid min-h-32 grid-cols-[4rem_minmax(0,1fr)] items-start gap-6 border-b border-primary/20 py-8"
                 key={key}
               >
-                <p className="font-mono text-xs tracking-[0.18em] text-primary uppercase">
+                <p className="pt-1 font-mono text-xs tracking-[0.18em] text-primary uppercase">
                   03.{String(index + 1).padStart(2, "0")}
                 </p>
-                <p className="mt-4 max-w-xs font-primary text-2xl leading-tight text-foreground sm:text-3xl">
+                <p className="max-w-xs min-w-0 font-primary text-2xl leading-tight text-foreground sm:text-3xl">
                   {t(key)}
                 </p>
               </div>
