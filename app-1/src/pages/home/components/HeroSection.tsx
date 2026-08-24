@@ -137,7 +137,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
       aria-modal="true"
       aria-label="Investor qualification"
     >
-      <div className="relative flex max-h-dvh min-h-dvh w-full max-w-4xl flex-col overflow-auto border-primary/25 bg-secondary p-6 text-secondary-foreground sm:max-h-[min(800px,calc(100dvh-2rem))] sm:min-h-0 sm:border sm:p-12">
+      <div className="relative flex max-h-dvh min-h-dvh w-full max-w-4xl flex-col overflow-auto border-primary/25 bg-secondary p-5 text-secondary-foreground sm:max-h-[90dvh] sm:min-h-0 sm:border sm:p-9">
         <button
           aria-label="Close qualification"
           className="absolute top-5 right-5 p-2"
@@ -164,7 +164,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
           </div>
         ) : (
           <>
-            <div className="mb-10 flex items-center justify-between">
+            <div className="mb-5 flex items-center justify-between">
               <p className="text-xs tracking-[0.2em] text-primary uppercase">
                 {t("qualification")}
               </p>
@@ -172,7 +172,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                 {isContact ? "CONTACT" : `0${step + 1} — 05`}
               </p>
             </div>
-            <div className="mb-10 h-px w-full bg-primary/25">
+            <div className="mb-6 h-px w-full bg-primary/25">
               <div
                 className="h-px bg-primary transition-[width] duration-300"
                 style={{
@@ -182,13 +182,13 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
             </div>
             {!isContact ? (
               <>
-                <h2 className="max-w-2xl font-primary text-4xl leading-[1.02] sm:text-6xl">
+                <h2 className="max-w-2xl font-primary text-4xl leading-[1.02] sm:text-5xl">
                   {questions[step][0]}
                 </h2>
-                <div className="mt-10 grid gap-3 sm:grid-cols-2">
+                <div className="mt-6 grid gap-2 sm:grid-cols-2">
                   {questions[step].slice(1).map((answer) => (
                     <button
-                      className={`group flex min-h-16 items-center justify-between border px-5 text-left text-sm transition-[background-color,border-color] duration-250 ${((answers[step] as string[] | string | undefined) ?? []).toString().includes(answer) ? "border-primary bg-primary/15" : "border-border hover:border-primary hover:bg-surface/50"}`}
+                      className={`group flex min-h-14 items-center justify-between border px-4 text-left text-sm transition-[background-color,border-color] duration-250 ${((answers[step] as string[] | string | undefined) ?? []).toString().includes(answer) ? "border-primary bg-primary/15" : "border-border hover:border-primary hover:bg-surface/50"}`}
                       key={answer}
                       onClick={() => choose(answer)}
                     >
@@ -197,7 +197,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                     </button>
                   ))}
                 </div>
-                <div className="mt-10 flex items-center justify-between gap-4">
+                <div className="mt-6 flex items-center justify-between gap-4">
                   <button
                     className="flex items-center gap-2 text-xs tracking-[0.12em] text-foreground/60 uppercase transition-colors hover:text-primary disabled:invisible"
                     disabled={step === 0}
@@ -222,14 +222,14 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
               </>
             ) : (
               <>
-                <h2 className="max-w-2xl font-primary text-4xl leading-[1.02] sm:text-6xl">
+                <h2 className="max-w-2xl font-primary text-3xl leading-[1.02] sm:text-5xl">
                   RECEIVE YOUR PRIVATE INVESTMENT SELECTION
                 </h2>
-                <p className="mt-6 max-w-2xl text-base leading-7 text-foreground/70">
+                <p className="mt-4 max-w-2xl text-base leading-6 text-foreground/70">
                   Leave your details and our team will review your requirements
                   and contact you with relevant opportunities.
                 </p>
-                <div className="mt-10 grid gap-5 sm:grid-cols-2">
+                <div className="mt-6 grid gap-4 sm:grid-cols-2">
                   <label className="text-xs tracking-[0.12em] uppercase">
                     {t("firstName")}
                     <input
@@ -260,7 +260,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                     />
                   </label>
                 </div>
-                <label className="mt-8 flex gap-3 text-sm text-foreground/70">
+                <label className="mt-5 flex gap-3 text-sm leading-5 text-foreground/70">
                   <input
                     checked={Boolean(answers.consent)}
                     type="checkbox"
@@ -272,7 +272,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                   opportunities and updates.
                 </label>
                 <button
-                  className="mt-8 w-full bg-foreground px-6 py-5 text-xs tracking-[0.14em] text-background transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 active:translate-y-px disabled:opacity-60"
+                  className="mt-5 w-full bg-foreground px-6 py-4 text-xs tracking-[0.14em] text-background transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 active:translate-y-px disabled:opacity-60"
                   disabled={status === "sending"}
                   onClick={(event) => {
                     event.preventDefault();
@@ -282,7 +282,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                   {status === "sending" ? "SENDING…" : "SUBMIT REQUEST"}
                 </button>
                 <button
-                  className="mt-6 self-start text-xs tracking-[0.12em] text-muted-foreground uppercase transition-colors hover:text-primary"
+                  className="mt-4 self-start text-xs tracking-[0.12em] text-muted-foreground uppercase transition-colors hover:text-primary"
                   onClick={() => setStep((current) => current - 1)}
                   type="button"
                 >
