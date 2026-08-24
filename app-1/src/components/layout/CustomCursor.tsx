@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { MousePointer2 } from "lucide-react";
 
 type CursorPosition = {
   x: number;
@@ -107,18 +108,23 @@ export const CustomCursor = () => {
 
   const cursorClass =
     mode === "project"
-      ? "size-11 border-foreground/80 bg-white/90 text-[8px] font-medium tracking-[0.16em] text-foreground"
-      : mode === "interactive"
-        ? "size-2.5 border-primary bg-primary"
-        : "size-1.5 border-foreground bg-foreground";
+      ? "size-10 border-foreground/80 bg-white/90 text-[8px] font-medium tracking-[0.16em] text-foreground"
+      : "size-4 border-transparent bg-transparent text-foreground transition-transform duration-200 ease-out";
 
   return (
     <span
       aria-hidden="true"
-      className={`pointer-events-none fixed z-[200] flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border transition-[left,top,width,height,transform,background-color,border-color] duration-200 ease-out ${cursorClass}`}
+      className={`pointer-events-none fixed z-[200] flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border transition-[left,top,width,height,transform,background-color,border-color] duration-200 ease-out ${mode === "interactive" ? "scale-110" : ""} ${cursorClass}`}
       style={{ left: position.x, top: position.y }}
     >
-      {mode === "project" ? "VIEW" : null}
+      {mode === "project" ? (
+        "VIEW"
+      ) : (
+        <MousePointer2
+          aria-hidden="true"
+          className="size-4 fill-white stroke-[1.5]"
+        />
+      )}
     </span>
   );
 };
