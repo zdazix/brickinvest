@@ -23,6 +23,8 @@ const navigation = [
 
 export const SiteHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
   const [consultationView, setConsultationView] = useState<
@@ -43,6 +45,32 @@ export const SiteHeader = () => {
     setConsultationForm({ name: "", email: "", phone: "", message: "" });
     setConsultationError("");
   };
+
+  useEffect(() => {
+    const updateScrollState = () => setIsScrolled(window.scrollY > 8);
+    updateScrollState();
+    window.addEventListener("scroll", updateScrollState, { passive: true });
+    return () => window.removeEventListener("scroll", updateScrollState);
+  }, []);
+
+  useEffect(() => {
+    const sections = navigation
+      .map(({ href }) => document.querySelector(href))
+      .filter((section): section is Element => Boolean(section));
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleSection = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visibleSection) setActiveSection(visibleSection.target.id);
+      },
+      { rootMargin: "-20% 0px -65%", threshold: [0, 0.2, 0.5] },
+    );
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!isMenuOpen) return;
@@ -137,8 +165,10 @@ export const SiteHeader = () => {
   };
 
   return (
-    <div className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-surface px-4 pt-4 shadow-sm shadow-foreground/5 sm:px-8 sm:pt-6">
-      <header className="relative mx-auto flex max-w-[1600px] items-center justify-between gap-5 px-1 py-2 text-foreground">
+    <div
+      className={`fixed inset-x-0 top-0 z-50 border-b bg-surface px-4 pt-4 sm:px-8 sm:pt-6 ${isScrolled ? "border-primary/30" : "border-border/60"}`}
+    >
+      <header className="relative mx-auto flex max-w-[1600px] items-center justify-between gap-3 px-1 py-2 text-foreground lg:gap-4 xl:gap-5">
         <div className="hidden shrink-0 items-center gap-6 lg:flex">
           <a
             aria-label="BRICKINVEST home"
@@ -194,11 +224,11 @@ export const SiteHeader = () => {
         </div>
         <nav
           aria-label="Primary navigation"
-          className="hidden flex-1 items-center justify-center gap-x-6 gap-y-2 lg:flex xl:gap-x-9"
+          className="hidden min-w-0 flex-1 items-center justify-center gap-x-4 gap-y-2 lg:flex xl:gap-x-6 2xl:gap-x-9"
         >
           {navigation.map(({ href, key }) => (
             <a
-              className="relative py-2 text-center text-[13px] font-medium tracking-[0.035em] whitespace-nowrap text-foreground/80 transition-colors duration-250 after:absolute after:right-0 after:bottom-0 after:left-0 after:h-px after:origin-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-250 hover:text-foreground hover:after:origin-left hover:after:scale-x-100"
+              className={`relative py-2 text-center text-[13px] font-medium tracking-[0.035em] whitespace-nowrap transition-colors duration-250 after:absolute after:right-0 after:bottom-0 after:left-0 after:h-px after:origin-right after:bg-primary after:transition-transform after:duration-250 hover:text-foreground hover:after:origin-left hover:after:scale-x-100 ${activeSection === href.slice(1) ? "text-primary after:scale-x-100" : "text-foreground/80 after:scale-x-0"}`}
               href={href}
               key={href}
             >
