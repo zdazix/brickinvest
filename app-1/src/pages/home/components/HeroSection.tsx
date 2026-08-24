@@ -270,7 +270,8 @@ export const HeroSection = () => {
             {t("highRoi")}
           </p>
           <button
-            className="group mt-8 flex w-fit items-center gap-4 border border-primary bg-primary px-7 py-4 text-xs font-semibold tracking-[0.14em] text-primary-foreground transition-colors duration-300 hover:bg-accent hover:text-accent-foreground sm:mt-10"
+            className="group mt-8 flex w-fit items-center gap-4 border border-primary bg-primary px-7 py-4 text-xs font-semibold tracking-[0.14em] text-primary-foreground transition-[background-color,color,transform] duration-300 hover:bg-accent hover:text-accent-foreground sm:mt-10"
+            data-cursor-magnetic
             onClick={() => setQuizOpen(true)}
           >
             <span>

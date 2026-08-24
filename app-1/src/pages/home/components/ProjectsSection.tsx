@@ -25,6 +25,7 @@ export const ProjectsSection = () => {
             {projectKeys.map((key, index) => (
               <div
                 className="group flex items-center justify-between gap-6 border-b border-primary/20 py-6 transition-colors hover:bg-primary/5 sm:py-7"
+                data-cursor-project
                 key={key}
               >
                 <div className="flex items-start gap-6 sm:gap-10">

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type CursorPosition = {
   x: number;
@@ -8,10 +8,14 @@ type CursorPosition = {
 const interactiveSelector =
   'a[href], button:not(:disabled), [role="button"], [role="menuitem"], input, textarea, select, label[for]';
 
+type CursorMode = "default" | "interactive" | "project";
+
 export const CustomCursor = () => {
   const [position, setPosition] = useState<CursorPosition | null>(null);
-  const [isInteractive, setIsInteractive] = useState(false);
+  const [mode, setMode] = useState<CursorMode>("default");
   const [enabled, setEnabled] = useState(false);
+  const magneticTarget = useRef<HTMLElement | null>(null);
+  const frame = useRef<number | null>(null);
 
   useEffect(() => {
     const pointerQuery = window.matchMedia("(pointer: fine)");
@@ -35,29 +39,86 @@ export const CustomCursor = () => {
 
     document.documentElement.classList.add("custom-cursor-enabled");
     const handlePointerMove = (event: PointerEvent) => {
-      setPosition({ x: event.clientX, y: event.clientY });
-      setIsInteractive(
-        event.target instanceof Element &&
-          Boolean(event.target.closest(interactiveSelector)),
-      );
+      if (frame.current !== null) cancelAnimationFrame(frame.current);
+      frame.current = requestAnimationFrame(() => {
+        setPosition({ x: event.clientX, y: event.clientY });
+
+        const element =
+          event.target instanceof Element
+            ? event.target.closest<HTMLElement>(
+                "[data-cursor-project], [data-cursor-magnetic], " +
+                  interactiveSelector,
+              )
+            : null;
+        const projectTarget = element?.closest<HTMLElement>(
+          "[data-cursor-project]",
+        );
+        const magnetic = element?.closest<HTMLElement>(
+          "[data-cursor-magnetic]",
+        );
+        const nextTarget = magnetic ?? null;
+        if (magneticTarget.current && magneticTarget.current !== nextTarget) {
+          magneticTarget.current.style.transform = "";
+        }
+        magneticTarget.current = nextTarget;
+
+        if (magnetic) {
+          const bounds = magnetic.getBoundingClientRect();
+          const distance = Math.hypot(
+            event.clientX - (bounds.left + bounds.width / 2),
+            event.clientY - (bounds.top + bounds.height / 2),
+          );
+          const radius = 160;
+          const strength = Math.max(0, 1 - distance / radius);
+          const offsetX =
+            (event.clientX - (bounds.left + bounds.width / 2)) *
+            0.08 *
+            strength;
+          const offsetY =
+            (event.clientY - (bounds.top + bounds.height / 2)) *
+            0.08 *
+            strength;
+          magnetic.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+        }
+
+        setMode(
+          projectTarget ? "project" : element ? "interactive" : "default",
+        );
+      });
     };
-    const handlePointerLeave = () => setPosition(null);
+    const handlePointerLeave = () => {
+      if (magneticTarget.current) magneticTarget.current.style.transform = "";
+      magneticTarget.current = null;
+      setPosition(null);
+      setMode("default");
+    };
     document.addEventListener("pointermove", handlePointerMove);
     document.addEventListener("pointerleave", handlePointerLeave);
     return () => {
       document.documentElement.classList.remove("custom-cursor-enabled");
       document.removeEventListener("pointermove", handlePointerMove);
       document.removeEventListener("pointerleave", handlePointerLeave);
+      if (frame.current !== null) cancelAnimationFrame(frame.current);
+      if (magneticTarget.current) magneticTarget.current.style.transform = "";
     };
   }, [enabled]);
 
   if (!enabled || !position) return null;
 
+  const cursorClass =
+    mode === "project"
+      ? "size-11 border-foreground/80 bg-white/90 text-[8px] font-medium tracking-[0.16em] text-foreground"
+      : mode === "interactive"
+        ? "size-2.5 border-primary bg-primary"
+        : "size-1.5 border-foreground bg-foreground";
+
   return (
     <span
       aria-hidden="true"
-      className={`pointer-events-none fixed z-[200] size-4 -translate-x-1/2 -translate-y-1/2 rounded-full border border-foreground/80 transition-[left,top,transform,background-color,border-color] duration-200 ease-out ${isInteractive ? "scale-[1.7] border-primary bg-primary/30" : "bg-transparent"}`}
+      className={`pointer-events-none fixed z-[200] flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border transition-[left,top,width,height,transform,background-color,border-color] duration-200 ease-out ${cursorClass}`}
       style={{ left: position.x, top: position.y }}
-    />
+    >
+      {mode === "project" ? "VIEW" : null}
+    </span>
   );
 };

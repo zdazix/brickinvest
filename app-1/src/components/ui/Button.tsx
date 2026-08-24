@@ -5,7 +5,7 @@ type ButtonVariant = "primary" | "secondary" | "surface";
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "bg-primary text-primary-foreground transition-colors duration-300 hover:bg-accent hover:text-accent-foreground [&_svg]:transition-transform [&_svg]:duration-300 hover:[&_svg]:translate-x-1",
+    "bg-primary text-primary-foreground transition-[background-color,color,transform] duration-300 hover:bg-accent hover:text-accent-foreground [&_svg]:transition-transform [&_svg]:duration-300 hover:[&_svg]:translate-x-1",
   secondary: "border border-border/70 bg-transparent hover:bg-secondary",
   surface: "bg-background text-foreground hover:bg-secondary",
 };
@@ -22,7 +22,11 @@ export const Button = ({
   variant = "primary",
   ...props
 }: ButtonProps) => (
-  <button className={buttonClasses(variant, className)} {...props} />
+  <button
+    className={buttonClasses(variant, className)}
+    data-cursor-magnetic={variant === "primary" ? true : undefined}
+    {...props}
+  />
 );
 
 type ButtonLinkProps = ComponentProps<typeof Link> & {
@@ -34,5 +38,9 @@ export const ButtonLink = ({
   variant = "primary",
   ...props
 }: ButtonLinkProps) => (
-  <Link className={buttonClasses(variant, className)} {...props} />
+  <Link
+    className={buttonClasses(variant, className)}
+    data-cursor-magnetic={variant === "primary" ? true : undefined}
+    {...props}
+  />
 );
