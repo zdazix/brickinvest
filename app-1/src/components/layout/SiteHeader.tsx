@@ -24,6 +24,7 @@ const navigation = [
 export const SiteHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+  const [isConsultationOpen, setIsConsultationOpen] = useState(false);
   const { locale, setLocale, t } = useLocale();
 
   useEffect(() => {
@@ -47,6 +48,23 @@ export const SiteHeader = () => {
     };
     document.addEventListener("click", closeOnOutsideClick);
     return () => document.removeEventListener("click", closeOnOutsideClick);
+  }, []);
+
+  useEffect(() => {
+    const closeOnOutsideClick = (event: MouseEvent) => {
+      if (!(event.target as Element).closest("[data-consultation]")) {
+        setIsConsultationOpen(false);
+      }
+    };
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsConsultationOpen(false);
+    };
+    document.addEventListener("click", closeOnOutsideClick);
+    document.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.removeEventListener("click", closeOnOutsideClick);
+      document.removeEventListener("keydown", closeOnEscape);
+    };
   }, []);
 
   const selectedLocale =
@@ -130,13 +148,49 @@ export const SiteHeader = () => {
           ))}
         </nav>
 
-        <div className="hidden shrink-0 flex-col items-end leading-tight lg:flex">
-          <span className="text-[10px] font-medium tracking-[0.16em] text-foreground/55 uppercase">
+        <div
+          className="relative hidden shrink-0 flex-col items-end leading-tight lg:flex"
+          data-consultation
+        >
+          <button
+            aria-expanded={isConsultationOpen}
+            className="text-[10px] font-medium tracking-[0.16em] text-foreground/55 uppercase transition-colors hover:text-primary focus-visible:text-primary"
+            onClick={(event) => {
+              event.stopPropagation();
+              setIsConsultationOpen((open) => !open);
+            }}
+            type="button"
+          >
             REQUEST CONSULTATION
-          </span>
+          </button>
           <a
-            className="mt-1 text-sm tracking-[0.12em] text-primary transition-colors hover:text-foreground"
+            className={`absolute top-[calc(100%+0.45rem)] right-0 text-sm tracking-[0.12em] whitespace-nowrap text-primary transition-[opacity,transform,visibility] duration-200 hover:text-foreground ${isConsultationOpen ? "visible translate-y-0 opacity-100" : "invisible -translate-y-1 opacity-0"}`}
             href="tel:+34695121585"
+            tabIndex={isConsultationOpen ? 0 : -1}
+          >
+            695 121 585
+          </a>
+        </div>
+
+        <div
+          className="relative ml-auto flex flex-col items-end leading-tight lg:hidden"
+          data-consultation
+        >
+          <button
+            aria-expanded={isConsultationOpen}
+            className="text-[10px] font-medium tracking-[0.12em] text-foreground/55 uppercase transition-colors hover:text-primary focus-visible:text-primary"
+            onClick={(event) => {
+              event.stopPropagation();
+              setIsConsultationOpen((open) => !open);
+            }}
+            type="button"
+          >
+            REQUEST CONSULTATION
+          </button>
+          <a
+            className={`absolute top-[calc(100%+0.45rem)] right-0 text-sm tracking-[0.1em] whitespace-nowrap text-primary transition-[opacity,transform,visibility] duration-200 ${isConsultationOpen ? "visible translate-y-0 opacity-100" : "invisible -translate-y-1 opacity-0"}`}
+            href="tel:+34695121585"
+            tabIndex={isConsultationOpen ? 0 : -1}
           >
             695 121 585
           </a>
