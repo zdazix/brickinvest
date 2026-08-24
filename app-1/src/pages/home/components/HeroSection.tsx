@@ -218,7 +218,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                   {t("privacy")}
                 </label>
                 <button
-                  className="mt-8 w-full bg-foreground px-6 py-5 text-xs tracking-[0.14em] text-background transition hover:bg-primary hover:text-primary-foreground disabled:opacity-60"
+                  className="mt-8 w-full bg-foreground px-6 py-5 text-xs tracking-[0.14em] text-background transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 active:translate-y-px disabled:opacity-60"
                   disabled={status === "sending"}
                   onClick={() => void submit()}
                 >
@@ -270,12 +270,12 @@ export const HeroSection = () => {
             {t("highRoi")}
           </p>
           <button
-            className="group mt-8 flex w-fit items-center gap-4 border border-foreground bg-foreground px-7 py-4 text-xs font-semibold tracking-[0.14em] text-background transition-[background-color,color,transform] duration-300 hover:bg-primary hover:text-primary-foreground sm:mt-10"
+            className="group mt-8 flex w-fit items-center gap-4 border border-foreground bg-foreground px-7 py-4 text-xs font-semibold tracking-[0.14em] text-background transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 active:translate-y-px sm:mt-10"
             data-cursor-magnetic
             onClick={() => setQuizOpen(true)}
           >
             <span>REQUEST EXCLUSIVE ADVICE</span>
-            <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+            <ArrowUpRight className="size-4 transition-transform duration-250 ease-out group-hover:translate-x-1" />
           </button>
         </div>
       </section>

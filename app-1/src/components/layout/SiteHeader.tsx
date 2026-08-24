@@ -198,7 +198,7 @@ export const SiteHeader = () => {
         >
           {navigation.map(({ href, key }) => (
             <a
-              className="relative py-2 text-center text-[13px] font-medium tracking-[0.035em] whitespace-nowrap text-foreground/80 transition-colors after:absolute after:right-0 after:bottom-0 after:left-0 after:h-px after:origin-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 hover:text-foreground hover:after:origin-left hover:after:scale-x-100"
+              className="relative py-2 text-center text-[13px] font-medium tracking-[0.035em] whitespace-nowrap text-foreground/80 transition-colors duration-250 after:absolute after:right-0 after:bottom-0 after:left-0 after:h-px after:origin-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-250 hover:text-foreground hover:after:origin-left hover:after:scale-x-100"
               href={href}
               key={href}
             >
@@ -213,7 +213,7 @@ export const SiteHeader = () => {
         >
           <button
             aria-expanded={isConsultationOpen}
-            className="text-[10px] font-medium tracking-[0.16em] text-foreground/55 uppercase transition-colors hover:text-primary focus-visible:text-primary"
+            className="text-[10px] font-medium tracking-[0.16em] text-foreground/55 uppercase transition-colors duration-250 hover:text-primary focus-visible:text-primary"
             onClick={(event) => {
               event.stopPropagation();
               setIsConsultationOpen((open) => !open);
@@ -230,7 +230,7 @@ export const SiteHeader = () => {
         >
           <button
             aria-expanded={isConsultationOpen}
-            className="text-[10px] font-medium tracking-[0.12em] text-foreground/55 uppercase transition-colors hover:text-primary focus-visible:text-primary"
+            className="text-[10px] font-medium tracking-[0.12em] text-foreground/55 uppercase transition-colors duration-250 hover:text-primary focus-visible:text-primary"
             onClick={(event) => {
               event.stopPropagation();
               setIsConsultationOpen((open) => !open);
@@ -320,7 +320,7 @@ export const SiteHeader = () => {
                     +34 695 1215 85
                   </a>
                   <button
-                    className="mt-8 block w-full border border-foreground/25 px-5 py-3 text-[10px] font-medium tracking-[0.16em] text-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
+                    className="mt-8 block w-full border border-foreground/25 px-5 py-3 text-[10px] font-medium tracking-[0.16em] text-foreground transition-[background-color,border-color,color,transform] duration-250 ease-out hover:border-primary hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 active:translate-y-px"
                     onClick={() => setConsultationView("form")}
                     type="button"
                   >
@@ -357,7 +357,7 @@ export const SiteHeader = () => {
                             ? "Email"
                             : "Phone Number"}
                         <input
-                          className="h-10 border-b border-primary/40 bg-transparent px-0 text-base tracking-normal text-foreground outline-none"
+                          className="h-10 border-b border-primary/40 bg-transparent px-0 text-base tracking-normal text-foreground transition-[border-color] duration-250 outline-none focus:border-primary"
                           onChange={(event) =>
                             setConsultationForm((current) => ({
                               ...current,
@@ -379,7 +379,7 @@ export const SiteHeader = () => {
                     <label className="grid gap-1 text-[10px] tracking-[0.14em] text-foreground/60 uppercase">
                       Message / What would you like to discuss?
                       <textarea
-                        className="min-h-20 resize-none border-b border-primary/40 bg-transparent px-0 py-2 text-base tracking-normal text-foreground outline-none"
+                        className="min-h-20 resize-none border-b border-primary/40 bg-transparent px-0 py-2 text-base tracking-normal text-foreground transition-[border-color] duration-250 outline-none focus:border-primary"
                         onChange={(event) =>
                           setConsultationForm((current) => ({
                             ...current,
@@ -396,7 +396,7 @@ export const SiteHeader = () => {
                       </p>
                     )}
                     <button
-                      className="mt-2 border border-foreground bg-foreground px-5 py-3 text-[10px] font-semibold tracking-[0.16em] text-background transition-colors hover:bg-primary hover:text-primary-foreground disabled:opacity-60"
+                      className="mt-2 border border-foreground bg-foreground px-5 py-3 text-[10px] font-semibold tracking-[0.16em] text-background transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 active:translate-y-px disabled:opacity-60"
                       disabled={isConsultationSending}
                       type="submit"
                     >

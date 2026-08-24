@@ -39,7 +39,7 @@ export const TextField = ({
 }: TextFieldProps) => (
   <FieldShell error={error} label={label}>
     <input
-      className="min-h-12 rounded-2xl border border-border/70 bg-background px-4 font-normal transition outline-none focus:border-primary focus:ring-2 focus:ring-ring/20"
+      className="min-h-12 rounded-2xl border border-border/70 bg-background px-4 font-normal transition-[border-color,box-shadow] duration-250 outline-none focus:border-primary focus:ring-2 focus:ring-ring/20"
       placeholder={placeholder}
       {...props}
     />
@@ -175,7 +175,7 @@ export const TextAreaField = ({
 }: TextAreaFieldProps) => (
   <FieldShell error={error} label={label}>
     <textarea
-      className="min-h-36 resize-y rounded-2xl border border-border/70 bg-background px-4 py-3 font-normal transition outline-none focus:border-primary focus:ring-2 focus:ring-ring/20"
+      className="min-h-36 resize-y rounded-2xl border border-border/70 bg-background px-4 py-3 font-normal transition-[border-color,box-shadow] duration-250 outline-none focus:border-primary focus:ring-2 focus:ring-ring/20"
       placeholder={placeholder}
       {...props}
     />

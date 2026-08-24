@@ -97,7 +97,7 @@ export const InvestmentSolutionsSection = () => {
                         }
                         aria-invalid={Boolean(errors.name)}
                         id="investment-name"
-                        className="mt-2 block h-12 w-full border-b border-primary/40 bg-transparent px-0 py-3 text-base text-foreground normal-case outline-none placeholder:text-foreground/35"
+                        className="mt-2 block h-12 w-full border-b border-primary/40 bg-transparent px-0 py-3 text-base text-foreground normal-case transition-[border-color] duration-250 outline-none placeholder:text-foreground/35 focus:border-primary"
                         onChange={(event) => {
                           setName(event.target.value);
                           if (event.target.value.trim())
@@ -128,7 +128,7 @@ export const InvestmentSolutionsSection = () => {
                         }
                         aria-invalid={Boolean(errors.contact)}
                         id="investment-contact"
-                        className="mt-2 block h-12 w-full border-b border-primary/40 bg-transparent px-0 py-3 text-base text-foreground normal-case outline-none placeholder:text-foreground/35"
+                        className="mt-2 block h-12 w-full border-b border-primary/40 bg-transparent px-0 py-3 text-base text-foreground normal-case transition-[border-color] duration-250 outline-none placeholder:text-foreground/35 focus:border-primary"
                         onChange={(event) => {
                           setContact(event.target.value);
                           if (event.target.value.trim())
@@ -151,7 +151,7 @@ export const InvestmentSolutionsSection = () => {
                     </label>
                   </div>
                   <button
-                    className="group mt-8 flex items-center gap-4 border border-foreground bg-foreground px-6 py-4 text-xs font-semibold tracking-[0.14em] text-background transition-[background-color,color,transform] duration-300 hover:bg-primary hover:text-primary-foreground disabled:opacity-60"
+                    className="group mt-8 flex items-center gap-4 border border-foreground bg-foreground px-6 py-4 text-xs font-semibold tracking-[0.14em] text-background transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 active:translate-y-px disabled:opacity-60"
                     data-cursor-magnetic
                     disabled={status === "sending"}
                     type="submit"
@@ -159,7 +159,7 @@ export const InvestmentSolutionsSection = () => {
                     {status === "sending"
                       ? t("requestSending")
                       : t("leaveRequest")}{" "}
-                    <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    <ArrowUpRight className="size-4 transition-transform duration-250 ease-out group-hover:translate-x-1" />
                   </button>
                   {error && (
                     <p aria-live="polite" className="mt-4 text-sm text-danger">
