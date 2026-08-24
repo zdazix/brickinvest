@@ -22,7 +22,7 @@ export const AboutSection = () => {
           <p className="editorial-intro max-w-[760px] leading-[1.08]">
             {t("aboutSupporting")}
           </p>
-          <p className="body-copy mt-9 max-w-[650px]">{t("aboutBody")}</p>
+          <p className="body-copy mt-8 max-w-[650px]">{t("aboutBody")}</p>
         </div>
       </div>
     </section>
