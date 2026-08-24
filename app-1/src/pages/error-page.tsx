@@ -3,7 +3,7 @@ type ErrorPageProps = {
 };
 
 export const ErrorPage = ({ reset }: ErrorPageProps) => (
-  <main className="grid min-h-dvh place-items-center bg-background p-6 text-foreground">
+  <main className="grain-surface grid min-h-dvh place-items-center bg-background p-6 text-foreground">
     <div className="max-w-md text-center">
       <p className="font-mono text-xs tracking-widest text-primary uppercase">
         Something shifted
@@ -13,7 +13,7 @@ export const ErrorPage = ({ reset }: ErrorPageProps) => (
         The experience could not be displayed, but it can be safely restarted.
       </p>
       <button
-        className="mt-8 rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground transition hover:bg-accent hover:text-accent-foreground"
+        className="mt-8 rounded-full border border-foreground bg-foreground px-6 py-3 font-semibold text-background transition-colors hover:bg-primary hover:text-primary-foreground"
         onClick={reset}
         type="button"
       >

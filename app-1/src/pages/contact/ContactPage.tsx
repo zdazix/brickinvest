@@ -18,7 +18,7 @@ export const ContactPage = () => {
 
   return (
     <main
-      className="min-h-dvh bg-background px-5 pt-24 pb-16 sm:px-8 lg:px-12 lg:pt-28 lg:pb-24"
+      className="grain-surface min-h-dvh bg-background px-5 pt-24 pb-16 sm:px-8 lg:px-12 lg:pt-28 lg:pb-24"
       id="main-content"
     >
       <div className="mx-auto max-w-7xl">

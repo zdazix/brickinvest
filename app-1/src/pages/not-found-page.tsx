@@ -1,5 +1,5 @@
 export const NotFoundPage = () => (
-  <main className="grid min-h-dvh place-items-center bg-background p-6 text-foreground">
+  <main className="grain-surface grid min-h-dvh place-items-center bg-background p-6 text-foreground">
     <div className="max-w-lg text-center">
       <p className="font-mono text-xs tracking-widest text-primary uppercase">
         404 / Off canvas

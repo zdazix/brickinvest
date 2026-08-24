@@ -88,7 +88,7 @@
   }
 
   .section-title {
-    @apply mt-5 max-w-md font-primary text-[clamp(3rem,5vw,4.75rem)] leading-[0.92] tracking-[-0.04em] text-foreground;
+    @apply mt-5 max-w-md font-primary text-[clamp(2.6rem,4.2vw,3.9rem)] leading-[0.88] tracking-[-0.04em] text-foreground;
   }
 
   .editorial-intro {
