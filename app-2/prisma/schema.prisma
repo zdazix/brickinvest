@@ -28,6 +28,7 @@ model InvestorSubmission {
   consent         Boolean  @default(false)
   consentAt       DateTime @map("consent_at") @db.Timestamptz(3)
   submittedAt     DateTime @default(now()) @map("submitted_at") @db.Timestamptz(3)
+  source          String   @default("Investor qualification form")
 
   @@map("investor_submissions")
 }

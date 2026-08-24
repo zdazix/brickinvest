@@ -15,7 +15,20 @@ export const createInvestorSubmissionHandler =
         "Submission service is unavailable.",
       );
     const input = response.locals.input.body as InvestorSubmissionInput;
-    const submission = await saveInvestorSubmission(client, input);
+    let submission;
+    try {
+      submission = await saveInvestorSubmission(client, {
+        ...input,
+        source: input.source ?? "Investor qualification form",
+      });
+    } catch (error) {
+      request.log.error({ error }, "Investor submission persistence failed");
+      throw new HttpError(
+        503,
+        "DATABASE_PERSISTENCE_FAILED",
+        "The native investor database could not store this submission.",
+      );
+    }
     request.log.info(
       { submissionId: submission.id },
       "Investor submission stored",

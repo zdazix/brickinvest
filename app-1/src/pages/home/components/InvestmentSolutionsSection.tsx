@@ -35,14 +35,24 @@ export const InvestmentSolutionsSection = () => {
             firstName: name,
             email: isEmail ? contact : undefined,
             phone: isEmail ? undefined : contact,
+            source: "Investment Solutions form",
           }),
         },
       );
-      if (!response.ok) throw new Error("Request failed");
+      if (!response.ok) {
+        const details = (await response.json().catch(() => null)) as {
+          error?: { message?: string };
+        } | null;
+        throw new Error(details?.error?.message || t("requestFailed"));
+      }
       setStatus("success");
-    } catch {
+    } catch (submissionError) {
       setStatus("idle");
-      setError(t("requestFailed"));
+      setError(
+        submissionError instanceof Error
+          ? submissionError.message
+          : t("requestFailed"),
+      );
     }
   };
 
