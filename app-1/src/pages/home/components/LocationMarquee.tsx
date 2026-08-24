@@ -23,9 +23,11 @@ const LocationSequence = ({
         key={`${location}-${index}`}
       >
         <span>{location}</span>
-        <span aria-hidden="true" className="text-sm text-accent sm:text-base">
-          ·
-        </span>
+        {index < locations.length - 1 && (
+          <span aria-hidden="true" className="text-sm text-accent sm:text-base">
+            ·
+          </span>
+        )}
       </span>
     ))}
   </span>
@@ -34,9 +36,9 @@ const LocationSequence = ({
 export const LocationMarquee = () => (
   <section
     aria-label="Costa del Sol locations"
-    className="grain-surface overflow-hidden border-y border-border bg-surface py-4 sm:py-5"
+    className="grain-surface overflow-hidden border-y border-border bg-surface py-3 sm:py-4"
   >
-    <div className="flex w-max animate-[location-marquee_38s_linear_infinite] font-primary text-2xl tracking-[0.04em] text-foreground uppercase sm:text-[26px] lg:text-[30px]">
+    <div className="location-marquee-track flex w-max animate-[location-marquee_48s_linear_infinite] items-center font-secondary text-[15px] tracking-[0.16em] text-foreground uppercase sm:text-[17px] sm:[animation-duration:40s]">
       <LocationSequence />
       <LocationSequence ariaHidden />
     </div>

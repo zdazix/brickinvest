@@ -154,6 +154,12 @@
   }
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .location-marquee-track:hover {
+    animation-play-state: paused;
+  }
+}
+
 .consultation-modal__panel {
   animation: consultation-modal-enter 220ms ease-out both;
 }
@@ -176,6 +182,7 @@
   }
 
   .location-marquee,
+  .location-marquee-track,
   [class*="location-marquee"] {
     animation-play-state: paused;
   }
