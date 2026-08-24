@@ -20,9 +20,11 @@ export const AboutSection = () => {
           </h2>
           <div className="mt-8 h-px w-20 bg-primary" />
         </div>
-        <div className="max-w-3xl lg:pt-8">
-          <p className="editorial-intro">{t("aboutSupporting")}</p>
-          <p className="body-copy mt-7">{t("aboutBody")}</p>
+        <div className="min-w-0">
+          <p className="editorial-intro max-w-[760px] leading-[1.08]">
+            {t("aboutSupporting")}
+          </p>
+          <p className="body-copy mt-9 max-w-[650px]">{t("aboutBody")}</p>
         </div>
       </div>
     </section>
