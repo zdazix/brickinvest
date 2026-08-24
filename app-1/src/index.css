@@ -104,6 +104,13 @@
   }
 }
 
+@media (pointer: fine) {
+  .custom-cursor-enabled,
+  .custom-cursor-enabled * {
+    cursor: none !important;
+  }
+}
+
 @keyframes location-marquee {
   from {
     transform: translateX(0);
