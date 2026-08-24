@@ -102,13 +102,13 @@ export const SiteHeader = () => {
             </button>
             {isLanguageOpen && (
               <div
-                className="absolute top-[calc(100%+0.5rem)] left-0 z-20 min-w-52 rounded-lg border border-primary/80 bg-foreground p-2 shadow-lg"
+                className="absolute top-[calc(100%+0.45rem)] left-0 z-20 min-w-40 rounded-md border border-primary/80 bg-foreground p-1 shadow-lg"
                 role="menu"
               >
                 {locales.map((item) => (
                   <button
                     aria-checked={item.key === locale}
-                    className="flex w-full items-center gap-3 rounded-md px-3 py-3 text-left text-[15px] text-surface/90 transition-colors hover:bg-primary/15 hover:text-surface focus-visible:bg-primary/15"
+                    className="flex w-full items-center rounded-sm px-2.5 py-1.5 text-left text-[13px] leading-5 text-surface/90 transition-colors hover:bg-primary/15 hover:text-surface focus-visible:bg-primary/15"
                     key={item.key}
                     onClick={() => {
                       setLocale(item.key as LocaleKey);
@@ -117,15 +117,9 @@ export const SiteHeader = () => {
                     role="menuitemradio"
                     type="button"
                   >
-                    <span
-                      aria-hidden="true"
-                      className="inline-flex w-5 items-center justify-center text-sm leading-none"
-                    >
-                      {item.flag}
-                    </span>
                     <span>{item.label}</span>
                     {item.key === locale && (
-                      <span className="ml-auto text-primary">•</span>
+                      <span className="ml-auto pl-2 text-primary">•</span>
                     )}
                   </button>
                 ))}
