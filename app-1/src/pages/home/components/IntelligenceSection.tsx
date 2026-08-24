@@ -16,8 +16,8 @@ export const IntelligenceSection = () => {
     >
       <div className="pointer-events-none absolute top-0 right-0 h-full w-1/2 bg-[radial-gradient(circle_at_80%_25%,rgba(216,195,154,0.08),transparent_58%)]" />
       <div className="relative mx-auto max-w-[1600px]">
-        <div className="section-grid lg:grid-cols-[minmax(0,430px)_minmax(0,1fr)] lg:gap-20">
-          <div className="max-w-[430px] min-w-0">
+        <div className="section-grid">
+          <div className="min-w-0">
             <p className="font-mono text-xs tracking-[0.28em] text-primary uppercase">
               07
             </p>

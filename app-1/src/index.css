@@ -80,11 +80,11 @@
 
 @layer components {
   .section-shell {
-    @apply border-t border-border px-6 py-12 sm:px-12 sm:py-16 lg:px-20 lg:py-20;
+    @apply border-t border-border px-[5vw] py-12 sm:py-16 lg:py-20;
   }
 
   .section-grid {
-    @apply mx-auto grid max-w-[1600px] gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-16;
+    @apply mx-auto grid w-full max-w-[1600px] min-w-0 gap-10 lg:grid-cols-[minmax(0,34fr)_minmax(0,66fr)] lg:gap-20;
   }
 
   .section-title {
