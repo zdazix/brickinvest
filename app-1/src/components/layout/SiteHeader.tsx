@@ -1,4 +1,4 @@
-import { ChevronDown, Globe2, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { locales, useLocale, type LocaleKey } from "@/lib/i18n";
@@ -56,13 +56,65 @@ export const SiteHeader = () => {
   return (
     <div className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-surface px-4 pt-4 shadow-sm shadow-foreground/5 sm:px-8 sm:pt-6">
       <header className="relative mx-auto flex max-w-[1600px] items-center justify-between gap-5 px-1 py-2 text-foreground">
-        <a
-          aria-label="BRICKINVEST home"
-          className="hidden shrink-0 font-secondary text-[1.55rem] font-semibold tracking-[-0.065em] transition-colors hover:text-primary lg:block"
-          href="/"
-        >
-          BRICKINVEST
-        </a>
+        <div className="hidden shrink-0 items-center gap-6 lg:flex">
+          <a
+            aria-label="BRICKINVEST home"
+            className="font-secondary text-[1.55rem] font-semibold tracking-[-0.065em] transition-colors hover:text-primary"
+            href="/"
+          >
+            BRICKINVEST
+          </a>
+          <div className="relative" data-language-selector>
+            <button
+              aria-expanded={isLanguageOpen}
+              aria-haspopup="menu"
+              aria-label={t("openLanguage")}
+              className="flex items-center gap-1.5 px-0.5 py-2 text-[11px] tracking-[0.1em] text-foreground/70 transition-colors hover:text-primary focus-visible:text-primary"
+              onClick={(event) => {
+                event.stopPropagation();
+                setIsLanguageOpen((open) => !open);
+              }}
+              type="button"
+            >
+              <span>{selectedLocale.code}</span>
+              <ChevronDown
+                aria-hidden="true"
+                className={`size-3 transition-transform ${isLanguageOpen ? "rotate-180" : ""}`}
+              />
+            </button>
+            {isLanguageOpen && (
+              <div
+                className="absolute top-[calc(100%+0.5rem)] left-0 z-20 min-w-52 rounded-lg border border-primary/80 bg-foreground p-2 shadow-lg"
+                role="menu"
+              >
+                {locales.map((item) => (
+                  <button
+                    aria-checked={item.key === locale}
+                    className="flex w-full items-center gap-3 rounded-md px-3 py-3 text-left text-[15px] text-surface/90 transition-colors hover:bg-primary/15 hover:text-surface focus-visible:bg-primary/15"
+                    key={item.key}
+                    onClick={() => {
+                      setLocale(item.key as LocaleKey);
+                      setIsLanguageOpen(false);
+                    }}
+                    role="menuitemradio"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="inline-flex w-5 items-center justify-center text-sm leading-none"
+                    >
+                      {item.flag}
+                    </span>
+                    <span>{item.label}</span>
+                    {item.key === locale && (
+                      <span className="ml-auto text-primary">•</span>
+                    )}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
         <nav
           aria-label="Primary navigation"
           className="hidden flex-1 items-center justify-center gap-x-6 gap-y-2 lg:flex xl:gap-x-9"
@@ -78,56 +130,16 @@ export const SiteHeader = () => {
           ))}
         </nav>
 
-        <div className="absolute right-0" data-language-selector>
-          <button
-            aria-expanded={isLanguageOpen}
-            aria-haspopup="menu"
-            aria-label={t("openLanguage")}
-            className="flex min-h-12 items-center gap-2 rounded-lg border border-border bg-surface px-4 text-[11px] tracking-[0.12em] text-foreground transition-colors hover:border-primary hover:bg-secondary hover:text-primary focus-visible:border-primary"
-            onClick={(event) => {
-              event.stopPropagation();
-              setIsLanguageOpen((open) => !open);
-            }}
-            type="button"
+        <div className="hidden shrink-0 flex-col items-end leading-tight lg:flex">
+          <span className="text-[10px] font-medium tracking-[0.16em] text-foreground/55 uppercase">
+            REQUEST CONSULTATION
+          </span>
+          <a
+            className="mt-1 text-sm tracking-[0.12em] text-primary transition-colors hover:text-foreground"
+            href="tel:+34695121585"
           >
-            <Globe2 aria-hidden="true" className="size-4" />
-            <span>{selectedLocale.code}</span>
-            <ChevronDown
-              aria-hidden="true"
-              className={`size-3 transition-transform ${isLanguageOpen ? "rotate-180" : ""}`}
-            />
-          </button>
-          {isLanguageOpen && (
-            <div
-              className="absolute top-[calc(100%+0.5rem)] right-0 z-20 min-w-52 rounded-lg border border-primary/80 bg-foreground p-2 shadow-lg"
-              role="menu"
-            >
-              {locales.map((item) => (
-                <button
-                  aria-checked={item.key === locale}
-                  className="flex w-full items-center gap-3 rounded-md px-3 py-3 text-left text-[15px] text-surface/90 transition-colors hover:bg-primary/15 hover:text-surface focus-visible:bg-primary/15"
-                  key={item.key}
-                  onClick={() => {
-                    setLocale(item.key as LocaleKey);
-                    setIsLanguageOpen(false);
-                  }}
-                  role="menuitemradio"
-                  type="button"
-                >
-                  <span
-                    aria-hidden="true"
-                    className="inline-flex w-5 items-center justify-center text-sm leading-none"
-                  >
-                    {item.flag}
-                  </span>
-                  <span>{item.label}</span>
-                  {item.key === locale && (
-                    <span className="ml-auto text-primary">•</span>
-                  )}
-                </button>
-              ))}
-            </div>
-          )}
+            695 121 585
+          </a>
         </div>
 
         <button
