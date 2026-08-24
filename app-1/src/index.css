@@ -126,6 +126,22 @@
   }
 }
 
+@keyframes consultation-modal-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.consultation-modal__panel {
+  animation: consultation-modal-enter 220ms ease-out both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

@@ -51,6 +51,16 @@ export const SiteHeader = () => {
   }, []);
 
   useEffect(() => {
+    if (!isConsultationOpen || isMenuOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isConsultationOpen, isMenuOpen]);
+
+  useEffect(() => {
     const closeOnOutsideClick = (event: MouseEvent) => {
       if (!(event.target as Element).closest("[data-consultation]")) {
         setIsConsultationOpen(false);
@@ -157,13 +167,6 @@ export const SiteHeader = () => {
           >
             REQUEST CONSULTATION
           </button>
-          <a
-            className={`absolute top-[calc(100%+0.45rem)] right-0 text-sm tracking-[0.12em] whitespace-nowrap text-primary transition-[opacity,transform,visibility] duration-200 hover:text-foreground ${isConsultationOpen ? "visible translate-y-0 opacity-100" : "invisible -translate-y-1 opacity-0"}`}
-            href="tel:+34695121585"
-            tabIndex={isConsultationOpen ? 0 : -1}
-          >
-            695 121 585
-          </a>
         </div>
 
         <div
@@ -181,13 +184,6 @@ export const SiteHeader = () => {
           >
             REQUEST CONSULTATION
           </button>
-          <a
-            className={`absolute top-[calc(100%+0.45rem)] right-0 text-sm tracking-[0.1em] whitespace-nowrap text-primary transition-[opacity,transform,visibility] duration-200 ${isConsultationOpen ? "visible translate-y-0 opacity-100" : "invisible -translate-y-1 opacity-0"}`}
-            href="tel:+34695121585"
-            tabIndex={isConsultationOpen ? 0 : -1}
-          >
-            695 121 585
-          </a>
         </div>
 
         <button
@@ -228,6 +224,53 @@ export const SiteHeader = () => {
           ))}
         </nav>
       </div>
+
+      {isConsultationOpen && (
+        <div
+          aria-labelledby="consultation-dialog-title"
+          aria-modal="true"
+          className="consultation-modal fixed inset-0 z-[60] flex items-center justify-center bg-foreground/25 px-5 py-8 sm:px-8"
+          onClick={() => setIsConsultationOpen(false)}
+          role="dialog"
+        >
+          <div
+            className="consultation-modal__panel relative w-full max-w-md border border-primary/60 bg-surface px-7 py-9 text-center text-foreground sm:px-12 sm:py-12"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              aria-label="Close consultation dialog"
+              className="absolute top-3 right-4 text-2xl leading-none font-light text-foreground/55 transition-colors hover:text-primary"
+              onClick={() => setIsConsultationOpen(false)}
+              type="button"
+            >
+              ×
+            </button>
+            <h2
+              className="font-secondary text-[11px] font-medium tracking-[0.18em] text-foreground/60"
+              id="consultation-dialog-title"
+            >
+              REQUEST CONSULTATION
+            </h2>
+            <p className="mx-auto mt-7 max-w-sm text-base leading-7 text-foreground/75">
+              Speak with our team about your investment plans on the Costa del
+              Sol.
+            </p>
+            <a
+              className="mt-7 inline-block text-lg tracking-[0.12em] text-primary transition-colors hover:text-foreground"
+              href="tel:+34695121585"
+            >
+              695 121 585
+            </a>
+            <a
+              className="mt-8 block border border-foreground/25 px-5 py-3 text-[10px] font-medium tracking-[0.16em] text-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
+              href="#investment-solutions"
+              onClick={() => setIsConsultationOpen(false)}
+            >
+              LEAVE A REQUEST
+            </a>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
