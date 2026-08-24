@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 
 import { ArrowUpRight } from "lucide-react";
 
@@ -9,11 +9,17 @@ export const InvestmentSolutionsSection = () => {
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "success">("idle");
+  const [errors, setErrors] = useState({ name: "", contact: "" });
   const [error, setError] = useState("");
 
-  const submitRequest = async () => {
-    if (!name.trim() || !contact.trim()) {
-      setError(t("requestValidation"));
+  const submitRequest = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const nextErrors = {
+      name: name.trim() ? "" : t("requestNameRequired"),
+      contact: contact.trim() ? "" : t("requestContactRequired"),
+    };
+    setErrors(nextErrors);
+    if (nextErrors.name || nextErrors.contact) {
       return;
     }
     setStatus("sending");
@@ -67,41 +73,92 @@ export const InvestmentSolutionsSection = () => {
                 <p className="font-mono text-xs tracking-[0.2em] text-primary uppercase">
                   {t("requestPrompt")}
                 </p>
-                <div className="mt-7 grid items-start gap-6 sm:grid-cols-2">
-                  <label className="min-w-0 text-xs tracking-[0.14em] text-foreground/70 uppercase">
-                    {t("requestName")}
-                    <input
-                      className="mt-2 block h-12 w-full border-b border-primary/40 bg-transparent px-0 py-3 text-base text-foreground normal-case outline-none placeholder:text-foreground/35"
-                      onChange={(event) => setName(event.target.value)}
-                      placeholder={t("requestNamePlaceholder")}
-                    />
-                  </label>
-                  <label className="min-w-0 text-xs tracking-[0.1em] whitespace-nowrap text-foreground/70 uppercase sm:text-[11px] lg:text-xs">
-                    {t("requestContact")}
-                    <input
-                      className="mt-2 block h-12 w-full border-b border-primary/40 bg-transparent px-0 py-3 text-base text-foreground normal-case outline-none placeholder:text-foreground/35"
-                      onChange={(event) => setContact(event.target.value)}
-                      placeholder={t("requestContactPlaceholder")}
-                    />
-                  </label>
-                </div>
-                <button
-                  className="group mt-8 flex items-center gap-4 border border-foreground bg-foreground px-6 py-4 text-xs font-semibold tracking-[0.14em] text-background transition-[background-color,color,transform] duration-300 hover:bg-primary hover:text-primary-foreground disabled:opacity-60"
-                  data-cursor-magnetic
-                  disabled={status === "sending"}
-                  onClick={() => void submitRequest()}
-                  type="button"
+                <form
+                  className="mt-7"
+                  onSubmit={(event) => void submitRequest(event)}
                 >
-                  {status === "sending"
-                    ? t("requestSending")
-                    : t("leaveRequest")}{" "}
-                  <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </button>
-                {error && (
-                  <p aria-live="polite" className="mt-4 text-sm text-danger">
-                    {error}
-                  </p>
-                )}
+                  <div className="grid items-start gap-6 sm:grid-cols-2">
+                    <label
+                      className="min-w-0 text-xs tracking-[0.14em] text-foreground/70 uppercase"
+                      htmlFor="investment-name"
+                    >
+                      {t("requestName")}
+                      <input
+                        aria-describedby={
+                          errors.name ? "investment-name-error" : undefined
+                        }
+                        aria-invalid={Boolean(errors.name)}
+                        id="investment-name"
+                        className="mt-2 block h-12 w-full border-b border-primary/40 bg-transparent px-0 py-3 text-base text-foreground normal-case outline-none placeholder:text-foreground/35"
+                        onChange={(event) => {
+                          setName(event.target.value);
+                          if (event.target.value.trim())
+                            setErrors((current) => ({ ...current, name: "" }));
+                        }}
+                        placeholder={t("requestNamePlaceholder")}
+                      />
+                      {errors.name && (
+                        <span
+                          aria-live="polite"
+                          className="mt-2 block text-sm text-danger"
+                          id="investment-name-error"
+                        >
+                          {errors.name}
+                        </span>
+                      )}
+                    </label>
+                    <label
+                      className="min-w-0 text-xs tracking-[0.1em] whitespace-nowrap text-foreground/70 uppercase sm:text-[11px] lg:text-xs"
+                      htmlFor="investment-contact"
+                    >
+                      {t("requestContact")}
+                      <input
+                        aria-describedby={
+                          errors.contact
+                            ? "investment-contact-error"
+                            : undefined
+                        }
+                        aria-invalid={Boolean(errors.contact)}
+                        id="investment-contact"
+                        className="mt-2 block h-12 w-full border-b border-primary/40 bg-transparent px-0 py-3 text-base text-foreground normal-case outline-none placeholder:text-foreground/35"
+                        onChange={(event) => {
+                          setContact(event.target.value);
+                          if (event.target.value.trim())
+                            setErrors((current) => ({
+                              ...current,
+                              contact: "",
+                            }));
+                        }}
+                        placeholder={t("requestContactPlaceholder")}
+                      />
+                      {errors.contact && (
+                        <span
+                          aria-live="polite"
+                          className="mt-2 block text-sm text-danger"
+                          id="investment-contact-error"
+                        >
+                          {errors.contact}
+                        </span>
+                      )}
+                    </label>
+                  </div>
+                  <button
+                    className="group mt-8 flex items-center gap-4 border border-foreground bg-foreground px-6 py-4 text-xs font-semibold tracking-[0.14em] text-background transition-[background-color,color,transform] duration-300 hover:bg-primary hover:text-primary-foreground disabled:opacity-60"
+                    data-cursor-magnetic
+                    disabled={status === "sending"}
+                    type="submit"
+                  >
+                    {status === "sending"
+                      ? t("requestSending")
+                      : t("leaveRequest")}{" "}
+                    <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </button>
+                  {error && (
+                    <p aria-live="polite" className="mt-4 text-sm text-danger">
+                      {error}
+                    </p>
+                  )}
+                </form>
               </>
             )}
           </div>

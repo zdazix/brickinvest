@@ -100,8 +100,11 @@ const english: Dictionary = {
   requestContact: "Email or phone number",
   requestContactPlaceholder: "Your email or phone",
   requestSending: "SENDING…",
-  requestSuccess: "Thank you. Your request has been received.",
+  requestSuccess:
+    "Thank you. Your request has been received. Our team will contact you shortly.",
   requestValidation: "Please enter your name and email or phone number.",
+  requestNameRequired: "Please enter your name.",
+  requestContactRequired: "Please enter your email or phone number.",
   requestFailed: "We could not send your request. Please try again.",
   intelligenceHeading: "AI & DATA INTELLIGENCE",
   intelligenceIntro:
