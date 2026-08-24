@@ -28,10 +28,10 @@ export const OffersSection = () => {
               {t("offerHeading")}
             </h2>
           </div>
-          <div className="grid gap-x-10 border-t border-primary/35 sm:grid-cols-2">
+          <div className="grid gap-x-10 border-t border-primary/30 sm:grid-cols-2">
             {offerKeys.map((key, index) => (
               <div
-                className="grid min-h-32 grid-cols-[4rem_minmax(0,1fr)] items-start gap-6 border-b border-primary/20 py-8"
+                className="grid min-h-32 grid-cols-[4rem_minmax(0,1fr)] items-start gap-6 border-b border-primary/30 py-8"
                 key={key}
               >
                 <p className="section-label pt-1">

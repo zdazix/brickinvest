@@ -27,10 +27,10 @@ export const ServicesSection = () => {
           </div>
           <div className="min-w-0">
             <p className="body-copy mb-6">{t("servicesIntro")}</p>
-            <div className="border-t border-primary/35">
+            <div className="border-t border-primary/30">
               {services.map(([title, body], index) => (
                 <article
-                  className="grid min-h-32 grid-cols-[4rem_minmax(0,0.7fr)_minmax(0,1.3fr)] items-start gap-7 border-b border-primary/20 py-8"
+                  className="grid min-h-32 grid-cols-[4rem_minmax(0,0.7fr)_minmax(0,1.3fr)] items-start gap-7 border-b border-primary/30 py-8"
                   key={title}
                 >
                   <p className="section-label pt-1">

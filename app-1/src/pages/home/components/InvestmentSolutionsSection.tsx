@@ -71,7 +71,7 @@ export const InvestmentSolutionsSection = () => {
         </div>
         <div className="min-w-0">
           <p className="editorial-intro max-w-[720px]">{t("investmentBody")}</p>
-          <div className="mt-10 border-t border-primary/35 pt-6">
+          <div className="mt-10 border-t border-primary/30 pt-6">
             {status === "success" ? (
               <p className="font-primary text-3xl text-foreground sm:text-4xl">
                 {t("requestSuccess")}

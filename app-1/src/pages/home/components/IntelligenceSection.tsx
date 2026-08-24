@@ -27,10 +27,10 @@ export const IntelligenceSection = () => {
           </div>
           <div className="min-w-0">
             <p className="body-copy">{t("intelligenceIntro")}</p>
-            <div className="mt-10 max-w-[720px] border-t border-primary/35">
+            <div className="mt-10 max-w-[720px] border-t border-primary/30">
               {intelligenceItems.map(([heading, body], index) => (
                 <article
-                  className="border-b border-primary/20 py-8"
+                  className="border-b border-primary/30 py-8"
                   key={heading}
                 >
                   <p className="section-label">07.0{index + 1}</p>
