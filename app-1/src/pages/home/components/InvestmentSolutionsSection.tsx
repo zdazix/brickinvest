@@ -64,9 +64,7 @@ export const InvestmentSolutionsSection = () => {
     >
       <div className="section-grid relative">
         <div>
-          <p className="font-mono text-xs tracking-[0.28em] text-primary uppercase">
-            06
-          </p>
+          <p className="section-number">06</p>
           <h2 className="section-title" id="investment-solutions-heading">
             {t("investmentHeading")}
           </h2>
@@ -80,7 +78,7 @@ export const InvestmentSolutionsSection = () => {
               </p>
             ) : (
               <>
-                <p className="font-mono text-xs tracking-[0.2em] text-primary uppercase">
+                <p className="section-label tracking-[0.2em]">
                   {t("requestPrompt")}
                 </p>
                 <form
@@ -89,7 +87,7 @@ export const InvestmentSolutionsSection = () => {
                 >
                   <div className="grid items-start gap-6 sm:grid-cols-2">
                     <label
-                      className="min-w-0 text-xs tracking-[0.14em] text-foreground/70 uppercase"
+                      className="form-label min-w-0"
                       htmlFor="investment-name"
                     >
                       {t("requestName")}
@@ -118,7 +116,7 @@ export const InvestmentSolutionsSection = () => {
                       )}
                     </label>
                     <label
-                      className="min-w-0 text-xs tracking-[0.1em] whitespace-nowrap text-foreground/70 uppercase sm:text-[11px] lg:text-xs"
+                      className="form-label min-w-0 whitespace-nowrap"
                       htmlFor="investment-contact"
                     >
                       {t("requestContact")}

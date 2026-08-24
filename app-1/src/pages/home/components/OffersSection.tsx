@@ -23,9 +23,7 @@ export const OffersSection = () => {
       <div className="relative mx-auto max-w-[1600px]">
         <div className="section-grid">
           <div>
-            <p className="font-mono text-xs tracking-[0.28em] text-primary uppercase">
-              03
-            </p>
+            <p className="section-number">03</p>
             <h2 className="section-title" id="what-we-offer-heading">
               {t("offerHeading")}
             </h2>
@@ -36,7 +34,7 @@ export const OffersSection = () => {
                 className="grid min-h-32 grid-cols-[4rem_minmax(0,1fr)] items-start gap-6 border-b border-primary/20 py-8"
                 key={key}
               >
-                <p className="pt-1 font-mono text-xs tracking-[0.18em] text-primary uppercase">
+                <p className="section-label pt-1">
                   03.{String(index + 1).padStart(2, "0")}
                 </p>
                 <p className="max-w-xs min-w-0 font-primary text-2xl leading-tight text-foreground sm:text-3xl">

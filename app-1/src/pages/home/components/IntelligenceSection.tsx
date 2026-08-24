@@ -18,9 +18,7 @@ export const IntelligenceSection = () => {
       <div className="relative mx-auto max-w-[1600px]">
         <div className="section-grid">
           <div className="min-w-0">
-            <p className="font-mono text-xs tracking-[0.28em] text-primary uppercase">
-              07
-            </p>
+            <p className="section-number">07</p>
             <h2 className="section-title" id="ai-data-intelligence-heading">
               AI &amp; DATA
               <br />
@@ -35,10 +33,8 @@ export const IntelligenceSection = () => {
                   className="border-b border-primary/20 py-8"
                   key={heading}
                 >
-                  <p className="font-mono text-xs tracking-[0.18em] text-primary uppercase">
-                    07.0{index + 1}
-                  </p>
-                  <h3 className="mt-4 max-w-[650px] font-primary text-3xl leading-tight text-foreground sm:text-4xl">
+                  <p className="section-label">07.0{index + 1}</p>
+                  <h3 className="subsection-title mt-4 max-w-[650px]">
                     {t(heading)}
                   </h3>
                   <p className="body-copy mt-7 max-w-[650px]">{t(body)}</p>

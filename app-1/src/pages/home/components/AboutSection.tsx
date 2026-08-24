@@ -12,9 +12,7 @@ export const AboutSection = () => {
       <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-[radial-gradient(circle_at_70%_35%,rgba(216,195,154,0.08),transparent_55%)]" />
       <div className="section-grid relative">
         <div>
-          <p className="font-mono text-xs tracking-[0.28em] text-primary uppercase">
-            01
-          </p>
+          <p className="section-number">01</p>
           <h2 className="section-title" id="about-us-heading">
             {t("aboutHeading")}
           </h2>

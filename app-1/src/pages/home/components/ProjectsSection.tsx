@@ -28,9 +28,7 @@ export const ProjectsSection = () => {
       <div className="relative mx-auto max-w-[1600px]">
         <div className="section-grid">
           <div>
-            <p className="font-mono text-xs tracking-[0.28em] text-primary uppercase">
-              05
-            </p>
+            <p className="section-number">05</p>
             <h2 className="section-title" id="projects-heading">
               {t("projectsHeading")}
             </h2>
@@ -48,10 +46,10 @@ export const ProjectsSection = () => {
                 onMouseLeave={() => setActiveProject(null)}
                 type="button"
               >
-                <span className="relative z-10 pt-1 font-mono text-xs tracking-[0.18em] text-primary">
+                <span className="section-label relative z-10 pt-1">
                   05.0{index + 1}
                 </span>
-                <span className="relative z-10 max-w-[22rem] min-w-0 font-primary text-2xl leading-[1.02] tracking-[-0.02em] text-foreground sm:text-4xl">
+                <span className="relative z-10 max-w-[22rem] min-w-0 font-primary text-[clamp(1.5rem,2.4vw,2.5rem)] leading-[1.05] tracking-[-0.02em] text-foreground">
                   {t(key)}
                 </span>
                 <img

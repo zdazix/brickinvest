@@ -91,16 +91,32 @@
     @apply mt-5 max-w-md font-primary text-[clamp(2.6rem,4.2vw,3.9rem)] leading-[0.88] tracking-[-0.04em] text-foreground;
   }
 
+  .section-number {
+    @apply font-mono text-xs font-normal tracking-[0.24em] text-primary uppercase;
+  }
+
+  .section-label {
+    @apply font-mono text-xs font-normal tracking-[0.18em] text-primary uppercase;
+  }
+
+  .form-label {
+    @apply text-xs font-normal tracking-[0.12em] text-foreground/70 uppercase;
+  }
+
+  .subsection-title {
+    @apply font-primary text-[clamp(1.75rem,2.4vw,2.5rem)] leading-[1.05] tracking-[-0.02em] text-foreground;
+  }
+
   .editorial-intro {
     @apply max-w-2xl font-primary text-[clamp(2rem,3.2vw,3.25rem)] leading-[1.08] tracking-[-0.03em] text-foreground;
   }
 
   .body-copy {
-    @apply max-w-[600px] text-[16px] leading-[1.6] text-foreground/70 sm:text-[17px];
+    @apply max-w-[600px] text-[16px] leading-[1.55] text-foreground/70 sm:text-[18px];
   }
 
   .body-copy-muted {
-    @apply max-w-[600px] text-[16px] leading-[1.6] text-muted-foreground sm:text-[17px];
+    @apply max-w-[600px] text-[16px] leading-[1.55] text-muted-foreground sm:text-[18px];
   }
 
   .grain-surface {

@@ -20,9 +20,7 @@ export const ServicesSection = () => {
       <div className="relative mx-auto max-w-[1600px]">
         <div className="section-grid">
           <div className="min-w-0">
-            <p className="font-mono text-xs tracking-[0.28em] text-primary uppercase">
-              04
-            </p>
+            <p className="section-number">04</p>
             <h2 className="section-title" id="our-services-heading">
               {t("servicesHeading")}
             </h2>
@@ -35,12 +33,10 @@ export const ServicesSection = () => {
                   className="grid min-h-32 grid-cols-[4rem_minmax(0,0.7fr)_minmax(0,1.3fr)] items-start gap-7 border-b border-primary/20 py-8"
                   key={title}
                 >
-                  <p className="pt-1 font-mono text-xs tracking-[0.18em] text-primary uppercase">
+                  <p className="section-label pt-1">
                     04.{String(index + 1).padStart(2, "0")}
                   </p>
-                  <h3 className="min-w-0 font-primary text-3xl leading-tight text-foreground sm:text-4xl">
-                    {title}
-                  </h3>
+                  <h3 className="subsection-title min-w-0">{title}</h3>
                   <p className="body-copy min-w-0">{t(body)}</p>
                 </article>
               ))}
