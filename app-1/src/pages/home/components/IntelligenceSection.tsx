@@ -29,19 +29,19 @@ export const IntelligenceSection = () => {
           </div>
           <div className="min-w-0">
             <p className="body-copy">{t("intelligenceIntro")}</p>
-            <div className="mt-8 border-t border-primary/35 sm:mt-10">
+            <div className="mt-11 max-w-[720px] border-t border-primary/35">
               {intelligenceItems.map(([heading, body], index) => (
                 <article
-                  className="border-b border-primary/20 py-6 sm:py-7"
+                  className="border-b border-primary/20 py-8"
                   key={heading}
                 >
                   <p className="font-mono text-xs tracking-[0.18em] text-primary uppercase">
                     07.0{index + 1}
                   </p>
-                  <h3 className="mt-4 max-w-2xl font-primary text-3xl leading-tight text-foreground sm:text-4xl">
+                  <h3 className="mt-4 max-w-[650px] font-primary text-3xl leading-tight text-foreground sm:text-4xl">
                     {t(heading)}
                   </h3>
-                  <p className="body-copy mt-5">{t(body)}</p>
+                  <p className="body-copy mt-7 max-w-[650px]">{t(body)}</p>
                 </article>
               ))}
             </div>
