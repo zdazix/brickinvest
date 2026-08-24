@@ -1,5 +1,5 @@
 import { ChevronDown, Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 
 import { locales, useLocale, type LocaleKey } from "@/lib/i18n";
 
@@ -25,7 +25,24 @@ export const SiteHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
+  const [consultationView, setConsultationView] = useState<
+    "phone" | "form" | "success"
+  >("phone");
+  const [consultationForm, setConsultationForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  const [consultationError, setConsultationError] = useState("");
+  const [isConsultationSending, setIsConsultationSending] = useState(false);
   const { locale, setLocale, t } = useLocale();
+  const closeConsultation = () => {
+    setIsConsultationOpen(false);
+    setConsultationView("phone");
+    setConsultationForm({ name: "", email: "", phone: "", message: "" });
+    setConsultationError("");
+  };
 
   useEffect(() => {
     if (!isMenuOpen) return;
@@ -63,11 +80,11 @@ export const SiteHeader = () => {
   useEffect(() => {
     const closeOnOutsideClick = (event: MouseEvent) => {
       if (!(event.target as Element).closest("[data-consultation]")) {
-        setIsConsultationOpen(false);
+        closeConsultation();
       }
     };
     const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setIsConsultationOpen(false);
+      if (event.key === "Escape") closeConsultation();
     };
     document.addEventListener("click", closeOnOutsideClick);
     document.addEventListener("keydown", closeOnEscape);
@@ -80,6 +97,44 @@ export const SiteHeader = () => {
   const selectedLocale =
     locales.find((item) => item.key === locale) ?? locales[0];
   const closeMenu = () => setIsMenuOpen(false);
+  const submitConsultation = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const { name, email, phone, message } = consultationForm;
+    if (!name.trim() || !email.trim() || !phone.trim() || !message.trim()) {
+      setConsultationError("Please complete all fields before submitting.");
+      return;
+    }
+    setIsConsultationSending(true);
+    setConsultationError("");
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_INVESTOR_API_URL ?? ""}/api/investor-submissions`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            firstName: name,
+            email,
+            phone: phone.startsWith("+")
+              ? phone
+              : `+34${phone.replace(/\D/g, "")}`,
+            objective: message.slice(0, 100),
+            source: "Investment Solutions form",
+          }),
+        },
+      );
+      if (!response.ok) throw new Error("The request could not be sent.");
+      setConsultationView("success");
+    } catch (error) {
+      setConsultationError(
+        error instanceof Error
+          ? error.message
+          : "The request could not be sent.",
+      );
+    } finally {
+      setIsConsultationSending(false);
+    }
+  };
 
   return (
     <div className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-surface px-4 pt-4 shadow-sm shadow-foreground/5 sm:px-8 sm:pt-6">
@@ -227,10 +282,10 @@ export const SiteHeader = () => {
 
       {isConsultationOpen && (
         <div
-          aria-labelledby="consultation-dialog-title"
+          aria-label="REQUEST CONSULTATION"
           aria-modal="true"
           className="consultation-modal fixed inset-0 z-[60] flex items-center justify-center bg-foreground/25 px-5 py-8 sm:px-8"
-          onClick={() => setIsConsultationOpen(false)}
+          onClick={closeConsultation}
           role="dialog"
         >
           <div
@@ -240,34 +295,133 @@ export const SiteHeader = () => {
             <button
               aria-label="Close consultation dialog"
               className="absolute top-3 right-4 text-2xl leading-none font-light text-foreground/55 transition-colors hover:text-primary"
-              onClick={() => setIsConsultationOpen(false)}
+              onClick={closeConsultation}
               type="button"
             >
               ×
             </button>
-            <h2
-              className="font-secondary text-[11px] font-medium tracking-[0.18em] text-foreground/60"
-              id="consultation-dialog-title"
-            >
-              REQUEST CONSULTATION
-            </h2>
-            <p className="mx-auto mt-7 max-w-sm text-base leading-7 text-foreground/75">
-              Speak with our team about your investment plans on the Costa del
-              Sol.
-            </p>
-            <a
-              className="mt-7 inline-block text-lg tracking-[0.12em] text-primary transition-colors hover:text-foreground"
-              href="tel:+34695121585"
-            >
-              695 121 585
-            </a>
-            <a
-              className="mt-8 block border border-foreground/25 px-5 py-3 text-[10px] font-medium tracking-[0.16em] text-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
-              href="#investment-solutions"
-              onClick={() => setIsConsultationOpen(false)}
-            >
-              LEAVE A REQUEST
-            </a>
+            <div className="consultation-modal__content">
+              {consultationView === "phone" && (
+                <>
+                  <h2
+                    className="font-secondary text-[11px] font-medium tracking-[0.18em] text-foreground/60"
+                    id="consultation-dialog-title"
+                  >
+                    REQUEST CONSULTATION
+                  </h2>
+                  <p className="mx-auto mt-7 max-w-sm text-base leading-7 text-foreground/75">
+                    Speak with our team about your investment plans on the Costa
+                    del Sol.
+                  </p>
+                  <a
+                    className="mt-7 inline-block text-lg tracking-[0.12em] text-primary transition-colors hover:text-foreground"
+                    href="tel:+34695121585"
+                  >
+                    695 121 585
+                  </a>
+                  <button
+                    className="mt-8 block w-full border border-foreground/25 px-5 py-3 text-[10px] font-medium tracking-[0.16em] text-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
+                    onClick={() => setConsultationView("form")}
+                    type="button"
+                  >
+                    LEAVE A REQUEST
+                  </button>
+                </>
+              )}
+              {consultationView === "form" && (
+                <>
+                  <div className="flex items-center justify-between gap-4">
+                    <button
+                      className="text-[10px] tracking-[0.14em] text-foreground/55 uppercase transition-colors hover:text-primary"
+                      onClick={() => setConsultationView("phone")}
+                      type="button"
+                    >
+                      Back
+                    </button>
+                    <h2 className="font-secondary text-[11px] font-medium tracking-[0.18em] text-foreground/60">
+                      REQUEST CONSULTATION
+                    </h2>
+                  </div>
+                  <form
+                    className="mt-7 grid gap-4 text-left"
+                    onSubmit={(event) => void submitConsultation(event)}
+                  >
+                    {(["name", "email", "phone"] as const).map((field) => (
+                      <label
+                        className="grid gap-1 text-[10px] tracking-[0.14em] text-foreground/60 uppercase"
+                        key={field}
+                      >
+                        {field === "name"
+                          ? "Name"
+                          : field === "email"
+                            ? "Email"
+                            : "Phone Number"}
+                        <input
+                          className="h-10 border-b border-primary/40 bg-transparent px-0 text-base tracking-normal text-foreground outline-none"
+                          onChange={(event) =>
+                            setConsultationForm((current) => ({
+                              ...current,
+                              [field]: event.target.value,
+                            }))
+                          }
+                          required
+                          type={
+                            field === "email"
+                              ? "email"
+                              : field === "phone"
+                                ? "tel"
+                                : "text"
+                          }
+                          value={consultationForm[field]}
+                        />
+                      </label>
+                    ))}
+                    <label className="grid gap-1 text-[10px] tracking-[0.14em] text-foreground/60 uppercase">
+                      Message / What would you like to discuss?
+                      <textarea
+                        className="min-h-20 resize-none border-b border-primary/40 bg-transparent px-0 py-2 text-base tracking-normal text-foreground outline-none"
+                        onChange={(event) =>
+                          setConsultationForm((current) => ({
+                            ...current,
+                            message: event.target.value,
+                          }))
+                        }
+                        required
+                        value={consultationForm.message}
+                      />
+                    </label>
+                    {consultationError && (
+                      <p aria-live="polite" className="text-sm text-danger">
+                        {consultationError}
+                      </p>
+                    )}
+                    <button
+                      className="mt-2 border border-foreground bg-foreground px-5 py-3 text-[10px] font-semibold tracking-[0.16em] text-background transition-colors hover:bg-primary hover:text-primary-foreground disabled:opacity-60"
+                      disabled={isConsultationSending}
+                      type="submit"
+                    >
+                      {isConsultationSending
+                        ? "Sending…"
+                        : "REQUEST CONSULTATION"}
+                    </button>
+                  </form>
+                </>
+              )}
+              {consultationView === "success" && (
+                <>
+                  <p className="font-primary text-2xl leading-tight text-foreground">
+                    Thank you. Your consultation request has been received.
+                  </p>
+                  <button
+                    className="mt-8 text-[10px] tracking-[0.14em] text-foreground/55 uppercase transition-colors hover:text-primary"
+                    onClick={() => setConsultationView("phone")}
+                    type="button"
+                  >
+                    Back
+                  </button>
+                </>
+              )}
+            </div>
           </div>
         </div>
       )}

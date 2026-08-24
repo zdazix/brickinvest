@@ -142,6 +142,10 @@
   animation: consultation-modal-enter 220ms ease-out both;
 }
 
+.consultation-modal__content {
+  animation: consultation-modal-enter 180ms ease-out both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
