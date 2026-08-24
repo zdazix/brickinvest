@@ -58,7 +58,7 @@ export const SiteHeader = () => {
       <header className="relative mx-auto flex max-w-[1600px] items-center justify-between gap-5 px-1 py-2 text-foreground">
         <a
           aria-label="BRICKINVEST home"
-          className="hidden shrink-0 font-primary text-[1.65rem] font-medium tracking-[-0.045em] transition-colors hover:text-primary lg:block"
+          className="hidden shrink-0 font-secondary text-[1.55rem] font-semibold tracking-[-0.065em] transition-colors hover:text-primary lg:block"
           href="/"
         >
           BRICKINVEST
