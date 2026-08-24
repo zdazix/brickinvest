@@ -1,12 +1,12 @@
 export const SiteFooter = () => (
-  <footer className="grain-surface w-full bg-secondary px-5 pb-5 text-foreground sm:px-8 lg:px-12">
-    <div className="mx-auto flex max-w-[1600px] flex-col gap-4 pt-5 text-xs tracking-[0.08em] sm:flex-row sm:items-center sm:justify-between sm:gap-8">
-      <p className="text-foreground/55">
+  <footer className="grain-surface w-full bg-[#ddd8cf] px-5 py-8 text-foreground sm:px-8 lg:px-12">
+    <div className="mx-auto flex max-w-[1600px] flex-col gap-5 text-[11px] leading-5 tracking-[0.06em] sm:flex-row sm:items-center sm:justify-between sm:gap-8">
+      <p className="text-foreground/55 sm:shrink-0">
         ©2026 BRICKINVEST. All Rights Reserved.
       </p>
       <nav
         aria-label="Legal navigation"
-        className="flex flex-wrap items-center gap-x-3 gap-y-2 text-foreground/65 sm:justify-end"
+        className="flex flex-wrap items-center gap-x-4 gap-y-2 text-foreground/65 sm:justify-end"
       >
         <a
           className="transition-colors hover:text-primary focus-visible:text-primary"
