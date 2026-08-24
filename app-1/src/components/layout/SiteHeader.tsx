@@ -58,7 +58,7 @@ export const SiteHeader = () => {
       <header className="relative mx-auto flex max-w-[1600px] items-center justify-between gap-5 px-1 py-2 text-foreground">
         <a
           aria-label="BRICKINVEST home"
-          className="hidden shrink-0 font-primary text-2xl tracking-[-0.035em] transition-colors hover:text-primary lg:block"
+          className="hidden shrink-0 font-primary text-[1.65rem] font-medium tracking-[-0.045em] transition-colors hover:text-primary lg:block"
           href="/"
         >
           BRICKINVEST
@@ -69,7 +69,7 @@ export const SiteHeader = () => {
         >
           {navigation.map(({ href, key }) => (
             <a
-              className="relative py-2 text-center text-xs font-medium tracking-[0.06em] whitespace-nowrap text-foreground/80 transition-colors after:absolute after:right-0 after:bottom-0 after:left-0 after:h-px after:origin-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 hover:text-foreground hover:after:origin-left hover:after:scale-x-100"
+              className="relative py-2 text-center text-[13px] font-medium tracking-[0.035em] whitespace-nowrap text-foreground/80 transition-colors after:absolute after:right-0 after:bottom-0 after:left-0 after:h-px after:origin-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 hover:text-foreground hover:after:origin-left hover:after:scale-x-100"
               href={href}
               key={href}
             >
