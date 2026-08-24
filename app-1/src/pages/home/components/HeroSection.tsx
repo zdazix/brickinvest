@@ -263,7 +263,7 @@ export const HeroSection = () => {
         id="opportunities"
       >
         <div className="mx-auto flex w-full max-w-[1600px] flex-col items-center px-6 pt-20 pb-10 text-center text-foreground sm:px-12 sm:pt-24 sm:pb-12 lg:px-20">
-          <h1 className="max-w-4xl font-primary text-5xl leading-[0.98] tracking-[-0.035em] sm:text-7xl lg:text-8xl">
+          <h1 className="mt-4 max-w-4xl font-primary text-5xl leading-[0.98] tracking-[-0.035em] sm:mt-5 sm:text-7xl lg:text-8xl">
             {t("trusted")}
           </h1>
           <p className="mt-7 max-w-2xl text-sm tracking-[0.16em] text-accent uppercase sm:text-lg">
