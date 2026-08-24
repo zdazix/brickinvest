@@ -262,7 +262,7 @@ export const HeroSection = () => {
         className="relative flex items-start overflow-hidden bg-white"
         id="opportunities"
       >
-        <div className="mx-auto flex w-full max-w-[1600px] flex-col items-center px-6 pt-16 pb-10 text-center text-foreground sm:px-12 sm:pt-20 sm:pb-12 lg:px-20">
+        <div className="mx-auto flex w-full max-w-[1600px] flex-col items-center px-6 pt-20 pb-10 text-center text-foreground sm:px-12 sm:pt-24 sm:pb-12 lg:px-20">
           <h1 className="max-w-4xl font-primary text-5xl leading-[0.98] tracking-[-0.035em] sm:text-7xl lg:text-8xl">
             {t("trusted")}
           </h1>
@@ -270,7 +270,7 @@ export const HeroSection = () => {
             {t("highRoi")}
           </p>
           <button
-            className="group mt-10 flex w-fit items-center gap-4 border border-primary bg-primary px-7 py-4 text-xs font-semibold tracking-[0.14em] text-primary-foreground transition-all hover:bg-transparent hover:text-accent sm:mt-12"
+            className="group mt-8 flex w-fit items-center gap-4 border border-primary bg-primary px-7 py-4 text-xs font-semibold tracking-[0.14em] text-primary-foreground transition-all hover:bg-transparent hover:text-accent sm:mt-10"
             onClick={() => setQuizOpen(true)}
           >
             <span>
