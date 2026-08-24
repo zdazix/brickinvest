@@ -274,11 +274,7 @@ export const HeroSection = () => {
             data-cursor-magnetic
             onClick={() => setQuizOpen(true)}
           >
-            <span>
-              REQUEST EXCLUSIVE NEWS
-              <br />
-              WITH HIGH ROI INVESTMENT PROJECTS
-            </span>
+            <span>REQUEST EXCLUSIVE ADVICE</span>
             <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
           </button>
         </div>
