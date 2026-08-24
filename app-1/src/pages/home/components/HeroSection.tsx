@@ -1,59 +1,67 @@
 import { useEffect, useState } from "react";
-import { ArrowUpRight, Check, ChevronLeft, X } from "lucide-react";
+import { ArrowUpRight, ChevronLeft, X } from "lucide-react";
 
 import { useLocale } from "@/lib/i18n";
 
 const questions = [
   [
-    "What is your primary investment objective?",
-    "Capital appreciation",
-    "High rental yield",
-    "Buy, renovate & resell",
-    "Development",
-    "Holiday home + investment",
-    "Portfolio diversification",
+    "What are you looking for?",
+    "Investment Property",
+    "Development Opportunity",
+    "Land",
+    "Renovation Project",
+    "New Development",
+    "Not Sure Yet",
   ],
   [
-    "What investment budget are you considering?",
+    "What is your investment budget?",
     "€500K–€700K",
     "€700K–€1M",
     "€1M–€2M",
     "€2M–€5M",
     "€5M+",
-    "Flexible",
   ],
   [
-    "What type of opportunity are you interested in?",
-    "Apartment or Penthouse",
-    "Villa",
-    "Land + Development",
-    "Renovation",
-    "New Development",
-    "Off-Market",
-    "Open to recommendations",
+    "What is your primary investment objective?",
+    "Capital Appreciation",
+    "Rental Yield",
+    "Development & Resale",
+    "Personal Use + Investment",
+    "Portfolio Diversification",
   ],
   [
-    "Which locations are you interested in?",
+    "Which locations are you considering?",
     "Marbella",
     "Golden Mile",
-    "Nueva Andalucía",
-    "Benahavís",
     "Estepona",
+    "Benahavís",
     "Sotogrande",
+    "Málaga",
     "Other",
-    "Open to recommendations",
+    "Open to Recommendations",
   ],
   [
     "When are you planning to invest?",
     "Immediately",
-    "1–3 months",
-    "3–6 months",
-    "6–12 months",
-    "12+ months",
-    "Exploring opportunities",
+    "Within 3 Months",
+    "3–6 Months",
+    "6–12 Months",
+    "Exploring Opportunities",
   ],
 ] as const;
-type Answers = Record<number, string> & {
+const questionKeys = [
+  "opportunityType",
+  "budget",
+  "objective",
+  "locations",
+  "timing",
+] as const;
+type Answers = Record<number, string | string[]> & {
+  objective?: string;
+  budget?: string;
+  opportunityType?: string;
+  locations?: string[];
+  timing?: string;
   firstName?: string;
   email?: string;
   phone?: string;
@@ -68,16 +76,28 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
   const [status, setStatus] = useState<"idle" | "sending" | "success">("idle");
   const isContact = step === questions.length;
   const choose = (answer: string) => {
-    setAnswers((current) => ({ ...current, [step]: answer }));
+    const key = questionKeys[step];
+    const nextLocations = (current: Answers) =>
+      (current.locations ?? []).includes(answer)
+        ? (current.locations ?? []).filter((item) => item !== answer)
+        : [...(current.locations ?? []), answer];
+    setAnswers((current) => ({
+      ...current,
+      [step]:
+        step === 3
+          ? (current[step] as string[] | undefined)?.includes(answer)
+            ? (current[step] as string[]).filter((item) => item !== answer)
+            : [...((current[step] as string[] | undefined) ?? []), answer]
+          : answer,
+      [key]: step === 3 ? nextLocations(current) : answer,
+    }));
     setError("");
-    setTimeout(() => setStep((current) => current + 1), 180);
   };
   const submit = async () => {
     if (
       !answers.firstName?.trim() ||
       !answers.email?.includes("@") ||
-      !answers.phone?.trim() ||
-      !answers.consent
+      !answers.phone?.trim()
     ) {
       setError(t("validation"));
       return;
@@ -90,15 +110,16 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            objective: answers[0],
-            budget: answers[1],
-            opportunityType: answers[2],
-            locations: answers[3],
-            timing: answers[4],
+            objective: answers.objective,
+            budget: answers.budget,
+            opportunityType: answers.opportunityType,
+            locations: answers.locations?.join(", "),
+            timing: answers.timing,
             firstName: answers.firstName,
             email: answers.email,
             phone: answers.phone,
-            consent: answers.consent,
+            ...(answers.consent ? { consent: true } : {}),
+            source: "Investor qualification form",
           }),
         },
       );
@@ -111,12 +132,12 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
   };
   return (
     <div
-      className="fixed inset-0 z-50 grid place-items-center bg-foreground/80 p-4"
+      className="fixed inset-0 z-50 grid place-items-center bg-foreground/80 p-0 sm:p-4"
       role="dialog"
       aria-modal="true"
       aria-label="Investor qualification"
     >
-      <div className="relative max-h-[min(760px,calc(100dvh-2rem))] w-full max-w-3xl overflow-auto border border-primary/25 bg-secondary p-6 text-secondary-foreground shadow-lg sm:p-12">
+      <div className="relative flex max-h-dvh min-h-dvh w-full max-w-4xl flex-col overflow-auto border-primary/25 bg-secondary p-6 text-secondary-foreground sm:max-h-[min(800px,calc(100dvh-2rem))] sm:min-h-0 sm:border sm:p-12">
         <button
           aria-label="Close qualification"
           className="absolute top-5 right-5 p-2"
@@ -126,21 +147,19 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
         </button>
         {status === "success" ? (
           <div className="flex min-h-[420px] flex-col items-center justify-center text-center">
-            <div className="mb-7 grid size-16 place-items-center rounded-full border border-primary">
-              <Check />
-            </div>
             <p className="text-xs tracking-[0.2em] text-primary uppercase">
-              {t("requestReceived")}
+              THANK YOU
             </p>
-            <h2 className="mt-5 max-w-md font-primary text-5xl leading-none">
-              {t("preparing")}
-            </h2>
-            <p className="mt-6 max-w-md text-foreground/70">{t("advisor")}</p>
+            <p className="mt-6 max-w-md font-primary text-3xl leading-tight sm:text-4xl">
+              Your investment profile has been received. Our team will review
+              your requirements and contact you shortly.
+            </p>
             <button
-              className="mt-8 border-b border-foreground pb-2 text-xs tracking-[0.15em] uppercase"
+              className="mt-8 text-xs tracking-[0.15em] text-foreground/60 uppercase"
               onClick={onClose}
+              type="button"
             >
-              {t("return")}
+              CLOSE
             </button>
           </div>
         ) : (
@@ -150,18 +169,26 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                 {t("qualification")}
               </p>
               <p className="font-mono text-xs text-[#777168]">
-                {isContact ? t("details") : `0${step + 1} / 05`}
+                {isContact ? "CONTACT" : `0${step + 1} — 05`}
               </p>
+            </div>
+            <div className="mb-10 h-px w-full bg-primary/25">
+              <div
+                className="h-px bg-primary transition-[width] duration-300"
+                style={{
+                  width: `${isContact ? 100 : ((step + 1) / 5) * 100}%`,
+                }}
+              />
             </div>
             {!isContact ? (
               <>
                 <h2 className="max-w-2xl font-primary text-4xl leading-[1.02] sm:text-6xl">
                   {questions[step][0]}
                 </h2>
-                <div className="mt-10 grid gap-2 sm:grid-cols-2">
+                <div className="mt-10 grid gap-3 sm:grid-cols-2">
                   {questions[step].slice(1).map((answer) => (
                     <button
-                      className="group flex min-h-16 items-center justify-between border border-border px-5 text-left text-sm transition hover:border-primary hover:bg-secondary"
+                      className={`group flex min-h-16 items-center justify-between border px-5 text-left text-sm transition-[background-color,border-color] duration-250 ${((answers[step] as string[] | string | undefined) ?? []).toString().includes(answer) ? "border-primary bg-primary/15" : "border-border hover:border-primary hover:bg-surface/50"}`}
                       key={answer}
                       onClick={() => choose(answer)}
                     >
@@ -170,12 +197,38 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                     </button>
                   ))}
                 </div>
+                <div className="mt-10 flex items-center justify-between gap-4">
+                  <button
+                    className="flex items-center gap-2 text-xs tracking-[0.12em] text-foreground/60 uppercase transition-colors hover:text-primary disabled:invisible"
+                    disabled={step === 0}
+                    onClick={() => setStep((current) => current - 1)}
+                    type="button"
+                  >
+                    <ChevronLeft className="size-4" /> BACK
+                  </button>
+                  <button
+                    className="border border-foreground bg-foreground px-6 py-3 text-xs font-semibold tracking-[0.14em] text-background transition-colors hover:bg-primary hover:text-primary-foreground disabled:opacity-40"
+                    disabled={
+                      step === 3
+                        ? !(answers[step] as string[] | undefined)?.length
+                        : !answers[step]
+                    }
+                    onClick={() => setStep((current) => current + 1)}
+                    type="button"
+                  >
+                    CONTINUE
+                  </button>
+                </div>
               </>
             ) : (
               <>
                 <h2 className="max-w-2xl font-primary text-4xl leading-[1.02] sm:text-6xl">
-                  Tell us where to send your opportunities.
+                  RECEIVE YOUR PRIVATE INVESTMENT SELECTION
                 </h2>
+                <p className="mt-6 max-w-2xl text-base leading-7 text-foreground/70">
+                  Leave your details and our team will review your requirements
+                  and contact you with relevant opportunities.
+                </p>
                 <div className="mt-10 grid gap-5 sm:grid-cols-2">
                   <label className="text-xs tracking-[0.12em] uppercase">
                     {t("firstName")}
@@ -215,14 +268,25 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                       setAnswers({ ...answers, consent: e.target.checked })
                     }
                   />{" "}
-                  {t("privacy")}
+                  I agree to receive relevant BRICKINVEST investment
+                  opportunities and updates.
                 </label>
                 <button
                   className="mt-8 w-full bg-foreground px-6 py-5 text-xs tracking-[0.14em] text-background transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 active:translate-y-px disabled:opacity-60"
                   disabled={status === "sending"}
-                  onClick={() => void submit()}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    void submit();
+                  }}
                 >
-                  {status === "sending" ? t("send") : t("submit")}
+                  {status === "sending" ? "SENDING…" : "SUBMIT REQUEST"}
+                </button>
+                <button
+                  className="mt-6 self-start text-xs tracking-[0.12em] text-muted-foreground uppercase transition-colors hover:text-primary"
+                  onClick={() => setStep((current) => current - 1)}
+                  type="button"
+                >
+                  <ChevronLeft className="mr-1 inline size-4" /> BACK
                 </button>
               </>
             )}
@@ -230,14 +294,6 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
               <p aria-live="polite" className="mt-5 text-sm text-[#b24f45]">
                 {error}
               </p>
-            )}
-            {step > 0 && !isContact && (
-              <button
-                className="mt-8 flex items-center gap-2 text-xs tracking-[0.12em] text-muted-foreground uppercase"
-                onClick={() => setStep((current) => current - 1)}
-              >
-                <ChevronLeft className="size-4" /> Previous
-              </button>
             )}
           </>
         )}
