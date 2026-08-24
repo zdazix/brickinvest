@@ -14,7 +14,7 @@ export const ServicesSection = () => {
   return (
     <section
       aria-labelledby="our-services-heading"
-      className="section-shell relative overflow-hidden bg-surface"
+      className="section-shell grain-surface relative overflow-hidden bg-secondary"
       id="our-services"
     >
       <div className="relative mx-auto max-w-[1600px]">

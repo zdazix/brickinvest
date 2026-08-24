@@ -111,12 +111,12 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
   };
   return (
     <div
-      className="fixed inset-0 z-50 grid place-items-center bg-[#10100f]/80 p-4 backdrop-blur-xl"
+      className="fixed inset-0 z-50 grid place-items-center bg-foreground/80 p-4"
       role="dialog"
       aria-modal="true"
       aria-label="Investor qualification"
     >
-      <div className="relative max-h-[min(760px,calc(100dvh-2rem))] w-full max-w-3xl overflow-auto border border-primary/25 bg-[#f0ece3] p-6 text-[#211f1b] shadow-2xl sm:p-12">
+      <div className="relative max-h-[min(760px,calc(100dvh-2rem))] w-full max-w-3xl overflow-auto border border-primary/25 bg-secondary p-6 text-secondary-foreground shadow-lg sm:p-12">
         <button
           aria-label="Close qualification"
           className="absolute top-5 right-5 p-2"
@@ -126,18 +126,18 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
         </button>
         {status === "success" ? (
           <div className="flex min-h-[420px] flex-col items-center justify-center text-center">
-            <div className="mb-7 grid size-16 place-items-center rounded-full border border-[#9b8058]">
+            <div className="mb-7 grid size-16 place-items-center rounded-full border border-primary">
               <Check />
             </div>
-            <p className="text-xs tracking-[0.2em] text-[#8b704e] uppercase">
+            <p className="text-xs tracking-[0.2em] text-primary uppercase">
               {t("requestReceived")}
             </p>
             <h2 className="mt-5 max-w-md font-primary text-5xl leading-none">
               {t("preparing")}
             </h2>
-            <p className="mt-6 max-w-md text-[#5c574f]">{t("advisor")}</p>
+            <p className="mt-6 max-w-md text-foreground/70">{t("advisor")}</p>
             <button
-              className="mt-8 border-b border-[#211f1b] pb-2 text-xs tracking-[0.15em] uppercase"
+              className="mt-8 border-b border-foreground pb-2 text-xs tracking-[0.15em] uppercase"
               onClick={onClose}
             >
               {t("return")}
@@ -146,7 +146,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
         ) : (
           <>
             <div className="mb-10 flex items-center justify-between">
-              <p className="text-xs tracking-[0.2em] text-[#8b704e] uppercase">
+              <p className="text-xs tracking-[0.2em] text-primary uppercase">
                 {t("qualification")}
               </p>
               <p className="font-mono text-xs text-[#777168]">
@@ -161,7 +161,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                 <div className="mt-10 grid gap-2 sm:grid-cols-2">
                   {questions[step].slice(1).map((answer) => (
                     <button
-                      className="group flex min-h-16 items-center justify-between border border-[#c6bfb3] px-5 text-left text-sm transition hover:border-[#8b704e] hover:bg-[#e7e0d4]"
+                      className="group flex min-h-16 items-center justify-between border border-border px-5 text-left text-sm transition hover:border-primary hover:bg-secondary"
                       key={answer}
                       onClick={() => choose(answer)}
                     >
@@ -180,7 +180,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                   <label className="text-xs tracking-[0.12em] uppercase">
                     {t("firstName")}
                     <input
-                      className="mt-2 w-full border-b border-[#aaa195] bg-transparent px-0 py-3 outline-none"
+                      className="mt-2 w-full border-b border-border bg-transparent px-0 py-3 outline-none"
                       onChange={(e) =>
                         setAnswers({ ...answers, firstName: e.target.value })
                       }
@@ -189,7 +189,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                   <label className="text-xs tracking-[0.12em] uppercase">
                     {t("email")}
                     <input
-                      className="mt-2 w-full border-b border-[#aaa195] bg-transparent px-0 py-3 outline-none"
+                      className="mt-2 w-full border-b border-border bg-transparent px-0 py-3 outline-none"
                       type="email"
                       onChange={(e) =>
                         setAnswers({ ...answers, email: e.target.value })
@@ -199,7 +199,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                   <label className="text-xs tracking-[0.12em] uppercase sm:col-span-2">
                     {t("phone")}
                     <input
-                      className="mt-2 w-full border-b border-[#aaa195] bg-transparent px-0 py-3 outline-none"
+                      className="mt-2 w-full border-b border-border bg-transparent px-0 py-3 outline-none"
                       placeholder="+34 000 000 000"
                       onChange={(e) =>
                         setAnswers({ ...answers, phone: e.target.value })
@@ -207,7 +207,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                     />
                   </label>
                 </div>
-                <label className="mt-8 flex gap-3 text-sm text-[#5c574f]">
+                <label className="mt-8 flex gap-3 text-sm text-foreground/70">
                   <input
                     checked={Boolean(answers.consent)}
                     type="checkbox"
@@ -218,7 +218,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                   {t("privacy")}
                 </label>
                 <button
-                  className="mt-8 w-full bg-[#211f1b] px-6 py-5 text-xs tracking-[0.14em] text-[#f0ece3] transition hover:bg-[#8b704e] disabled:opacity-60"
+                  className="mt-8 w-full bg-foreground px-6 py-5 text-xs tracking-[0.14em] text-background transition hover:bg-primary hover:text-primary-foreground disabled:opacity-60"
                   disabled={status === "sending"}
                   onClick={() => void submit()}
                 >
@@ -233,7 +233,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
             )}
             {step > 0 && !isContact && (
               <button
-                className="mt-8 flex items-center gap-2 text-xs tracking-[0.12em] text-[#777168] uppercase"
+                className="mt-8 flex items-center gap-2 text-xs tracking-[0.12em] text-muted-foreground uppercase"
                 onClick={() => setStep((current) => current - 1)}
               >
                 <ChevronLeft className="size-4" /> Previous
@@ -259,7 +259,7 @@ export const HeroSection = () => {
   return (
     <main id="main-content">
       <section
-        className="relative flex items-start overflow-hidden bg-white"
+        className="grain-surface relative flex items-start overflow-hidden bg-background"
         id="opportunities"
       >
         <div className="mx-auto flex w-full max-w-[1600px] flex-col items-center px-6 pt-20 pb-10 text-center text-foreground sm:px-12 sm:pt-24 sm:pb-12 lg:px-20">
@@ -270,7 +270,7 @@ export const HeroSection = () => {
             {t("highRoi")}
           </p>
           <button
-            className="group mt-8 flex w-fit items-center gap-4 border border-primary bg-primary px-7 py-4 text-xs font-semibold tracking-[0.14em] text-primary-foreground transition-[background-color,color,transform] duration-300 hover:bg-accent hover:text-accent-foreground sm:mt-10"
+            className="group mt-8 flex w-fit items-center gap-4 border border-foreground bg-foreground px-7 py-4 text-xs font-semibold tracking-[0.14em] text-background transition-[background-color,color,transform] duration-300 hover:bg-primary hover:text-primary-foreground sm:mt-10"
             data-cursor-magnetic
             onClick={() => setQuizOpen(true)}
           >

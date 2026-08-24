@@ -54,7 +54,7 @@ export const SiteHeader = () => {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <div className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-white px-4 pt-4 shadow-sm shadow-foreground/5 sm:px-8 sm:pt-6">
+    <div className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-surface px-4 pt-4 shadow-sm shadow-foreground/5 sm:px-8 sm:pt-6">
       <header className="relative mx-auto flex max-w-[1600px] items-center justify-between gap-5 px-1 py-2 text-foreground">
         <a
           aria-label="BRICKINVEST home"
@@ -83,7 +83,7 @@ export const SiteHeader = () => {
             aria-expanded={isLanguageOpen}
             aria-haspopup="menu"
             aria-label={t("openLanguage")}
-            className="flex min-h-12 items-center gap-2 rounded-lg border border-border bg-surface/70 px-4 text-[11px] tracking-[0.12em] text-foreground backdrop-blur-sm transition-colors hover:border-primary hover:bg-secondary hover:text-primary focus-visible:border-primary"
+            className="flex min-h-12 items-center gap-2 rounded-lg border border-border bg-surface px-4 text-[11px] tracking-[0.12em] text-foreground transition-colors hover:border-primary hover:bg-secondary hover:text-primary focus-visible:border-primary"
             onClick={(event) => {
               event.stopPropagation();
               setIsLanguageOpen((open) => !open);
@@ -99,13 +99,13 @@ export const SiteHeader = () => {
           </button>
           {isLanguageOpen && (
             <div
-              className="shadow-black/40 absolute top-[calc(100%+0.5rem)] right-0 z-20 min-w-52 rounded-lg border border-primary/80 bg-[#0d1411]/95 p-2 shadow-2xl backdrop-blur-xl"
+              className="absolute top-[calc(100%+0.5rem)] right-0 z-20 min-w-52 rounded-lg border border-primary/80 bg-foreground p-2 shadow-lg"
               role="menu"
             >
               {locales.map((item) => (
                 <button
                   aria-checked={item.key === locale}
-                  className="flex w-full items-center gap-3 rounded-md px-3 py-3 text-left text-[15px] text-white/90 transition-colors hover:bg-primary/15 hover:text-white focus-visible:bg-primary/15"
+                  className="flex w-full items-center gap-3 rounded-md px-3 py-3 text-left text-[15px] text-surface/90 transition-colors hover:bg-primary/15 hover:text-surface focus-visible:bg-primary/15"
                   key={item.key}
                   onClick={() => {
                     setLocale(item.key as LocaleKey);
@@ -148,7 +148,7 @@ export const SiteHeader = () => {
 
       <div
         aria-hidden={!isMenuOpen}
-        className={`fixed inset-0 -z-10 bg-[#121211]/92 backdrop-blur-md transition-[opacity,visibility] duration-300 lg:hidden ${isMenuOpen ? "visible opacity-100" : "invisible opacity-0"}`}
+        className={`fixed inset-0 -z-10 bg-foreground transition-[opacity,visibility] duration-300 lg:hidden ${isMenuOpen ? "visible opacity-100" : "invisible opacity-0"}`}
         id="mobile-navigation"
       >
         <nav

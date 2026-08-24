@@ -108,7 +108,7 @@ export const CustomCursor = () => {
 
   const cursorClass =
     mode === "project"
-      ? "size-10 border-foreground/80 bg-white/90 text-[8px] font-medium tracking-[0.16em] text-foreground"
+      ? "size-10 border-foreground/80 bg-surface text-[8px] font-medium tracking-[0.16em] text-foreground"
       : "size-4 border-transparent bg-transparent text-foreground transition-transform duration-200 ease-out";
 
   return (

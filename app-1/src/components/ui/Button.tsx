@@ -5,7 +5,7 @@ type ButtonVariant = "primary" | "secondary" | "surface";
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "bg-primary text-primary-foreground transition-[background-color,color,transform] duration-300 hover:bg-accent hover:text-accent-foreground [&_svg]:transition-transform [&_svg]:duration-300 hover:[&_svg]:translate-x-1",
+    "bg-foreground text-background transition-[background-color,color,transform] duration-300 hover:bg-primary hover:text-primary-foreground [&_svg]:transition-transform [&_svg]:duration-300 hover:[&_svg]:translate-x-1",
   secondary: "border border-border/70 bg-transparent hover:bg-secondary",
   surface: "bg-background text-foreground hover:bg-secondary",
 };

@@ -26,7 +26,7 @@ export const Modal = ({
             <Dialog.Overlay asChild forceMount>
               <motion.div
                 animate={{ opacity: 1 }}
-                className="fixed inset-0 z-30 bg-foreground/10 backdrop-blur-sm"
+                className="fixed inset-0 z-30 bg-foreground/10"
                 exit={{ opacity: 0 }}
                 initial={{ opacity: 0 }}
                 transition={{ duration: reduceMotion ? 0 : 0.18 }}

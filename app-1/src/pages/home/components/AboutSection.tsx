@@ -6,10 +6,10 @@ export const AboutSection = () => {
   return (
     <section
       aria-labelledby="about-us-heading"
-      className="section-shell relative overflow-hidden bg-background"
+      className="section-shell grain-surface relative overflow-hidden bg-background"
       id="about-us"
     >
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-[radial-gradient(circle_at_70%_35%,rgba(216,196,161,0.08),transparent_55%)]" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-[radial-gradient(circle_at_70%_35%,rgba(216,195,154,0.08),transparent_55%)]" />
       <div className="section-grid relative">
         <div>
           <p className="font-mono text-xs tracking-[0.28em] text-primary uppercase">

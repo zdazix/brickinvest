@@ -8,7 +8,7 @@ export const ProjectsSection = () => {
   return (
     <section
       aria-labelledby="projects-heading"
-      className="section-shell relative overflow-hidden bg-background"
+      className="section-shell grain-surface relative overflow-hidden bg-surface"
       id="projects"
     >
       <div className="relative mx-auto max-w-[1600px]">

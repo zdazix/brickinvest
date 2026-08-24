@@ -6,10 +6,10 @@ export const WhyUsSection = () => {
   return (
     <section
       aria-labelledby="why-us-heading"
-      className="section-shell relative overflow-hidden bg-surface"
+      className="section-shell grain-surface relative overflow-hidden bg-surface"
       id="why-us"
     >
-      <div className="pointer-events-none absolute top-0 right-0 h-full w-1/2 bg-[linear-gradient(135deg,transparent_30%,rgba(216,196,161,0.045)_100%)]" />
+      <div className="pointer-events-none absolute top-0 right-0 h-full w-1/2 bg-[linear-gradient(135deg,transparent_30%,rgba(216,195,154,0.045)_100%)]" />
       <div className="section-grid relative">
         <div>
           <h2 className="section-title" id="why-us-heading">

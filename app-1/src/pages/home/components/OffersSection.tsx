@@ -17,7 +17,7 @@ export const OffersSection = () => {
   return (
     <section
       aria-labelledby="what-we-offer-heading"
-      className="section-shell relative overflow-hidden bg-background"
+      className="section-shell grain-surface relative overflow-hidden bg-background"
       id="what-we-offer"
     >
       <div className="relative mx-auto max-w-[1600px]">

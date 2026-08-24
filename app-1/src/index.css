@@ -2,23 +2,23 @@
 
 @theme {
   --color-*: initial;
-  --color-background: #f6f3ed;
-  --color-foreground: #242521;
-  --color-surface: #ffffff;
-  --color-surface-foreground: #242521;
-  --color-primary: #d8c4a1;
-  --color-primary-foreground: #242521;
-  --color-secondary: #ece8df;
-  --color-secondary-foreground: #242521;
-  --color-accent: #b99a6b;
-  --color-accent-foreground: #171716;
-  --color-muted: #eeeae2;
+  --color-background: #f7f5f0;
+  --color-foreground: #20211f;
+  --color-surface: #fcfbf8;
+  --color-surface-foreground: #20211f;
+  --color-primary: #c6a56b;
+  --color-primary-foreground: #20211f;
+  --color-secondary: #e8e3da;
+  --color-secondary-foreground: #20211f;
+  --color-accent: #d8c39a;
+  --color-accent-foreground: #20211f;
+  --color-muted: #f0ede7;
   --color-muted-foreground: #686860;
-  --color-border: #d8d1c5;
-  --color-ring: #d8c4a1;
+  --color-border: #d8c39a;
+  --color-ring: #c6a56b;
   --color-danger: #e17c70;
-  --color-danger-foreground: #ffffff;
-  --color-white: #ffffff;
+  --color-danger-foreground: #fcfbf8;
+  --color-white: #fcfbf8;
   --font-*: initial;
   --font-primary: "Cormorant Garamond", Georgia, serif;
   --font-secondary: Inter, "Helvetica Neue", Arial, sans-serif;
@@ -101,6 +101,11 @@
 
   .body-copy-muted {
     @apply max-w-[600px] text-[16px] leading-[1.6] text-muted-foreground sm:text-[17px];
+  }
+
+  .grain-surface {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");
+    background-blend-mode: multiply;
   }
 }
 
