@@ -317,7 +317,7 @@ export const SiteHeader = () => {
                     className="mt-7 inline-block text-lg tracking-[0.12em] text-primary transition-colors hover:text-foreground"
                     href="tel:+34695121585"
                   >
-                    695 121 585
+                    +34 695 1215 85
                   </a>
                   <button
                     className="mt-8 block w-full border border-foreground/25 px-5 py-3 text-[10px] font-medium tracking-[0.16em] text-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
