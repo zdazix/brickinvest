@@ -104,6 +104,16 @@
   }
 }
 
+@keyframes location-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -115,5 +125,10 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .location-marquee,
+  [class*="location-marquee"] {
+    animation-play-state: paused;
   }
 }

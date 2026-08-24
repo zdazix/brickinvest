@@ -6,11 +6,13 @@ import { ServicesSection } from "@/pages/home/components/ServicesSection";
 import { ProjectsSection } from "@/pages/home/components/ProjectsSection";
 import { InvestmentSolutionsSection } from "@/pages/home/components/InvestmentSolutionsSection";
 import { IntelligenceSection } from "@/pages/home/components/IntelligenceSection";
+import { LocationMarquee } from "@/pages/home/components/LocationMarquee";
 
 export const HomePage = () => (
   <>
     <HeroSection />
     <AboutSection />
+    <LocationMarquee />
     <WhyUsSection />
     <OffersSection />
     <ServicesSection />
