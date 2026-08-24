@@ -1,4 +1,3 @@
-import { useRouterState } from "@tanstack/react-router";
 import { ChevronDown, Globe2, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -26,10 +25,6 @@ export const SiteHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const { locale, setLocale, t } = useLocale();
-  const pathname = useRouterState({
-    select: (state) => state.location.pathname,
-  });
-  const isHome = pathname === "/";
 
   useEffect(() => {
     if (!isMenuOpen) return;
@@ -59,9 +54,7 @@ export const SiteHeader = () => {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <div
-      className={`fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-8 sm:pt-6 ${isHome ? "" : "border-b border-border/50 bg-background/95 backdrop-blur-sm"}`}
-    >
+    <div className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-white px-4 pt-4 shadow-sm shadow-foreground/5 sm:px-8 sm:pt-6">
       <header className="relative mx-auto flex max-w-[1600px] items-center justify-between gap-5 px-1 py-2 text-foreground">
         <a
           aria-label="BRICKINVEST home"
@@ -138,7 +131,7 @@ export const SiteHeader = () => {
           aria-controls="mobile-navigation"
           aria-expanded={isMenuOpen}
           aria-label={isMenuOpen ? t("closeMenu") : t("openMenu")}
-          className={`mr-auto grid size-11 place-items-center rounded-full border backdrop-blur-sm transition-colors lg:hidden ${isHome ? "bg-black/10 border-white/35 text-white hover:border-white/70 hover:bg-white/10" : "border-border bg-surface text-foreground hover:border-primary hover:bg-secondary"}`}
+          className="mr-auto grid size-11 place-items-center rounded-full border border-border bg-surface text-foreground transition-colors hover:border-primary hover:bg-secondary lg:hidden"
           onClick={() => setIsMenuOpen((open) => !open)}
           type="button"
         >
