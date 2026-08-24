@@ -28,14 +28,14 @@ export const ServicesSection = () => {
             </h2>
           </div>
           <div className="min-w-0">
-            <p className="body-copy mb-8">{t("servicesIntro")}</p>
+            <p className="body-copy mb-6">{t("servicesIntro")}</p>
             <div className="border-t border-primary/35">
               {services.map(([title, body], index) => (
                 <article
-                  className="grid gap-4 border-b border-primary/20 py-6 sm:grid-cols-[5rem_minmax(0,0.7fr)_minmax(0,1.3fr)] sm:items-start sm:gap-8"
+                  className="grid min-h-32 grid-cols-[4rem_minmax(0,0.7fr)_minmax(0,1.3fr)] items-start gap-7 border-b border-primary/20 py-8"
                   key={title}
                 >
-                  <p className="font-mono text-xs tracking-[0.18em] text-primary uppercase">
+                  <p className="pt-1 font-mono text-xs tracking-[0.18em] text-primary uppercase">
                     04.{String(index + 1).padStart(2, "0")}
                   </p>
                   <h3 className="min-w-0 font-primary text-3xl leading-tight text-foreground sm:text-4xl">
