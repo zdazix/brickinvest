@@ -26,7 +26,10 @@ export const ProfilePage = () => {
                 <img
                   alt="Customer profile placeholder"
                   className="size-40 rounded-full object-cover"
+                  decoding="async"
+                  height="160"
                   src={profileQuery.data.image}
+                  width="160"
                 />
               )}
               <IconButton

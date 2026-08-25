@@ -33,8 +33,11 @@ export const EditorialSection = ({ cards, image }: EditorialSectionProps) => (
             <img
               alt="Image placeholder"
               className={`aspect-[4/3] size-full rounded-[2rem] object-cover ${index === 1 ? "lg:order-2" : ""}`}
+              decoding="async"
+              height="675"
               loading="lazy"
               src={image}
+              width="900"
             />
             <div className={index === 1 ? "lg:order-1" : ""}>
               <p className="text-sm text-primary">{card.eyebrow}</p>

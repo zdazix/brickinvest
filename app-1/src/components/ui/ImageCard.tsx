@@ -12,8 +12,11 @@ export const ImageCard = ({ description, image, title }: ImageCardProps) => (
     <img
       alt="Image placeholder"
       className="aspect-[4/3] size-full rounded-[2rem] object-cover"
+      decoding="async"
+      height="675"
       loading="lazy"
       src={image}
+      width="900"
     />
     <h3 className="mt-5 text-2xl tracking-[-0.03em]">{title}</h3>
     <p className="mt-2 text-sm text-muted-foreground">{description}</p>

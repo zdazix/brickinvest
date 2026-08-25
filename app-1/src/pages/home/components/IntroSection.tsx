@@ -17,8 +17,11 @@ export const IntroSection = ({ features, image }: IntroSectionProps) => (
         <img
           alt="Image placeholder"
           className="aspect-[4/3] size-full rounded-[2rem] object-cover"
+          decoding="async"
+          height="675"
           loading="lazy"
           src={image}
+          width="900"
         />
         <div>
           <p className="text-sm text-primary">Section eyebrow</p>

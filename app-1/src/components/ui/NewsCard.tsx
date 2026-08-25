@@ -13,8 +13,11 @@ export const NewsCard = ({ article }: NewsCardProps) => (
     <img
       alt=""
       className="aspect-[4/3] w-full object-cover"
+      decoding="async"
+      height="675"
       loading="lazy"
       src={article.image}
+      width="900"
     />
     <div className="p-6 sm:p-7">
       <div className="flex justify-between gap-4 text-xs text-muted-foreground">

@@ -73,8 +73,11 @@ export const ReviewCarousel = ({ reviews }: ReviewCarouselProps) => {
                   <img
                     alt=""
                     className="size-14 rounded-full object-cover"
+                    decoding="async"
+                    height="56"
                     loading="lazy"
                     src={image}
+                    width="56"
                   />
                   <div>
                     <p className="text-sm font-semibold">{customer}</p>

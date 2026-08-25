@@ -1,15 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { MousePointer2 } from "lucide-react";
 
-type CursorPosition = {
-  x: number;
-  y: number;
-};
-
 const interactiveSelector =
   'a[href], button:not(:disabled), [role="button"], [role="menuitem"], input, textarea, select, label[for]';
 
 type CursorMode = "default" | "interactive" | "project";
+type CursorPosition = { x: number; y: number };
 
 export const CustomCursor = () => {
   const [position, setPosition] = useState<CursorPosition | null>(null);
@@ -17,6 +13,8 @@ export const CustomCursor = () => {
   const [enabled, setEnabled] = useState(false);
   const magneticTarget = useRef<HTMLElement | null>(null);
   const frame = useRef<number | null>(null);
+  const latestPointer = useRef<PointerEvent | null>(null);
+  const cursorRef = useRef<HTMLSpanElement | null>(null);
 
   useEffect(() => {
     const pointerQuery = window.matchMedia("(pointer: fine)");
@@ -40,13 +38,22 @@ export const CustomCursor = () => {
 
     document.documentElement.classList.add("custom-cursor-enabled");
     const handlePointerMove = (event: PointerEvent) => {
-      if (frame.current !== null) cancelAnimationFrame(frame.current);
+      latestPointer.current = event;
+      if (frame.current !== null) return;
       frame.current = requestAnimationFrame(() => {
-        setPosition({ x: event.clientX, y: event.clientY });
+        frame.current = null;
+        const pointer = latestPointer.current;
+        if (!pointer) return;
+        if (cursorRef.current) {
+          cursorRef.current.style.left = `${pointer.clientX}px`;
+          cursorRef.current.style.top = `${pointer.clientY}px`;
+        } else {
+          setPosition({ x: pointer.clientX, y: pointer.clientY });
+        }
 
         const element =
-          event.target instanceof Element
-            ? event.target.closest<HTMLElement>(
+          pointer.target instanceof Element
+            ? pointer.target.closest<HTMLElement>(
                 "[data-cursor-project], [data-cursor-magnetic], " +
                   interactiveSelector,
               )
@@ -66,24 +73,29 @@ export const CustomCursor = () => {
         if (magnetic) {
           const bounds = magnetic.getBoundingClientRect();
           const distance = Math.hypot(
-            event.clientX - (bounds.left + bounds.width / 2),
-            event.clientY - (bounds.top + bounds.height / 2),
+            pointer.clientX - (bounds.left + bounds.width / 2),
+            pointer.clientY - (bounds.top + bounds.height / 2),
           );
           const radius = 160;
           const strength = Math.max(0, 1 - distance / radius);
           const offsetX =
-            (event.clientX - (bounds.left + bounds.width / 2)) *
+            (pointer.clientX - (bounds.left + bounds.width / 2)) *
             0.08 *
             strength;
           const offsetY =
-            (event.clientY - (bounds.top + bounds.height / 2)) *
+            (pointer.clientY - (bounds.top + bounds.height / 2)) *
             0.08 *
             strength;
           magnetic.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
         }
 
-        setMode(
-          projectTarget ? "project" : element ? "interactive" : "default",
+        const nextMode = projectTarget
+          ? "project"
+          : element
+            ? "interactive"
+            : "default";
+        setMode((currentMode) =>
+          currentMode === nextMode ? currentMode : nextMode,
         );
       });
     };
@@ -100,6 +112,8 @@ export const CustomCursor = () => {
       document.removeEventListener("pointermove", handlePointerMove);
       document.removeEventListener("pointerleave", handlePointerLeave);
       if (frame.current !== null) cancelAnimationFrame(frame.current);
+      frame.current = null;
+      latestPointer.current = null;
       if (magneticTarget.current) magneticTarget.current.style.transform = "";
     };
   }, [enabled]);
@@ -115,6 +129,7 @@ export const CustomCursor = () => {
     <span
       aria-hidden="true"
       className={`pointer-events-none fixed z-[200] flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border transition-[left,top,width,height,transform,background-color,border-color] duration-200 ease-out ${mode === "interactive" ? "scale-110" : ""} ${cursorClass}`}
+      ref={cursorRef}
       style={{ left: position.x, top: position.y }}
     >
       {mode === "project" ? (
