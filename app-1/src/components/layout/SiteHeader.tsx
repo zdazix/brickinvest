@@ -2,6 +2,7 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import { useEffect, useState, type FormEvent } from "react";
 
 import { locales, useLocale, type LocaleKey } from "@/lib/i18n";
+import { trackEvent } from "@/lib/analytics";
 
 const navigation = [
   { label: "About Us", href: "#about", key: "about" },
@@ -44,6 +45,10 @@ export const SiteHeader = () => {
     setConsultationView("phone");
     setConsultationForm({ name: "", email: "", phone: "", message: "" });
     setConsultationError("");
+  };
+  const openConsultation = () => {
+    if (!isConsultationOpen) trackEvent("consultation_open");
+    setIsConsultationOpen(true);
   };
 
   useEffect(() => {
@@ -153,6 +158,7 @@ export const SiteHeader = () => {
       );
       if (!response.ok) throw new Error("The request could not be sent.");
       setConsultationView("success");
+      trackEvent("generate_lead", { lead_source: "consultation_modal" });
     } catch (error) {
       setConsultationError(
         error instanceof Error
@@ -207,6 +213,9 @@ export const SiteHeader = () => {
                     key={item.key}
                     onClick={() => {
                       setLocale(item.key as LocaleKey);
+                      if (item.key !== locale) {
+                        trackEvent("language_change", { language: item.key });
+                      }
                       setIsLanguageOpen(false);
                     }}
                     role="menuitemradio"
@@ -231,6 +240,9 @@ export const SiteHeader = () => {
               className={`relative py-2 text-center text-[13px] font-medium tracking-[0.035em] whitespace-nowrap transition-colors duration-250 after:absolute after:right-0 after:bottom-0 after:left-0 after:h-px after:origin-right after:bg-primary after:transition-transform after:duration-250 hover:text-foreground hover:after:origin-left hover:after:scale-x-100 ${activeSection === href.slice(1) ? "text-primary after:scale-x-100" : "text-foreground/80 after:scale-x-0"}`}
               href={href}
               key={href}
+              onClick={() =>
+                trackEvent("navigation_click", { destination: href })
+              }
             >
               {t(key)}
             </a>
@@ -246,7 +258,8 @@ export const SiteHeader = () => {
             className="text-[10px] font-medium tracking-[0.16em] text-foreground/55 uppercase transition-colors duration-250 hover:text-primary focus-visible:text-primary"
             onClick={(event) => {
               event.stopPropagation();
-              setIsConsultationOpen((open) => !open);
+              if (isConsultationOpen) closeConsultation();
+              else openConsultation();
             }}
             type="button"
           >
@@ -263,7 +276,8 @@ export const SiteHeader = () => {
             className="text-[10px] font-medium tracking-[0.12em] text-foreground/55 uppercase transition-colors duration-250 hover:text-primary focus-visible:text-primary"
             onClick={(event) => {
               event.stopPropagation();
-              setIsConsultationOpen((open) => !open);
+              if (isConsultationOpen) closeConsultation();
+              else openConsultation();
             }}
             type="button"
           >
@@ -302,7 +316,10 @@ export const SiteHeader = () => {
               className="border-b border-white/15 py-4 text-left text-2xl font-light tracking-[-0.02em] text-white transition-colors hover:text-primary focus-visible:text-primary sm:text-3xl"
               href={href}
               key={href}
-              onClick={closeMenu}
+              onClick={() => {
+                trackEvent("navigation_click", { destination: href });
+                closeMenu();
+              }}
             >
               {t(key)}
             </a>
@@ -346,12 +363,16 @@ export const SiteHeader = () => {
                   <a
                     className="mt-7 inline-block text-lg tracking-[0.12em] text-primary transition-colors hover:text-foreground"
                     href="tel:+34695121585"
+                    onClick={() => trackEvent("phone_click")}
                   >
                     +34 695 1215 85
                   </a>
                   <button
                     className="mt-8 block w-full border border-foreground/25 px-5 py-3 text-[10px] font-medium tracking-[0.16em] text-foreground transition-[background-color,border-color,color,transform] duration-250 ease-out hover:border-primary hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 active:translate-y-px"
-                    onClick={() => setConsultationView("form")}
+                    onClick={() => {
+                      trackEvent("consultation_form_open");
+                      setConsultationView("form");
+                    }}
                     type="button"
                   >
                     LEAVE A REQUEST

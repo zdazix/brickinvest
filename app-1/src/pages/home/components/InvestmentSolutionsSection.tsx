@@ -3,6 +3,7 @@ import { useState, type FormEvent } from "react";
 import { ArrowUpRight } from "lucide-react";
 
 import { useLocale } from "@/lib/i18n";
+import { trackEvent } from "@/lib/analytics";
 
 export const InvestmentSolutionsSection = () => {
   const { t } = useLocale();
@@ -46,6 +47,7 @@ export const InvestmentSolutionsSection = () => {
         throw new Error(details?.error?.message || t("requestFailed"));
       }
       setStatus("success");
+      trackEvent("generate_lead", { lead_source: "investment_solutions" });
     } catch (submissionError) {
       setStatus("idle");
       setError(

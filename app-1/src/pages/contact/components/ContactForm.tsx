@@ -1,5 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { useEffect } from "react";
 
 import { TextAreaField, TextField } from "@/components/ui/FormControls";
 import { Button } from "@/components/ui/Button";
@@ -8,6 +9,7 @@ import {
   contactSchema,
   type ContactFormValues,
 } from "@/pages/contact/contact-schema";
+import { trackEvent } from "@/lib/analytics";
 
 export const ContactForm = () => {
   const {
@@ -20,6 +22,12 @@ export const ContactForm = () => {
     defaultValues: { name: "", email: "", subject: "", message: "" },
   });
   const contactMutation = useContactMutation(() => reset());
+
+  useEffect(() => {
+    if (contactMutation.isSuccess) {
+      trackEvent("generate_lead", { lead_source: "contact_form" });
+    }
+  }, [contactMutation.isSuccess]);
 
   const submitForm = (values: ContactFormValues) => {
     contactMutation.mutate(values);

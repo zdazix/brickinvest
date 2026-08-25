@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { ArrowUpRight, ChevronLeft, X } from "lucide-react";
 
 import { useLocale } from "@/lib/i18n";
+import { trackEvent } from "@/lib/analytics";
 
 const questions = [
   [
@@ -125,6 +126,8 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
       );
       if (!response.ok) throw new Error("Request failed");
       setStatus("success");
+      trackEvent("quiz_complete");
+      trackEvent("generate_lead", { lead_source: "hero_quiz" });
     } catch {
       setError(t("failed"));
       setStatus("idle");
@@ -213,7 +216,10 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                         ? !(answers[step] as string[] | undefined)?.length
                         : !answers[step]
                     }
-                    onClick={() => setStep((current) => current + 1)}
+                    onClick={() => {
+                      trackEvent("quiz_step_complete", { step: step + 1 });
+                      setStep((current) => current + 1);
+                    }}
                     type="button"
                   >
                     CONTINUE
@@ -305,8 +311,12 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
 export const HeroSection = () => {
   const { t } = useLocale();
   const [quizOpen, setQuizOpen] = useState(false);
+  const openQuiz = () => {
+    trackEvent("quiz_start");
+    setQuizOpen(true);
+  };
   useEffect(() => {
-    const open = () => setQuizOpen(true);
+    const open = () => openQuiz();
     window.addEventListener("open-investor-quiz", open);
     return () => {
       window.removeEventListener("open-investor-quiz", open);
@@ -328,7 +338,10 @@ export const HeroSection = () => {
           <button
             className="group mt-8 flex w-fit items-center gap-4 border border-foreground bg-foreground px-7 py-4 text-xs font-semibold tracking-[0.14em] text-background transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 active:translate-y-px sm:mt-10"
             data-cursor-magnetic
-            onClick={() => setQuizOpen(true)}
+            onClick={() => {
+              trackEvent("hero_advice_click");
+              openQuiz();
+            }}
           >
             <span>REQUEST EXCLUSIVE ADVICE</span>
             <ArrowUpRight className="size-4 transition-transform duration-250 ease-out group-hover:translate-x-1" />

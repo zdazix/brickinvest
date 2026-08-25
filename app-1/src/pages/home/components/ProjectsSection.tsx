@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { useLocale } from "@/lib/i18n";
+import { trackEvent } from "@/lib/analytics";
 
 const projectKeys = ["plots", "renovation", "newDevelopment"] as const;
 
@@ -40,6 +41,12 @@ export const ProjectsSection = () => {
                 className="group relative grid min-h-36 w-full grid-cols-[5rem_minmax(0,1fr)_2.5rem] items-center gap-7 overflow-hidden border-b border-primary/20 px-0 py-8 text-left transition-colors hover:bg-secondary focus-visible:bg-secondary sm:min-h-40"
                 data-cursor-project
                 key={key}
+                onClick={() => {
+                  trackEvent("project_category_view", {
+                    category:
+                      key === "newDevelopment" ? "new_development" : key,
+                  });
+                }}
                 onBlur={() => setActiveProject(null)}
                 onFocus={() => setActiveProject(key)}
                 onMouseEnter={() => setActiveProject(key)}
