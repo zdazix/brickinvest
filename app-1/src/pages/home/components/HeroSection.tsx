@@ -343,7 +343,7 @@ export const HeroSection = () => {
               openQuiz();
             }}
           >
-            <span>REQUEST EXCLUSIVE ADVICE</span>
+            <span>REQUEST EXCLUSIVE OFFER</span>
             <ArrowUpRight className="size-4 transition-transform duration-250 ease-out group-hover:translate-x-1" />
           </button>
         </div>
