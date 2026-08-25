@@ -1,5 +1,3 @@
-import { Link } from "@tanstack/react-router";
-
 import { PageIntro } from "@/components/ui/PageIntro";
 import { Loader } from "@/components/ui/Loader";
 import { usePrivacyQuery } from "@/features/privacy/queries";
@@ -14,20 +12,17 @@ export const PrivacyPage = () => {
     >
       <div className="mx-auto max-w-7xl">
         <PageIntro
-          description="A clear, readable policy structure ready to be replaced with reviewed legal copy before launch."
-          title="Privacy policy."
+          description="How BRICKINVEST handles personal information when you use this website or contact the team."
+          title="BRICKINVEST Privacy Policy"
         />
         <aside className="mt-14 flex flex-col gap-5 rounded-[2rem] bg-secondary p-7 text-secondary-foreground sm:flex-row sm:items-center sm:justify-between sm:p-9">
           <div className="max-w-2xl">
-            <p className="font-semibold">Before publishing</p>
+            <p className="font-semibold">Draft for review</p>
             <p className="mt-2 leading-7 opacity-70">
-              Replace every section with counsel-reviewed language that matches
-              the product’s real data practices.
+              Bracketed placeholders must be completed and this policy requires
+              legal and operational review before publication.
             </p>
           </div>
-          <Link className="shrink-0 font-semibold text-primary" to="/contact">
-            Ask a privacy question
-          </Link>
         </aside>
         <article className="mx-auto mt-10 max-w-7xl rounded-[2rem] border border-border/50 bg-surface px-6 shadow-sm shadow-foreground/5 sm:px-10">
           {privacyQuery.isError ? (

@@ -6,8 +6,10 @@ describe("privacy API", () => {
   it("returns the ordered privacy-policy sections", async () => {
     const response = await getPrivacySections(new AbortController().signal);
 
-    expect(response.data).toHaveLength(6);
-    expect(response.data[0]?.title).toBe("Information we collect");
-    expect(response.data.at(-1)?.title).toBe("Contact");
+    expect(response.data).toHaveLength(10);
+    expect(response.data[0]?.title).toBe("1. Controller identity");
+    expect(response.data.at(-1)?.title).toBe(
+      "10. Complaints, updates, and contact",
+    );
   });
 });
