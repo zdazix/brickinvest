@@ -4,10 +4,10 @@ import { useEffect, useState, type FormEvent } from "react";
 import { locales, useLocale, type LocaleKey } from "@/lib/i18n";
 
 const navigation = [
-  { label: "About Us", href: "#about-us", key: "about" },
+  { label: "About Us", href: "#about", key: "about" },
   { label: "Why Us", href: "#why-us", key: "why" },
   { label: "What We Offer", href: "#what-we-offer", key: "offer" },
-  { label: "Our Services", href: "#our-services", key: "services" },
+  { label: "Our Services", href: "#services", key: "services" },
   { label: "Projects", href: "#projects", key: "projects" },
   {
     label: "Investment Solutions",
@@ -16,7 +16,7 @@ const navigation = [
   },
   {
     label: "AI & Data Intelligence",
-    href: "#ai-data-intelligence",
+    href: "#ai-data",
     key: "intelligence",
   },
 ];

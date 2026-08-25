@@ -9,7 +9,7 @@ import { IntelligenceSection } from "@/pages/home/components/IntelligenceSection
 import { LocationMarquee } from "@/pages/home/components/LocationMarquee";
 
 export const HomePage = () => (
-  <>
+  <main id="main-content">
     <HeroSection />
     <AboutSection />
     <LocationMarquee />
@@ -19,5 +19,5 @@ export const HomePage = () => (
     <ProjectsSection />
     <InvestmentSolutionsSection />
     <IntelligenceSection />
-  </>
+  </main>
 );

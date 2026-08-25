@@ -313,7 +313,7 @@ export const HeroSection = () => {
     };
   }, []);
   return (
-    <main id="main-content">
+    <>
       <section
         className="grain-surface relative flex items-start overflow-hidden bg-background"
         id="opportunities"
@@ -336,6 +336,6 @@ export const HeroSection = () => {
         </div>
       </section>
       {quizOpen && <InvestorQuiz onClose={() => setQuizOpen(false)} />}
-    </main>
+    </>
   );
 };

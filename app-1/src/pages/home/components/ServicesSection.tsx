@@ -13,15 +13,15 @@ export const ServicesSection = () => {
 
   return (
     <section
-      aria-labelledby="our-services-heading"
+      aria-labelledby="services-heading"
       className="section-shell grain-surface relative overflow-hidden bg-secondary"
-      id="our-services"
+      id="services"
     >
       <div className="relative mx-auto max-w-[1600px]">
         <div className="section-grid">
           <div className="min-w-0">
             <p className="section-number">04</p>
-            <h2 className="section-title" id="our-services-heading">
+            <h2 className="section-title" id="services-heading">
               {t("servicesHeading")}
             </h2>
           </div>

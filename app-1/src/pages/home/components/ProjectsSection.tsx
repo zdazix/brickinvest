@@ -53,7 +53,7 @@ export const ProjectsSection = () => {
                   {t(key)}
                 </span>
                 <img
-                  alt=""
+                  alt={t(key)}
                   className={`absolute top-1/2 right-16 z-0 h-28 w-44 -translate-y-1/2 object-cover opacity-0 grayscale transition-[opacity,filter] duration-500 ease-out group-hover:opacity-100 group-hover:grayscale-0 sm:right-24 sm:h-32 sm:w-56 ${activeProject === key ? "opacity-100 grayscale-0" : ""}`}
                   src={projectImages[key]}
                 />
