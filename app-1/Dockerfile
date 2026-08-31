@@ -39,9 +39,11 @@ FROM ghcr.io/static-web-server/static-web-server:2.41.0-alpine@sha256:58e12f1502
 ENV SERVER_FALLBACK_PAGE=/app/dist/index.html
 ENV SERVER_HEALTH=true
 ENV SERVER_HOST=0.0.0.0
-ENV SERVER_PORT=3000
 ENV SERVER_ROOT=/app/dist
 
 COPY --from=build --chown=65532:65532 /app/dist /app/dist
 
 USER 65532:65532
+
+ENTRYPOINT []
+CMD ["sh", "-c", "exec static-web-server --port \"$PORT\""]
