@@ -1,5 +1,6 @@
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useEffect, useState, type FormEvent } from "react";
+import { useRouterState } from "@tanstack/react-router";
 
 import { locales, useLocale, type LocaleKey } from "@/lib/i18n";
 import { trackEvent } from "@/lib/analytics";
@@ -23,6 +24,10 @@ const navigation = [
 ];
 
 export const SiteHeader = () => {
+  const pathname = useRouterState({
+    select: (state) => state.location.pathname,
+  });
+  const isHome = pathname === "/";
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
@@ -172,13 +177,15 @@ export const SiteHeader = () => {
 
   return (
     <div
-      className={`fixed inset-x-0 top-0 z-50 border-b bg-surface px-4 pt-4 sm:px-8 sm:pt-6 ${isScrolled ? "border-primary/30" : "border-border/60"}`}
+      className={`fixed inset-x-0 top-0 z-50 border-b px-4 pt-4 transition-[background-color,border-color,backdrop-filter] duration-300 sm:px-8 sm:pt-6 ${isHome ? (isScrolled ? "border-white/15 bg-foreground/60 backdrop-blur-sm" : "border-transparent bg-transparent") : `bg-surface ${isScrolled ? "border-primary/30" : "border-border/60"}`}`}
     >
-      <header className="relative mx-auto flex max-w-[1600px] items-center justify-between gap-3 px-1 py-2 text-foreground lg:gap-4 xl:gap-5">
+      <header
+        className={`relative mx-auto flex max-w-[1600px] items-center justify-between gap-3 px-1 py-2 lg:gap-4 xl:gap-5 ${isHome ? "text-white" : "text-foreground"}`}
+      >
         <div className="hidden shrink-0 items-center gap-6 lg:flex">
           <a
             aria-label="BRICKINVEST home"
-            className="font-secondary text-[1.55rem] font-semibold tracking-[-0.065em] transition-colors hover:text-primary"
+            className={`font-secondary text-[1.55rem] font-semibold tracking-[-0.065em] transition-colors hover:text-primary ${isHome ? "text-white" : ""}`}
             href="/"
           >
             BRICKINVEST
@@ -188,7 +195,7 @@ export const SiteHeader = () => {
               aria-expanded={isLanguageOpen}
               aria-haspopup="menu"
               aria-label={t("openLanguage")}
-              className="flex items-center gap-1.5 px-0.5 py-2 text-[11px] tracking-[0.1em] text-foreground/70 transition-colors hover:text-primary focus-visible:text-primary"
+              className={`flex items-center gap-1.5 px-0.5 py-2 text-[11px] tracking-[0.1em] transition-colors hover:text-primary focus-visible:text-primary ${isHome ? "text-white/80" : "text-foreground/70"}`}
               onClick={(event) => {
                 event.stopPropagation();
                 setIsLanguageOpen((open) => !open);
@@ -237,7 +244,7 @@ export const SiteHeader = () => {
         >
           {navigation.map(({ href, key }) => (
             <a
-              className={`relative py-2 text-center text-[13px] font-medium tracking-[0.035em] whitespace-nowrap transition-colors duration-250 after:absolute after:right-0 after:bottom-0 after:left-0 after:h-px after:origin-right after:bg-primary after:transition-transform after:duration-250 hover:text-foreground hover:after:origin-left hover:after:scale-x-100 ${activeSection === href.slice(1) ? "text-primary after:scale-x-100" : "text-foreground/80 after:scale-x-0"}`}
+              className={`relative py-2 text-center text-[13px] font-medium tracking-[0.035em] whitespace-nowrap transition-colors duration-250 after:absolute after:right-0 after:bottom-0 after:left-0 after:h-px after:origin-right after:bg-primary after:transition-transform after:duration-250 hover:after:origin-left hover:after:scale-x-100 ${activeSection === href.slice(1) ? "text-primary after:scale-x-100" : isHome ? "text-white/85 after:scale-x-0 hover:text-white" : "text-foreground/80 after:scale-x-0 hover:text-foreground"}`}
               href={href}
               key={href}
               onClick={() =>
@@ -255,7 +262,7 @@ export const SiteHeader = () => {
         >
           <button
             aria-expanded={isConsultationOpen}
-            className="text-[10px] font-medium tracking-[0.16em] text-foreground/55 uppercase transition-colors duration-250 hover:text-primary focus-visible:text-primary"
+            className={`text-[10px] font-medium tracking-[0.16em] uppercase transition-colors duration-250 hover:text-primary focus-visible:text-primary ${isHome ? "text-white/75" : "text-foreground/55"}`}
             onClick={(event) => {
               event.stopPropagation();
               if (isConsultationOpen) closeConsultation();
@@ -273,7 +280,7 @@ export const SiteHeader = () => {
         >
           <button
             aria-expanded={isConsultationOpen}
-            className="text-[10px] font-medium tracking-[0.12em] text-foreground/55 uppercase transition-colors duration-250 hover:text-primary focus-visible:text-primary"
+            className={`text-[10px] font-medium tracking-[0.12em] uppercase transition-colors duration-250 hover:text-primary focus-visible:text-primary ${isHome ? "text-white/75" : "text-foreground/55"}`}
             onClick={(event) => {
               event.stopPropagation();
               if (isConsultationOpen) closeConsultation();
@@ -289,7 +296,7 @@ export const SiteHeader = () => {
           aria-controls="mobile-navigation"
           aria-expanded={isMenuOpen}
           aria-label={isMenuOpen ? t("closeMenu") : t("openMenu")}
-          className="mr-auto grid size-11 place-items-center rounded-full border border-border bg-surface text-foreground transition-colors hover:border-primary hover:bg-secondary lg:hidden"
+          className={`mr-auto grid size-11 place-items-center rounded-full border transition-colors hover:border-primary lg:hidden ${isHome ? "border-white/55 bg-transparent text-white hover:bg-white/10" : "border-border bg-surface text-foreground hover:bg-secondary"}`}
           onClick={() => setIsMenuOpen((open) => !open)}
           type="button"
         >
