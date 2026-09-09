@@ -321,7 +321,11 @@ export const HeroSection = () => {
   const { t } = useLocale();
   const [quizOpen, setQuizOpen] = useState(false);
   const [activeVideoIndex, setActiveVideoIndex] = useState(0);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const [activeVideoSlot, setActiveVideoSlot] = useState<0 | 1>(0);
+  const videoRefs = useRef<[HTMLVideoElement | null, HTMLVideoElement | null]>([
+    null,
+    null,
+  ]);
   const openQuiz = () => {
     trackEvent("quiz_start");
     setQuizOpen(true);
@@ -335,7 +339,7 @@ export const HeroSection = () => {
   }, []);
 
   useEffect(() => {
-    const video = videoRef.current;
+    const video = videoRefs.current[activeVideoSlot];
     if (!video) return;
 
     const startPlayback = () => {
@@ -345,30 +349,31 @@ export const HeroSection = () => {
       });
     };
 
-    video.pause();
-    video.load();
     if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
       startPlayback();
-    } else {
-      video.addEventListener("canplay", startPlayback, { once: true });
+      return;
     }
+    video.addEventListener("canplay", startPlayback, { once: true });
+    return () => video.removeEventListener("canplay", startPlayback);
+  }, [activeVideoIndex, activeVideoSlot]);
 
-    return () => {
-      video.removeEventListener("canplay", startPlayback);
-      video.pause();
-    };
-  }, [activeVideoIndex]);
+  const handleVideoEnded = (slot: 0 | 1) => {
+    if (slot !== activeVideoSlot) return;
 
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
+    const nextSlot = (slot === 0 ? 1 : 0) as 0 | 1;
+    const nextIndex = (activeVideoIndex + 1) % heroVideos.length;
+    const nextVideo = videoRefs.current[nextSlot];
 
-    const handleEnded = () => {
-      setActiveVideoIndex((current) => (current + 1) % heroVideos.length);
-    };
-    video.addEventListener("ended", handleEnded);
-    return () => video.removeEventListener("ended", handleEnded);
-  }, []);
+    // Switch visibility immediately at the boundary. Waiting for `canplay`
+    // here would leave the ended video visible as a frozen stop-frame.
+    setActiveVideoIndex(nextIndex);
+    setActiveVideoSlot(nextSlot);
+    void nextVideo?.play().catch(() => {
+      // The muted video can still start after a browser permits autoplay.
+    });
+  };
+
+  const nextVideoIndex = (activeVideoIndex + 1) % heroVideos.length;
 
   return (
     <>
@@ -376,16 +381,26 @@ export const HeroSection = () => {
         className="grain-surface relative flex min-h-[min(72dvh,780px)] items-start overflow-hidden bg-[#75847d]"
         id="opportunities"
       >
-        <video
-          aria-hidden="true"
-          autoPlay
-          className="absolute inset-0 size-full object-cover"
-          muted
-          playsInline
-          poster="/images/placeholder.svg"
-          ref={videoRef}
-          src={heroVideos[activeVideoIndex]}
-        />
+        {[0, 1].map((slot) => {
+          const videoSlot = slot as 0 | 1;
+          const isActive = videoSlot === activeVideoSlot;
+          return (
+            <video
+              aria-hidden="true"
+              autoPlay={isActive}
+              className={`absolute inset-0 size-full object-cover ${isActive ? "opacity-100" : "pointer-events-none opacity-0"}`}
+              key={videoSlot}
+              muted
+              playsInline
+              preload="auto"
+              ref={(video) => {
+                videoRefs.current[videoSlot] = video;
+              }}
+              src={heroVideos[isActive ? activeVideoIndex : nextVideoIndex]}
+              onEnded={() => handleVideoEnded(videoSlot)}
+            />
+          );
+        })}
         <div aria-hidden="true" className="absolute inset-0 bg-[#14201c]/55" />
         <div className="relative z-10 mx-auto flex w-full max-w-[1600px] flex-col items-center px-6 pt-20 pb-10 text-center text-white sm:px-12 sm:pt-24 sm:pb-12 lg:px-20">
           <h1 className="mt-4 max-w-4xl font-primary text-[clamp(3.25rem,7vw,6.5rem)] leading-[0.98] tracking-[-0.045em] sm:mt-5">
