@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, ChevronLeft, X } from "lucide-react";
 
 import { useLocale } from "@/lib/i18n";
@@ -57,6 +57,15 @@ const questionKeys = [
   "locations",
   "timing",
 ] as const;
+
+const heroVideos = [
+  "/videos/magnific_aerial-cinematic-drone-sh_nTOrDQ7YQD.mp4",
+  "/videos/magnific_ultrapremium-cinematic-dr_BmGykOSoQR.mp4",
+  "/videos/document_5780418083629833885.mp4",
+  "/videos/magnific_cinematic-homepage-hero-v_LUCdBU3swO.mp4",
+  "/videos/magnific_premium-travel-commercial_rlvDQLExtc.mp4",
+] as const;
+
 type Answers = Record<number, string | string[]> & {
   objective?: string;
   budget?: string;
@@ -311,6 +320,8 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
 export const HeroSection = () => {
   const { t } = useLocale();
   const [quizOpen, setQuizOpen] = useState(false);
+  const [activeVideoIndex, setActiveVideoIndex] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const openQuiz = () => {
     trackEvent("quiz_start");
     setQuizOpen(true);
@@ -322,6 +333,43 @@ export const HeroSection = () => {
       window.removeEventListener("open-investor-quiz", open);
     };
   }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const startPlayback = () => {
+      void video.play().catch(() => {
+        // Browsers may block autoplay until a user gesture; the video remains
+        // ready to play when the browser permits it.
+      });
+    };
+
+    video.pause();
+    video.load();
+    if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+      startPlayback();
+    } else {
+      video.addEventListener("canplay", startPlayback, { once: true });
+    }
+
+    return () => {
+      video.removeEventListener("canplay", startPlayback);
+      video.pause();
+    };
+  }, [activeVideoIndex]);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const handleEnded = () => {
+      setActiveVideoIndex((current) => (current + 1) % heroVideos.length);
+    };
+    video.addEventListener("ended", handleEnded);
+    return () => video.removeEventListener("ended", handleEnded);
+  }, []);
+
   return (
     <>
       <section
@@ -332,11 +380,11 @@ export const HeroSection = () => {
           aria-hidden="true"
           autoPlay
           className="absolute inset-0 size-full object-cover"
-          loop
           muted
           playsInline
           poster="/images/placeholder.svg"
-          src="/videos/magnific_aerial-cinematic-drone-sh_nTOrDQ7YQD.mp4"
+          ref={videoRef}
+          src={heroVideos[activeVideoIndex]}
         />
         <div aria-hidden="true" className="absolute inset-0 bg-[#14201c]/55" />
         <div className="relative z-10 mx-auto flex w-full max-w-[1600px] flex-col items-center px-6 pt-20 pb-10 text-center text-white sm:px-12 sm:pt-24 sm:pb-12 lg:px-20">
