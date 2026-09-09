@@ -325,18 +325,29 @@ export const HeroSection = () => {
   return (
     <>
       <section
-        className="grain-surface relative flex items-start overflow-hidden bg-background"
+        className="grain-surface relative flex min-h-[min(72dvh,780px)] items-start overflow-hidden bg-[#75847d]"
         id="opportunities"
       >
-        <div className="mx-auto flex w-full max-w-[1600px] flex-col items-center px-6 pt-20 pb-10 text-center text-foreground sm:px-12 sm:pt-24 sm:pb-12 lg:px-20">
+        <video
+          aria-hidden="true"
+          autoPlay
+          className="absolute inset-0 size-full object-cover"
+          loop
+          muted
+          playsInline
+          poster="/images/placeholder.svg"
+          src="/videos/magnific_aerial-cinematic-drone-sh_nTOrDQ7YQD.mp4"
+        />
+        <div aria-hidden="true" className="absolute inset-0 bg-[#14201c]/55" />
+        <div className="relative z-10 mx-auto flex w-full max-w-[1600px] flex-col items-center px-6 pt-20 pb-10 text-center text-white sm:px-12 sm:pt-24 sm:pb-12 lg:px-20">
           <h1 className="mt-4 max-w-4xl font-primary text-[clamp(3.25rem,7vw,6.5rem)] leading-[0.98] tracking-[-0.045em] sm:mt-5">
             {t("trusted")}
           </h1>
-          <p className="mt-7 max-w-2xl text-sm tracking-[0.16em] text-accent uppercase sm:text-lg">
+          <p className="mt-7 max-w-2xl text-sm tracking-[0.16em] text-white/85 uppercase sm:text-lg">
             {t("highRoi")}
           </p>
           <button
-            className="group mt-8 flex w-fit items-center gap-4 border border-foreground bg-foreground px-7 py-4 text-xs font-semibold tracking-[0.14em] text-background transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 active:translate-y-px sm:mt-10"
+            className="group mt-8 flex w-fit items-center gap-4 border border-white bg-white px-7 py-4 text-xs font-semibold tracking-[0.14em] text-foreground transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 active:translate-y-px sm:mt-10"
             data-cursor-magnetic
             onClick={() => {
               trackEvent("hero_advice_click");
