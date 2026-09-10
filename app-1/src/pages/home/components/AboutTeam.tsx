@@ -18,7 +18,11 @@ export const AboutTeam = () => {
               <img
                 alt=""
                 className={`h-full w-full object-cover ${
-                  index === 5 ? "scale-[1.12] object-[50%_28%]" : ""
+                  index === 0
+                    ? "object-[50%_50%]"
+                    : index === 5
+                      ? "scale-[1.12] object-[50%_28%]"
+                      : ""
                 }`}
                 loading="lazy"
                 src={image}
