@@ -1,9 +1,9 @@
 const teamImages = [
-  "/images/team/team-01.jpg",
-  "/images/team/team-02.jpg",
-  "/images/team/team-03.jpg",
-  "/images/team/team-04.jpg",
-  "/images/team/team-05.jpg",
+  "/images/team/team-01.png",
+  "/images/team/team-02.png",
+  "/images/team/team-03.png",
+  "/images/team/team-04.png",
+  "/images/team/team-05.png",
   "/images/team/team-06.png",
 ];
 
