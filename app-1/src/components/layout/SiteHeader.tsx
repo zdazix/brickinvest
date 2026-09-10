@@ -185,7 +185,7 @@ export const SiteHeader = () => {
         <div className="hidden shrink-0 items-center gap-6 lg:flex">
           <a
             aria-label="BRICKINVEST home"
-            className={`font-secondary text-[1.55rem] font-semibold tracking-[-0.065em] transition-colors hover:text-primary ${isHome ? "text-white" : ""}`}
+            className={`font-secondary text-[1.55rem] font-bold tracking-[-0.065em] transition-colors hover:text-primary ${isHome ? "text-white" : ""}`}
             href="/"
           >
             BRICKINVEST
@@ -195,7 +195,7 @@ export const SiteHeader = () => {
               aria-expanded={isLanguageOpen}
               aria-haspopup="menu"
               aria-label={t("openLanguage")}
-              className={`flex items-center gap-1.5 px-0.5 py-2 text-[11px] tracking-[0.1em] transition-colors hover:text-primary focus-visible:text-primary ${isHome ? "text-white/80" : "text-foreground/70"}`}
+              className={`flex items-center gap-1.5 px-0.5 py-2 text-[11px] font-semibold tracking-[0.1em] transition-colors hover:text-primary focus-visible:text-primary ${isHome ? "text-white/80" : "text-foreground/70"}`}
               onClick={(event) => {
                 event.stopPropagation();
                 setIsLanguageOpen((open) => !open);
@@ -244,7 +244,7 @@ export const SiteHeader = () => {
         >
           {navigation.map(({ href, key }) => (
             <a
-              className={`relative py-2 text-center text-[13px] font-medium tracking-[0.035em] whitespace-nowrap transition-colors duration-250 after:absolute after:right-0 after:bottom-0 after:left-0 after:h-px after:origin-right after:bg-primary after:transition-transform after:duration-250 hover:after:origin-left hover:after:scale-x-100 ${activeSection === href.slice(1) ? "text-primary after:scale-x-100" : isHome ? "text-white/85 after:scale-x-0 hover:text-white" : "text-foreground/80 after:scale-x-0 hover:text-foreground"}`}
+              className={`relative py-2 text-center text-[13px] font-semibold tracking-[0.035em] whitespace-nowrap transition-colors duration-250 after:absolute after:right-0 after:bottom-0 after:left-0 after:h-px after:origin-right after:bg-primary after:transition-transform after:duration-250 hover:after:origin-left hover:after:scale-x-100 ${activeSection === href.slice(1) ? "text-primary after:scale-x-100" : isHome ? "text-white/85 after:scale-x-0 hover:text-white" : "text-foreground/80 after:scale-x-0 hover:text-foreground"}`}
               href={href}
               key={href}
               onClick={() =>
@@ -257,13 +257,13 @@ export const SiteHeader = () => {
         </nav>
 
         <div
-          className="relative hidden shrink-0 flex-col items-end leading-tight lg:flex"
+          className="relative hidden shrink-0 items-end leading-tight lg:flex"
           data-consultation
         >
           <button
             aria-expanded={isConsultationOpen}
             aria-label="Request consultation"
-            className={`grid size-9 place-items-center rounded-full transition-colors duration-250 hover:bg-primary/10 hover:text-primary focus-visible:bg-primary/10 focus-visible:text-primary focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:outline-none ${isHome ? "text-white/80" : "text-foreground/65"}`}
+            className={`flex items-center gap-2 rounded-full px-2 py-2 text-[11px] font-bold tracking-[0.08em] whitespace-nowrap transition-colors duration-250 hover:bg-primary/10 hover:text-primary focus-visible:bg-primary/10 focus-visible:text-primary focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:outline-none ${isHome ? "text-white/80" : "text-foreground/65"}`}
             onClick={(event) => {
               event.stopPropagation();
               if (isConsultationOpen) closeConsultation();
@@ -277,17 +277,18 @@ export const SiteHeader = () => {
               className="size-[18px]"
               strokeWidth={1.6}
             />
+            <span>REQUEST CONSULTATION</span>
           </button>
         </div>
 
         <div
-          className="relative order-2 flex flex-col items-end leading-tight lg:hidden"
+          className="relative order-2 flex items-end leading-tight lg:hidden"
           data-consultation
         >
           <button
             aria-expanded={isConsultationOpen}
             aria-label="Request consultation"
-            className={`grid size-9 place-items-center rounded-full transition-colors duration-250 hover:bg-primary/10 hover:text-primary focus-visible:bg-primary/10 focus-visible:text-primary focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:outline-none ${isHome ? "text-white/80" : "text-foreground/65"}`}
+            className={`flex items-center gap-1.5 rounded-full px-1.5 py-2 text-[9px] font-bold tracking-[0.05em] whitespace-nowrap transition-colors duration-250 hover:bg-primary/10 hover:text-primary focus-visible:bg-primary/10 focus-visible:text-primary focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:outline-none ${isHome ? "text-white/80" : "text-foreground/65"}`}
             onClick={(event) => {
               event.stopPropagation();
               if (isConsultationOpen) closeConsultation();
@@ -298,9 +299,10 @@ export const SiteHeader = () => {
           >
             <ConciergeBell
               aria-hidden="true"
-              className="size-[18px]"
-              strokeWidth={1.6}
+              className="size-[17px]"
+              strokeWidth={1.9}
             />
+            <span>REQUEST CONSULTATION</span>
           </button>
         </div>
 
@@ -308,14 +310,14 @@ export const SiteHeader = () => {
           aria-controls="mobile-navigation"
           aria-expanded={isMenuOpen}
           aria-label={isMenuOpen ? t("closeMenu") : t("openMenu")}
-          className={`order-1 ml-auto grid size-11 place-items-center rounded-full border transition-colors hover:border-primary lg:hidden ${isHome ? "border-white/55 bg-transparent text-white hover:bg-white/10" : "border-border bg-surface text-foreground hover:bg-secondary"}`}
+          className={`order-1 ml-auto grid size-11 place-items-center rounded-full border font-bold transition-colors hover:border-primary lg:hidden ${isHome ? "border-white/55 bg-transparent text-white hover:bg-white/10" : "border-border bg-surface text-foreground hover:bg-secondary"}`}
           onClick={() => setIsMenuOpen((open) => !open)}
           type="button"
         >
           {isMenuOpen ? (
-            <X aria-hidden="true" className="size-5" />
+            <X aria-hidden="true" className="size-5" strokeWidth={2.4} />
           ) : (
-            <Menu aria-hidden="true" className="size-5" />
+            <Menu aria-hidden="true" className="size-5" strokeWidth={2.4} />
           )}
         </button>
       </header>
@@ -332,7 +334,7 @@ export const SiteHeader = () => {
         >
           {navigation.map(({ href, key }) => (
             <a
-              className="border-b border-white/15 py-4 text-left text-2xl font-light tracking-[-0.02em] text-white transition-colors hover:text-primary focus-visible:text-primary sm:text-3xl"
+              className="border-b border-white/15 py-4 text-left text-2xl font-semibold tracking-[-0.02em] text-white transition-colors hover:text-primary focus-visible:text-primary sm:text-3xl"
               href={href}
               key={href}
               onClick={() => {
