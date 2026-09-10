@@ -1,4 +1,4 @@
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, ConciergeBell, Menu, X } from "lucide-react";
 import { useEffect, useState, type FormEvent } from "react";
 import { useRouterState } from "@tanstack/react-router";
 
@@ -262,33 +262,45 @@ export const SiteHeader = () => {
         >
           <button
             aria-expanded={isConsultationOpen}
-            className={`text-[10px] font-medium tracking-[0.16em] uppercase transition-colors duration-250 hover:text-primary focus-visible:text-primary ${isHome ? "text-white/75" : "text-foreground/55"}`}
+            aria-label="Request consultation"
+            className={`grid size-9 place-items-center rounded-full transition-colors duration-250 hover:bg-primary/10 hover:text-primary focus-visible:bg-primary/10 focus-visible:text-primary focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:outline-none ${isHome ? "text-white/80" : "text-foreground/65"}`}
             onClick={(event) => {
               event.stopPropagation();
               if (isConsultationOpen) closeConsultation();
               else openConsultation();
             }}
+            title="Request consultation"
             type="button"
           >
-            REQUEST CONSULTATION
+            <ConciergeBell
+              aria-hidden="true"
+              className="size-[18px]"
+              strokeWidth={1.6}
+            />
           </button>
         </div>
 
         <div
-          className="relative ml-auto flex flex-col items-end leading-tight lg:hidden"
+          className="relative order-2 flex flex-col items-end leading-tight lg:hidden"
           data-consultation
         >
           <button
             aria-expanded={isConsultationOpen}
-            className={`text-[10px] font-medium tracking-[0.12em] uppercase transition-colors duration-250 hover:text-primary focus-visible:text-primary ${isHome ? "text-white/75" : "text-foreground/55"}`}
+            aria-label="Request consultation"
+            className={`grid size-9 place-items-center rounded-full transition-colors duration-250 hover:bg-primary/10 hover:text-primary focus-visible:bg-primary/10 focus-visible:text-primary focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:outline-none ${isHome ? "text-white/80" : "text-foreground/65"}`}
             onClick={(event) => {
               event.stopPropagation();
               if (isConsultationOpen) closeConsultation();
               else openConsultation();
             }}
+            title="Request consultation"
             type="button"
           >
-            REQUEST CONSULTATION
+            <ConciergeBell
+              aria-hidden="true"
+              className="size-[18px]"
+              strokeWidth={1.6}
+            />
           </button>
         </div>
 
@@ -296,7 +308,7 @@ export const SiteHeader = () => {
           aria-controls="mobile-navigation"
           aria-expanded={isMenuOpen}
           aria-label={isMenuOpen ? t("closeMenu") : t("openMenu")}
-          className={`mr-auto grid size-11 place-items-center rounded-full border transition-colors hover:border-primary lg:hidden ${isHome ? "border-white/55 bg-transparent text-white hover:bg-white/10" : "border-border bg-surface text-foreground hover:bg-secondary"}`}
+          className={`order-1 ml-auto grid size-11 place-items-center rounded-full border transition-colors hover:border-primary lg:hidden ${isHome ? "border-white/55 bg-transparent text-white hover:bg-white/10" : "border-border bg-surface text-foreground hover:bg-secondary"}`}
           onClick={() => setIsMenuOpen((open) => !open)}
           type="button"
         >
