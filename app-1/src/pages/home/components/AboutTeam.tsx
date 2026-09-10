@@ -4,6 +4,7 @@ const teamImages = [
   "/images/team/team-03.jpg",
   "/images/team/team-04.jpg",
   "/images/team/team-05.jpg",
+  "/images/team/team-06.png",
 ];
 
 export const AboutTeam = () => {
@@ -16,7 +17,9 @@ export const AboutTeam = () => {
             <div className="aspect-[4/5] overflow-hidden bg-muted">
               <img
                 alt=""
-                className="h-full w-full object-cover"
+                className={`h-full w-full object-cover ${
+                  index === 5 ? "scale-[1.12] object-[50%_28%]" : ""
+                }`}
                 loading="lazy"
                 src={image}
               />
