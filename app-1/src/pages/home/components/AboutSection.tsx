@@ -1,5 +1,7 @@
 import { useLocale } from "@/lib/i18n";
 
+import { AboutTeam } from "./AboutTeam";
+
 export const AboutSection = () => {
   const { t } = useLocale();
 
@@ -23,6 +25,7 @@ export const AboutSection = () => {
             {t("aboutSupporting")}
           </p>
           <p className="body-copy mt-8 max-w-[650px]">{t("aboutBody")}</p>
+          <AboutTeam />
         </div>
       </div>
     </section>
