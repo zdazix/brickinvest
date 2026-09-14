@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { MousePointer2 } from "lucide-react";
+import { MousePointer2, Pointer } from "lucide-react";
 
 const interactiveSelector =
   'a[href], button:not(:disabled), [role="button"], [role="menuitem"], input, textarea, select, label[for]';
@@ -124,6 +124,7 @@ export const CustomCursor = () => {
     mode === "project"
       ? "size-8 border-border/80 bg-surface text-[7px] font-medium tracking-[0.14em] text-foreground"
       : "size-4 border-transparent bg-transparent text-foreground transition-transform duration-200 ease-out";
+  const CursorIcon = mode === "interactive" ? Pointer : MousePointer2;
 
   return (
     <span
@@ -135,7 +136,7 @@ export const CustomCursor = () => {
       {mode === "project" ? (
         "VIEW"
       ) : (
-        <MousePointer2
+        <CursorIcon
           aria-hidden="true"
           className="size-4 fill-white stroke-[1.5]"
         />
