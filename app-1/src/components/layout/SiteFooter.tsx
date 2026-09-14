@@ -44,10 +44,7 @@ export const SiteFooter = () => {
         <div className="min-w-0 text-[#000] sm:justify-self-end">
           <h2 className="mb-2 text-[9px] tracking-[0.14em]">Contact us</h2>
           <address className="not-italic">
-            <p>
-              Address: Urb. Horno de la Miera. Casa Kerabi, S/N, C.P. 29.679,
-              Benahavís, Málaga.
-            </p>
+            <p>Address:</p>
             <p>
               Phone:{" "}
               <a
@@ -57,15 +54,7 @@ export const SiteFooter = () => {
                 +34 695 121 585
               </a>
             </p>
-            <p>
-              Email:{" "}
-              <a
-                className="transition-colors hover:text-primary focus-visible:text-primary"
-                href="mailto:hello@betterhome.es"
-              >
-                hello@betterhome.es
-              </a>
-            </p>
+            <p>Email:</p>
           </address>
 
           <nav
