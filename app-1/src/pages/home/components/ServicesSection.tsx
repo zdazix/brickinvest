@@ -7,6 +7,7 @@ const services = [
   ["Commercial Real Estate", "serviceCommercialBody"],
   ["Hotel and Hospitality", "serviceHotelBody"],
   ["Business Acquisition", "serviceBusinessBody"],
+  ["Property Management", "servicePropertyBody"],
 ] as const;
 
 export const ServicesSection = () => {
