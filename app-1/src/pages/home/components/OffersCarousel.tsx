@@ -36,6 +36,8 @@ const offerImages: Partial<
   },
 };
 
+const offerCardSize = "h-[29rem] sm:h-[32rem] lg:h-[35rem]";
+
 export const OffersCarousel = () => {
   const { t } = useLocale();
   const [viewportRef, carouselApi] = useEmblaCarousel({
@@ -108,10 +110,10 @@ export const OffersCarousel = () => {
 
             return (
               <div
-                className="min-w-0 flex-[0_0_100%] pr-0 sm:flex-[0_0_92%] sm:pr-4 lg:flex-[0_0_88%]"
+                className={`${offerCardSize} w-full min-w-0 flex-[0_0_100%] pr-0 sm:flex-[0_0_92%] sm:pr-4 lg:flex-[0_0_88%]`}
                 key={key}
               >
-                <article className="relative isolate flex h-[29rem] flex-col justify-end overflow-hidden border border-border/35 bg-secondary sm:h-[32rem] lg:h-[35rem]">
+                <article className="relative isolate flex h-full min-h-0 flex-col justify-end overflow-hidden border border-border/35 bg-secondary">
                   {image ? (
                     <img
                       alt={image.alt}
