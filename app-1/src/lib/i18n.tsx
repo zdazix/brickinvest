@@ -87,7 +87,7 @@ const english: Dictionary = {
   serviceBusinessBody:
     "Identifying existing businesses with potential for operational improvement and higher returns.",
   servicePropertyBody:
-    "Taking care of our clients’ properties, including handling tenants, collecting rent, coordinating maintenance, and managing daily operations. We help protect their investment, keep tenants satisfied.",
+    "Taking care of our clients’ properties, including handling tenants, collecting rent, coordinating maintenance, and managing daily operations.",
   projectsHeading: "PROJECTS",
   plots: "PLOTS",
   renovation: "RENOVATION APARTMENTS AND VILLAS",
