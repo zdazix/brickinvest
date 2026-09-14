@@ -113,7 +113,7 @@ export const OffersCarousel = () => {
                 className={`${offerCardSize} w-full min-w-0 flex-[0_0_100%] pr-0 sm:flex-[0_0_92%] sm:pr-4 lg:flex-[0_0_88%]`}
                 key={key}
               >
-                <article className="relative isolate flex h-full min-h-0 flex-col justify-end overflow-hidden border border-border/35 bg-secondary">
+                <article className="relative isolate flex h-full min-h-0 items-center justify-center overflow-hidden border border-border/35 bg-secondary">
                   {image ? (
                     <img
                       alt={image.alt}
@@ -140,11 +140,11 @@ export const OffersCarousel = () => {
                     aria-hidden="true"
                     className="from-black/90 via-black/35 to-black/5 absolute inset-0 z-10 bg-gradient-to-t"
                   />
-                  <div className="relative z-10 p-6 text-white sm:p-8 lg:p-10">
+                  <div className="relative z-10 mx-auto w-full max-w-[42rem] p-6 text-center text-white sm:p-8 lg:p-10">
                     <p className="font-mono text-[10px] tracking-[0.2em] text-primary uppercase">
                       {stepNumber}
                     </p>
-                    <h3 className="mt-4 max-w-[34rem] font-primary text-[clamp(1.9rem,3.4vw,3.6rem)] leading-[0.95] tracking-[-0.03em] text-white">
+                    <h3 className="mx-auto mt-4 max-w-[34rem] font-primary text-[clamp(2.25rem,4.8vw,5rem)] leading-[0.95] tracking-[-0.03em] text-white">
                       {t(key)}
                     </h3>
                   </div>
