@@ -10,7 +10,7 @@ const teamImages = [
 export const AboutTeam = () => {
   return (
     <div className="mt-16 border-t border-border/70 pt-8 sm:mt-20 sm:pt-10">
-      <p className="section-label mb-6">Team</p>
+      <p className="section-label mb-6 text-[#000]">Team</p>
       <div className="grid grid-cols-1 gap-x-5 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
         {teamImages.map((image, index) => (
           <article className="min-w-0" key={image}>

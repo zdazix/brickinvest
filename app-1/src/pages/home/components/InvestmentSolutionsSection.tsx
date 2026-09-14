@@ -83,7 +83,7 @@ export const InvestmentSolutionsSection = () => {
               </p>
             ) : (
               <>
-                <p className="section-label tracking-[0.2em]">
+                <p className="section-label tracking-[0.2em] text-[#000]">
                   {t("requestPrompt")}
                 </p>
                 <form
