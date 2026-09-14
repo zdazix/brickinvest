@@ -126,7 +126,7 @@ export const AgentChat = ({
                 if (part.type === "file") {
                   return (
                     <a
-                      className="flex items-center gap-2 underline-offset-2 hover:underline"
+                      className="flex items-center gap-2 decoration-border underline-offset-2 hover:underline"
                       href={part.url}
                       key={partIndex}
                       rel="noreferrer"

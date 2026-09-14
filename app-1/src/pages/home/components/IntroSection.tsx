@@ -33,7 +33,7 @@ export const IntroSection = ({ features, image }: IntroSectionProps) => (
             useful supporting copy for the section.
           </p>
           <a
-            className="mt-6 inline-flex items-center gap-2 border-b border-primary/30 pb-1 text-sm font-semibold text-primary"
+            className="mt-6 inline-flex items-center gap-2 border-b border-border/30 pb-1 text-sm font-semibold text-primary"
             href="#section-two"
           >
             Text link

@@ -34,11 +34,11 @@ export const ProjectsSection = () => {
               {t("projectsHeading")}
             </h2>
           </div>
-          <div className="border-t border-primary/35">
+          <div className="border-t border-border/35">
             {projectKeys.map((key, index) => (
               <button
                 aria-label={`View ${t(key)}`}
-                className="group relative grid min-h-36 w-full grid-cols-[5rem_minmax(0,1fr)_2.5rem] items-center gap-7 overflow-hidden border-b border-primary/20 px-0 py-8 text-left transition-colors hover:bg-secondary focus-visible:bg-secondary sm:min-h-40"
+                className="group relative grid min-h-36 w-full grid-cols-[5rem_minmax(0,1fr)_2.5rem] items-center gap-7 overflow-hidden border-b border-border/20 px-0 py-8 text-left transition-colors hover:bg-secondary focus-visible:bg-secondary sm:min-h-40"
                 data-cursor-project
                 key={key}
                 onClick={() => {

@@ -18,7 +18,7 @@ export const AboutSection = () => {
           <h2 className="section-title" id="about-heading">
             {t("aboutHeading")}
           </h2>
-          <div className="mt-8 h-px w-20 bg-primary/30" />
+          <div className="mt-8 h-px w-20 bg-border/30" />
         </div>
         <div className="min-w-0">
           <p className="editorial-intro max-w-[760px] leading-[1.08]">

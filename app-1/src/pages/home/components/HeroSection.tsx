@@ -149,7 +149,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
       aria-modal="true"
       aria-label="Investor qualification"
     >
-      <div className="relative flex max-h-dvh min-h-dvh w-full max-w-4xl flex-col overflow-auto border-primary/25 bg-secondary p-5 text-secondary-foreground sm:max-h-[90dvh] sm:min-h-0 sm:border sm:p-9">
+      <div className="relative flex max-h-dvh min-h-dvh w-full max-w-4xl flex-col overflow-auto border-border/25 bg-secondary p-5 text-secondary-foreground sm:max-h-[90dvh] sm:min-h-0 sm:border sm:p-9">
         <button
           aria-label="Close qualification"
           className="absolute top-5 right-5 p-2"
@@ -184,9 +184,9 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                 {isContact ? "CONTACT" : `0${step + 1} — 05`}
               </p>
             </div>
-            <div className="mb-6 h-px w-full bg-primary/25">
+            <div className="mb-6 h-px w-full bg-border/25">
               <div
-                className="h-px bg-primary transition-[width] duration-300"
+                className="h-px bg-border transition-[width] duration-300"
                 style={{
                   width: `${isContact ? 100 : ((step + 1) / 5) * 100}%`,
                 }}
@@ -200,7 +200,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                 <div className="mt-6 grid gap-2 sm:grid-cols-2">
                   {questions[step].slice(1).map((answer) => (
                     <button
-                      className={`group flex min-h-14 items-center justify-between border px-4 text-left text-sm transition-[background-color,border-color] duration-250 ${((answers[step] as string[] | string | undefined) ?? []).toString().includes(answer) ? "border-primary bg-primary/15" : "border-border hover:border-primary hover:bg-surface/50"}`}
+                      className={`group flex min-h-14 items-center justify-between border px-4 text-left text-sm transition-[background-color,border-color] duration-250 ${((answers[step] as string[] | string | undefined) ?? []).toString().includes(answer) ? "border-border bg-primary/15" : "border-border hover:border-border hover:bg-surface/50"}`}
                       key={answer}
                       onClick={() => choose(answer)}
                     >
@@ -219,7 +219,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                     <ChevronLeft className="size-4" /> BACK
                   </button>
                   <button
-                    className="border border-primary bg-foreground px-6 py-3 text-xs font-semibold tracking-[0.14em] text-background transition-colors hover:bg-primary hover:text-primary-foreground disabled:opacity-40"
+                    className="border border-border bg-foreground px-6 py-3 text-xs font-semibold tracking-[0.14em] text-background transition-colors hover:bg-primary hover:text-primary-foreground disabled:opacity-40"
                     disabled={
                       step === 3
                         ? !(answers[step] as string[] | undefined)?.length
@@ -287,7 +287,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                   opportunities and updates.
                 </label>
                 <button
-                  className="mt-5 w-full bg-foreground px-6 py-4 text-xs tracking-[0.14em] text-background transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 active:translate-y-px disabled:opacity-60"
+                  className="mt-5 w-full bg-foreground px-6 py-4 text-xs tracking-[0.14em] text-background transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-px disabled:opacity-60"
                   disabled={status === "sending"}
                   onClick={(event) => {
                     event.preventDefault();
@@ -410,7 +410,7 @@ export const HeroSection = () => {
             {t("highRoi")}
           </p>
           <button
-            className="group mt-8 flex w-fit items-center gap-4 border border-primary bg-white px-7 py-4 text-xs font-semibold tracking-[0.14em] text-foreground transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 active:translate-y-px sm:mt-10"
+            className="group mt-8 flex w-fit items-center gap-4 border border-border bg-white px-7 py-4 text-xs font-semibold tracking-[0.14em] text-foreground transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-px sm:mt-10"
             data-cursor-magnetic
             onClick={() => {
               trackEvent("hero_advice_click");

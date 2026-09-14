@@ -8,7 +8,7 @@ export const SupportChat = () => (
     <Dialog.Trigger asChild>
       <button
         aria-label="Open help chat"
-        className="group fixed right-4 bottom-4 z-40 flex items-center gap-3 rounded-full border border-border bg-surface py-2 pr-4 pl-2 text-foreground shadow-lg shadow-foreground/10 transition hover:-translate-y-0.5 hover:border-primary sm:right-6 sm:bottom-6"
+        className="group fixed right-4 bottom-4 z-40 flex items-center gap-3 rounded-full border border-border bg-surface py-2 pr-4 pl-2 text-foreground shadow-lg shadow-foreground/10 transition hover:-translate-y-0.5 hover:border-border sm:right-6 sm:bottom-6"
         type="button"
       >
         <span className="grid size-10 place-items-center rounded-full bg-primary text-primary-foreground">

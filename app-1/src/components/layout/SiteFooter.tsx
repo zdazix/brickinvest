@@ -14,7 +14,7 @@ export const SiteFooter = () => (
         >
           Terms &amp; Conditions
         </a>
-        <span aria-hidden="true" className="text-primary/45">
+        <span aria-hidden="true" className="text-border/45">
           |
         </span>
         <a
@@ -23,7 +23,7 @@ export const SiteFooter = () => (
         >
           Privacy Policy
         </a>
-        <span aria-hidden="true" className="text-primary/45">
+        <span aria-hidden="true" className="text-border/45">
           |
         </span>
         <a

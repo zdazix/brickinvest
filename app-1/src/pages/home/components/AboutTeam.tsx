@@ -30,7 +30,7 @@ export const AboutTeam = () => {
             </div>
             <div
               aria-label={`Role or position for team member ${index + 1}`}
-              className="mt-3 flex min-h-12 items-center border-b border-primary/50 pb-3"
+              className="mt-3 flex min-h-12 items-center border-b border-border/50 pb-3"
             >
               <span className="font-mono text-[10px] tracking-[0.16em] text-muted-foreground uppercase">
                 Role / Position

@@ -5,7 +5,7 @@ type ButtonVariant = "primary" | "secondary" | "surface";
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "bg-foreground text-background transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground active:translate-y-px focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 [&_svg]:transition-transform [&_svg]:duration-250 [&_svg]:ease-out hover:[&_svg]:translate-x-1",
+    "bg-foreground text-background transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground active:translate-y-px focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 [&_svg]:transition-transform [&_svg]:duration-250 [&_svg]:ease-out hover:[&_svg]:translate-x-1",
   secondary: "border border-border/70 bg-transparent hover:bg-secondary",
   surface: "bg-background text-foreground hover:bg-secondary",
 };

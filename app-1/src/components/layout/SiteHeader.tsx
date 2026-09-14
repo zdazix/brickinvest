@@ -177,7 +177,7 @@ export const SiteHeader = () => {
 
   return (
     <div
-      className={`fixed inset-x-0 top-0 z-50 border-b px-4 pt-4 transition-[background-color,border-color,backdrop-filter] duration-300 sm:px-8 sm:pt-6 ${isHome ? (isScrolled ? "border-primary/15 bg-foreground/60 backdrop-blur-sm" : "border-transparent bg-transparent") : `bg-surface ${isScrolled ? "border-primary/30" : "border-border/60"}`}`}
+      className={`fixed inset-x-0 top-0 z-50 border-b px-4 pt-4 transition-[background-color,border-color,backdrop-filter] duration-300 sm:px-8 sm:pt-6 ${isHome ? (isScrolled ? "border-border/15 bg-foreground/60 backdrop-blur-sm" : "border-transparent bg-transparent") : `bg-surface ${isScrolled ? "border-border/30" : "border-border/60"}`}`}
     >
       <header
         className={`relative mx-auto flex max-w-[1600px] items-center justify-between gap-3 px-1 py-2 lg:gap-4 xl:gap-5 ${isHome ? "text-white" : "text-foreground"}`}
@@ -210,7 +210,7 @@ export const SiteHeader = () => {
             </button>
             {isLanguageOpen && (
               <div
-                className="absolute top-[calc(100%+0.45rem)] left-0 z-20 min-w-40 rounded-md border border-primary/80 bg-foreground p-1 shadow-lg"
+                className="absolute top-[calc(100%+0.45rem)] left-0 z-20 min-w-40 rounded-md border border-border/80 bg-foreground p-1 shadow-lg"
                 role="menu"
               >
                 {locales.map((item) => (
@@ -244,7 +244,7 @@ export const SiteHeader = () => {
         >
           {navigation.map(({ href, key }) => (
             <a
-              className={`relative py-2 text-center text-[13px] font-semibold tracking-[0.035em] whitespace-nowrap transition-colors duration-250 after:absolute after:right-0 after:bottom-0 after:left-0 after:h-px after:origin-right after:bg-primary after:transition-transform after:duration-250 hover:after:origin-left hover:after:scale-x-100 ${activeSection === href.slice(1) ? "text-primary after:scale-x-100" : isHome ? "text-white/85 after:scale-x-0 hover:text-white" : "text-foreground/80 after:scale-x-0 hover:text-foreground"}`}
+              className={`relative py-2 text-center text-[13px] font-semibold tracking-[0.035em] whitespace-nowrap transition-colors duration-250 after:absolute after:right-0 after:bottom-0 after:left-0 after:h-px after:origin-right after:bg-border after:transition-transform after:duration-250 hover:after:origin-left hover:after:scale-x-100 ${activeSection === href.slice(1) ? "text-primary after:scale-x-100" : isHome ? "text-white/85 after:scale-x-0 hover:text-white" : "text-foreground/80 after:scale-x-0 hover:text-foreground"}`}
               href={href}
               key={href}
               onClick={() =>
@@ -263,7 +263,7 @@ export const SiteHeader = () => {
           <button
             aria-expanded={isConsultationOpen}
             aria-label="Request consultation"
-            className={`flex items-center gap-2 rounded-full px-2 py-2 text-[11px] font-bold tracking-[0.08em] whitespace-nowrap transition-colors duration-250 hover:bg-primary/10 hover:text-primary focus-visible:bg-primary/10 focus-visible:text-primary focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:outline-none ${isHome ? "text-white/80" : "text-foreground/65"}`}
+            className={`flex items-center gap-2 rounded-full px-2 py-2 text-[11px] font-bold tracking-[0.08em] whitespace-nowrap transition-colors duration-250 hover:bg-primary/10 hover:text-primary focus-visible:bg-primary/10 focus-visible:text-primary focus-visible:ring-2 focus-visible:ring-ring/60 focus-visible:outline-none ${isHome ? "text-white/80" : "text-foreground/65"}`}
             onClick={(event) => {
               event.stopPropagation();
               if (isConsultationOpen) closeConsultation();
@@ -288,7 +288,7 @@ export const SiteHeader = () => {
           <button
             aria-expanded={isConsultationOpen}
             aria-label="Request consultation"
-            className={`flex items-center gap-1.5 rounded-full px-1.5 py-2 text-[9px] font-bold tracking-[0.05em] whitespace-nowrap transition-colors duration-250 hover:bg-primary/10 hover:text-primary focus-visible:bg-primary/10 focus-visible:text-primary focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:outline-none ${isHome ? "text-white/80" : "text-foreground/65"}`}
+            className={`flex items-center gap-1.5 rounded-full px-1.5 py-2 text-[9px] font-bold tracking-[0.05em] whitespace-nowrap transition-colors duration-250 hover:bg-primary/10 hover:text-primary focus-visible:bg-primary/10 focus-visible:text-primary focus-visible:ring-2 focus-visible:ring-ring/60 focus-visible:outline-none ${isHome ? "text-white/80" : "text-foreground/65"}`}
             onClick={(event) => {
               event.stopPropagation();
               if (isConsultationOpen) closeConsultation();
@@ -310,7 +310,7 @@ export const SiteHeader = () => {
           aria-controls="mobile-navigation"
           aria-expanded={isMenuOpen}
           aria-label={isMenuOpen ? t("closeMenu") : t("openMenu")}
-          className={`order-1 ml-auto grid size-11 place-items-center rounded-full border font-bold transition-colors hover:border-primary lg:hidden ${isHome ? "border-primary/55 bg-transparent text-white hover:bg-white/10" : "border-border bg-surface text-foreground hover:bg-secondary"}`}
+          className={`order-1 ml-auto grid size-11 place-items-center rounded-full border font-bold transition-colors hover:border-border lg:hidden ${isHome ? "border-border/55 bg-transparent text-white hover:bg-white/10" : "border-border bg-surface text-foreground hover:bg-secondary"}`}
           onClick={() => setIsMenuOpen((open) => !open)}
           type="button"
         >
@@ -334,7 +334,7 @@ export const SiteHeader = () => {
         >
           {navigation.map(({ href, key }) => (
             <a
-              className="border-b border-primary/15 py-4 text-left text-2xl font-semibold tracking-[-0.02em] text-white transition-colors hover:text-primary focus-visible:text-primary sm:text-3xl"
+              className="border-b border-border/15 py-4 text-left text-2xl font-semibold tracking-[-0.02em] text-white transition-colors hover:text-primary focus-visible:text-primary sm:text-3xl"
               href={href}
               key={href}
               onClick={() => {
@@ -357,7 +357,7 @@ export const SiteHeader = () => {
           role="dialog"
         >
           <div
-            className="consultation-modal__panel relative w-full max-w-md border border-primary/60 bg-surface px-7 py-9 text-center text-foreground sm:px-12 sm:py-12"
+            className="consultation-modal__panel relative w-full max-w-md border border-border/60 bg-surface px-7 py-9 text-center text-foreground sm:px-12 sm:py-12"
             onClick={(event) => event.stopPropagation()}
           >
             <button
@@ -389,7 +389,7 @@ export const SiteHeader = () => {
                     +34 695 1215 85
                   </a>
                   <button
-                    className="mt-8 block w-full border border-primary/25 px-5 py-3 text-[10px] font-medium tracking-[0.16em] text-foreground transition-[background-color,border-color,color,transform] duration-250 ease-out hover:border-primary hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 active:translate-y-px"
+                    className="mt-8 block w-full border border-border/25 px-5 py-3 text-[10px] font-medium tracking-[0.16em] text-foreground transition-[background-color,border-color,color,transform] duration-250 ease-out hover:border-border hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-px"
                     onClick={() => {
                       trackEvent("consultation_form_open");
                       setConsultationView("form");
@@ -429,7 +429,7 @@ export const SiteHeader = () => {
                             ? "Email"
                             : "Phone Number"}
                         <input
-                          className="h-10 border-b border-primary/40 bg-transparent px-0 text-base tracking-normal text-foreground transition-[border-color] duration-250 outline-none focus:border-primary"
+                          className="h-10 border-b border-border/40 bg-transparent px-0 text-base tracking-normal text-foreground transition-[border-color] duration-250 outline-none focus:border-border"
                           onChange={(event) =>
                             setConsultationForm((current) => ({
                               ...current,
@@ -451,7 +451,7 @@ export const SiteHeader = () => {
                     <label className="grid gap-1 text-[10px] tracking-[0.14em] text-foreground/60 uppercase">
                       Message / What would you like to discuss?
                       <textarea
-                        className="min-h-20 resize-none border-b border-primary/40 bg-transparent px-0 py-2 text-base tracking-normal text-foreground transition-[border-color] duration-250 outline-none focus:border-primary"
+                        className="min-h-20 resize-none border-b border-border/40 bg-transparent px-0 py-2 text-base tracking-normal text-foreground transition-[border-color] duration-250 outline-none focus:border-border"
                         onChange={(event) =>
                           setConsultationForm((current) => ({
                             ...current,
@@ -468,7 +468,7 @@ export const SiteHeader = () => {
                       </p>
                     )}
                     <button
-                      className="mt-2 border border-primary bg-foreground px-5 py-3 text-[10px] font-semibold tracking-[0.16em] text-background transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 active:translate-y-px disabled:opacity-60"
+                      className="mt-2 border border-border bg-foreground px-5 py-3 text-[10px] font-semibold tracking-[0.16em] text-background transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-px disabled:opacity-60"
                       disabled={isConsultationSending}
                       type="submit"
                     >
