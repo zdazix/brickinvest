@@ -78,7 +78,7 @@ export const InvestmentSolutionsSection = () => {
           <p className="editorial-intro max-w-[720px]">{t("investmentBody")}</p>
           <div className="mt-10 border-t border-border/30 pt-6">
             {status === "success" ? (
-              <p className="font-primary text-3xl text-foreground sm:text-4xl">
+              <p className="font-primary text-2xl text-foreground sm:text-3xl">
                 {t("requestSuccess")}
               </p>
             ) : (
@@ -102,7 +102,7 @@ export const InvestmentSolutionsSection = () => {
                         }
                         aria-invalid={Boolean(errors.name)}
                         id="investment-name"
-                        className="mt-2 block h-12 w-full border-b border-border/40 bg-transparent px-0 py-3 text-base text-foreground normal-case transition-[border-color] duration-250 outline-none placeholder:text-foreground/35 focus:border-border"
+                        className="mt-2 block h-12 w-full border-b border-border/40 bg-transparent px-0 py-3 text-[15px] text-foreground normal-case transition-[border-color] duration-250 outline-none placeholder:text-foreground/35 focus:border-border"
                         onChange={(event) => {
                           setName(event.target.value);
                           if (event.target.value.trim())
@@ -113,7 +113,7 @@ export const InvestmentSolutionsSection = () => {
                       {errors.name && (
                         <span
                           aria-live="polite"
-                          className="mt-2 block text-sm text-danger"
+                          className="mt-2 block text-[13px] text-danger"
                           id="investment-name-error"
                         >
                           {errors.name}
@@ -133,7 +133,7 @@ export const InvestmentSolutionsSection = () => {
                         }
                         aria-invalid={Boolean(errors.contact)}
                         id="investment-contact"
-                        className="mt-2 block h-12 w-full border-b border-border/40 bg-transparent px-0 py-3 text-base text-foreground normal-case transition-[border-color] duration-250 outline-none placeholder:text-foreground/35 focus:border-border"
+                        className="mt-2 block h-12 w-full border-b border-border/40 bg-transparent px-0 py-3 text-[15px] text-foreground normal-case transition-[border-color] duration-250 outline-none placeholder:text-foreground/35 focus:border-border"
                         onChange={(event) => {
                           setContact(event.target.value);
                           if (event.target.value.trim())
@@ -147,7 +147,7 @@ export const InvestmentSolutionsSection = () => {
                       {errors.contact && (
                         <span
                           aria-live="polite"
-                          className="mt-2 block text-sm text-danger"
+                          className="mt-2 block text-[13px] text-danger"
                           id="investment-contact-error"
                         >
                           {errors.contact}
@@ -156,7 +156,7 @@ export const InvestmentSolutionsSection = () => {
                     </label>
                   </div>
                   <button
-                    className="group mt-8 flex items-center gap-4 border border-border bg-foreground px-6 py-4 text-xs font-semibold tracking-[0.14em] text-background transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-px disabled:opacity-60"
+                    className="group mt-8 flex items-center gap-4 border border-border bg-foreground px-6 py-4 text-[11px] font-semibold tracking-[0.12em] text-background transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-px disabled:opacity-60"
                     data-cursor-magnetic
                     disabled={status === "sending"}
                     type="submit"
@@ -167,7 +167,10 @@ export const InvestmentSolutionsSection = () => {
                     <ArrowUpRight className="size-4 transition-transform duration-250 ease-out group-hover:translate-x-1" />
                   </button>
                   {error && (
-                    <p aria-live="polite" className="mt-4 text-sm text-danger">
+                    <p
+                      aria-live="polite"
+                      className="mt-4 text-[13px] text-danger"
+                    >
                       {error}
                     </p>
                   )}

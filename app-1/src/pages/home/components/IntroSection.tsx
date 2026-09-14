@@ -24,8 +24,8 @@ export const IntroSection = ({ features, image }: IntroSectionProps) => (
           width="900"
         />
         <div>
-          <p className="text-sm text-primary">Section eyebrow</p>
-          <h2 className="mt-5 max-w-3xl text-4xl leading-tight tracking-[-0.035em] sm:text-5xl lg:text-6xl">
+          <p className="text-[11px] text-primary">Section eyebrow</p>
+          <h2 className="mt-5 max-w-3xl text-3xl leading-tight tracking-[-0.03em] sm:text-4xl lg:text-5xl">
             H2 section title
           </h2>
           <p className="body-copy-muted mt-5">
@@ -33,7 +33,7 @@ export const IntroSection = ({ features, image }: IntroSectionProps) => (
             useful supporting copy for the section.
           </p>
           <a
-            className="mt-6 inline-flex items-center gap-2 border-b border-border/30 pb-1 text-sm font-semibold text-primary"
+            className="mt-6 inline-flex items-center gap-2 border-b border-border/30 pb-1 text-[13px] font-semibold text-primary"
             href="#section-two"
           >
             Text link

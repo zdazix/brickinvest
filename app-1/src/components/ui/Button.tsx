@@ -11,7 +11,7 @@ const variantClasses: Record<ButtonVariant, string> = {
 };
 
 const buttonClasses = (variant: ButtonVariant, className = "") =>
-  `group inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 font-semibold transition disabled:opacity-50 ${variantClasses[variant]} ${className}`;
+  `group inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 text-[13px] font-semibold transition disabled:opacity-50 ${variantClasses[variant]} ${className}`;
 
 type ButtonProps = ComponentPropsWithoutRef<"button"> & {
   readonly variant?: ButtonVariant;

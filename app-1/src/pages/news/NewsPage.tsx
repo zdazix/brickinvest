@@ -18,7 +18,9 @@ export const NewsPage = () => {
           title="Latest stories."
         />
         {newsQuery.isError ? (
-          <p className="mt-16 text-danger">Stories could not be loaded.</p>
+          <p className="mt-16 text-[13px] text-danger">
+            Stories could not be loaded.
+          </p>
         ) : newsQuery.isPending ? (
           <Loader className="mt-16" label="Loading stories…" />
         ) : (

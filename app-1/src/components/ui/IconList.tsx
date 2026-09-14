@@ -18,7 +18,7 @@ export const IconList = ({ items }: IconListProps) => (
         <span className="grid size-11 place-items-center rounded-full bg-background text-primary">
           <Icon aria-hidden="true" className="size-5" />
         </span>
-        <span className="text-sm font-semibold">
+        <span className="text-[13px] font-semibold">
           <NumericText>{label}</NumericText>
         </span>
       </li>

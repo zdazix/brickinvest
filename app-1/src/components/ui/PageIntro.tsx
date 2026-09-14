@@ -7,10 +7,10 @@ type PageIntroProps = {
 
 export const PageIntro = ({ title, description }: PageIntroProps) => (
   <header className="max-w-3xl">
-    <h1 className="text-5xl leading-tight tracking-[-0.04em] sm:text-6xl lg:text-7xl">
+    <h1 className="text-4xl leading-tight tracking-[-0.035em] sm:text-5xl lg:text-6xl">
       <NumericText>{title}</NumericText>
     </h1>
-    <p className="mt-7 max-w-2xl text-lg leading-8 text-muted-foreground">
+    <p className="mt-7 max-w-2xl text-base leading-7 text-muted-foreground">
       <NumericText>{description}</NumericText>
     </p>
   </header>

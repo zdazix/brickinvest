@@ -13,12 +13,12 @@ export const CollectionSection = ({ cards, image }: CollectionSectionProps) => (
     <div className="mx-auto max-w-7xl">
       <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
         <div>
-          <p className="text-sm text-primary">Section eyebrow</p>
-          <h2 className="mt-4 text-4xl tracking-[-0.035em] sm:text-5xl">
+          <p className="text-[11px] text-primary">Section eyebrow</p>
+          <h2 className="mt-4 text-3xl tracking-[-0.03em] sm:text-4xl">
             H2 collection title
           </h2>
         </div>
-        <p className="max-w-md leading-7 text-muted-foreground">
+        <p className="max-w-md text-[15px] leading-6 text-muted-foreground">
           Section description text goes here. Use it to introduce the cards
           below.
         </p>

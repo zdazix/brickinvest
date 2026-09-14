@@ -8,13 +8,13 @@ export const CallToActionSection = () => (
   >
     <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.25fr_0.75fr] lg:items-end">
       <div>
-        <p className="text-sm text-foreground/60">CTA eyebrow</p>
-        <h2 className="mt-5 max-w-3xl text-5xl tracking-[-0.04em] sm:text-6xl lg:text-7xl">
+        <p className="text-[11px] text-foreground/60">CTA eyebrow</p>
+        <h2 className="mt-5 max-w-3xl text-4xl tracking-[-0.035em] sm:text-5xl lg:text-6xl">
           H2 call to action title
         </h2>
       </div>
       <div>
-        <p className="max-w-md leading-7 text-foreground/65">
+        <p className="max-w-md text-[15px] leading-6 text-foreground/65">
           Call to action description text goes here. Explain what happens after
           the visitor selects the action.
         </p>

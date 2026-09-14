@@ -22,7 +22,7 @@ export const NewsCard = ({ article }: NewsCardProps) => (
       width="900"
     />
     <div className="p-6 sm:p-7">
-      <div className="flex justify-between gap-4 text-xs text-muted-foreground">
+      <div className="flex justify-between gap-4 text-[11px] text-muted-foreground">
         <span>
           <NumericText>{article.category}</NumericText>
         </span>
@@ -30,10 +30,10 @@ export const NewsCard = ({ article }: NewsCardProps) => (
           <NumericText>{article.date}</NumericText>
         </time>
       </div>
-      <h2 className="mt-5 text-2xl tracking-[-0.025em]">
+      <h2 className="mt-5 text-xl tracking-[-0.02em]">
         <NumericText>{article.title}</NumericText>
       </h2>
-      <p className="mt-4 leading-7 text-muted-foreground">
+      <p className="mt-4 text-[15px] leading-6 text-muted-foreground">
         <NumericText>{article.summary}</NumericText>
       </p>
     </div>

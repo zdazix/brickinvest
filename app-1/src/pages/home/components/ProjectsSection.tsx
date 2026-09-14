@@ -59,7 +59,7 @@ export const ProjectsSection = () => {
                 <span className="section-label relative z-10 pt-1">
                   <NumericText>{`05.0${index + 1}`}</NumericText>
                 </span>
-                <span className="relative z-10 max-w-[22rem] min-w-0 font-primary text-[clamp(1.5rem,2.4vw,2.5rem)] leading-[1.05] tracking-[-0.02em] text-foreground">
+                <span className="relative z-10 max-w-[22rem] min-w-0 font-primary text-[clamp(1.3rem,2vw,2.1rem)] leading-[1.08] tracking-[-0.018em] text-foreground">
                   {t(key)}
                 </span>
                 <img
@@ -71,7 +71,7 @@ export const ProjectsSection = () => {
                   src={projectImages[key]}
                   width="900"
                 />
-                <span className="relative z-10 text-2xl text-primary/60 transition-transform duration-300 group-hover:translate-x-1">
+                <span className="relative z-10 text-xl text-primary/60 transition-transform duration-300 group-hover:translate-x-1">
                   ↗
                 </span>
               </button>

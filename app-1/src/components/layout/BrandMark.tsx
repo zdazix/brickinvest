@@ -12,7 +12,7 @@ export const BrandMark = ({ tone = "dark" }: BrandMarkProps) => {
     select: (state) => state.location.pathname,
   });
 
-  const className = `group inline-flex items-center gap-2.5 rounded-full font-primary text-xl tracking-[-0.035em] ${tone === "light" ? "text-primary-foreground" : "text-foreground"}`;
+  const className = `group inline-flex items-center gap-2.5 rounded-full font-primary text-lg tracking-[-0.03em] ${tone === "light" ? "text-primary-foreground" : "text-foreground"}`;
   const content = (
     <>
       <span className="grid size-9 place-items-center rounded-full bg-primary text-primary-foreground transition-transform duration-300 group-hover:-rotate-12">

@@ -28,12 +28,12 @@ export const ContactPage = () => {
         />
         <div className="mt-10 grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:gap-14">
           <aside className="rounded-[2rem] bg-secondary p-7 text-secondary-foreground sm:p-9">
-            <h2 className="text-3xl tracking-[-0.03em]">Contact details</h2>
+            <h2 className="text-2xl tracking-[-0.025em]">Contact details</h2>
             <div className="mt-7">
               {contactQuery.data ? (
                 <IconList items={contactDetails} />
               ) : contactQuery.isError ? (
-                <p className="text-sm text-danger">
+                <p className="text-[13px] text-danger">
                   Contact details could not be loaded.
                 </p>
               ) : (

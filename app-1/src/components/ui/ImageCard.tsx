@@ -20,14 +20,14 @@ export const ImageCard = ({ description, image, title }: ImageCardProps) => (
       src={image}
       width="900"
     />
-    <h3 className="mt-5 text-2xl tracking-[-0.03em]">
+    <h3 className="mt-5 text-xl tracking-[-0.025em]">
       <NumericText>{title}</NumericText>
     </h3>
-    <p className="mt-2 text-sm text-muted-foreground">
+    <p className="mt-2 text-[13px] text-muted-foreground">
       <NumericText>{description}</NumericText>
     </p>
     <Link
-      className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary"
+      className="mt-5 inline-flex items-center gap-2 text-[13px] font-semibold text-primary"
       to="/contact"
     >
       Card link text

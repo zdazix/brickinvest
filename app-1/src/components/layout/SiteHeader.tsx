@@ -186,7 +186,7 @@ export const SiteHeader = () => {
         <div className="hidden shrink-0 items-center gap-6 lg:flex">
           <a
             aria-label="BRICKINVEST home"
-            className={`font-secondary text-[1.55rem] font-bold tracking-[-0.065em] transition-colors hover:text-primary ${isHome ? "text-white" : ""}`}
+            className={`font-secondary text-[1.35rem] font-bold tracking-[-0.055em] transition-colors hover:text-primary ${isHome ? "text-white" : ""}`}
             href="/"
           >
             BRICKINVEST
@@ -196,7 +196,7 @@ export const SiteHeader = () => {
               aria-expanded={isLanguageOpen}
               aria-haspopup="menu"
               aria-label={t("openLanguage")}
-              className={`flex items-center gap-1.5 px-0.5 py-2 text-[11px] font-semibold tracking-[0.1em] transition-colors hover:text-primary focus-visible:text-primary ${isHome ? "text-white/80" : "text-foreground/70"}`}
+              className={`flex items-center gap-1.5 px-0.5 py-2 text-[10px] font-semibold tracking-[0.08em] transition-colors hover:text-primary focus-visible:text-primary ${isHome ? "text-white/80" : "text-foreground/70"}`}
               onClick={(event) => {
                 event.stopPropagation();
                 setIsLanguageOpen((open) => !open);
@@ -217,7 +217,7 @@ export const SiteHeader = () => {
                 {locales.map((item) => (
                   <button
                     aria-checked={item.key === locale}
-                    className="flex w-full items-center rounded-sm px-2.5 py-1.5 text-left text-[13px] leading-5 text-surface/90 transition-colors hover:bg-primary/15 hover:text-surface focus-visible:bg-primary/15"
+                    className="flex w-full items-center rounded-sm px-2.5 py-1.5 text-left text-[12px] leading-4 text-surface/90 transition-colors hover:bg-primary/15 hover:text-surface focus-visible:bg-primary/15"
                     key={item.key}
                     onClick={() => {
                       setLocale(item.key as LocaleKey);
@@ -245,7 +245,7 @@ export const SiteHeader = () => {
         >
           {navigation.map(({ href, key }) => (
             <a
-              className={`relative py-2 text-center text-[13px] font-semibold tracking-[0.035em] whitespace-nowrap transition-colors duration-250 after:absolute after:right-0 after:bottom-0 after:left-0 after:h-px after:origin-right after:bg-border after:transition-transform after:duration-250 hover:after:origin-left hover:after:scale-x-100 ${activeSection === href.slice(1) ? "text-primary after:scale-x-100" : isHome ? "text-white/85 after:scale-x-0 hover:text-white" : "text-foreground/80 after:scale-x-0 hover:text-foreground"}`}
+              className={`relative py-2 text-center text-[12px] font-semibold tracking-[0.03em] whitespace-nowrap transition-colors duration-250 after:absolute after:right-0 after:bottom-0 after:left-0 after:h-px after:origin-right after:bg-border after:transition-transform after:duration-250 hover:after:origin-left hover:after:scale-x-100 ${activeSection === href.slice(1) ? "text-primary after:scale-x-100" : isHome ? "text-white/85 after:scale-x-0 hover:text-white" : "text-foreground/80 after:scale-x-0 hover:text-foreground"}`}
               href={href}
               key={href}
               onClick={() =>
@@ -264,7 +264,7 @@ export const SiteHeader = () => {
           <button
             aria-expanded={isConsultationOpen}
             aria-label="Request consultation"
-            className={`flex items-center gap-2 rounded-full px-2 py-2 text-[11px] font-bold tracking-[0.08em] whitespace-nowrap transition-colors duration-250 hover:bg-primary/10 hover:text-primary focus-visible:bg-primary/10 focus-visible:text-primary focus-visible:ring-2 focus-visible:ring-ring/60 focus-visible:outline-none ${isHome ? "text-white/80" : "text-foreground/65"}`}
+            className={`flex items-center gap-2 rounded-full px-2 py-2 text-[10px] font-bold tracking-[0.07em] whitespace-nowrap transition-colors duration-250 hover:bg-primary/10 hover:text-primary focus-visible:bg-primary/10 focus-visible:text-primary focus-visible:ring-2 focus-visible:ring-ring/60 focus-visible:outline-none ${isHome ? "text-white/80" : "text-foreground/65"}`}
             onClick={(event) => {
               event.stopPropagation();
               if (isConsultationOpen) closeConsultation();
@@ -289,7 +289,7 @@ export const SiteHeader = () => {
           <button
             aria-expanded={isConsultationOpen}
             aria-label="Request consultation"
-            className={`flex items-center gap-1.5 rounded-full px-1.5 py-2 text-[9px] font-bold tracking-[0.05em] whitespace-nowrap transition-colors duration-250 hover:bg-primary/10 hover:text-primary focus-visible:bg-primary/10 focus-visible:text-primary focus-visible:ring-2 focus-visible:ring-ring/60 focus-visible:outline-none ${isHome ? "text-white/80" : "text-foreground/65"}`}
+            className={`flex items-center gap-1.5 rounded-full px-1.5 py-2 text-[10px] font-bold tracking-[0.04em] whitespace-nowrap transition-colors duration-250 hover:bg-primary/10 hover:text-primary focus-visible:bg-primary/10 focus-visible:text-primary focus-visible:ring-2 focus-visible:ring-ring/60 focus-visible:outline-none ${isHome ? "text-white/80" : "text-foreground/65"}`}
             onClick={(event) => {
               event.stopPropagation();
               if (isConsultationOpen) closeConsultation();
@@ -335,7 +335,7 @@ export const SiteHeader = () => {
         >
           {navigation.map(({ href, key }) => (
             <a
-              className="border-b border-border/15 py-4 text-left text-2xl font-semibold tracking-[-0.02em] text-white transition-colors hover:text-primary focus-visible:text-primary sm:text-3xl"
+              className="border-b border-border/15 py-4 text-left text-xl font-semibold tracking-[-0.018em] text-white transition-colors hover:text-primary focus-visible:text-primary sm:text-2xl"
               href={href}
               key={href}
               onClick={() => {
@@ -363,7 +363,7 @@ export const SiteHeader = () => {
           >
             <button
               aria-label="Close consultation dialog"
-              className="absolute top-3 right-4 text-2xl leading-none font-light text-foreground/55 transition-colors hover:text-primary"
+              className="absolute top-3 right-4 text-xl leading-none font-light text-foreground/55 transition-colors hover:text-primary"
               onClick={closeConsultation}
               type="button"
             >
@@ -373,17 +373,17 @@ export const SiteHeader = () => {
               {consultationView === "phone" && (
                 <>
                   <h2
-                    className="font-secondary text-[11px] font-medium tracking-[0.18em] text-foreground/60"
+                    className="font-secondary text-[10px] font-medium tracking-[0.15em] text-foreground/60"
                     id="consultation-dialog-title"
                   >
                     REQUEST CONSULTATION
                   </h2>
-                  <p className="mx-auto mt-7 max-w-sm text-base leading-7 text-foreground/75">
+                  <p className="mx-auto mt-7 max-w-sm text-[15px] leading-6 text-foreground/75">
                     Speak with our team about your investment plans on the Costa
                     del Sol.
                   </p>
                   <a
-                    className="mt-7 inline-block text-lg tracking-[0.12em] text-primary transition-colors hover:text-foreground"
+                    className="mt-7 inline-block text-base tracking-[0.1em] text-primary transition-colors hover:text-foreground"
                     href="tel:+34695121585"
                     onClick={() => trackEvent("phone_click")}
                   >
@@ -411,7 +411,7 @@ export const SiteHeader = () => {
                     >
                       Back
                     </button>
-                    <h2 className="font-secondary text-[11px] font-medium tracking-[0.18em] text-foreground/60">
+                    <h2 className="font-secondary text-[10px] font-medium tracking-[0.15em] text-foreground/60">
                       REQUEST CONSULTATION
                     </h2>
                   </div>
@@ -430,7 +430,7 @@ export const SiteHeader = () => {
                             ? "Email"
                             : "Phone Number"}
                         <input
-                          className={`h-10 border-b border-border/40 bg-transparent px-0 text-base tracking-normal transition-[border-color] duration-250 outline-none focus:border-border ${field === "phone" ? "text-[#000]" : "text-foreground"}`}
+                          className={`h-10 border-b border-border/40 bg-transparent px-0 text-[15px] tracking-normal transition-[border-color] duration-250 outline-none focus:border-border ${field === "phone" ? "text-[#000]" : "text-foreground"}`}
                           onChange={(event) =>
                             setConsultationForm((current) => ({
                               ...current,
@@ -452,7 +452,7 @@ export const SiteHeader = () => {
                     <label className="grid gap-1 text-[10px] tracking-[0.14em] text-foreground/60 uppercase">
                       Message / What would you like to discuss?
                       <textarea
-                        className="min-h-20 resize-none border-b border-border/40 bg-transparent px-0 py-2 text-base tracking-normal text-foreground transition-[border-color] duration-250 outline-none focus:border-border"
+                        className="min-h-20 resize-none border-b border-border/40 bg-transparent px-0 py-2 text-[15px] tracking-normal text-foreground transition-[border-color] duration-250 outline-none focus:border-border"
                         onChange={(event) =>
                           setConsultationForm((current) => ({
                             ...current,
@@ -464,7 +464,7 @@ export const SiteHeader = () => {
                       />
                     </label>
                     {consultationError && (
-                      <p aria-live="polite" className="text-sm text-danger">
+                      <p aria-live="polite" className="text-[13px] text-danger">
                         {consultationError}
                       </p>
                     )}
@@ -482,7 +482,7 @@ export const SiteHeader = () => {
               )}
               {consultationView === "success" && (
                 <>
-                  <p className="font-primary text-2xl leading-tight text-foreground">
+                  <p className="font-primary text-xl leading-tight text-foreground">
                     Thank you. Your consultation request has been received.
                   </p>
                   <button

@@ -18,8 +18,8 @@ export const PrivacyPage = () => {
         />
         <aside className="mt-14 flex flex-col gap-5 rounded-[2rem] bg-secondary p-7 text-secondary-foreground sm:flex-row sm:items-center sm:justify-between sm:p-9">
           <div className="max-w-2xl">
-            <p className="font-semibold">Draft for review</p>
-            <p className="mt-2 leading-7 opacity-70">
+            <p className="text-[15px] font-semibold">Draft for review</p>
+            <p className="mt-2 text-[15px] leading-6 opacity-70">
               Bracketed placeholders must be completed and this policy requires
               legal and operational review before publication.
             </p>
@@ -27,7 +27,7 @@ export const PrivacyPage = () => {
         </aside>
         <article className="mx-auto mt-10 max-w-7xl rounded-[2rem] border border-border/50 bg-surface px-6 shadow-sm shadow-foreground/5 sm:px-10">
           {privacyQuery.isError ? (
-            <p className="py-10 text-danger">
+            <p className="py-10 text-[13px] text-danger">
               The policy sections could not be loaded.
             </p>
           ) : !privacyQuery.data ? (
@@ -38,14 +38,14 @@ export const PrivacyPage = () => {
               className="grid gap-5 border-t border-border/60 py-10 first:border-t-0 sm:grid-cols-[4rem_1fr] sm:gap-8 sm:py-12"
               key={title}
             >
-              <p className="font-mono text-xs text-primary">
+              <p className="font-mono text-[11px] text-primary">
                 <NumericText>{`0${index + 1}`}</NumericText>
               </p>
               <div>
-                <h2 className="text-3xl tracking-[-0.03em] sm:text-4xl">
+                <h2 className="text-2xl tracking-[-0.025em] sm:text-3xl">
                   <NumericText>{title}</NumericText>
                 </h2>
-                <p className="mt-5 max-w-3xl leading-7 text-muted-foreground">
+                <p className="mt-5 max-w-3xl text-[15px] leading-6 text-muted-foreground">
                   <NumericText>{body}</NumericText>
                 </p>
               </div>

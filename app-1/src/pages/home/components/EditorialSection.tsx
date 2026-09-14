@@ -15,8 +15,8 @@ export const EditorialSection = ({ cards, image }: EditorialSectionProps) => (
   >
     <div className="mx-auto max-w-7xl">
       <div className="mb-8 max-w-2xl">
-        <p className="text-sm text-primary">Section eyebrow</p>
-        <h2 className="mt-4 text-4xl tracking-[-0.035em] sm:text-5xl">
+        <p className="text-[11px] text-primary">Section eyebrow</p>
+        <h2 className="mt-4 text-3xl tracking-[-0.03em] sm:text-4xl">
           H2 editorial section title
         </h2>
         <p className="body-copy-muted mt-6">
@@ -40,13 +40,13 @@ export const EditorialSection = ({ cards, image }: EditorialSectionProps) => (
               width="900"
             />
             <div className={index === 1 ? "lg:order-1" : ""}>
-              <p className="text-sm text-primary">{card.eyebrow}</p>
-              <h3 className="mt-4 text-4xl tracking-[-0.035em] sm:text-5xl">
+              <p className="text-[11px] text-primary">{card.eyebrow}</p>
+              <h3 className="mt-4 text-3xl tracking-[-0.03em] sm:text-4xl">
                 {card.title}
               </h3>
               <p className="body-copy-muted mt-5">{card.description}</p>
               <Link
-                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary"
+                className="mt-6 inline-flex items-center gap-2 text-[13px] font-semibold text-primary"
                 to="/contact"
               >
                 Button text

@@ -28,7 +28,7 @@ export const Loader = ({
           <Leaf aria-hidden="true" className="size-4" />
         </span>
       </div>
-      <p className="text-sm font-medium text-muted-foreground">{label}</p>
+      <p className="text-[13px] font-medium text-muted-foreground">{label}</p>
     </div>
   </div>
 );

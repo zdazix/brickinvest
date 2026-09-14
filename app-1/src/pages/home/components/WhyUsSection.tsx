@@ -20,7 +20,7 @@ export const WhyUsSection = () => {
           <p className="editorial-intro">{t("whySupporting")}</p>
           <p className="body-copy mt-7">{t("whyBody")}</p>
           <div className="mt-8 border-t border-border/30 pt-6 sm:mt-10 sm:pt-7">
-            <h3 className="mt-5 font-primary text-3xl tracking-[-0.02em] text-foreground sm:text-4xl">
+            <h3 className="mt-5 font-primary text-2xl tracking-[-0.018em] text-foreground sm:text-3xl">
               {t("deepInsight")}
             </h3>
             <p className="body-copy mt-5">{t("deepInsightBody")}</p>

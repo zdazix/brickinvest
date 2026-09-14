@@ -16,11 +16,11 @@ type FieldShellProps = {
 };
 
 const FieldShell = ({ label, error, children }: FieldShellProps) => (
-  <label className="grid gap-2 text-sm font-semibold">
+  <label className="grid gap-2 text-[13px] font-semibold">
     <NumericText>{label}</NumericText>
     {children}
     {error && (
-      <span className="text-xs font-normal text-danger" role="alert">
+      <span className="text-[11px] font-normal text-danger" role="alert">
         <NumericText>{error}</NumericText>
       </span>
     )}
@@ -40,7 +40,7 @@ export const TextField = ({
 }: TextFieldProps) => (
   <FieldShell error={error} label={label}>
     <input
-      className="min-h-12 rounded-2xl border border-border/70 bg-background px-4 font-normal transition-[border-color,box-shadow] duration-250 outline-none focus:border-border focus:ring-2 focus:ring-ring/20"
+      className="min-h-12 rounded-2xl border border-border/70 bg-background px-4 text-[15px] font-normal transition-[border-color,box-shadow] duration-250 outline-none focus:border-border focus:ring-2 focus:ring-ring/20"
       placeholder={placeholder}
       {...props}
     />
@@ -104,7 +104,7 @@ export const SelectField = ({
   placeholder = "Select an option",
   value,
 }: SelectFieldProps) => (
-  <div className="grid gap-2 text-sm font-semibold">
+  <div className="grid gap-2 text-[13px] font-semibold">
     <NumericText>{label}</NumericText>
     {name && (
       <input
@@ -117,7 +117,7 @@ export const SelectField = ({
     <DropdownMenu.Root modal={false}>
       <DropdownMenu.Trigger
         aria-label={label}
-        className="flex min-h-12 w-full cursor-pointer items-center justify-between gap-3 rounded-2xl border border-border/70 bg-background px-4 text-left font-normal transition outline-none focus:border-border focus:ring-2 focus:ring-ring/20 disabled:cursor-not-allowed disabled:opacity-50"
+        className="flex min-h-12 w-full cursor-pointer items-center justify-between gap-3 rounded-2xl border border-border/70 bg-background px-4 text-left text-[15px] font-normal transition outline-none focus:border-border focus:ring-2 focus:ring-ring/20 disabled:cursor-not-allowed disabled:opacity-50"
         disabled={disabled}
         onBlur={onBlur}
         type="button"
@@ -141,7 +141,7 @@ export const SelectField = ({
           <DropdownMenu.RadioGroup onValueChange={onValueChange} value={value}>
             {options.map((option) => (
               <DropdownMenu.RadioItem
-                className="relative flex min-h-11 cursor-pointer items-center rounded-xl py-2 pr-9 pl-3 text-sm outline-none data-[highlighted]:bg-muted data-[state=checked]:font-semibold data-[state=checked]:text-primary"
+                className="relative flex min-h-11 cursor-pointer items-center rounded-xl py-2 pr-9 pl-3 text-[13px] outline-none data-[highlighted]:bg-muted data-[state=checked]:font-semibold data-[state=checked]:text-primary"
                 key={option.value}
                 value={option.value}
               >
@@ -156,7 +156,7 @@ export const SelectField = ({
       </DropdownMenu.Portal>
     </DropdownMenu.Root>
     {error && (
-      <span className="text-xs font-normal text-danger" role="alert">
+      <span className="text-[11px] font-normal text-danger" role="alert">
         <NumericText>{error}</NumericText>
       </span>
     )}
@@ -176,7 +176,7 @@ export const TextAreaField = ({
 }: TextAreaFieldProps) => (
   <FieldShell error={error} label={label}>
     <textarea
-      className="min-h-36 resize-y rounded-2xl border border-border/70 bg-background px-4 py-3 font-normal transition-[border-color,box-shadow] duration-250 outline-none focus:border-border focus:ring-2 focus:ring-ring/20"
+      className="min-h-36 resize-y rounded-2xl border border-border/70 bg-background px-4 py-3 text-[15px] font-normal transition-[border-color,box-shadow] duration-250 outline-none focus:border-border focus:ring-2 focus:ring-ring/20"
       placeholder={placeholder}
       {...props}
     />

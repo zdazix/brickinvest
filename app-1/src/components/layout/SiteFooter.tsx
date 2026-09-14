@@ -2,7 +2,7 @@ import { NumericText } from "@/components/ui/NumericText";
 
 export const SiteFooter = () => (
   <footer className="grain-surface w-full bg-[#ddd8cf] px-5 py-8 text-foreground sm:px-8 lg:px-12">
-    <div className="mx-auto flex max-w-[1600px] flex-col gap-5 text-[11px] leading-5 tracking-[0.06em] sm:flex-row sm:items-center sm:justify-between sm:gap-8">
+    <div className="mx-auto flex max-w-[1600px] flex-col gap-5 text-[10px] leading-4 tracking-[0.05em] sm:flex-row sm:items-center sm:justify-between sm:gap-8">
       <p className="text-foreground/55 sm:shrink-0">
         <NumericText>©2026 BRICKINVEST. All Rights Reserved.</NumericText>
       </p>

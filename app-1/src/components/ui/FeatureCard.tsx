@@ -18,14 +18,14 @@ export const FeatureCard = ({
       <span className="grid size-11 place-items-center rounded-full bg-secondary text-secondary-foreground">
         <ImageIcon aria-hidden="true" className="size-5" />
       </span>
-      <span className="text-sm text-muted-foreground">
+      <span className="text-[13px] text-muted-foreground">
         <NumericText>{`0${index + 1}`}</NumericText>
       </span>
     </div>
-    <h3 className="mt-auto pt-10 text-xl">
+    <h3 className="mt-auto pt-10 text-lg">
       <NumericText>{title}</NumericText>
     </h3>
-    <p className="mt-3 text-sm leading-6 text-muted-foreground">
+    <p className="mt-3 text-[13px] leading-5 text-muted-foreground">
       <NumericText>{description}</NumericText>
     </p>
   </li>

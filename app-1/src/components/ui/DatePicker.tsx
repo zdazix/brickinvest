@@ -72,7 +72,7 @@ export const DatePicker = ({
       <Popover.Trigger asChild>
         <button
           aria-label={ariaLabel}
-          className="flex min-h-12 w-full items-center justify-between gap-3 rounded-2xl border border-border bg-background px-4 text-left font-normal text-foreground transition outline-none focus:border-ring focus:ring-2 focus:ring-ring/20 disabled:cursor-not-allowed disabled:opacity-50"
+          className="flex min-h-12 w-full items-center justify-between gap-3 rounded-2xl border border-border bg-background px-4 text-left text-[15px] font-normal text-foreground transition outline-none focus:border-ring focus:ring-2 focus:ring-ring/20 disabled:cursor-not-allowed disabled:opacity-50"
           disabled={disabled}
           id={id}
           onBlur={onBlur}
@@ -107,7 +107,7 @@ export const DatePicker = ({
             >
               <ChevronLeft aria-hidden="true" className="size-4" />
             </button>
-            <p aria-live="polite" className="text-sm font-bold">
+            <p aria-live="polite" className="text-[13px] font-bold">
               <NumericText>{format(viewMonth, "MMMM yyyy")}</NumericText>
             </p>
             <button
@@ -122,7 +122,7 @@ export const DatePicker = ({
           <div className="grid grid-cols-7 text-center">
             {weekdays.map((weekday) => (
               <span
-                className="py-1 text-xs font-semibold text-muted-foreground"
+                className="py-1 text-[11px] font-semibold text-muted-foreground"
                 key={weekday}
               >
                 {weekday}
@@ -135,7 +135,7 @@ export const DatePicker = ({
                   aria-label={format(day, "MMMM d, yyyy")}
                   aria-pressed={Boolean(selected)}
                   className={[
-                    "mx-auto flex size-9 items-center justify-center rounded-lg text-sm transition outline-none hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring",
+                    "mx-auto flex size-9 items-center justify-center rounded-lg text-[13px] transition outline-none hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring",
                     !isSameMonth(day, viewMonth)
                       ? "text-muted-foreground/55"
                       : "",
@@ -154,7 +154,7 @@ export const DatePicker = ({
           </div>
           {selectedDate && (
             <button
-              className="mt-2 w-full rounded-lg py-2 text-sm font-semibold text-primary transition hover:bg-muted"
+              className="mt-2 w-full rounded-lg py-2 text-[13px] font-semibold text-primary transition hover:bg-muted"
               onClick={() => {
                 onValueChange("");
                 setOpen(false);

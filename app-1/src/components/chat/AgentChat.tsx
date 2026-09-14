@@ -85,13 +85,15 @@ export const AgentChat = ({
           <Bot aria-hidden="true" className="size-5" />
         </span>
         <span className="min-w-0">
-          <span className="block truncate font-semibold">{title}</span>
-          <span className="block truncate text-xs text-muted-foreground">
+          <span className="block truncate text-[15px] font-semibold">
+            {title}
+          </span>
+          <span className="block truncate text-[11px] text-muted-foreground">
             {description}
           </span>
         </span>
         {showStatus && (
-          <span className="ml-auto rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">
+          <span className="ml-auto rounded-full bg-muted px-3 py-1 text-[11px] font-medium text-muted-foreground">
             Not configured
           </span>
         )}
@@ -113,7 +115,7 @@ export const AgentChat = ({
               </span>
             )}
             <div
-              className={`max-w-[82%] space-y-2 rounded-2xl px-4 py-3 text-sm ${message.role === "user" ? "rounded-br-md bg-primary text-primary-foreground" : "border border-border/70 bg-surface text-surface-foreground"}`}
+              className={`max-w-[82%] space-y-2 rounded-2xl px-4 py-3 text-[13px] ${message.role === "user" ? "rounded-br-md bg-primary text-primary-foreground" : "border border-border/70 bg-surface text-surface-foreground"}`}
             >
               {message.parts.map((part, partIndex) => {
                 if (part.type === "text") {
@@ -148,13 +150,13 @@ export const AgentChat = ({
           </article>
         ))}
         {isWorking && (
-          <div className="flex items-center gap-2 text-xs text-muted-foreground">
+          <div className="flex items-center gap-2 text-[11px] text-muted-foreground">
             <Bot aria-hidden="true" className="size-4" />
             Agent is preparing a demo response…
           </div>
         )}
         {error && (
-          <p className="rounded-xl bg-danger/10 p-3 text-sm text-danger">
+          <p className="rounded-xl bg-danger/10 p-3 text-[13px] text-danger">
             The demo response could not be created.
           </p>
         )}
@@ -165,7 +167,7 @@ export const AgentChat = ({
           <div className="mb-3 flex flex-wrap gap-2">
             {files.map((file, index) => (
               <span
-                className="flex max-w-full items-center gap-2 rounded-full bg-muted px-3 py-1.5 text-xs"
+                className="flex max-w-full items-center gap-2 rounded-full bg-muted px-3 py-1.5 text-[11px]"
                 key={`${file.name}-${file.lastModified}`}
               >
                 <File aria-hidden="true" className="size-3.5 shrink-0" />
@@ -200,7 +202,7 @@ export const AgentChat = ({
           </button>
           <textarea
             aria-label="Message"
-            className="max-h-32 min-h-10 flex-1 resize-none bg-transparent px-1 py-2 text-sm outline-none"
+            className="max-h-32 min-h-10 flex-1 resize-none bg-transparent px-1 py-2 text-[13px] outline-none"
             onChange={(event) => setDraft(event.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Write a message"
@@ -217,7 +219,7 @@ export const AgentChat = ({
             <Send aria-hidden="true" className="size-4" />
           </button>
         </div>
-        <p className="mt-2 px-2 text-center text-xs text-muted-foreground">
+        <p className="mt-2 px-2 text-center text-[11px] text-muted-foreground">
           Demo only. No messages or files leave this browser.
         </p>
       </footer>

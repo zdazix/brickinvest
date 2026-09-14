@@ -15,8 +15,10 @@ export const SupportChat = () => (
           <MessageCircle aria-hidden="true" className="size-5" />
         </span>
         <span className="hidden pr-1 sm:block">
-          <span className="block text-xs text-foreground/60">Need a hand?</span>
-          <span className="block text-sm font-semibold">We can help</span>
+          <span className="block text-[11px] text-foreground/60">
+            Need a hand?
+          </span>
+          <span className="block text-[13px] font-semibold">We can help</span>
         </span>
       </button>
     </Dialog.Trigger>

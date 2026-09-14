@@ -42,7 +42,7 @@ export const OffersSection = () => {
                     {`03.${String(index + 1).padStart(2, "0")}`}
                   </NumericText>
                 </p>
-                <p className="max-w-xs min-w-0 font-primary text-2xl leading-tight text-foreground sm:text-3xl">
+                <p className="max-w-xs min-w-0 font-primary text-xl leading-tight text-foreground sm:text-2xl">
                   <NumericText>{t(key)}</NumericText>
                 </p>
               </div>

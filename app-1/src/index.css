@@ -37,7 +37,7 @@
   }
 
   body {
-    @apply m-0 min-h-screen min-w-80 overflow-x-hidden bg-background font-secondary text-foreground antialiased;
+    @apply m-0 min-h-screen min-w-80 overflow-x-hidden bg-background font-secondary text-[15px] leading-6 text-foreground antialiased;
   }
 
   h1,
@@ -88,35 +88,35 @@
   }
 
   .section-title {
-    @apply mt-5 max-w-md font-primary text-[clamp(2.6rem,4.2vw,3.9rem)] leading-[0.88] tracking-[-0.04em] text-foreground;
+    @apply mt-5 max-w-md font-primary text-[clamp(2.25rem,3.6vw,3.3rem)] leading-[0.9] tracking-[-0.035em] text-foreground;
   }
 
   .section-number {
-    @apply font-mono text-xs font-normal tracking-[0.24em] text-primary uppercase;
+    @apply font-mono text-[10px] font-normal tracking-[0.2em] text-primary uppercase;
   }
 
   .section-label {
-    @apply font-mono text-xs font-normal tracking-[0.18em] text-primary uppercase;
+    @apply font-mono text-[10px] font-normal tracking-[0.15em] text-primary uppercase;
   }
 
   .form-label {
-    @apply text-xs font-normal tracking-[0.12em] text-foreground/70 uppercase;
+    @apply text-[10px] font-normal tracking-[0.1em] text-foreground/70 uppercase;
   }
 
   .subsection-title {
-    @apply font-primary text-[clamp(1.75rem,2.4vw,2.5rem)] leading-[1.05] tracking-[-0.02em] text-foreground;
+    @apply font-primary text-[clamp(1.5rem,2.1vw,2.15rem)] leading-[1.08] tracking-[-0.018em] text-foreground;
   }
 
   .editorial-intro {
-    @apply max-w-2xl font-primary text-[clamp(2rem,3.2vw,3.25rem)] leading-[1.08] tracking-[-0.03em] text-foreground;
+    @apply max-w-2xl font-primary text-[clamp(1.75rem,2.7vw,2.75rem)] leading-[1.1] tracking-[-0.025em] text-foreground;
   }
 
   .body-copy {
-    @apply max-w-[600px] text-[16px] leading-[1.55] text-foreground/70 sm:text-[18px];
+    @apply max-w-[600px] text-[14px] leading-[1.5] text-foreground/70 sm:text-[16px];
   }
 
   .body-copy-muted {
-    @apply max-w-[600px] text-[16px] leading-[1.55] text-muted-foreground sm:text-[18px];
+    @apply max-w-[600px] text-[14px] leading-[1.5] text-muted-foreground sm:text-[16px];
   }
 
   .grain-surface {

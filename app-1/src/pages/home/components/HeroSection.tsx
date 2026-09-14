@@ -160,15 +160,15 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
         </button>
         {status === "success" ? (
           <div className="flex min-h-[420px] flex-col items-center justify-center text-center">
-            <p className="text-xs tracking-[0.2em] text-primary uppercase">
+            <p className="text-[11px] tracking-[0.16em] text-primary uppercase">
               THANK YOU
             </p>
-            <p className="mt-6 max-w-md font-primary text-3xl leading-tight sm:text-4xl">
+            <p className="mt-6 max-w-md font-primary text-2xl leading-tight sm:text-3xl">
               Your investment profile has been received. Our team will review
               your requirements and contact you shortly.
             </p>
             <button
-              className="mt-8 text-xs tracking-[0.15em] text-foreground/60 uppercase"
+              className="mt-8 text-[11px] tracking-[0.12em] text-foreground/60 uppercase"
               onClick={onClose}
               type="button"
             >
@@ -178,10 +178,10 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
         ) : (
           <>
             <div className="mb-5 flex items-center justify-between">
-              <p className="text-xs tracking-[0.2em] text-primary uppercase">
+              <p className="text-[11px] tracking-[0.16em] text-primary uppercase">
                 {t("qualification")}
               </p>
-              <p className="font-mono text-xs text-[#777168]">
+              <p className="font-mono text-[11px] text-[#777168]">
                 <NumericText>
                   {isContact ? "CONTACT" : `0${step + 1} — 05`}
                 </NumericText>
@@ -197,13 +197,13 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
             </div>
             {!isContact ? (
               <>
-                <h2 className="max-w-2xl font-primary text-4xl leading-[1.02] sm:text-5xl">
+                <h2 className="max-w-2xl font-primary text-3xl leading-[1.04] sm:text-4xl">
                   {questions[step][0]}
                 </h2>
                 <div className="mt-6 grid gap-2 sm:grid-cols-2">
                   {questions[step].slice(1).map((answer) => (
                     <button
-                      className={`group flex min-h-14 items-center justify-between border px-4 text-left text-sm transition-[background-color,border-color] duration-250 ${((answers[step] as string[] | string | undefined) ?? []).toString().includes(answer) ? "border-border bg-primary/15" : "border-border hover:border-border hover:bg-surface/50"}`}
+                      className={`group flex min-h-14 items-center justify-between border px-4 text-left text-[13px] transition-[background-color,border-color] duration-250 ${((answers[step] as string[] | string | undefined) ?? []).toString().includes(answer) ? "border-border bg-primary/15" : "border-border hover:border-border hover:bg-surface/50"}`}
                       key={answer}
                       onClick={() => choose(answer)}
                     >
@@ -214,7 +214,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                 </div>
                 <div className="mt-6 flex items-center justify-between gap-4">
                   <button
-                    className="flex items-center gap-2 text-xs tracking-[0.12em] text-foreground/60 uppercase transition-colors hover:text-primary disabled:invisible"
+                    className="flex items-center gap-2 text-[11px] tracking-[0.1em] text-foreground/60 uppercase transition-colors hover:text-primary disabled:invisible"
                     disabled={step === 0}
                     onClick={() => setStep((current) => current - 1)}
                     type="button"
@@ -222,7 +222,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                     <ChevronLeft className="size-4" /> BACK
                   </button>
                   <button
-                    className="border border-border bg-foreground px-6 py-3 text-xs font-semibold tracking-[0.14em] text-background transition-colors hover:bg-primary hover:text-primary-foreground disabled:opacity-40"
+                    className="border border-border bg-foreground px-6 py-3 text-[11px] font-semibold tracking-[0.12em] text-background transition-colors hover:bg-primary hover:text-primary-foreground disabled:opacity-40"
                     disabled={
                       step === 3
                         ? !(answers[step] as string[] | undefined)?.length
@@ -240,15 +240,15 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
               </>
             ) : (
               <>
-                <h2 className="max-w-2xl font-primary text-3xl leading-[1.02] sm:text-5xl">
+                <h2 className="max-w-2xl font-primary text-2xl leading-[1.04] sm:text-4xl">
                   RECEIVE YOUR PRIVATE INVESTMENT SELECTION
                 </h2>
-                <p className="mt-4 max-w-2xl text-base leading-6 text-foreground/70">
+                <p className="mt-4 max-w-2xl text-[15px] leading-[1.45] text-foreground/70">
                   Leave your details and our team will review your requirements
                   and contact you with relevant opportunities.
                 </p>
                 <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                  <label className="text-xs tracking-[0.12em] uppercase">
+                  <label className="text-[11px] tracking-[0.1em] uppercase">
                     {t("firstName")}
                     <input
                       className="mt-2 w-full border-b border-border bg-transparent px-0 py-3 outline-none"
@@ -257,7 +257,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                       }
                     />
                   </label>
-                  <label className="text-xs tracking-[0.12em] uppercase">
+                  <label className="text-[11px] tracking-[0.1em] uppercase">
                     {t("email")}
                     <input
                       className="mt-2 w-full border-b border-border bg-transparent px-0 py-3 outline-none"
@@ -267,10 +267,10 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                       }
                     />
                   </label>
-                  <label className="text-xs tracking-[0.12em] uppercase sm:col-span-2">
+                  <label className="text-[11px] tracking-[0.1em] uppercase sm:col-span-2">
                     {t("phone")}
                     <input
-                      className="mt-2 w-full border-b border-border bg-transparent px-0 py-3 text-[#000] outline-none placeholder:text-[#000]"
+                      className="mt-2 w-full border-b border-border bg-transparent px-0 py-3 text-[15px] text-[#000] outline-none placeholder:text-[#000]"
                       placeholder="+34 000 000 000"
                       onChange={(e) =>
                         setAnswers({ ...answers, phone: e.target.value })
@@ -278,7 +278,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                     />
                   </label>
                 </div>
-                <label className="mt-5 flex gap-3 text-sm leading-5 text-foreground/70">
+                <label className="mt-5 flex gap-3 text-[13px] leading-[1.4] text-foreground/70">
                   <input
                     checked={Boolean(answers.consent)}
                     type="checkbox"
@@ -290,7 +290,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                   opportunities and updates.
                 </label>
                 <button
-                  className="mt-5 w-full bg-foreground px-6 py-4 text-xs tracking-[0.14em] text-background transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-px disabled:opacity-60"
+                  className="mt-5 w-full bg-foreground px-6 py-4 text-[11px] tracking-[0.12em] text-background transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-px disabled:opacity-60"
                   disabled={status === "sending"}
                   onClick={(event) => {
                     event.preventDefault();
@@ -300,7 +300,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                   {status === "sending" ? "SENDING…" : "SUBMIT REQUEST"}
                 </button>
                 <button
-                  className="mt-4 self-start text-xs tracking-[0.12em] text-muted-foreground uppercase transition-colors hover:text-primary"
+                  className="mt-4 self-start text-[11px] tracking-[0.1em] text-muted-foreground uppercase transition-colors hover:text-primary"
                   onClick={() => setStep((current) => current - 1)}
                   type="button"
                 >
@@ -309,7 +309,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
               </>
             )}
             {error && (
-              <p aria-live="polite" className="mt-5 text-sm text-[#b24f45]">
+              <p aria-live="polite" className="mt-5 text-[13px] text-[#b24f45]">
                 {error}
               </p>
             )}
@@ -406,14 +406,14 @@ export const HeroSection = () => {
         })}
         <div aria-hidden="true" className="absolute inset-0 bg-[#14201c]/55" />
         <div className="relative z-10 mx-auto flex w-full max-w-[1600px] flex-col items-center px-6 pt-20 pb-10 text-center text-white sm:px-12 sm:pt-24 sm:pb-12 lg:px-20">
-          <h1 className="mt-4 max-w-4xl font-primary text-[clamp(3.25rem,7vw,6.5rem)] leading-[0.98] tracking-[-0.045em] sm:mt-5">
+          <h1 className="mt-4 max-w-4xl font-primary text-[clamp(2.75rem,6vw,5.5rem)] leading-[1] tracking-[-0.04em] sm:mt-5">
             {t("trusted")}
           </h1>
-          <p className="mt-7 max-w-2xl text-sm tracking-[0.16em] text-white/85 uppercase sm:text-lg">
+          <p className="mt-7 max-w-2xl text-[13px] tracking-[0.12em] text-white/85 uppercase sm:text-base">
             {t("highRoi")}
           </p>
           <button
-            className="group mt-8 flex w-fit items-center gap-4 border border-border bg-white px-7 py-4 text-xs font-semibold tracking-[0.14em] text-foreground transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-px sm:mt-10"
+            className="group mt-8 flex w-fit items-center gap-4 border border-border bg-white px-7 py-4 text-[11px] font-semibold tracking-[0.12em] text-foreground transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-px sm:mt-10"
             data-cursor-magnetic
             onClick={() => {
               trackEvent("hero_advice_click");

@@ -65,7 +65,7 @@ export const ContactForm = () => {
         {...register("message")}
       />
       <div className="flex flex-wrap items-center justify-between gap-4">
-        <p aria-live="polite" className="text-sm text-primary">
+        <p aria-live="polite" className="text-[13px] text-primary">
           {contactMutation.isSuccess ? "Message sent successfully." : ""}
         </p>
         <Button disabled={contactMutation.isPending} type="submit">

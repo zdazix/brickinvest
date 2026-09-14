@@ -44,7 +44,7 @@ export const InfiniteScrollTrigger = ({
     <div
       aria-label="Load more items automatically"
       aria-live="polite"
-      className="flex min-h-36 items-center justify-center pt-12 text-sm text-muted-foreground"
+      className="flex min-h-36 items-center justify-center pt-12 text-[13px] text-muted-foreground"
       ref={triggerRef}
     >
       {isLoading && <Loader label="Loading more stories…" />}

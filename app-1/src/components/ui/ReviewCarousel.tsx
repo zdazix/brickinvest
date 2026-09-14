@@ -66,10 +66,10 @@ export const ReviewCarousel = ({ reviews }: ReviewCarouselProps) => {
                     : "border border-border/50 bg-background"
                 }`}
               >
-                <span className="font-primary text-4xl leading-none opacity-35">
+                <span className="font-primary text-3xl leading-none opacity-35">
                   “
                 </span>
-                <p className="mt-5 text-xl leading-8">
+                <p className="mt-5 text-lg leading-7">
                   <NumericText>{quote}</NumericText>
                 </p>
                 <footer className="mt-auto flex items-center gap-4 pt-10">
@@ -83,10 +83,10 @@ export const ReviewCarousel = ({ reviews }: ReviewCarouselProps) => {
                     width="56"
                   />
                   <div>
-                    <p className="text-sm font-semibold">
+                    <p className="text-[13px] font-semibold">
                       <NumericText>{customer}</NumericText>
                     </p>
-                    <p className="mt-1 text-xs opacity-60">
+                    <p className="mt-1 text-[11px] opacity-60">
                       <NumericText>{detail}</NumericText>
                     </p>
                   </div>

@@ -41,8 +41,8 @@ export const ProfilePage = () => {
                 <Camera aria-hidden="true" className="size-5" />
               </IconButton>
             </div>
-            <h2 className="mt-7 text-2xl">Profile details</h2>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+            <h2 className="mt-7 text-xl">Profile details</h2>
+            <p className="mt-3 text-[13px] leading-5 text-muted-foreground">
               Keep account information current and ready for connection to a
               real profile API.
             </p>
@@ -50,7 +50,9 @@ export const ProfilePage = () => {
           {profileQuery.data ? (
             <ProfileForm defaultValues={profileQuery.data} />
           ) : profileQuery.isError ? (
-            <p className="text-danger">The profile could not be loaded.</p>
+            <p className="text-[13px] text-danger">
+              The profile could not be loaded.
+            </p>
           ) : (
             <Loader label="Loading profile…" />
           )}
