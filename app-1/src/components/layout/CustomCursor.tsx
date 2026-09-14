@@ -122,7 +122,7 @@ export const CustomCursor = () => {
 
   const cursorClass =
     mode === "project"
-      ? "size-8 border-foreground/80 bg-surface text-[7px] font-medium tracking-[0.14em] text-foreground"
+      ? "size-8 border-primary/80 bg-surface text-[7px] font-medium tracking-[0.14em] text-foreground"
       : "size-4 border-transparent bg-transparent text-foreground transition-transform duration-200 ease-out";
 
   return (

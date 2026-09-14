@@ -177,7 +177,7 @@ export const SiteHeader = () => {
 
   return (
     <div
-      className={`fixed inset-x-0 top-0 z-50 border-b px-4 pt-4 transition-[background-color,border-color,backdrop-filter] duration-300 sm:px-8 sm:pt-6 ${isHome ? (isScrolled ? "border-white/15 bg-foreground/60 backdrop-blur-sm" : "border-transparent bg-transparent") : `bg-surface ${isScrolled ? "border-primary/30" : "border-border/60"}`}`}
+      className={`fixed inset-x-0 top-0 z-50 border-b px-4 pt-4 transition-[background-color,border-color,backdrop-filter] duration-300 sm:px-8 sm:pt-6 ${isHome ? (isScrolled ? "border-primary/15 bg-foreground/60 backdrop-blur-sm" : "border-transparent bg-transparent") : `bg-surface ${isScrolled ? "border-primary/30" : "border-border/60"}`}`}
     >
       <header
         className={`relative mx-auto flex max-w-[1600px] items-center justify-between gap-3 px-1 py-2 lg:gap-4 xl:gap-5 ${isHome ? "text-white" : "text-foreground"}`}
@@ -310,7 +310,7 @@ export const SiteHeader = () => {
           aria-controls="mobile-navigation"
           aria-expanded={isMenuOpen}
           aria-label={isMenuOpen ? t("closeMenu") : t("openMenu")}
-          className={`order-1 ml-auto grid size-11 place-items-center rounded-full border font-bold transition-colors hover:border-primary lg:hidden ${isHome ? "border-white/55 bg-transparent text-white hover:bg-white/10" : "border-border bg-surface text-foreground hover:bg-secondary"}`}
+          className={`order-1 ml-auto grid size-11 place-items-center rounded-full border font-bold transition-colors hover:border-primary lg:hidden ${isHome ? "border-primary/55 bg-transparent text-white hover:bg-white/10" : "border-border bg-surface text-foreground hover:bg-secondary"}`}
           onClick={() => setIsMenuOpen((open) => !open)}
           type="button"
         >
@@ -334,7 +334,7 @@ export const SiteHeader = () => {
         >
           {navigation.map(({ href, key }) => (
             <a
-              className="border-b border-white/15 py-4 text-left text-2xl font-semibold tracking-[-0.02em] text-white transition-colors hover:text-primary focus-visible:text-primary sm:text-3xl"
+              className="border-b border-primary/15 py-4 text-left text-2xl font-semibold tracking-[-0.02em] text-white transition-colors hover:text-primary focus-visible:text-primary sm:text-3xl"
               href={href}
               key={href}
               onClick={() => {
@@ -389,7 +389,7 @@ export const SiteHeader = () => {
                     +34 695 1215 85
                   </a>
                   <button
-                    className="mt-8 block w-full border border-foreground/25 px-5 py-3 text-[10px] font-medium tracking-[0.16em] text-foreground transition-[background-color,border-color,color,transform] duration-250 ease-out hover:border-primary hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 active:translate-y-px"
+                    className="mt-8 block w-full border border-primary/25 px-5 py-3 text-[10px] font-medium tracking-[0.16em] text-foreground transition-[background-color,border-color,color,transform] duration-250 ease-out hover:border-primary hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 active:translate-y-px"
                     onClick={() => {
                       trackEvent("consultation_form_open");
                       setConsultationView("form");
@@ -468,7 +468,7 @@ export const SiteHeader = () => {
                       </p>
                     )}
                     <button
-                      className="mt-2 border border-foreground bg-foreground px-5 py-3 text-[10px] font-semibold tracking-[0.16em] text-background transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 active:translate-y-px disabled:opacity-60"
+                      className="mt-2 border border-primary bg-foreground px-5 py-3 text-[10px] font-semibold tracking-[0.16em] text-background transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 active:translate-y-px disabled:opacity-60"
                       disabled={isConsultationSending}
                       type="submit"
                     >
