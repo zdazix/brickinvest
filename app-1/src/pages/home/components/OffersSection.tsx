@@ -1,4 +1,5 @@
 import { useLocale } from "@/lib/i18n";
+import { NumericText } from "@/components/ui/NumericText";
 
 const offerKeys = [
   "offerProjectManagement",
@@ -23,7 +24,9 @@ export const OffersSection = () => {
       <div className="relative mx-auto max-w-[1600px]">
         <div className="section-grid">
           <div>
-            <p className="section-number">03</p>
+            <p className="section-number">
+              <NumericText>03</NumericText>
+            </p>
             <h2 className="section-title" id="what-we-offer-heading">
               {t("offerHeading")}
             </h2>
@@ -35,10 +38,12 @@ export const OffersSection = () => {
                 key={key}
               >
                 <p className="section-label pt-1">
-                  03.{String(index + 1).padStart(2, "0")}
+                  <NumericText>
+                    {`03.${String(index + 1).padStart(2, "0")}`}
+                  </NumericText>
                 </p>
                 <p className="max-w-xs min-w-0 font-primary text-2xl leading-tight text-foreground sm:text-3xl">
-                  {t(key)}
+                  <NumericText>{t(key)}</NumericText>
                 </p>
               </div>
             ))}

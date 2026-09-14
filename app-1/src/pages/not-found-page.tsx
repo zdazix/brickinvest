@@ -1,8 +1,10 @@
+import { NumericText } from "@/components/ui/NumericText";
+
 export const NotFoundPage = () => (
   <main className="grain-surface grid min-h-dvh place-items-center bg-background p-6 text-foreground">
     <div className="max-w-lg text-center">
       <p className="font-mono text-xs tracking-widest text-primary uppercase">
-        404 / Off canvas
+        <NumericText>404 / Off canvas</NumericText>
       </p>
       <h1 className="mt-5 text-6xl tracking-tighter">Nothing here yet.</h1>
       <a

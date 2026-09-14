@@ -15,6 +15,8 @@ import { CalendarDays, ChevronLeft, ChevronRight } from "lucide-react";
 import { Popover } from "radix-ui";
 import { useMemo, useState } from "react";
 
+import { NumericText } from "@/components/ui/NumericText";
+
 type DatePickerProps = {
   readonly "aria-label"?: string;
   readonly disabled?: boolean;
@@ -77,7 +79,11 @@ export const DatePicker = ({
           type="button"
         >
           <span className={selectedDate ? "" : "text-muted-foreground"}>
-            {selectedDate ? format(selectedDate, "MMM d, yyyy") : placeholder}
+            {selectedDate ? (
+              <NumericText>{format(selectedDate, "MMM d, yyyy")}</NumericText>
+            ) : (
+              placeholder
+            )}
           </span>
           <CalendarDays
             aria-hidden="true"
@@ -102,7 +108,7 @@ export const DatePicker = ({
               <ChevronLeft aria-hidden="true" className="size-4" />
             </button>
             <p aria-live="polite" className="text-sm font-bold">
-              {format(viewMonth, "MMMM yyyy")}
+              <NumericText>{format(viewMonth, "MMMM yyyy")}</NumericText>
             </p>
             <button
               aria-label="Next month"
@@ -141,7 +147,7 @@ export const DatePicker = ({
                   onClick={() => selectDate(day)}
                   type="button"
                 >
-                  {format(day, "d")}
+                  <NumericText>{format(day, "d")}</NumericText>
                 </button>
               );
             })}

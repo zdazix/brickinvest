@@ -3,6 +3,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { IconButton } from "@/components/ui/IconButton";
+import { NumericText } from "@/components/ui/NumericText";
 
 export type Review = {
   readonly quote: string;
@@ -68,7 +69,9 @@ export const ReviewCarousel = ({ reviews }: ReviewCarouselProps) => {
                 <span className="font-primary text-4xl leading-none opacity-35">
                   “
                 </span>
-                <p className="mt-5 text-xl leading-8">{quote}</p>
+                <p className="mt-5 text-xl leading-8">
+                  <NumericText>{quote}</NumericText>
+                </p>
                 <footer className="mt-auto flex items-center gap-4 pt-10">
                   <img
                     alt=""
@@ -80,8 +83,12 @@ export const ReviewCarousel = ({ reviews }: ReviewCarouselProps) => {
                     width="56"
                   />
                   <div>
-                    <p className="text-sm font-semibold">{customer}</p>
-                    <p className="mt-1 text-xs opacity-60">{detail}</p>
+                    <p className="text-sm font-semibold">
+                      <NumericText>{customer}</NumericText>
+                    </p>
+                    <p className="mt-1 text-xs opacity-60">
+                      <NumericText>{detail}</NumericText>
+                    </p>
                   </div>
                 </footer>
               </blockquote>

@@ -3,6 +3,7 @@ import { ArrowUpRight, ChevronLeft, X } from "lucide-react";
 
 import { useLocale } from "@/lib/i18n";
 import { trackEvent } from "@/lib/analytics";
+import { NumericText } from "@/components/ui/NumericText";
 
 const questions = [
   [
@@ -181,7 +182,9 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                 {t("qualification")}
               </p>
               <p className="font-mono text-xs text-[#777168]">
-                {isContact ? "CONTACT" : `0${step + 1} — 05`}
+                <NumericText>
+                  {isContact ? "CONTACT" : `0${step + 1} — 05`}
+                </NumericText>
               </p>
             </div>
             <div className="mb-6 h-px w-full bg-border/25">
@@ -204,7 +207,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                       key={answer}
                       onClick={() => choose(answer)}
                     >
-                      {answer}
+                      <NumericText>{answer}</NumericText>
                       <ArrowUpRight className="size-4 opacity-0 transition group-hover:opacity-100" />
                     </button>
                   ))}
@@ -267,7 +270,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                   <label className="text-xs tracking-[0.12em] uppercase sm:col-span-2">
                     {t("phone")}
                     <input
-                      className="mt-2 w-full border-b border-border bg-transparent px-0 py-3 outline-none"
+                      className="mt-2 w-full border-b border-border bg-transparent px-0 py-3 text-[#000] outline-none placeholder:text-[#000]"
                       placeholder="+34 000 000 000"
                       onChange={(e) =>
                         setAnswers({ ...answers, phone: e.target.value })

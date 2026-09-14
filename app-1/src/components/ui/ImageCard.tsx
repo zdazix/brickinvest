@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 
+import { NumericText } from "@/components/ui/NumericText";
+
 type ImageCardProps = {
   readonly description: string;
   readonly image: string;
@@ -18,8 +20,12 @@ export const ImageCard = ({ description, image, title }: ImageCardProps) => (
       src={image}
       width="900"
     />
-    <h3 className="mt-5 text-2xl tracking-[-0.03em]">{title}</h3>
-    <p className="mt-2 text-sm text-muted-foreground">{description}</p>
+    <h3 className="mt-5 text-2xl tracking-[-0.03em]">
+      <NumericText>{title}</NumericText>
+    </h3>
+    <p className="mt-2 text-sm text-muted-foreground">
+      <NumericText>{description}</NumericText>
+    </p>
     <Link
       className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary"
       to="/contact"

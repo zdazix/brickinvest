@@ -1,5 +1,7 @@
 import { ImageIcon } from "lucide-react";
 
+import { NumericText } from "@/components/ui/NumericText";
+
 type FeatureCardProps = {
   readonly description: string;
   readonly index: number;
@@ -16,11 +18,15 @@ export const FeatureCard = ({
       <span className="grid size-11 place-items-center rounded-full bg-secondary text-secondary-foreground">
         <ImageIcon aria-hidden="true" className="size-5" />
       </span>
-      <span className="text-sm text-muted-foreground">0{index + 1}</span>
+      <span className="text-sm text-muted-foreground">
+        <NumericText>{`0${index + 1}`}</NumericText>
+      </span>
     </div>
-    <h3 className="mt-auto pt-10 text-xl">{title}</h3>
+    <h3 className="mt-auto pt-10 text-xl">
+      <NumericText>{title}</NumericText>
+    </h3>
     <p className="mt-3 text-sm leading-6 text-muted-foreground">
-      {description}
+      <NumericText>{description}</NumericText>
     </p>
   </li>
 );

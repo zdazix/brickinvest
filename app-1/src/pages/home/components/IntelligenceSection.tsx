@@ -1,4 +1,5 @@
 import { useLocale } from "@/lib/i18n";
+import { NumericText } from "@/components/ui/NumericText";
 
 const intelligenceItems = [
   ["intelligenceUnmatchedHeading", "intelligenceUnmatchedBody"],
@@ -18,7 +19,9 @@ export const IntelligenceSection = () => {
       <div className="relative mx-auto max-w-[1600px]">
         <div className="section-grid">
           <div className="min-w-0">
-            <p className="section-number">07</p>
+            <p className="section-number">
+              <NumericText>07</NumericText>
+            </p>
             <h2 className="section-title" id="ai-data-heading">
               AI &amp; DATA
               <br />
@@ -33,7 +36,9 @@ export const IntelligenceSection = () => {
                   className="border-b border-border/30 py-8"
                   key={heading}
                 >
-                  <p className="section-label">07.0{index + 1}</p>
+                  <p className="section-label">
+                    <NumericText>{`07.0${index + 1}`}</NumericText>
+                  </p>
                   <h3 className="subsection-title mt-4 max-w-[650px]">
                     {t(heading)}
                   </h3>

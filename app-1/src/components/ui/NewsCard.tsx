@@ -1,3 +1,5 @@
+import { NumericText } from "@/components/ui/NumericText";
+
 type NewsCardProps = {
   readonly article: {
     readonly category: string;
@@ -21,11 +23,19 @@ export const NewsCard = ({ article }: NewsCardProps) => (
     />
     <div className="p-6 sm:p-7">
       <div className="flex justify-between gap-4 text-xs text-muted-foreground">
-        <span>{article.category}</span>
-        <time>{article.date}</time>
+        <span>
+          <NumericText>{article.category}</NumericText>
+        </span>
+        <time>
+          <NumericText>{article.date}</NumericText>
+        </time>
       </div>
-      <h2 className="mt-5 text-2xl tracking-[-0.025em]">{article.title}</h2>
-      <p className="mt-4 leading-7 text-muted-foreground">{article.summary}</p>
+      <h2 className="mt-5 text-2xl tracking-[-0.025em]">
+        <NumericText>{article.title}</NumericText>
+      </h2>
+      <p className="mt-4 leading-7 text-muted-foreground">
+        <NumericText>{article.summary}</NumericText>
+      </p>
     </div>
   </article>
 );

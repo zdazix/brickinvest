@@ -1,4 +1,5 @@
 import { useLocale } from "@/lib/i18n";
+import { NumericText } from "@/components/ui/NumericText";
 
 const services = [
   ["Land Acquisition", "serviceLandBody"],
@@ -20,7 +21,9 @@ export const ServicesSection = () => {
       <div className="relative mx-auto max-w-[1600px]">
         <div className="section-grid">
           <div className="min-w-0">
-            <p className="section-number">04</p>
+            <p className="section-number">
+              <NumericText>04</NumericText>
+            </p>
             <h2 className="section-title" id="services-heading">
               {t("servicesHeading")}
             </h2>
@@ -34,7 +37,9 @@ export const ServicesSection = () => {
                   key={title}
                 >
                   <p className="section-label pt-1">
-                    04.{String(index + 1).padStart(2, "0")}
+                    <NumericText>
+                      {`04.${String(index + 1).padStart(2, "0")}`}
+                    </NumericText>
                   </p>
                   <h3 className="subsection-title min-w-0">{title}</h3>
                   <p className="body-copy min-w-0">{t(body)}</p>

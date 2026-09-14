@@ -4,6 +4,7 @@ import { useRouterState } from "@tanstack/react-router";
 
 import { locales, useLocale, type LocaleKey } from "@/lib/i18n";
 import { trackEvent } from "@/lib/analytics";
+import { NumericText } from "@/components/ui/NumericText";
 
 const navigation = [
   { label: "About Us", href: "#about", key: "about" },
@@ -386,7 +387,7 @@ export const SiteHeader = () => {
                     href="tel:+34695121585"
                     onClick={() => trackEvent("phone_click")}
                   >
-                    +34 695 1215 85
+                    <NumericText>+34 695 1215 85</NumericText>
                   </a>
                   <button
                     className="mt-8 block w-full border border-border/25 px-5 py-3 text-[10px] font-medium tracking-[0.16em] text-foreground transition-[background-color,border-color,color,transform] duration-250 ease-out hover:border-border hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-px"
@@ -429,7 +430,7 @@ export const SiteHeader = () => {
                             ? "Email"
                             : "Phone Number"}
                         <input
-                          className="h-10 border-b border-border/40 bg-transparent px-0 text-base tracking-normal text-foreground transition-[border-color] duration-250 outline-none focus:border-border"
+                          className={`h-10 border-b border-border/40 bg-transparent px-0 text-base tracking-normal transition-[border-color] duration-250 outline-none focus:border-border ${field === "phone" ? "text-[#000]" : "text-foreground"}`}
                           onChange={(event) =>
                             setConsultationForm((current) => ({
                               ...current,

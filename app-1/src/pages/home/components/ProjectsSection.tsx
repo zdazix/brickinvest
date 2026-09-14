@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import { useLocale } from "@/lib/i18n";
 import { trackEvent } from "@/lib/analytics";
+import { NumericText } from "@/components/ui/NumericText";
 
 const projectKeys = ["plots", "renovation", "newDevelopment"] as const;
 
@@ -29,7 +30,9 @@ export const ProjectsSection = () => {
       <div className="relative mx-auto max-w-[1600px]">
         <div className="section-grid">
           <div>
-            <p className="section-number">05</p>
+            <p className="section-number">
+              <NumericText>05</NumericText>
+            </p>
             <h2 className="section-title" id="projects-heading">
               {t("projectsHeading")}
             </h2>
@@ -54,7 +57,7 @@ export const ProjectsSection = () => {
                 type="button"
               >
                 <span className="section-label relative z-10 pt-1">
-                  05.0{index + 1}
+                  <NumericText>{`05.0${index + 1}`}</NumericText>
                 </span>
                 <span className="relative z-10 max-w-[22rem] min-w-0 font-primary text-[clamp(1.5rem,2.4vw,2.5rem)] leading-[1.05] tracking-[-0.02em] text-foreground">
                   {t(key)}

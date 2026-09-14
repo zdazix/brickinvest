@@ -1,4 +1,5 @@
 import { useLocale } from "@/lib/i18n";
+import { NumericText } from "@/components/ui/NumericText";
 
 import { AboutTeam } from "./AboutTeam";
 
@@ -14,7 +15,9 @@ export const AboutSection = () => {
       <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-[radial-gradient(circle_at_70%_35%,rgba(216,195,154,0.08),transparent_55%)]" />
       <div className="section-grid relative">
         <div>
-          <p className="section-number">01</p>
+          <p className="section-number">
+            <NumericText>01</NumericText>
+          </p>
           <h2 className="section-title" id="about-heading">
             {t("aboutHeading")}
           </h2>
@@ -22,7 +25,7 @@ export const AboutSection = () => {
         </div>
         <div className="min-w-0">
           <p className="editorial-intro max-w-[760px] leading-[1.08]">
-            {t("aboutSupporting")}
+            <NumericText>{t("aboutSupporting")}</NumericText>
           </p>
           <p className="body-copy mt-8 max-w-[650px]">{t("aboutBody")}</p>
           <AboutTeam />

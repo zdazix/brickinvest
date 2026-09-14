@@ -1,5 +1,7 @@
 import type { LucideIcon } from "lucide-react";
 
+import { NumericText } from "@/components/ui/NumericText";
+
 export type IconListItem = {
   readonly icon: LucideIcon;
   readonly label: string;
@@ -16,7 +18,9 @@ export const IconList = ({ items }: IconListProps) => (
         <span className="grid size-11 place-items-center rounded-full bg-background text-primary">
           <Icon aria-hidden="true" className="size-5" />
         </span>
-        <span className="text-sm font-semibold">{label}</span>
+        <span className="text-sm font-semibold">
+          <NumericText>{label}</NumericText>
+        </span>
       </li>
     ))}
   </ul>

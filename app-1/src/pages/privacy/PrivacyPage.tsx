@@ -1,5 +1,6 @@
 import { PageIntro } from "@/components/ui/PageIntro";
 import { Loader } from "@/components/ui/Loader";
+import { NumericText } from "@/components/ui/NumericText";
 import { usePrivacyQuery } from "@/features/privacy/queries";
 
 export const PrivacyPage = () => {
@@ -37,13 +38,15 @@ export const PrivacyPage = () => {
               className="grid gap-5 border-t border-border/60 py-10 first:border-t-0 sm:grid-cols-[4rem_1fr] sm:gap-8 sm:py-12"
               key={title}
             >
-              <p className="font-mono text-xs text-primary">0{index + 1}</p>
+              <p className="font-mono text-xs text-primary">
+                <NumericText>{`0${index + 1}`}</NumericText>
+              </p>
               <div>
                 <h2 className="text-3xl tracking-[-0.03em] sm:text-4xl">
-                  {title}
+                  <NumericText>{title}</NumericText>
                 </h2>
                 <p className="mt-5 max-w-3xl leading-7 text-muted-foreground">
-                  {body}
+                  <NumericText>{body}</NumericText>
                 </p>
               </div>
             </section>

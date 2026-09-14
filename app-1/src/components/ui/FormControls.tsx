@@ -7,6 +7,7 @@ import type {
 } from "react";
 
 import { DatePicker } from "@/components/ui/DatePicker";
+import { NumericText } from "@/components/ui/NumericText";
 
 type FieldShellProps = {
   readonly label: string;
@@ -16,11 +17,11 @@ type FieldShellProps = {
 
 const FieldShell = ({ label, error, children }: FieldShellProps) => (
   <label className="grid gap-2 text-sm font-semibold">
-    {label}
+    <NumericText>{label}</NumericText>
     {children}
     {error && (
       <span className="text-xs font-normal text-danger" role="alert">
-        {error}
+        <NumericText>{error}</NumericText>
       </span>
     )}
   </label>
@@ -104,7 +105,7 @@ export const SelectField = ({
   value,
 }: SelectFieldProps) => (
   <div className="grid gap-2 text-sm font-semibold">
-    <span>{label}</span>
+    <NumericText>{label}</NumericText>
     {name && (
       <input
         disabled={disabled}
@@ -156,7 +157,7 @@ export const SelectField = ({
     </DropdownMenu.Root>
     {error && (
       <span className="text-xs font-normal text-danger" role="alert">
-        {error}
+        <NumericText>{error}</NumericText>
       </span>
     )}
   </div>
