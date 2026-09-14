@@ -1,3 +1,5 @@
+import { ImageIcon } from "lucide-react";
+
 import { useLocale } from "@/lib/i18n";
 import { NumericText } from "@/components/ui/NumericText";
 
@@ -31,21 +33,29 @@ export const OffersSection = () => {
               {t("offerHeading")}
             </h2>
           </div>
-          <div className="grid gap-x-10 border-t border-border/30 sm:grid-cols-2">
+          <div className="grid min-w-0 grid-cols-1 gap-4 border-t border-border/30 pt-4 sm:grid-cols-2 lg:grid-cols-4">
             {offerKeys.map((key, index) => (
-              <div
-                className="grid min-h-32 grid-cols-[4rem_minmax(0,1fr)] items-start gap-6 border-b border-border/30 py-8"
+              <article
+                className="flex h-full min-h-[24rem] min-w-0 flex-col border border-border/35 bg-surface p-4 sm:min-h-[26rem] sm:p-5"
                 key={key}
               >
-                <p className="section-label pt-1">
-                  <NumericText>
-                    {`03.${String(index + 1).padStart(2, "0")}`}
-                  </NumericText>
-                </p>
-                <p className="max-w-xs min-w-0 font-primary text-xl leading-tight text-foreground sm:text-2xl">
-                  <NumericText>{t(key)}</NumericText>
-                </p>
-              </div>
+                <div
+                  aria-hidden="true"
+                  className="grid aspect-[4/3] w-full place-items-center border border-dashed border-border/40 bg-secondary/40 text-primary/60"
+                >
+                  <ImageIcon className="size-7 stroke-[1.25]" />
+                </div>
+                <div className="flex flex-1 flex-col pt-5">
+                  <p className="section-label">
+                    <NumericText>
+                      {`03.${String(index + 1).padStart(2, "0")}`}
+                    </NumericText>
+                  </p>
+                  <h3 className="mt-3 max-w-xs min-w-0 font-primary text-xl leading-tight text-foreground sm:text-2xl">
+                    <NumericText>{t(key)}</NumericText>
+                  </h3>
+                </div>
+              </article>
             ))}
           </div>
         </div>
