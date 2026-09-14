@@ -39,11 +39,19 @@ export const OffersSection = () => {
                 className="flex h-full min-h-[24rem] min-w-0 flex-col border border-border/35 bg-surface p-4 sm:min-h-[26rem] sm:p-5"
                 key={key}
               >
-                <div
-                  aria-hidden="true"
-                  className="grid aspect-[4/3] w-full place-items-center border border-dashed border-border/40 bg-secondary/40 text-primary/60"
-                >
-                  <ImageIcon className="size-7 stroke-[1.25]" />
+                <div className="relative grid aspect-[4/3] w-full place-items-center overflow-hidden border border-dashed border-border/40 bg-secondary/40 text-primary/60">
+                  {key === "offerProjectManagement" ? (
+                    <img
+                      alt="Project management planning"
+                      className="absolute inset-0 h-full w-full object-cover"
+                      src="/images/offers/project-management.jpg"
+                    />
+                  ) : (
+                    <ImageIcon
+                      aria-hidden="true"
+                      className="size-7 stroke-[1.25]"
+                    />
+                  )}
                 </div>
                 <div className="flex flex-1 flex-col pt-5">
                   <p className="section-label">
