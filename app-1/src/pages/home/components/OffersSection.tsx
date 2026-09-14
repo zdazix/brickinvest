@@ -28,6 +28,10 @@ const offerImages: Partial<
     alt: "In-house construction project",
     src: "/images/offers/construction-project.jpg",
   },
+  offerArchitecture: {
+    alt: "Architecture and engineering planning",
+    src: "/images/offers/architecture-planning.jpg",
+  },
 };
 
 export const OffersSection = () => {
