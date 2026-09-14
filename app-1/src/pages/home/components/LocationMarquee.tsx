@@ -13,20 +13,17 @@ const LocationSequence = ({
 }: {
   readonly ariaHidden?: boolean;
 }) => (
-  <span
-    aria-hidden={ariaHidden}
-    className="inline-flex shrink-0 items-center gap-8 px-4 sm:gap-12 sm:px-6"
-  >
+  <span aria-hidden={ariaHidden} className="inline-flex shrink-0 items-center">
     {locations.map((location, index) => (
       <span
-        className="inline-flex items-center gap-8 sm:gap-12"
+        className="relative flex w-44 shrink-0 items-center justify-center sm:w-56"
         key={`${location}-${index}`}
       >
         <span>{location}</span>
         {index < locations.length - 1 && (
           <span
             aria-hidden="true"
-            className="text-[13px] text-accent sm:text-sm"
+            className="absolute right-0 text-[13px] text-accent sm:text-sm"
           >
             ·
           </span>
@@ -39,7 +36,7 @@ const LocationSequence = ({
 export const LocationMarquee = () => (
   <section
     aria-label="Costa del Sol locations"
-    className="grain-surface overflow-hidden border-y border-border bg-surface py-3 sm:py-4"
+    className="grain-surface overflow-hidden border-[1px] border-t border-b border-border bg-surface py-3 sm:py-4"
   >
     <div className="location-marquee-track flex w-max animate-[location-marquee_48s_linear_infinite] items-center font-secondary text-[13px] tracking-[0.12em] text-foreground uppercase sm:text-[15px] sm:[animation-duration:40s]">
       <LocationSequence />
