@@ -185,7 +185,7 @@ export const SiteHeader = () => {
         <div className="hidden shrink-0 items-center gap-6 lg:flex">
           <a
             aria-label="BRICKINVEST home"
-            className={`font-secondary text-[1.35rem] font-bold tracking-[-0.055em] transition-colors hover:text-primary ${isHome ? "text-white" : ""}`}
+            className={`font-secondary text-[1.35rem] font-bold tracking-[-0.055em] transition-colors hover:text-primary active:text-primary ${isHome ? "text-white" : ""}`}
             href="/"
           >
             BRICKINVEST
@@ -195,7 +195,7 @@ export const SiteHeader = () => {
               aria-expanded={isLanguageOpen}
               aria-haspopup="menu"
               aria-label={t("openLanguage")}
-              className={`flex items-center gap-1.5 px-0.5 py-2 text-[10px] font-semibold tracking-[0.08em] transition-colors hover:text-primary focus-visible:text-primary ${isHome ? "text-white/80" : "text-foreground/70"}`}
+              className={`flex items-center gap-1.5 px-0.5 py-2 text-[10px] font-semibold tracking-[0.08em] transition-colors hover:text-primary focus-visible:text-primary active:bg-primary/10 active:text-primary ${isHome ? "text-white/80" : "text-foreground/70"}`}
               onClick={(event) => {
                 event.stopPropagation();
                 setIsLanguageOpen((open) => !open);
@@ -216,7 +216,7 @@ export const SiteHeader = () => {
                 {locales.map((item) => (
                   <button
                     aria-checked={item.key === locale}
-                    className="flex w-full items-center rounded-sm px-2.5 py-1.5 text-left text-[12px] leading-4 text-surface/90 transition-colors hover:bg-primary/15 hover:text-surface focus-visible:bg-primary/15"
+                    className="flex w-full items-center rounded-sm px-2.5 py-1.5 text-left text-[12px] leading-4 text-surface/90 transition-colors hover:bg-primary/15 hover:text-surface focus-visible:bg-primary/15 active:bg-primary/15 active:text-primary"
                     key={item.key}
                     onClick={() => {
                       setLocale(item.key as LocaleKey);
@@ -244,7 +244,7 @@ export const SiteHeader = () => {
         >
           {navigation.map(({ href, key }) => (
             <a
-              className={`relative py-2 text-center text-[12px] font-semibold tracking-[0.03em] whitespace-nowrap transition-colors duration-250 after:absolute after:right-0 after:bottom-0 after:left-0 after:h-px after:origin-right after:bg-border after:transition-transform after:duration-250 hover:after:origin-left hover:after:scale-x-100 ${activeSection === href.slice(1) ? "text-primary after:scale-x-100" : isHome ? "text-white/85 after:scale-x-0 hover:text-white" : "text-foreground/80 after:scale-x-0 hover:text-foreground"}`}
+              className={`relative py-2 text-center text-[12px] font-semibold tracking-[0.03em] whitespace-nowrap transition-colors duration-250 after:absolute after:right-0 after:bottom-0 after:left-0 after:h-px after:origin-right after:bg-border after:transition-transform after:duration-250 hover:after:origin-left hover:after:scale-x-100 active:text-primary active:after:origin-left active:after:scale-x-100 active:after:bg-primary ${activeSection === href.slice(1) ? "text-primary after:scale-x-100" : isHome ? "text-white/85 after:scale-x-0 hover:text-white" : "text-foreground/80 after:scale-x-0 hover:text-foreground"}`}
               href={href}
               key={href}
               onClick={() =>
@@ -263,7 +263,7 @@ export const SiteHeader = () => {
           <button
             aria-expanded={isConsultationOpen}
             aria-label="Request consultation"
-            className={`flex items-center gap-2 rounded-full px-2 py-2 text-[10px] font-bold tracking-[0.07em] whitespace-nowrap transition-colors duration-250 hover:bg-primary/10 hover:text-primary focus-visible:bg-primary/10 focus-visible:text-primary focus-visible:ring-2 focus-visible:ring-ring/60 focus-visible:outline-none ${isHome ? "text-white/80" : "text-foreground/65"}`}
+            className={`flex items-center gap-2 rounded-full px-2 py-2 text-[10px] font-bold tracking-[0.07em] whitespace-nowrap transition-colors duration-250 hover:bg-primary/10 hover:text-primary focus-visible:bg-primary/10 focus-visible:text-primary focus-visible:ring-2 focus-visible:ring-ring/60 focus-visible:outline-none active:bg-primary/10 active:text-primary ${isHome ? "text-white/80" : "text-foreground/65"}`}
             onClick={(event) => {
               event.stopPropagation();
               if (isConsultationOpen) closeConsultation();
@@ -288,7 +288,7 @@ export const SiteHeader = () => {
           <button
             aria-expanded={isConsultationOpen}
             aria-label="Request consultation"
-            className={`flex items-center gap-1.5 rounded-full px-1.5 py-2 text-[10px] font-bold tracking-[0.04em] whitespace-nowrap transition-colors duration-250 hover:bg-primary/10 hover:text-primary focus-visible:bg-primary/10 focus-visible:text-primary focus-visible:ring-2 focus-visible:ring-ring/60 focus-visible:outline-none ${isHome ? "text-white/80" : "text-foreground/65"}`}
+            className={`flex items-center gap-1.5 rounded-full px-1.5 py-2 text-[10px] font-bold tracking-[0.04em] whitespace-nowrap transition-colors duration-250 hover:bg-primary/10 hover:text-primary focus-visible:bg-primary/10 focus-visible:text-primary focus-visible:ring-2 focus-visible:ring-ring/60 focus-visible:outline-none active:bg-primary/10 active:text-primary ${isHome ? "text-white/80" : "text-foreground/65"}`}
             onClick={(event) => {
               event.stopPropagation();
               if (isConsultationOpen) closeConsultation();
@@ -310,7 +310,7 @@ export const SiteHeader = () => {
           aria-controls="mobile-navigation"
           aria-expanded={isMenuOpen}
           aria-label={isMenuOpen ? t("closeMenu") : t("openMenu")}
-          className={`order-1 ml-auto grid size-11 place-items-center rounded-full border font-bold transition-colors hover:border-border lg:hidden ${isHome ? "border-border/55 bg-transparent text-white hover:bg-white/10" : "border-border bg-surface text-foreground hover:bg-secondary"}`}
+          className={`order-1 ml-auto grid size-11 place-items-center rounded-full border font-bold transition-colors hover:border-border active:border-primary active:bg-primary/10 active:text-primary lg:hidden ${isHome ? "border-border/55 bg-transparent text-white hover:bg-white/10" : "border-border bg-surface text-foreground hover:bg-secondary"}`}
           onClick={() => setIsMenuOpen((open) => !open)}
           type="button"
         >
@@ -334,7 +334,7 @@ export const SiteHeader = () => {
         >
           {navigation.map(({ href, key }) => (
             <a
-              className="border-b border-border/15 py-4 text-left text-xl font-semibold tracking-[-0.018em] text-white transition-colors hover:text-primary focus-visible:text-primary sm:text-2xl"
+              className="border-b border-border/15 py-4 text-left text-xl font-semibold tracking-[-0.018em] text-white transition-colors hover:text-primary focus-visible:text-primary active:text-primary sm:text-2xl"
               href={href}
               key={href}
               onClick={() => {
