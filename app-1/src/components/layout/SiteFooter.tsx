@@ -16,7 +16,7 @@ export const SiteFooter = () => {
 
   return (
     <footer className="grain-surface w-full bg-[#ddd8cf] px-5 py-8 text-[#000] sm:px-8 lg:px-12">
-      <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-7 text-[10px] leading-4 tracking-[0.05em] sm:grid-cols-[minmax(0,1fr)_minmax(0,2fr)_minmax(0,1fr)] sm:items-start sm:gap-8 lg:gap-12">
+      <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-7 text-[10px] leading-4 tracking-[0.05em] sm:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)_minmax(0,1.75fr)] sm:items-start sm:gap-8 lg:gap-12">
         <p className="text-[#000] sm:pt-0.5">
           <NumericText>© 2026. All Rights Reserved.</NumericText>
         </p>
@@ -41,35 +41,63 @@ export const SiteFooter = () => {
           </div>
         </nav>
 
-        <nav
-          aria-label="Legal navigation"
-          className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[#000] sm:justify-self-end"
-        >
-          <a
-            className="transition-colors hover:text-primary focus-visible:text-primary"
-            href="/terms"
+        <div className="min-w-0 text-[#000] sm:justify-self-end">
+          <h2 className="mb-2 text-[9px] tracking-[0.14em]">Contact us</h2>
+          <address className="not-italic">
+            <p>
+              Address: Urb. Horno de la Miera. Casa Kerabi, S/N, C.P. 29.679,
+              Benahavís, Málaga.
+            </p>
+            <p>
+              Phone:{" "}
+              <a
+                className="transition-colors hover:text-primary focus-visible:text-primary"
+                href="tel:+34695121585"
+              >
+                +34 695 121 585
+              </a>
+            </p>
+            <p>
+              Email:{" "}
+              <a
+                className="transition-colors hover:text-primary focus-visible:text-primary"
+                href="mailto:hello@betterhome.es"
+              >
+                hello@betterhome.es
+              </a>
+            </p>
+          </address>
+
+          <nav
+            aria-label="Legal navigation"
+            className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2"
           >
-            Terms &amp; Conditions
-          </a>
-          <span aria-hidden="true" className="text-border/45">
-            |
-          </span>
-          <a
-            className="transition-colors hover:text-primary focus-visible:text-primary"
-            href="/privacy"
-          >
-            Privacy Policy
-          </a>
-          <span aria-hidden="true" className="text-border/45">
-            |
-          </span>
-          <a
-            className="transition-colors hover:text-primary focus-visible:text-primary"
-            href="/cookies"
-          >
-            Cookies Policy
-          </a>
-        </nav>
+            <a
+              className="transition-colors hover:text-primary focus-visible:text-primary"
+              href="/terms"
+            >
+              Terms &amp; Conditions
+            </a>
+            <span aria-hidden="true" className="text-border/45">
+              |
+            </span>
+            <a
+              className="transition-colors hover:text-primary focus-visible:text-primary"
+              href="/privacy"
+            >
+              Privacy Policy
+            </a>
+            <span aria-hidden="true" className="text-border/45">
+              |
+            </span>
+            <a
+              className="transition-colors hover:text-primary focus-visible:text-primary"
+              href="/cookies"
+            >
+              Cookies Policy
+            </a>
+          </nav>
+        </div>
       </div>
     </footer>
   );
