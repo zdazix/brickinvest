@@ -4,7 +4,6 @@ import { useRouterState } from "@tanstack/react-router";
 
 import { locales, useLocale, type LocaleKey } from "@/lib/i18n";
 import { trackEvent } from "@/lib/analytics";
-import { NumericText } from "@/components/ui/NumericText";
 
 const navigation = [
   { label: "About Us", href: "#about", key: "about" },
@@ -351,7 +350,7 @@ export const SiteHeader = () => {
 
       {isConsultationOpen && (
         <div
-          aria-label="REQUEST CONSULTATION"
+          aria-label="LEAVE A REQUEST"
           aria-modal="true"
           className="consultation-modal fixed inset-0 z-[60] flex items-center justify-center bg-foreground/25 px-5 py-8 sm:px-8"
           onClick={closeConsultation}
@@ -372,23 +371,6 @@ export const SiteHeader = () => {
             <div className="consultation-modal__content">
               {consultationView === "phone" && (
                 <>
-                  <h2
-                    className="font-secondary text-[10px] font-medium tracking-[0.15em] text-foreground/60"
-                    id="consultation-dialog-title"
-                  >
-                    REQUEST CONSULTATION
-                  </h2>
-                  <p className="mx-auto mt-7 max-w-sm text-[15px] leading-6 text-foreground/75">
-                    Speak with our team about your investment plans on the Costa
-                    del Sol.
-                  </p>
-                  <a
-                    className="mt-7 inline-block text-base tracking-[0.1em] text-primary transition-colors hover:text-foreground"
-                    href="tel:+34695121585"
-                    onClick={() => trackEvent("phone_click")}
-                  >
-                    <NumericText>+34 695 1215 85</NumericText>
-                  </a>
                   <button
                     className="mt-8 block w-full border border-border/25 px-5 py-3 text-[10px] font-medium tracking-[0.16em] text-foreground transition-[background-color,border-color,color,transform] duration-250 ease-out hover:border-border hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-px"
                     onClick={() => {
