@@ -12,14 +12,14 @@ const navigation = [
   { label: "Our Services", href: "#services", key: "services" },
   { label: "Projects", href: "#projects", key: "projects" },
   {
-    label: "Investment Solutions",
-    href: "#investment-solutions",
-    key: "solutions",
-  },
-  {
     label: "AI & Data Intelligence",
     href: "#ai-data",
     key: "intelligence",
+  },
+  {
+    label: "Investment Solutions",
+    href: "#investment-solutions",
+    key: "solutions",
   },
 ];
 

@@ -17,7 +17,7 @@ export const HomePage = () => (
     <OffersSection />
     <ServicesSection />
     <ProjectsSection />
-    <InvestmentSolutionsSection />
     <IntelligenceSection />
+    <InvestmentSolutionsSection />
   </main>
 );

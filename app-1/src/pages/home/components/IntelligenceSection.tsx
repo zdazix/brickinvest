@@ -20,7 +20,7 @@ export const IntelligenceSection = () => {
         <div className="section-grid">
           <div className="min-w-0">
             <p className="section-number">
-              <NumericText>07</NumericText>
+              <NumericText>06</NumericText>
             </p>
             <h2 className="section-title" id="ai-data-heading">
               AI &amp; DATA

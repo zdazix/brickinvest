@@ -68,7 +68,7 @@ export const InvestmentSolutionsSection = () => {
       <div className="section-grid relative">
         <div>
           <p className="section-number">
-            <NumericText>06</NumericText>
+            <NumericText>07</NumericText>
           </p>
           <h2 className="section-title" id="investment-solutions-heading">
             {t("investmentHeading")}
