@@ -115,7 +115,11 @@ export const OffersCarousel = () => {
                   {image ? (
                     <img
                       alt={image.alt}
-                      className="absolute inset-0 z-0 h-full w-full object-cover"
+                      className={`absolute inset-0 z-0 h-full w-full ${
+                        index === 0
+                          ? "bg-secondary object-contain"
+                          : "object-cover"
+                      }`}
                       decoding="async"
                       height="1200"
                       loading={index === 0 ? "eager" : "lazy"}
