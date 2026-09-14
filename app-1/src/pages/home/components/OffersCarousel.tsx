@@ -119,7 +119,7 @@ export const OffersCarousel = () => {
                       alt={image.alt}
                       className={`absolute inset-0 z-0 h-full w-full ${
                         index === 0
-                          ? "bg-secondary object-contain"
+                          ? "bg-secondary object-cover object-[center_68%]"
                           : "object-cover"
                       }`}
                       decoding="async"
