@@ -33,9 +33,9 @@ export const SiteHeader = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
-  const [consultationView, setConsultationView] = useState<
-    "phone" | "form" | "success"
-  >("phone");
+  const [consultationView, setConsultationView] = useState<"form" | "success">(
+    "form",
+  );
   const [consultationForm, setConsultationForm] = useState({
     name: "",
     email: "",
@@ -47,12 +47,15 @@ export const SiteHeader = () => {
   const { locale, setLocale, t } = useLocale();
   const closeConsultation = () => {
     setIsConsultationOpen(false);
-    setConsultationView("phone");
+    setConsultationView("form");
     setConsultationForm({ name: "", email: "", phone: "", message: "" });
     setConsultationError("");
   };
   const openConsultation = () => {
-    if (!isConsultationOpen) trackEvent("consultation_open");
+    if (!isConsultationOpen) {
+      trackEvent("consultation_open");
+      trackEvent("consultation_form_open");
+    }
     setIsConsultationOpen(true);
   };
 
@@ -350,7 +353,7 @@ export const SiteHeader = () => {
 
       {isConsultationOpen && (
         <div
-          aria-label="LEAVE A REQUEST"
+          aria-label="REQUEST CONSULTATION"
           aria-modal="true"
           className="consultation-modal fixed inset-0 z-[60] flex items-center justify-center bg-foreground/25 px-5 py-8 sm:px-8"
           onClick={closeConsultation}
@@ -369,34 +372,11 @@ export const SiteHeader = () => {
               ×
             </button>
             <div className="consultation-modal__content">
-              {consultationView === "phone" && (
-                <>
-                  <button
-                    className="mt-8 block w-full border border-border/25 px-5 py-3 text-[10px] font-medium tracking-[0.16em] text-foreground transition-[background-color,border-color,color,transform] duration-250 ease-out hover:border-border hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-px"
-                    onClick={() => {
-                      trackEvent("consultation_form_open");
-                      setConsultationView("form");
-                    }}
-                    type="button"
-                  >
-                    LEAVE A REQUEST
-                  </button>
-                </>
-              )}
               {consultationView === "form" && (
                 <>
-                  <div className="flex items-center justify-between gap-4">
-                    <button
-                      className="text-[10px] tracking-[0.14em] text-foreground/55 uppercase transition-colors hover:text-primary"
-                      onClick={() => setConsultationView("phone")}
-                      type="button"
-                    >
-                      Back
-                    </button>
-                    <h2 className="font-secondary text-[10px] font-medium tracking-[0.15em] text-foreground/60">
-                      REQUEST CONSULTATION
-                    </h2>
-                  </div>
+                  <h2 className="text-center font-secondary text-[10px] font-medium tracking-[0.15em] text-foreground/60">
+                    REQUEST CONSULTATION
+                  </h2>
                   <form
                     className="mt-7 grid gap-4 text-left"
                     onSubmit={(event) => void submitConsultation(event)}
@@ -469,10 +449,10 @@ export const SiteHeader = () => {
                   </p>
                   <button
                     className="mt-8 text-[10px] tracking-[0.14em] text-foreground/55 uppercase transition-colors hover:text-primary"
-                    onClick={() => setConsultationView("phone")}
+                    onClick={() => setConsultationView("form")}
                     type="button"
                   >
-                    Back
+                    New request
                   </button>
                 </>
               )}
