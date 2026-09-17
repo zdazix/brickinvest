@@ -7,12 +7,10 @@ import { NumericText } from "@/components/ui/NumericText";
 const projectKeys = ["plots", "renovation", "newDevelopment"] as const;
 
 const projectImages = {
-  plots:
-    "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80",
+  plots: "/images/projects/plots.png",
   renovation:
     "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80",
-  newDevelopment:
-    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80",
+  newDevelopment: "/images/projects/new-development.png",
 } as const;
 
 export const ProjectsSection = () => {
@@ -64,7 +62,7 @@ export const ProjectsSection = () => {
                 </span>
                 <img
                   alt={t(key)}
-                  className={`absolute top-1/2 right-16 z-0 h-28 w-44 -translate-y-1/2 object-cover opacity-0 grayscale transition-[opacity,filter] duration-500 ease-out group-hover:opacity-100 group-hover:grayscale-0 sm:right-24 sm:h-32 sm:w-56 ${activeProject === key ? "opacity-100 grayscale-0" : ""}`}
+                  className={`absolute top-1/2 right-16 z-0 h-36 w-56 -translate-y-1/2 object-cover opacity-0 grayscale transition-[opacity,filter] duration-500 ease-out group-hover:opacity-100 group-hover:grayscale-0 sm:right-24 sm:h-40 sm:w-[min(50vw,18rem)] ${activeProject === key ? "opacity-100 grayscale-0" : ""}`}
                   decoding="async"
                   height="600"
                   loading="lazy"
