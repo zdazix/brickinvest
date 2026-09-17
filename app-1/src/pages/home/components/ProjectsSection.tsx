@@ -62,7 +62,7 @@ export const ProjectsSection = () => {
                 </span>
                 <span
                   aria-hidden="true"
-                  className={`pointer-events-none absolute top-1/2 right-4 z-0 h-32 w-56 -translate-y-1/2 overflow-hidden bg-foreground opacity-0 grayscale transition-[opacity,filter,transform] duration-500 ease-out group-hover:scale-[1.015] group-hover:opacity-100 group-hover:grayscale-0 sm:right-8 sm:h-[min(50vh,24rem)] sm:w-[min(50vw,42rem)] ${activeProject === key ? "scale-[1.015] opacity-100 grayscale-0" : ""}`}
+                  className={`pointer-events-none absolute top-1/2 right-0 z-0 h-32 w-56 -translate-y-1/2 overflow-hidden bg-foreground opacity-0 grayscale transition-[opacity,filter,transform] duration-500 ease-out group-hover:scale-[1.015] group-hover:opacity-100 group-hover:grayscale-0 sm:right-0 sm:h-[min(50vh,24rem)] sm:w-[min(50vw,42rem)] ${activeProject === key ? "scale-[1.015] opacity-100 grayscale-0" : ""}`}
                 >
                   <img
                     alt={t(key)}
