@@ -63,7 +63,7 @@ const offerImages = [
     alt: "Legacy and transparency",
     kind: "image",
     src: "/images/offers/03-08.jpg",
-    position: "center center",
+    position: "center bottom",
   },
 ] as const;
 
