@@ -253,6 +253,53 @@ export const SiteHeader = () => {
             className="flex h-full flex-col justify-center gap-0.5 overflow-y-auto px-8 pt-24 pb-12 sm:px-16"
             hidden={!isMenuOpen}
           >
+            <div className="relative mb-6 self-start" data-language-selector>
+              <button
+                aria-expanded={isLanguageOpen}
+                aria-haspopup="menu"
+                aria-label={t("openLanguage")}
+                className="flex items-center gap-2 border-b border-white/20 px-0.5 py-2 font-secondary text-[11px] font-semibold tracking-[0.1em] text-white/80 transition-colors hover:text-primary focus-visible:text-primary active:text-primary"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  setIsLanguageOpen((open) => !open);
+                }}
+                type="button"
+              >
+                <span>{selectedLocale.code}</span>
+                <ChevronDown
+                  aria-hidden="true"
+                  className={`size-3 transition-transform ${isLanguageOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+              {isLanguageOpen && (
+                <div
+                  className="absolute top-[calc(100%+0.45rem)] left-0 z-30 min-w-40 rounded-md border border-white/20 bg-[#20211f] p-1 shadow-lg"
+                  role="menu"
+                >
+                  {locales.map((item) => (
+                    <button
+                      aria-checked={item.key === locale}
+                      className="flex w-full items-center rounded-sm px-2.5 py-1.5 text-left font-secondary text-[12px] leading-4 text-white/90 transition-colors hover:bg-primary/15 hover:text-white focus-visible:bg-primary/15 active:bg-primary/15 active:text-primary"
+                      key={item.key}
+                      onClick={() => {
+                        setLocale(item.key as LocaleKey);
+                        if (item.key !== locale) {
+                          trackEvent("language_change", { language: item.key });
+                        }
+                        setIsLanguageOpen(false);
+                      }}
+                      role="menuitemradio"
+                      type="button"
+                    >
+                      <span>{item.label}</span>
+                      {item.key === locale && (
+                        <span className="ml-auto pl-2 text-primary">•</span>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
             {navigation.map(({ href, key }) => (
               <a
                 className="border-b border-white/15 py-3.5 text-left font-secondary text-[clamp(1rem,4.8vw,1.35rem)] leading-[1.2] font-semibold tracking-[0.01em] text-white transition-colors hover:text-primary focus-visible:text-primary active:text-primary sm:py-4"
