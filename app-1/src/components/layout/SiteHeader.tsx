@@ -231,7 +231,7 @@ export const SiteHeader = () => {
             aria-controls="mobile-navigation"
             aria-expanded={isMenuOpen}
             aria-label={isMenuOpen ? t("closeMenu") : t("openMenu")}
-            className={`order-2 grid size-11 shrink-0 place-items-center rounded-full border font-bold transition-colors hover:border-border active:border-primary active:bg-primary/10 active:text-primary lg:hidden ${isHome ? "border-border/55 bg-transparent text-white hover:bg-white/10" : "border-border bg-surface text-foreground hover:bg-secondary"}`}
+            className={`order-2 grid size-11 shrink-0 place-items-center font-bold transition-colors hover:text-primary active:text-primary lg:hidden ${isHome ? "text-white" : "text-foreground"}`}
             onClick={() => setIsMenuOpen((open) => !open)}
             type="button"
           >
