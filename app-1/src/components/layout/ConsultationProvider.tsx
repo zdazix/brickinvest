@@ -56,8 +56,8 @@ export const ConsultationProvider = ({ children }: PropsWithChildren) => {
 
   const submitConsultation = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const { name, email, phone, message } = consultationForm;
-    if (!name.trim() || !email.trim() || !phone.trim() || !message.trim()) {
+    const { name, email, phone } = consultationForm;
+    if (!name.trim() || !email.trim() || !phone.trim()) {
       setConsultationError("Please complete all fields before submitting.");
       return;
     }
@@ -75,7 +75,7 @@ export const ConsultationProvider = ({ children }: PropsWithChildren) => {
             phone: phone.startsWith("+")
               ? phone
               : `+34${phone.replace(/\D/g, "")}`,
-            objective: message.slice(0, 100),
+            objective: consultationForm.message.slice(0, 100),
             source: "Investment Solutions form",
           }),
         },
@@ -122,11 +122,8 @@ export const ConsultationProvider = ({ children }: PropsWithChildren) => {
             <div className="consultation-modal__content">
               {consultationView === "form" && (
                 <>
-                  <h2 className="text-center font-secondary text-[10px] font-medium tracking-[0.15em] text-foreground/60">
-                    REQUEST CONSULTATION
-                  </h2>
                   <form
-                    className="mt-7 grid gap-4 text-left"
+                    className="grid gap-4 text-left"
                     onSubmit={(event) => void submitConsultation(event)}
                   >
                     {(["name", "email", "phone"] as const).map((field) => (
@@ -166,20 +163,6 @@ export const ConsultationProvider = ({ children }: PropsWithChildren) => {
                         />
                       </label>
                     ))}
-                    <label className="grid gap-1 text-[10px] tracking-[0.14em] text-foreground/60 uppercase">
-                      Message / What would you like to discuss?
-                      <textarea
-                        className="min-h-20 resize-none border-b border-border/40 bg-transparent px-0 py-2 text-[15px] tracking-normal text-foreground transition-[border-color] duration-250 outline-none focus:border-border"
-                        onChange={(event) =>
-                          setConsultationForm((current) => ({
-                            ...current,
-                            message: event.target.value,
-                          }))
-                        }
-                        required
-                        value={consultationForm.message}
-                      />
-                    </label>
                     {consultationError && (
                       <p aria-live="polite" className="text-[13px] text-danger">
                         {consultationError}
