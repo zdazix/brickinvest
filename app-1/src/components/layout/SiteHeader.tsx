@@ -185,7 +185,7 @@ export const SiteHeader = () => {
             <button
               aria-expanded={isConsultationOpen}
               aria-label="Request consultation"
-              className="group flex items-center gap-4 border border-border bg-foreground px-6 py-4 text-[13px] font-semibold tracking-[0.12em] whitespace-nowrap text-background transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-px"
+              className="group flex items-center gap-3 border border-border bg-foreground px-5 py-3.5 font-secondary text-[14px] leading-6 font-semibold tracking-[0.03em] whitespace-nowrap text-background transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-px"
               onClick={(event) => {
                 event.stopPropagation();
                 if (isConsultationOpen) closeConsultation();
