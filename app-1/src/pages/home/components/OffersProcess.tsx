@@ -60,10 +60,10 @@ const offerImages = [
     position: "center center",
   },
   {
-    alt: "Architecture and engineering planning",
+    alt: "Legacy and transparency",
     kind: "image",
-    src: "/images/offers/architecture-planning.jpg",
-    position: "35% center",
+    src: "/images/offers/03-08.jpg",
+    position: "center center",
   },
 ] as const;
 
