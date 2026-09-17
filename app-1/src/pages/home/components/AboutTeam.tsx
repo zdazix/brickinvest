@@ -21,7 +21,7 @@ export const AboutTeam = () => {
                   index === 0
                     ? "object-[50%_50%]"
                     : index === 4
-                      ? "scale-[1.12] object-[50%_28%]"
+                      ? "scale-[1.28] object-[50%_10%]"
                       : index === 5
                         ? "scale-[1.12] object-[50%_28%]"
                         : ""
