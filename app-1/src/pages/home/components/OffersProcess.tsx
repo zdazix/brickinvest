@@ -26,7 +26,7 @@ const offerImages = [
   {
     alt: "In-house construction project",
     kind: "image",
-    src: "/images/offers/construction-project.jpg",
+    src: "/images/offers/03-02.jpg",
     position: "center center",
   },
   {
