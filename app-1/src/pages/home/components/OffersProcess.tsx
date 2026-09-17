@@ -33,9 +33,9 @@ const offerImages = [
     position: "center center",
   },
   {
-    alt: "Project management planning on a tablet",
-    src: "/images/offers/project-management.jpg",
-    position: "55% 35%",
+    alt: "Unique development plot",
+    src: "/images/offers/03-04.jpg",
+    position: "center center",
   },
   {
     alt: "In-house construction project",
