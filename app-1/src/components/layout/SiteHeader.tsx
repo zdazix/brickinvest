@@ -92,14 +92,14 @@ export const SiteHeader = () => {
   return (
     <>
       <div
-        className={`fixed inset-x-0 top-0 z-50 border-b px-4 pt-4 transition-[background-color,border-color,backdrop-filter] duration-300 sm:px-8 sm:pt-6 lg:pt-0 ${isHome ? (isScrolled ? "border-border/15 bg-foreground/60 backdrop-blur-sm" : "border-transparent bg-transparent") : `bg-surface ${isScrolled ? "border-border/30" : "border-border/60"}`}`}
+        className={`fixed inset-x-0 top-0 z-50 border-b px-4 pt-5 transition-[background-color,border-color,backdrop-filter] duration-300 sm:px-8 sm:pt-7 lg:pt-0 ${isHome ? (isScrolled ? "border-border/15 bg-foreground/60 backdrop-blur-sm" : "border-transparent bg-transparent") : `bg-surface ${isScrolled ? "border-border/30" : "border-border/60"}`}`}
       >
         <header
-          className={`relative z-10 mx-auto flex max-w-[1600px] items-center justify-between gap-3 px-1 py-2 lg:gap-4 xl:gap-5 ${isHome ? "text-white" : "text-foreground"}`}
+          className={`relative z-10 mx-auto flex min-h-[4.5rem] max-w-[1600px] items-center justify-between gap-3 px-1 py-3 lg:min-h-[4.25rem] lg:gap-4 lg:py-1.5 xl:gap-5 ${isHome ? "text-white" : "text-foreground"}`}
         >
           <a
             aria-label="BRICKINVEST home"
-            className={`order-1 mr-auto shrink-0 font-secondary text-[1.1rem] font-bold tracking-[-0.055em] transition-[color,transform] hover:translate-x-1 hover:text-primary active:text-primary lg:hidden ${isHome ? "text-white" : "text-foreground"}`}
+            className={`order-1 mr-auto shrink-0 font-secondary text-[1.3rem] font-bold tracking-[-0.055em] transition-[color,transform] hover:translate-x-1 hover:text-primary active:text-primary lg:hidden ${isHome ? "text-white" : "text-foreground"}`}
             href="/"
           >
             BRICKINVEST
@@ -107,7 +107,7 @@ export const SiteHeader = () => {
           <div className="hidden shrink-0 items-center gap-6 lg:flex">
             <a
               aria-label="BRICKINVEST home"
-              className={`font-secondary text-[1.35rem] font-bold tracking-[-0.055em] transition-[color,transform] hover:translate-x-1 hover:text-primary active:text-primary lg:translate-x-3 ${isHome ? "text-white" : ""}`}
+              className={`font-secondary text-[1.6rem] font-bold tracking-[-0.055em] transition-[color,transform] hover:translate-x-1 hover:text-primary active:text-primary lg:translate-x-3 ${isHome ? "text-white" : ""}`}
               href="/"
             >
               BRICKINVEST
@@ -117,7 +117,7 @@ export const SiteHeader = () => {
                 aria-expanded={isLanguageOpen}
                 aria-haspopup="menu"
                 aria-label={t("openLanguage")}
-                className={`flex items-center gap-1.5 px-0.5 py-2 text-[10px] font-semibold tracking-[0.08em] transition-colors hover:text-primary focus-visible:text-primary active:bg-primary/10 active:text-primary ${isHome ? "text-white/80" : "text-foreground/70"}`}
+                className={`flex items-center gap-1.5 px-0.5 py-2 text-[12px] font-semibold tracking-[0.08em] transition-colors hover:text-primary focus-visible:text-primary active:bg-primary/10 active:text-primary ${isHome ? "text-white/80" : "text-foreground/70"}`}
                 onClick={(event) => {
                   event.stopPropagation();
                   setIsLanguageOpen((open) => !open);
@@ -138,7 +138,7 @@ export const SiteHeader = () => {
                   {locales.map((item) => (
                     <button
                       aria-checked={item.key === locale}
-                      className="flex w-full items-center rounded-sm px-2.5 py-1.5 text-left text-[12px] leading-4 text-surface/90 transition-colors hover:bg-primary/15 hover:text-surface focus-visible:bg-primary/15 active:bg-primary/15 active:text-primary"
+                      className="flex w-full items-center rounded-sm px-2.5 py-1.5 text-left text-[14px] leading-4 text-surface/90 transition-colors hover:bg-primary/15 hover:text-surface focus-visible:bg-primary/15 active:bg-primary/15 active:text-primary"
                       key={item.key}
                       onClick={() => {
                         setLocale(item.key as LocaleKey);
@@ -166,7 +166,7 @@ export const SiteHeader = () => {
           >
             {navigation.map(({ href, key }) => (
               <a
-                className={`relative py-2 text-center text-[12px] font-semibold tracking-[0.03em] whitespace-nowrap transition-colors duration-250 after:absolute after:right-0 after:bottom-0 after:left-0 after:h-px after:origin-right after:bg-border after:transition-transform after:duration-250 hover:after:origin-left hover:after:scale-x-100 active:text-primary active:after:origin-left active:after:scale-x-100 active:after:bg-primary ${activeSection === href.slice(1) ? "text-primary after:scale-x-100" : isHome ? "text-white/85 after:scale-x-0 hover:text-white" : "text-foreground/80 after:scale-x-0 hover:text-foreground"}`}
+                className={`relative py-2 text-center text-[14px] font-semibold tracking-[0.03em] whitespace-nowrap transition-colors duration-250 after:absolute after:right-0 after:bottom-0 after:left-0 after:h-px after:origin-right after:bg-border after:transition-transform after:duration-250 hover:after:origin-left hover:after:scale-x-100 active:text-primary active:after:origin-left active:after:scale-x-100 active:after:bg-primary ${activeSection === href.slice(1) ? "text-primary after:scale-x-100" : isHome ? "text-white/85 after:scale-x-0 hover:text-white" : "text-foreground/80 after:scale-x-0 hover:text-foreground"}`}
                 href={href}
                 key={href}
                 onClick={() =>
@@ -185,7 +185,7 @@ export const SiteHeader = () => {
             <button
               aria-expanded={isConsultationOpen}
               aria-label="Request consultation"
-              className="group flex items-center gap-4 border border-border bg-foreground px-6 py-4 text-[11px] font-semibold tracking-[0.12em] whitespace-nowrap text-background transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-px"
+              className="group flex items-center gap-4 border border-border bg-foreground px-6 py-4 text-[13px] font-semibold tracking-[0.12em] whitespace-nowrap text-background transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-px"
               onClick={(event) => {
                 event.stopPropagation();
                 if (isConsultationOpen) closeConsultation();
@@ -196,7 +196,7 @@ export const SiteHeader = () => {
             >
               <ConciergeBell
                 aria-hidden="true"
-                className="size-[18px]"
+                className="size-[21px]"
                 strokeWidth={1.6}
               />
               <span>REQUEST CONSULTATION</span>
@@ -210,7 +210,7 @@ export const SiteHeader = () => {
             <button
               aria-expanded={isConsultationOpen}
               aria-label="Request consultation"
-              className={`grid size-11 place-items-center rounded-full transition-colors duration-250 hover:bg-primary/10 hover:text-primary focus-visible:bg-primary/10 focus-visible:text-primary focus-visible:ring-2 focus-visible:ring-ring/60 focus-visible:outline-none active:bg-primary/10 active:text-primary ${isHome ? "text-white/80" : "text-foreground/65"}`}
+              className={`grid size-12 place-items-center rounded-full transition-colors duration-250 hover:bg-primary/10 hover:text-primary focus-visible:bg-primary/10 focus-visible:text-primary focus-visible:ring-2 focus-visible:ring-ring/60 focus-visible:outline-none active:bg-primary/10 active:text-primary ${isHome ? "text-white/80" : "text-foreground/65"}`}
               onClick={(event) => {
                 event.stopPropagation();
                 if (isConsultationOpen) closeConsultation();
@@ -221,7 +221,7 @@ export const SiteHeader = () => {
             >
               <ConciergeBell
                 aria-hidden="true"
-                className="size-[17px]"
+                className="size-[20px]"
                 strokeWidth={1.9}
               />
             </button>
@@ -231,7 +231,7 @@ export const SiteHeader = () => {
             aria-controls="mobile-navigation"
             aria-expanded={isMenuOpen}
             aria-label={isMenuOpen ? t("closeMenu") : t("openMenu")}
-            className={`order-2 grid size-11 shrink-0 place-items-center font-bold transition-colors hover:text-primary active:text-primary lg:hidden ${isHome ? "text-white" : "text-foreground"}`}
+            className={`order-2 grid size-12 shrink-0 place-items-center font-bold transition-colors hover:text-primary active:text-primary lg:hidden ${isHome ? "text-white" : "text-foreground"}`}
             onClick={() => setIsMenuOpen((open) => !open)}
             type="button"
           >
@@ -258,7 +258,7 @@ export const SiteHeader = () => {
                 aria-expanded={isLanguageOpen}
                 aria-haspopup="menu"
                 aria-label={t("openLanguage")}
-                className="flex items-center gap-2 border-b border-white/20 px-0.5 py-2 font-secondary text-[11px] font-semibold tracking-[0.1em] text-white/80 transition-colors hover:text-primary focus-visible:text-primary active:text-primary"
+                className="flex items-center gap-2 border-b border-white/20 px-0.5 py-2 font-secondary text-[13px] font-semibold tracking-[0.1em] text-white/80 transition-colors hover:text-primary focus-visible:text-primary active:text-primary"
                 onClick={(event) => {
                   event.stopPropagation();
                   setIsLanguageOpen((open) => !open);
@@ -302,7 +302,7 @@ export const SiteHeader = () => {
             </div>
             {navigation.map(({ href, key }) => (
               <a
-                className="border-b border-white/15 py-3.5 text-left font-secondary text-[clamp(1rem,4.8vw,1.35rem)] leading-[1.2] font-semibold tracking-[0.01em] text-white transition-colors hover:text-primary focus-visible:text-primary active:text-primary sm:py-4"
+                className="border-b border-white/15 py-3.5 text-left font-secondary text-[clamp(1.2rem,5.75vw,1.62rem)] leading-[1.2] font-semibold tracking-[0.01em] text-white transition-colors hover:text-primary focus-visible:text-primary active:text-primary sm:py-4"
                 href={href}
                 key={href}
                 onClick={() => {
