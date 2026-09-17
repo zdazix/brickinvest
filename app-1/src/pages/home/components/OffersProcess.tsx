@@ -129,16 +129,11 @@ export const OffersProcess = () => {
           {offerKeys.map((key, index) => {
             const image = offerImages[index];
             const stepNumber = `/03.${String(index + 1).padStart(2, "0")}`;
-            const reversed = index % 2 === 1;
 
             return (
               <div className="w-full min-w-0 flex-[0_0_100%] pr-0" key={key}>
                 <article className="group grid h-[31rem] overflow-hidden border border-border/35 bg-surface sm:h-[34rem] lg:h-[27rem] lg:grid-cols-[minmax(0,1.22fr)_minmax(0,0.78fr)]">
-                  <div
-                    className={`relative min-h-0 overflow-hidden ${
-                      reversed ? "lg:order-2" : ""
-                    }`}
-                  >
+                  <div className="relative min-h-0 overflow-hidden">
                     <img
                       alt={image.alt}
                       className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035]"
@@ -155,11 +150,7 @@ export const OffersProcess = () => {
                     />
                   </div>
 
-                  <div
-                    className={`flex min-h-0 flex-col justify-start p-6 sm:p-9 lg:p-8 lg:pb-10 xl:p-9 xl:pb-12 ${
-                      reversed ? "lg:order-1" : ""
-                    }`}
-                  >
+                  <div className="flex min-h-0 flex-col justify-start p-6 sm:p-9 lg:p-8 lg:pb-10 xl:p-9 xl:pb-12">
                     <div className="flex items-start justify-between gap-5">
                       <p className="font-mono text-[clamp(0.8rem,1.3vw,1.1rem)] leading-none tracking-[0.08em] text-primary">
                         {stepNumber}
