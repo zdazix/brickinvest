@@ -38,7 +38,9 @@ export const AboutTeam = () => {
               <span className="font-mono text-[10px] tracking-[0.16em] text-muted-foreground uppercase">
                 {index === 0
                   ? "Stanley Kotowski / Property expert analyst"
-                  : "Role / Position"}
+                  : index === 1
+                    ? "Alexander Lupenski / Construction site manager"
+                    : "Role / Position"}
               </span>
             </div>
           </article>
