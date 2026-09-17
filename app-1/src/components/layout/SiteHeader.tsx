@@ -407,6 +407,13 @@ export const SiteHeader = () => {
                                 ? "tel"
                                 : "text"
                           }
+                          placeholder={
+                            field === "name"
+                              ? "Your name"
+                              : field === "email"
+                                ? "Your email"
+                                : "Your phone (optional)"
+                          }
                           value={consultationForm[field]}
                         />
                       </label>
