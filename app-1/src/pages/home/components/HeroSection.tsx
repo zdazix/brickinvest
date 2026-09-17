@@ -409,7 +409,7 @@ export const HeroSection = () => {
           <h1 className="mt-4 max-w-4xl font-primary text-[clamp(2.75rem,6vw,5.5rem)] leading-[1] tracking-[-0.04em] sm:mt-5">
             {t("trusted")}
           </h1>
-          <p className="mt-7 max-w-2xl text-[13px] tracking-[0.12em] text-white/85 uppercase sm:text-base">
+          <p className="mt-7 max-w-2xl text-[15px] tracking-[0.12em] text-white/85 uppercase sm:text-[19px]">
             {t("highRoi")}
           </p>
           <button
