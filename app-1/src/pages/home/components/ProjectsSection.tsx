@@ -42,24 +42,17 @@ export const ProjectsSection = () => {
             </p>
             <button
               aria-expanded={isConsultationOpen}
-              aria-label="Get your personal investment proposal"
-              className="projects-cta mt-6 inline-flex cursor-pointer items-center rounded-none border-b-[2px] border-primary bg-transparent px-2 py-2 text-left text-[14px] font-bold tracking-[0.07em] text-foreground/75 uppercase transition-[border-color,border-width,color] duration-250 ease-in-out hover:border-primary/80 hover:text-primary focus-visible:border-primary/80 focus-visible:text-primary focus-visible:ring-2 focus-visible:ring-ring/60 focus-visible:outline-none active:border-primary/80 active:text-primary"
+              aria-label="Get your investment proposal"
+              className="group mt-6 inline-flex cursor-pointer items-center gap-2.5 border border-border bg-white px-4 py-2.5 font-secondary text-[12px] leading-5 font-semibold tracking-[0.03em] text-foreground transition-[background-color,color,transform] duration-250 ease-out hover:bg-foreground hover:text-background focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-px"
               data-consultation
-              data-cursor-cta
               onClick={() => {
                 if (isConsultationOpen) closeConsultation();
                 else openConsultation();
               }}
-              title="Get your personal investment proposal"
+              title="Get your investment proposal"
               type="button"
             >
-              <span>GET YOUR PERSONAL INVESTMENT PROPOSAL</span>
-              <span
-                aria-hidden="true"
-                className="projects-cta-arrow ml-2 inline-block text-[18px] leading-none font-extrabold text-primary transition-transform duration-250 ease-in-out"
-              >
-                →
-              </span>
+              <span>GET YOUR INVESTMENT PROPOSAL</span>
             </button>
           </div>
           <div className="border-t border-border/35">
