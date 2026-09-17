@@ -37,6 +37,9 @@ export const ProjectsSection = () => {
             <h2 className="section-title" id="projects-heading">
               {t("projectsHeading")}
             </h2>
+            <p className="mt-7 max-w-md font-primary text-[clamp(1.8rem,3vw,2.75rem)] leading-[0.95] tracking-[-0.03em] text-foreground">
+              WE HAVE HUNDREDS OF PROJECT OPPORTUNITIES FOR YOU.
+            </p>
             <button
               aria-expanded={isConsultationOpen}
               aria-label="Get your personal investment proposal"
