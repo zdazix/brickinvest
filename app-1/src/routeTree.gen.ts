@@ -15,6 +15,7 @@ import { Route as layoutContactRouteRouteImport } from './routes/(layout)/contac
 import { Route as layoutCookiesRouteRouteImport } from './routes/(layout)/cookies/route'
 import { Route as layoutNewsRouteRouteImport } from './routes/(layout)/news/route'
 import { Route as layoutPrivacyRouteRouteImport } from './routes/(layout)/privacy/route'
+import { Route as layoutPrivacyPolicyRouteRouteImport } from './routes/(layout)/privacy-policy/route'
 import { Route as layoutProfileRouteRouteImport } from './routes/(layout)/profile/route'
 import { Route as layoutTermsRouteRouteImport } from './routes/(layout)/terms/route'
 import { Route as layoutTermsAndConditionsRouteRouteImport } from './routes/(layout)/terms-and-conditions/route'
@@ -48,6 +49,12 @@ const layoutPrivacyRouteRoute = layoutPrivacyRouteRouteImport.update({
   path: '/privacy',
   getParentRoute: () => layoutRouteRoute,
 } as any)
+const layoutPrivacyPolicyRouteRoute =
+  layoutPrivacyPolicyRouteRouteImport.update({
+    id: '/privacy-policy',
+    path: '/privacy-policy',
+    getParentRoute: () => layoutRouteRoute,
+  } as any)
 const layoutProfileRouteRoute = layoutProfileRouteRouteImport.update({
   id: '/profile',
   path: '/profile',
@@ -70,6 +77,7 @@ export interface FileRoutesByFullPath {
   '/cookies': typeof layoutCookiesRouteRoute
   '/news': typeof layoutNewsRouteRoute
   '/privacy': typeof layoutPrivacyRouteRoute
+  '/privacy-policy': typeof layoutPrivacyPolicyRouteRoute
   '/profile': typeof layoutProfileRouteRoute
   '/terms': typeof layoutTermsRouteRoute
   '/terms-and-conditions': typeof layoutTermsAndConditionsRouteRoute
@@ -80,6 +88,7 @@ export interface FileRoutesByTo {
   '/cookies': typeof layoutCookiesRouteRoute
   '/news': typeof layoutNewsRouteRoute
   '/privacy': typeof layoutPrivacyRouteRoute
+  '/privacy-policy': typeof layoutPrivacyPolicyRouteRoute
   '/profile': typeof layoutProfileRouteRoute
   '/terms': typeof layoutTermsRouteRoute
   '/terms-and-conditions': typeof layoutTermsAndConditionsRouteRoute
@@ -92,6 +101,7 @@ export interface FileRoutesById {
   '/(layout)/cookies': typeof layoutCookiesRouteRoute
   '/(layout)/news': typeof layoutNewsRouteRoute
   '/(layout)/privacy': typeof layoutPrivacyRouteRoute
+  '/(layout)/privacy-policy': typeof layoutPrivacyPolicyRouteRoute
   '/(layout)/profile': typeof layoutProfileRouteRoute
   '/(layout)/terms': typeof layoutTermsRouteRoute
   '/(layout)/terms-and-conditions': typeof layoutTermsAndConditionsRouteRoute
@@ -104,6 +114,7 @@ export interface FileRouteTypes {
     | '/cookies'
     | '/news'
     | '/privacy'
+    | '/privacy-policy'
     | '/profile'
     | '/terms'
     | '/terms-and-conditions'
@@ -114,6 +125,7 @@ export interface FileRouteTypes {
     | '/cookies'
     | '/news'
     | '/privacy'
+    | '/privacy-policy'
     | '/profile'
     | '/terms'
     | '/terms-and-conditions'
@@ -125,6 +137,7 @@ export interface FileRouteTypes {
     | '/(layout)/cookies'
     | '/(layout)/news'
     | '/(layout)/privacy'
+    | '/(layout)/privacy-policy'
     | '/(layout)/profile'
     | '/(layout)/terms'
     | '/(layout)/terms-and-conditions'
@@ -179,6 +192,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof layoutPrivacyRouteRouteImport
       parentRoute: typeof layoutRouteRoute
     }
+    '/(layout)/privacy-policy': {
+      id: '/(layout)/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof layoutPrivacyPolicyRouteRouteImport
+      parentRoute: typeof layoutRouteRoute
+    }
     '/(layout)/profile': {
       id: '/(layout)/profile'
       path: '/profile'
@@ -208,6 +228,7 @@ interface layoutRouteRouteChildren {
   layoutCookiesRouteRoute: typeof layoutCookiesRouteRoute
   layoutNewsRouteRoute: typeof layoutNewsRouteRoute
   layoutPrivacyRouteRoute: typeof layoutPrivacyRouteRoute
+  layoutPrivacyPolicyRouteRoute: typeof layoutPrivacyPolicyRouteRoute
   layoutProfileRouteRoute: typeof layoutProfileRouteRoute
   layoutTermsRouteRoute: typeof layoutTermsRouteRoute
   layoutTermsAndConditionsRouteRoute: typeof layoutTermsAndConditionsRouteRoute
@@ -219,6 +240,7 @@ const layoutRouteRouteChildren: layoutRouteRouteChildren = {
   layoutCookiesRouteRoute: layoutCookiesRouteRoute,
   layoutNewsRouteRoute: layoutNewsRouteRoute,
   layoutPrivacyRouteRoute: layoutPrivacyRouteRoute,
+  layoutPrivacyPolicyRouteRoute: layoutPrivacyPolicyRouteRoute,
   layoutProfileRouteRoute: layoutProfileRouteRoute,
   layoutTermsRouteRoute: layoutTermsRouteRoute,
   layoutTermsAndConditionsRouteRoute: layoutTermsAndConditionsRouteRoute,

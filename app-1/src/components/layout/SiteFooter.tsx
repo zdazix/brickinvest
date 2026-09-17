@@ -73,7 +73,7 @@ export const SiteFooter = () => {
             </span>
             <a
               className="transition-colors hover:text-primary focus-visible:text-primary"
-              href="/privacy"
+              href="/privacy-policy"
             >
               Privacy Policy
             </a>

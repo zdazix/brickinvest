@@ -1,12 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { PrivacyPage } from "@/pages/privacy/PrivacyPage";
+import { PrivacyPolicyPage } from "@/pages/privacy/PrivacyPolicyPage";
 
 export const Route = createFileRoute("/(layout)/privacy")({
-  component: PrivacyPage,
+  component: PrivacyPolicyPage,
   head: () => ({
     meta: [
-      { title: "BRICKINVEST Privacy Policy" },
+      { title: "Privacy Policy | BRICKINVEST" },
       {
         name: "description",
         content:

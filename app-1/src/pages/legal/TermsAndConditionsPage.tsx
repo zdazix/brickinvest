@@ -171,7 +171,7 @@ export const TermsAndConditionsPage = () => (
       <div className="mt-10 flex flex-wrap gap-x-5 gap-y-3 text-[12px] tracking-[0.12em] text-muted-foreground uppercase">
         <Link
           className="transition-colors hover:text-foreground focus-visible:text-foreground"
-          to="/privacy"
+          to="/privacy-policy"
         >
           Privacy Policy
         </Link>
