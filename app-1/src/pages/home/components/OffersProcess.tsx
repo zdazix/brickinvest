@@ -54,10 +54,10 @@ const offerImages = [
     position: "65% center",
   },
   {
-    alt: "Project management planning on a tablet",
+    alt: "Multilingual investor support",
     kind: "image",
-    src: "/images/offers/project-management.jpg",
-    position: "center 42%",
+    src: "/images/offers/03-07.jpg",
+    position: "center center",
   },
   {
     alt: "Architecture and engineering planning",
