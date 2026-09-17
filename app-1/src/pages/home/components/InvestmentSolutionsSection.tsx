@@ -156,7 +156,7 @@ export const InvestmentSolutionsSection = () => {
                     </label>
                   </div>
                   <button
-                    className="group mt-8 flex items-center gap-2.5 border border-border bg-white px-4 py-2.5 font-secondary text-[12px] leading-5 font-semibold tracking-[0.03em] text-foreground transition-[background-color,color,transform] duration-250 ease-out hover:bg-foreground hover:text-background focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-px disabled:opacity-60"
+                    className="group mt-8 flex items-center gap-2.5 border border-border bg-foreground px-4 py-2.5 font-secondary text-[12px] leading-5 font-semibold tracking-[0.03em] text-background transition-[background-color,color,transform] duration-250 ease-out hover:bg-foreground hover:text-background focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-px disabled:opacity-60"
                     data-cursor-magnetic
                     disabled={status === "sending"}
                     type="submit"
