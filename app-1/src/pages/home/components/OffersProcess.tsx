@@ -38,9 +38,9 @@ const offerImages = [
     position: "center center",
   },
   {
-    alt: "In-house construction project",
-    src: "/images/offers/construction-project.jpg",
-    position: "45% 70%",
+    alt: "Bespoke ready-made development",
+    src: "/images/offers/03-05.png",
+    position: "center center",
   },
   {
     alt: "Architecture and engineering planning",
