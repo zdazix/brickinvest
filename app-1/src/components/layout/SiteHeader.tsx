@@ -247,17 +247,17 @@ export const SiteHeader = () => {
 
         <div
           aria-hidden={!isMenuOpen}
-          className={`fixed inset-0 z-0 bg-foreground transition-[opacity,visibility] duration-300 lg:hidden ${isMenuOpen ? "visible opacity-100" : "invisible opacity-0"}`}
+          className={`fixed inset-0 isolate z-0 bg-[#20211f] opacity-100 transition-[opacity,visibility] duration-300 lg:hidden ${isMenuOpen ? "visible" : "invisible opacity-0"}`}
           id="mobile-navigation"
         >
           <nav
             aria-label="Mobile primary navigation"
-            className="flex h-full flex-col justify-center gap-1 px-8 pt-24 pb-12 sm:px-16"
+            className="flex h-full flex-col justify-center gap-0.5 overflow-y-auto px-8 pt-24 pb-12 sm:px-16"
             hidden={!isMenuOpen}
           >
             {navigation.map(({ href, key }) => (
               <a
-                className="border-b border-border/15 py-4 text-left text-xl font-semibold tracking-[-0.018em] text-white transition-colors hover:text-primary focus-visible:text-primary active:text-primary sm:text-2xl"
+                className="border-b border-white/15 py-3.5 text-left font-secondary text-[clamp(1rem,4.8vw,1.35rem)] leading-[1.2] font-semibold tracking-[0.01em] text-white transition-colors hover:text-primary focus-visible:text-primary active:text-primary sm:py-4"
                 href={href}
                 key={href}
                 onClick={() => {
