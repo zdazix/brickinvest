@@ -19,41 +19,49 @@ const offerKeys = [
 const offerImages = [
   {
     alt: "Project management planning on a tablet",
+    kind: "image",
     src: "/images/offers/project-management.jpg",
     position: "center 68%",
   },
   {
     alt: "In-house construction project",
+    kind: "image",
     src: "/images/offers/construction-project.jpg",
     position: "center center",
   },
   {
     alt: "Architecture and engineering planning",
+    kind: "image",
     src: "/images/offers/architecture-planning.jpg",
     position: "center center",
   },
   {
     alt: "Unique development plot",
+    kind: "image",
     src: "/images/offers/03-04.jpg",
     position: "center center",
   },
   {
     alt: "Bespoke ready-made development",
+    kind: "image",
     src: "/images/offers/03-05.png",
     position: "center center",
   },
   {
-    alt: "Architecture and engineering planning",
-    src: "/images/offers/architecture-planning.jpg",
+    alt: "Investment return opportunity",
+    kind: "video",
+    src: "/videos/offers-03-06.mp4",
     position: "65% center",
   },
   {
     alt: "Project management planning on a tablet",
+    kind: "image",
     src: "/images/offers/project-management.jpg",
     position: "center 42%",
   },
   {
     alt: "Architecture and engineering planning",
+    kind: "image",
     src: "/images/offers/architecture-planning.jpg",
     position: "35% center",
   },
@@ -134,16 +142,30 @@ export const OffersProcess = () => {
               <div className="w-full min-w-0 flex-[0_0_100%] pr-0" key={key}>
                 <article className="group grid h-[31rem] overflow-hidden border border-border/35 bg-surface sm:h-[34rem] lg:h-[27rem] lg:grid-cols-[minmax(0,1.22fr)_minmax(0,0.78fr)]">
                   <div className="relative min-h-0 overflow-hidden">
-                    <img
-                      alt={image.alt}
-                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035]"
-                      decoding="async"
-                      height="1104"
-                      loading={index === 0 ? "eager" : "lazy"}
-                      src={image.src}
-                      style={{ objectPosition: image.position }}
-                      width="1024"
-                    />
+                    {image.kind === "video" ? (
+                      <video
+                        aria-label={image.alt}
+                        autoPlay
+                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035]"
+                        loop
+                        muted
+                        playsInline
+                        preload="metadata"
+                        src={image.src}
+                        style={{ objectPosition: image.position }}
+                      />
+                    ) : (
+                      <img
+                        alt={image.alt}
+                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035]"
+                        decoding="async"
+                        height="1104"
+                        loading={index === 0 ? "eager" : "lazy"}
+                        src={image.src}
+                        style={{ objectPosition: image.position }}
+                        width="1024"
+                      />
+                    )}
                     <div
                       aria-hidden="true"
                       className="from-black/35 absolute inset-0 bg-gradient-to-t via-transparent to-transparent opacity-70"
