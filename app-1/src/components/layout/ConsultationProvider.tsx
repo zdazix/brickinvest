@@ -173,9 +173,7 @@ export const ConsultationProvider = ({ children }: PropsWithChildren) => {
                       disabled={isConsultationSending}
                       type="submit"
                     >
-                      {isConsultationSending
-                        ? "Sending…"
-                        : "REQUEST CONSULTATION"}
+                      {isConsultationSending ? "Sending…" : "REQUEST"}
                     </button>
                   </form>
                 </>
