@@ -44,7 +44,8 @@ export const SiteFooter = () => {
         <div className="min-w-0 text-[#000] sm:justify-self-end">
           <h2 className="mb-2 text-[9px] tracking-[0.14em]">Contact us</h2>
           <address className="not-italic">
-            <p>Address:</p>
+            <p>Address: Polígono Industrial Nueva Campana, nave n° 73,</p>
+            <p>29660 Marbella, Málaga.</p>
             <p>
               Phone:{" "}
               <a
