@@ -20,9 +20,11 @@ export const AboutTeam = () => {
                 className={`h-full w-full object-cover ${
                   index === 0
                     ? "object-[50%_50%]"
-                    : index === 5
+                    : index === 4
                       ? "scale-[1.12] object-[50%_28%]"
-                      : ""
+                      : index === 5
+                        ? "scale-[1.12] object-[50%_28%]"
+                        : ""
                 }`}
                 loading="lazy"
                 src={image}
