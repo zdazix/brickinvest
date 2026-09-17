@@ -204,13 +204,13 @@ export const SiteHeader = () => {
           </div>
 
           <div
-            className="relative order-2 flex items-end leading-tight lg:hidden"
+            className="relative order-3 flex items-end leading-tight lg:hidden"
             data-consultation
           >
             <button
               aria-expanded={isConsultationOpen}
               aria-label="Request consultation"
-              className={`flex items-center gap-1.5 rounded-full px-1.5 py-2 text-[10px] font-bold tracking-[0.04em] whitespace-nowrap transition-colors duration-250 hover:bg-primary/10 hover:text-primary focus-visible:bg-primary/10 focus-visible:text-primary focus-visible:ring-2 focus-visible:ring-ring/60 focus-visible:outline-none active:bg-primary/10 active:text-primary ${isHome ? "text-white/80" : "text-foreground/65"}`}
+              className={`grid size-11 place-items-center rounded-full transition-colors duration-250 hover:bg-primary/10 hover:text-primary focus-visible:bg-primary/10 focus-visible:text-primary focus-visible:ring-2 focus-visible:ring-ring/60 focus-visible:outline-none active:bg-primary/10 active:text-primary ${isHome ? "text-white/80" : "text-foreground/65"}`}
               onClick={(event) => {
                 event.stopPropagation();
                 if (isConsultationOpen) closeConsultation();
@@ -224,7 +224,6 @@ export const SiteHeader = () => {
                 className="size-[17px]"
                 strokeWidth={1.9}
               />
-              <span className="hidden sm:inline">REQUEST CONSULTATION</span>
             </button>
           </div>
 
@@ -232,11 +231,10 @@ export const SiteHeader = () => {
             aria-controls="mobile-navigation"
             aria-expanded={isMenuOpen}
             aria-label={isMenuOpen ? t("closeMenu") : t("openMenu")}
-            className={`order-3 flex h-11 shrink-0 items-center gap-2 rounded-full border px-3 font-secondary text-[10px] font-bold tracking-[0.08em] transition-colors hover:border-border active:border-primary active:bg-primary/10 active:text-primary lg:hidden ${isHome ? "border-border/55 bg-transparent text-white hover:bg-white/10" : "border-border bg-surface text-foreground hover:bg-secondary"}`}
+            className={`order-2 grid size-11 shrink-0 place-items-center rounded-full border font-bold transition-colors hover:border-border active:border-primary active:bg-primary/10 active:text-primary lg:hidden ${isHome ? "border-border/55 bg-transparent text-white hover:bg-white/10" : "border-border bg-surface text-foreground hover:bg-secondary"}`}
             onClick={() => setIsMenuOpen((open) => !open)}
             type="button"
           >
-            <span aria-hidden="true">MENU</span>
             {isMenuOpen ? (
               <X aria-hidden="true" className="size-5" strokeWidth={2.4} />
             ) : (
