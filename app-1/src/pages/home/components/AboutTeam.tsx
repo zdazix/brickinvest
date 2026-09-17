@@ -6,6 +6,7 @@ const teamImages = [
   "/images/team/team-05.png",
   "/images/team/team-01.png",
 ];
+const penultimateTeamImageIndex = teamImages.length - 2;
 
 export const AboutTeam = () => {
   return (
@@ -20,8 +21,8 @@ export const AboutTeam = () => {
                 className={`h-full w-full object-cover ${
                   index === 0
                     ? "object-[50%_50%]"
-                    : index === 4
-                      ? "scale-[1.28] object-[50%_10%]"
+                    : index === penultimateTeamImageIndex
+                      ? "scale-[1.42] object-[50%_0%]"
                       : index === 5
                         ? "scale-[1.12] object-[50%_28%]"
                         : ""
