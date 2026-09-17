@@ -1,7 +1,8 @@
 import { ChevronDown, ConciergeBell, Menu, X } from "lucide-react";
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useState } from "react";
 import { useRouterState } from "@tanstack/react-router";
 
+import { useConsultation } from "@/components/layout/consultation-context";
 import { locales, useLocale, type LocaleKey } from "@/lib/i18n";
 import { trackEvent } from "@/lib/analytics";
 
@@ -32,32 +33,9 @@ export const SiteHeader = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
-  const [isConsultationOpen, setIsConsultationOpen] = useState(false);
-  const [consultationView, setConsultationView] = useState<"form" | "success">(
-    "form",
-  );
-  const [consultationForm, setConsultationForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-  const [consultationError, setConsultationError] = useState("");
-  const [isConsultationSending, setIsConsultationSending] = useState(false);
+  const { closeConsultation, isConsultationOpen, openConsultation } =
+    useConsultation();
   const { locale, setLocale, t } = useLocale();
-  const closeConsultation = () => {
-    setIsConsultationOpen(false);
-    setConsultationView("form");
-    setConsultationForm({ name: "", email: "", phone: "", message: "" });
-    setConsultationError("");
-  };
-  const openConsultation = () => {
-    if (!isConsultationOpen) {
-      trackEvent("consultation_open");
-      trackEvent("consultation_form_open");
-    }
-    setIsConsultationOpen(true);
-  };
 
   useEffect(() => {
     const updateScrollState = () => setIsScrolled(window.scrollY > 8);
@@ -108,76 +86,9 @@ export const SiteHeader = () => {
     return () => document.removeEventListener("click", closeOnOutsideClick);
   }, []);
 
-  useEffect(() => {
-    if (!isConsultationOpen || isMenuOpen) return;
-
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = previousOverflow;
-    };
-  }, [isConsultationOpen, isMenuOpen]);
-
-  useEffect(() => {
-    const closeOnOutsideClick = (event: MouseEvent) => {
-      if (!(event.target as Element).closest("[data-consultation]")) {
-        closeConsultation();
-      }
-    };
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") closeConsultation();
-    };
-    document.addEventListener("click", closeOnOutsideClick);
-    document.addEventListener("keydown", closeOnEscape);
-    return () => {
-      document.removeEventListener("click", closeOnOutsideClick);
-      document.removeEventListener("keydown", closeOnEscape);
-    };
-  }, []);
-
   const selectedLocale =
     locales.find((item) => item.key === locale) ?? locales[0];
   const closeMenu = () => setIsMenuOpen(false);
-  const submitConsultation = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const { name, email, phone, message } = consultationForm;
-    if (!name.trim() || !email.trim() || !phone.trim() || !message.trim()) {
-      setConsultationError("Please complete all fields before submitting.");
-      return;
-    }
-    setIsConsultationSending(true);
-    setConsultationError("");
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_INVESTOR_API_URL ?? ""}/api/investor-submissions`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            firstName: name,
-            email,
-            phone: phone.startsWith("+")
-              ? phone
-              : `+34${phone.replace(/\D/g, "")}`,
-            objective: message.slice(0, 100),
-            source: "Investment Solutions form",
-          }),
-        },
-      );
-      if (!response.ok) throw new Error("The request could not be sent.");
-      setConsultationView("success");
-      trackEvent("generate_lead", { lead_source: "consultation_modal" });
-    } catch (error) {
-      setConsultationError(
-        error instanceof Error
-          ? error.message
-          : "The request could not be sent.",
-      );
-    } finally {
-      setIsConsultationSending(false);
-    }
-  };
-
   return (
     <>
       <div
@@ -352,123 +263,6 @@ export const SiteHeader = () => {
           </nav>
         </div>
       </div>
-
-      {isConsultationOpen && (
-        <div
-          aria-label="REQUEST CONSULTATION"
-          aria-modal="true"
-          className="consultation-modal fixed inset-0 z-[60] flex items-start justify-center overflow-y-auto bg-foreground/25 px-5 py-4 sm:items-center sm:px-8 sm:py-8"
-          onClick={closeConsultation}
-          role="dialog"
-        >
-          <div
-            className="consultation-modal__panel relative my-auto max-h-[calc(100dvh-2rem)] w-full max-w-md overflow-y-auto overscroll-contain border border-border/60 bg-surface px-7 py-9 text-center text-foreground sm:max-h-[calc(100dvh-4rem)] sm:px-12 sm:py-12"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <button
-              aria-label="Close consultation dialog"
-              className="absolute top-3 right-4 text-xl leading-none font-light text-foreground/55 transition-colors hover:text-primary"
-              onClick={closeConsultation}
-              type="button"
-            >
-              ×
-            </button>
-            <div className="consultation-modal__content">
-              {consultationView === "form" && (
-                <>
-                  <h2 className="text-center font-secondary text-[10px] font-medium tracking-[0.15em] text-foreground/60">
-                    REQUEST CONSULTATION
-                  </h2>
-                  <form
-                    className="mt-7 grid gap-4 text-left"
-                    onSubmit={(event) => void submitConsultation(event)}
-                  >
-                    {(["name", "email", "phone"] as const).map((field) => (
-                      <label
-                        className="grid gap-1 text-[10px] tracking-[0.14em] text-foreground/60 uppercase"
-                        key={field}
-                      >
-                        {field === "name"
-                          ? "Name"
-                          : field === "email"
-                            ? "Email"
-                            : "Phone Number"}
-                        <input
-                          className={`h-10 border-b border-border/40 bg-transparent px-0 text-[15px] tracking-normal transition-[border-color] duration-250 outline-none focus:border-border ${field === "phone" ? "text-[#000]" : "text-foreground"}`}
-                          onChange={(event) =>
-                            setConsultationForm((current) => ({
-                              ...current,
-                              [field]: event.target.value,
-                            }))
-                          }
-                          required
-                          type={
-                            field === "email"
-                              ? "email"
-                              : field === "phone"
-                                ? "tel"
-                                : "text"
-                          }
-                          placeholder={
-                            field === "name"
-                              ? "Your name"
-                              : field === "email"
-                                ? "Your email"
-                                : "Your phone (optional)"
-                          }
-                          value={consultationForm[field]}
-                        />
-                      </label>
-                    ))}
-                    <label className="grid gap-1 text-[10px] tracking-[0.14em] text-foreground/60 uppercase">
-                      Message / What would you like to discuss?
-                      <textarea
-                        className="min-h-20 resize-none border-b border-border/40 bg-transparent px-0 py-2 text-[15px] tracking-normal text-foreground transition-[border-color] duration-250 outline-none focus:border-border"
-                        onChange={(event) =>
-                          setConsultationForm((current) => ({
-                            ...current,
-                            message: event.target.value,
-                          }))
-                        }
-                        required
-                        value={consultationForm.message}
-                      />
-                    </label>
-                    {consultationError && (
-                      <p aria-live="polite" className="text-[13px] text-danger">
-                        {consultationError}
-                      </p>
-                    )}
-                    <button
-                      className="mt-2 border border-border bg-foreground px-5 py-3 text-[10px] font-semibold tracking-[0.16em] text-background transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-px disabled:opacity-60"
-                      disabled={isConsultationSending}
-                      type="submit"
-                    >
-                      {isConsultationSending
-                        ? "Sending…"
-                        : "REQUEST CONSULTATION"}
-                    </button>
-                  </form>
-                </>
-              )}
-              {consultationView === "success" && (
-                <>
-                  <p className="font-primary text-xl leading-tight text-foreground">
-                    Thank you. Your consultation request has been received.
-                  </p>
-                  <button
-                    className="mt-8 text-[10px] tracking-[0.14em] text-foreground/55 uppercase transition-colors hover:text-primary"
-                    onClick={() => setConsultationView("form")}
-                    type="button"
-                  >
-                    New request
-                  </button>
-                </>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 };
