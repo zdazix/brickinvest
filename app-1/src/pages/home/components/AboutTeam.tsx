@@ -42,7 +42,9 @@ export const AboutTeam = () => {
                     ? "Alexander Lupenski / Construction site manager"
                     : index === 2
                       ? "Antonio Gonsalez / Coonstruction site manager"
-                      : "Role / Position"}
+                      : index === 3
+                        ? "Santiago Lloreda / Supperior architect"
+                        : "Role / Position"}
               </span>
             </div>
           </article>
