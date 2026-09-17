@@ -170,7 +170,7 @@ export const OffersProcess = () => {
                       </p>
                     </div>
 
-                    <div className="mt-auto flex items-center gap-3 border-t border-border/25 pt-3 font-mono text-[7px] tracking-[0.16em] text-muted-foreground uppercase sm:mt-auto">
+                    <div className="mt-8 flex items-center gap-3 border-t border-border/25 pt-3 font-mono text-[7px] tracking-[0.16em] text-muted-foreground uppercase sm:mt-10 lg:mt-8 xl:mt-10">
                       <span>BRICKINVEST</span>
                       <span
                         aria-hidden="true"
