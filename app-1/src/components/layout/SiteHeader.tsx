@@ -95,8 +95,15 @@ export const SiteHeader = () => {
         className={`fixed inset-x-0 top-0 z-50 border-b px-4 pt-4 transition-[background-color,border-color,backdrop-filter] duration-300 sm:px-8 sm:pt-6 lg:pt-0 ${isHome ? (isScrolled ? "border-border/15 bg-foreground/60 backdrop-blur-sm" : "border-transparent bg-transparent") : `bg-surface ${isScrolled ? "border-border/30" : "border-border/60"}`}`}
       >
         <header
-          className={`relative mx-auto flex max-w-[1600px] items-center justify-between gap-3 px-1 py-2 lg:gap-4 xl:gap-5 ${isHome ? "text-white" : "text-foreground"}`}
+          className={`relative z-10 mx-auto flex max-w-[1600px] items-center justify-between gap-3 px-1 py-2 lg:gap-4 xl:gap-5 ${isHome ? "text-white" : "text-foreground"}`}
         >
+          <a
+            aria-label="BRICKINVEST home"
+            className={`order-1 mr-auto shrink-0 font-secondary text-[1.1rem] font-bold tracking-[-0.055em] transition-[color,transform] hover:translate-x-1 hover:text-primary active:text-primary lg:hidden ${isHome ? "text-white" : "text-foreground"}`}
+            href="/"
+          >
+            BRICKINVEST
+          </a>
           <div className="hidden shrink-0 items-center gap-6 lg:flex">
             <a
               aria-label="BRICKINVEST home"
@@ -217,7 +224,7 @@ export const SiteHeader = () => {
                 className="size-[17px]"
                 strokeWidth={1.9}
               />
-              <span>REQUEST CONSULTATION</span>
+              <span className="hidden sm:inline">REQUEST CONSULTATION</span>
             </button>
           </div>
 
@@ -225,7 +232,7 @@ export const SiteHeader = () => {
             aria-controls="mobile-navigation"
             aria-expanded={isMenuOpen}
             aria-label={isMenuOpen ? t("closeMenu") : t("openMenu")}
-            className={`order-1 ml-auto grid size-11 place-items-center rounded-full border font-bold transition-colors hover:border-border active:border-primary active:bg-primary/10 active:text-primary lg:hidden ${isHome ? "border-border/55 bg-transparent text-white hover:bg-white/10" : "border-border bg-surface text-foreground hover:bg-secondary"}`}
+            className={`order-3 grid size-11 shrink-0 place-items-center rounded-full border font-bold transition-colors hover:border-border active:border-primary active:bg-primary/10 active:text-primary lg:hidden ${isHome ? "border-border/55 bg-transparent text-white hover:bg-white/10" : "border-border bg-surface text-foreground hover:bg-secondary"}`}
             onClick={() => setIsMenuOpen((open) => !open)}
             type="button"
           >
@@ -239,7 +246,7 @@ export const SiteHeader = () => {
 
         <div
           aria-hidden={!isMenuOpen}
-          className={`fixed inset-0 -z-10 bg-foreground transition-[opacity,visibility] duration-300 lg:hidden ${isMenuOpen ? "visible opacity-100" : "invisible opacity-0"}`}
+          className={`fixed inset-0 z-0 bg-foreground transition-[opacity,visibility] duration-300 lg:hidden ${isMenuOpen ? "visible opacity-100" : "invisible opacity-0"}`}
           id="mobile-navigation"
         >
           <nav
