@@ -11,7 +11,6 @@ const offerKeys = [
   "offerArchitecture",
   "offerPlots",
   "offerDevelopments",
-  "offerRoi",
   "offerMultilingual",
   "offerLegacy",
 ] as const;
@@ -45,12 +44,6 @@ const offerImages = [
     alt: "Bespoke ready-made development",
     kind: "image",
     src: "/images/offers/03-05.png",
-    position: "center center",
-  },
-  {
-    alt: "Investment return opportunity",
-    kind: "image",
-    src: "/images/offers/03-06.jpg",
     position: "center center",
   },
   {

@@ -84,9 +84,6 @@ const english: Dictionary = {
   offerDevelopments: "Bespoke ready-made development",
   offerDevelopmentsBody:
     "Considered development opportunities, prepared as a clear path from concept to completed investment.",
-  offerRoi: "ROI of 40%+ per year",
-  offerRoiBody:
-    "We focus on opportunities with the potential to deliver strong, carefully assessed returns year after year.",
   offerMultilingual: "Multilingual support",
   offerMultilingualBody:
     "A multilingual team keeps every stage clear and connected for international investors and partners.",
