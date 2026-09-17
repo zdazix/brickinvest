@@ -49,9 +49,9 @@ const offerImages = [
   },
   {
     alt: "Investment return opportunity",
-    kind: "video",
-    src: "/videos/offers-03-06.mp4",
-    position: "65% center",
+    kind: "image",
+    src: "/images/offers/03-06.jpg",
+    position: "center center",
   },
   {
     alt: "Multilingual investor support",
@@ -142,30 +142,16 @@ export const OffersProcess = () => {
               <div className="w-full min-w-0 flex-[0_0_100%] pr-0" key={key}>
                 <article className="group grid h-[31rem] overflow-hidden border border-border/35 bg-surface sm:h-[34rem] lg:h-[27rem] lg:grid-cols-[minmax(0,1.22fr)_minmax(0,0.78fr)]">
                   <div className="relative min-h-0 overflow-hidden">
-                    {image.kind === "video" ? (
-                      <video
-                        aria-label={image.alt}
-                        autoPlay
-                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035]"
-                        loop
-                        muted
-                        playsInline
-                        preload="metadata"
-                        src={image.src}
-                        style={{ objectPosition: image.position }}
-                      />
-                    ) : (
-                      <img
-                        alt={image.alt}
-                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035]"
-                        decoding="async"
-                        height="1104"
-                        loading={index === 0 ? "eager" : "lazy"}
-                        src={image.src}
-                        style={{ objectPosition: image.position }}
-                        width="1024"
-                      />
-                    )}
+                    <img
+                      alt={image.alt}
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035]"
+                      decoding="async"
+                      height="1104"
+                      loading={index === 0 ? "eager" : "lazy"}
+                      src={image.src}
+                      style={{ objectPosition: image.position }}
+                      width="1024"
+                    />
                     <div
                       aria-hidden="true"
                       className="from-black/35 absolute inset-0 bg-gradient-to-t via-transparent to-transparent opacity-70"
