@@ -1,3 +1,8 @@
+import { useCallback, useEffect, useState } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+
+import { IconButton } from "@/components/ui/IconButton";
 import { useLocale } from "@/lib/i18n";
 
 const offerKeys = [
@@ -56,73 +61,160 @@ const offerImages = [
 
 export const OffersProcess = () => {
   const { t } = useLocale();
+  const [viewportRef, carouselApi] = useEmblaCarousel({
+    align: "start",
+    containScroll: "trimSnaps",
+    loop: false,
+    slidesToScroll: 1,
+  });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+  const [canScrollPrevious, setCanScrollPrevious] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
+
+  const updateCarouselState = useCallback(() => {
+    if (!carouselApi) return;
+
+    setSelectedIndex(carouselApi.selectedScrollSnap());
+    setScrollSnaps(carouselApi.scrollSnapList());
+    setCanScrollPrevious(carouselApi.canScrollPrev());
+    setCanScrollNext(carouselApi.canScrollNext());
+  }, [carouselApi]);
+
+  useEffect(() => {
+    if (!carouselApi) return;
+
+    const animationFrame = requestAnimationFrame(updateCarouselState);
+    carouselApi.on("select", updateCarouselState);
+    carouselApi.on("reInit", updateCarouselState);
+
+    return () => {
+      cancelAnimationFrame(animationFrame);
+      carouselApi.off("select", updateCarouselState);
+      carouselApi.off("reInit", updateCarouselState);
+    };
+  }, [carouselApi, updateCarouselState]);
 
   return (
-    <div className="mt-14 space-y-6 sm:mt-20 sm:space-y-8 lg:mt-28 lg:space-y-12">
-      {offerKeys.map((key, index) => {
-        const image = offerImages[index];
-        const stepNumber = `/03.${String(index + 1).padStart(2, "0")}`;
-        const reversed = index % 2 === 1;
+    <div className="mt-12 min-w-0 sm:mt-16 lg:mt-22">
+      <div className="mb-4 flex items-center justify-end gap-2 sm:mb-5">
+        <IconButton
+          aria-label="Previous offer"
+          className="size-9 rounded-none"
+          disabled={!canScrollPrevious}
+          onClick={() => carouselApi?.scrollPrev()}
+          type="button"
+        >
+          <ArrowLeft aria-hidden="true" className="size-4" />
+        </IconButton>
+        <IconButton
+          aria-label="Next offer"
+          className="size-9 rounded-none"
+          disabled={!canScrollNext}
+          onClick={() => carouselApi?.scrollNext()}
+          tone="primary"
+          type="button"
+        >
+          <ArrowRight aria-hidden="true" className="size-4" />
+        </IconButton>
+      </div>
 
-        return (
-          <article
-            className="group grid overflow-hidden border border-border/35 bg-surface lg:min-h-[34rem] lg:grid-cols-[minmax(0,1.22fr)_minmax(0,0.78fr)]"
-            key={key}
-          >
-            <div
-              className={`relative min-h-[20rem] overflow-hidden sm:min-h-[27rem] lg:min-h-0 ${
-                reversed ? "lg:order-2" : ""
-              }`}
-            >
-              <img
-                alt={image.alt}
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035]"
-                decoding="async"
-                height="1104"
-                loading={index === 0 ? "eager" : "lazy"}
-                src={image.src}
-                style={{ objectPosition: image.position }}
-                width="1024"
-              />
-              <div
-                aria-hidden="true"
-                className="from-black/35 absolute inset-0 bg-gradient-to-t via-transparent to-transparent opacity-70"
-              />
-            </div>
+      <div
+        aria-label="What we offer horizontal slider"
+        className="overflow-hidden"
+        ref={viewportRef}
+        role="region"
+      >
+        <div className="flex touch-pan-y">
+          {offerKeys.map((key, index) => {
+            const image = offerImages[index];
+            const stepNumber = `/03.${String(index + 1).padStart(2, "0")}`;
+            const reversed = index % 2 === 1;
 
-            <div
-              className={`flex min-h-[19rem] flex-col justify-between p-6 sm:min-h-[22rem] sm:p-9 lg:min-h-0 lg:p-10 xl:p-12 ${
-                reversed ? "lg:order-1" : ""
-              }`}
-            >
-              <div className="flex items-start justify-between gap-5">
-                <p className="font-mono text-[clamp(1.1rem,1.8vw,1.65rem)] leading-none tracking-[0.08em] text-primary">
-                  {stepNumber}
-                </p>
-                <span
-                  aria-hidden="true"
-                  className="mt-1 size-2 shrink-0 rounded-full bg-primary"
-                />
+            return (
+              <div className="w-full min-w-0 flex-[0_0_100%] pr-0" key={key}>
+                <article className="group grid h-[31rem] overflow-hidden border border-border/35 bg-surface sm:h-[34rem] lg:h-[27rem] lg:grid-cols-[minmax(0,1.22fr)_minmax(0,0.78fr)]">
+                  <div
+                    className={`relative min-h-0 overflow-hidden ${
+                      reversed ? "lg:order-2" : ""
+                    }`}
+                  >
+                    <img
+                      alt={image.alt}
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035]"
+                      decoding="async"
+                      height="1104"
+                      loading={index === 0 ? "eager" : "lazy"}
+                      src={image.src}
+                      style={{ objectPosition: image.position }}
+                      width="1024"
+                    />
+                    <div
+                      aria-hidden="true"
+                      className="from-black/35 absolute inset-0 bg-gradient-to-t via-transparent to-transparent opacity-70"
+                    />
+                  </div>
+
+                  <div
+                    className={`flex min-h-0 flex-col justify-between p-6 sm:p-9 lg:p-8 xl:p-9 ${
+                      reversed ? "lg:order-1" : ""
+                    }`}
+                  >
+                    <div className="flex items-start justify-between gap-5">
+                      <p className="font-mono text-[clamp(1rem,1.6vw,1.4rem)] leading-none tracking-[0.08em] text-primary">
+                        {stepNumber}
+                      </p>
+                      <span
+                        aria-hidden="true"
+                        className="mt-1 size-2 shrink-0 rounded-full bg-primary"
+                      />
+                    </div>
+
+                    <div className="mt-10 sm:mt-14 lg:mt-0">
+                      <h3 className="max-w-[24rem] font-primary text-[clamp(2rem,3.7vw,3.8rem)] leading-[0.92] tracking-[-0.04em] text-foreground">
+                        {t(key)}
+                      </h3>
+                      <p className="mt-4 max-w-[31rem] text-[13px] leading-[1.5] text-muted-foreground sm:mt-6 sm:text-[14px]">
+                        {t(`${key}Body`)}
+                      </p>
+                    </div>
+
+                    <div className="mt-7 flex items-center gap-3 border-t border-border/25 pt-3 font-mono text-[8px] tracking-[0.18em] text-muted-foreground uppercase sm:mt-9">
+                      <span>BRICKINVEST</span>
+                      <span
+                        aria-hidden="true"
+                        className="h-px w-8 bg-primary"
+                      />
+                      <span>What we offer</span>
+                    </div>
+                  </div>
+                </article>
               </div>
+            );
+          })}
+        </div>
+      </div>
 
-              <div className="mt-14 sm:mt-20 lg:mt-0">
-                <h3 className="max-w-[24rem] font-primary text-[clamp(2.25rem,4.2vw,4.65rem)] leading-[0.92] tracking-[-0.04em] text-foreground">
-                  {t(key)}
-                </h3>
-                <p className="mt-6 max-w-[31rem] text-[14px] leading-[1.55] text-muted-foreground sm:mt-8 sm:text-[15px]">
-                  {t(`${key}Body`)}
-                </p>
-              </div>
-
-              <div className="mt-10 flex items-center gap-3 border-t border-border/25 pt-4 font-mono text-[9px] tracking-[0.18em] text-muted-foreground uppercase sm:mt-12">
-                <span>BRICKINVEST</span>
-                <span aria-hidden="true" className="h-px w-10 bg-primary" />
-                <span>What we offer</span>
-              </div>
-            </div>
-          </article>
-        );
-      })}
+      <div
+        aria-label="Select offer"
+        className="mt-4 flex items-center justify-center gap-2"
+        role="group"
+      >
+        {scrollSnaps.map((_, index) => (
+          <button
+            aria-label={`Show offer ${index + 1}`}
+            aria-pressed={selectedIndex === index}
+            className={`h-1.5 rounded-full transition-[width,background-color] ${
+              selectedIndex === index
+                ? "w-8 bg-primary"
+                : "w-1.5 bg-border/50 hover:bg-muted-foreground"
+            }`}
+            key={`offer-slide-${index}`}
+            onClick={() => carouselApi?.scrollTo(index)}
+            type="button"
+          />
+        ))}
+      </div>
     </div>
   );
 };
