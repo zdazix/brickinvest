@@ -63,15 +63,33 @@ const english: Dictionary = {
   deepInsightBody:
     "Our long-standing presence in the market and trusted network give us access to opportunities before they reach the wider market. This allows us to identify high-value properties and development prospects with strong potential.",
   offerHeading: "WHAT WE OFFER",
+  offerSupporting:
+    "One integrated team, from the first opportunity to the finished investment.",
   offerProjectManagement:
     "Project management with implementation in digital screen AI system",
+  offerProjectManagementBody:
+    "We bring clarity to complex developments, coordinating every stage from initial planning through to final delivery.",
   offerConstruction: "In-house construction company",
+  offerConstructionBody:
+    "An in-house construction team keeps quality, timing, and budget under one roof from the first build meeting.",
   offerArchitecture: "In-house architects and engineering team",
+  offerArchitectureBody:
+    "Our architects and engineers shape each opportunity around its site, purpose, and long-term investment potential.",
   offerPlots: "The unique plots",
+  offerPlotsBody:
+    "We identify rare plots with the location, fundamentals, and potential to become something exceptional.",
   offerDevelopments: "Bespoke ready-made development",
+  offerDevelopmentsBody:
+    "Considered development opportunities, prepared as a clear path from concept to completed investment.",
   offerRoi: "ROI of 40%+ per year",
+  offerRoiBody:
+    "We focus on opportunities with the potential to deliver strong, carefully assessed returns year after year.",
   offerMultilingual: "Multilingual support",
+  offerMultilingualBody:
+    "A multilingual team keeps every stage clear and connected for international investors and partners.",
   offerLegacy: "Legacy and transparency",
+  offerLegacyBody:
+    "Transparent reporting and long-term stewardship protect the value we build together.",
   servicesHeading: "OUR SERVICES",
   servicesSupporting: "Comprehensive investment services on the Costa del Sol",
   servicesIntro:
