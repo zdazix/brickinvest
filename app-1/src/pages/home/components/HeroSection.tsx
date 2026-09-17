@@ -413,7 +413,7 @@ export const HeroSection = () => {
             {t("highRoi")}
           </p>
           <button
-            className="group mt-8 flex w-fit items-center gap-4 border border-border bg-white px-7 py-4 text-[11px] font-semibold tracking-[0.12em] text-foreground transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-px sm:mt-10"
+            className="group mt-8 flex w-fit items-center gap-2.5 border border-border bg-white px-4 py-2.5 font-secondary text-[12px] leading-5 font-semibold tracking-[0.03em] text-foreground transition-[background-color,color,transform] duration-250 ease-out hover:bg-foreground hover:text-background focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-px sm:mt-10"
             data-cursor-magnetic
             onClick={() => {
               trackEvent("hero_advice_click");
