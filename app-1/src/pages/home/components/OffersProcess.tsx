@@ -166,7 +166,7 @@ export const OffersProcess = () => {
                       <h3 className="max-w-[24rem] font-primary text-[clamp(1.6rem,3vw,3rem)] leading-[0.94] tracking-[-0.04em] text-foreground">
                         {t(key)}
                       </h3>
-                      <p className="mt-4 max-w-[31rem] text-[11px] leading-[1.5] text-muted-foreground sm:mt-5 sm:text-[12px]">
+                      <p className="mt-4 max-w-[31rem] text-[14px] leading-[1.5] text-muted-foreground sm:mt-5 sm:text-[16px]">
                         {t(`${key}Body`)}
                       </p>
                     </div>
