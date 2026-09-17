@@ -16,7 +16,7 @@ export const SiteFooter = () => {
 
   return (
     <footer className="grain-surface w-full bg-[#ddd8cf] px-5 py-8 text-[#000] sm:px-8 lg:px-12">
-      <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-7 text-[10px] leading-4 tracking-[0.05em] sm:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)_minmax(0,1.75fr)] sm:items-start sm:gap-8 lg:gap-12">
+      <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-7 text-[12px] leading-5 tracking-[0.05em] sm:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)_minmax(0,1.75fr)] sm:items-start sm:gap-8 lg:gap-12">
         <p className="text-[#000] sm:pt-0.5">
           <NumericText>© 2026. All Rights Reserved.</NumericText>
         </p>
@@ -25,7 +25,7 @@ export const SiteFooter = () => {
           aria-label="Company navigation"
           className="min-w-0 sm:justify-self-center"
         >
-          <p className="mb-2 text-[9px] tracking-[0.14em] text-[#000]">
+          <p className="mb-2 text-[12px] tracking-[0.05em] text-[#000]">
             COMPANY
           </p>
           <div className="flex flex-wrap gap-x-4 gap-y-1.5 text-[#000]">
@@ -42,7 +42,7 @@ export const SiteFooter = () => {
         </nav>
 
         <div className="min-w-0 text-[#000] sm:justify-self-end">
-          <h2 className="mb-2 text-[9px] tracking-[0.14em]">Contact us</h2>
+          <h2 className="mb-2 text-[12px] tracking-[0.05em]">Contact us</h2>
           <address className="not-italic">
             <p>Address: Polígono Industrial Nueva Campana, nave n° 73,</p>
             <p>29660 Marbella, Málaga.</p>
