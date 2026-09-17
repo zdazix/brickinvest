@@ -64,7 +64,7 @@ export const SiteFooter = () => {
           >
             <a
               className="transition-colors hover:text-primary focus-visible:text-primary"
-              href="/terms"
+              href="/terms-and-conditions"
             >
               Terms &amp; Conditions
             </a>

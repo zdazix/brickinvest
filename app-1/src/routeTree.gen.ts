@@ -17,6 +17,7 @@ import { Route as layoutNewsRouteRouteImport } from './routes/(layout)/news/rout
 import { Route as layoutPrivacyRouteRouteImport } from './routes/(layout)/privacy/route'
 import { Route as layoutProfileRouteRouteImport } from './routes/(layout)/profile/route'
 import { Route as layoutTermsRouteRouteImport } from './routes/(layout)/terms/route'
+import { Route as layoutTermsAndConditionsRouteRouteImport } from './routes/(layout)/terms-and-conditions/route'
 
 const layoutRouteRoute = layoutRouteRouteImport.update({
   id: '/(layout)',
@@ -57,6 +58,12 @@ const layoutTermsRouteRoute = layoutTermsRouteRouteImport.update({
   path: '/terms',
   getParentRoute: () => layoutRouteRoute,
 } as any)
+const layoutTermsAndConditionsRouteRoute =
+  layoutTermsAndConditionsRouteRouteImport.update({
+    id: '/terms-and-conditions',
+    path: '/terms-and-conditions',
+    getParentRoute: () => layoutRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/contact': typeof layoutContactRouteRoute
@@ -65,6 +72,7 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof layoutPrivacyRouteRoute
   '/profile': typeof layoutProfileRouteRoute
   '/terms': typeof layoutTermsRouteRoute
+  '/terms-and-conditions': typeof layoutTermsAndConditionsRouteRoute
   '/': typeof layoutIndexRoute
 }
 export interface FileRoutesByTo {
@@ -74,6 +82,7 @@ export interface FileRoutesByTo {
   '/privacy': typeof layoutPrivacyRouteRoute
   '/profile': typeof layoutProfileRouteRoute
   '/terms': typeof layoutTermsRouteRoute
+  '/terms-and-conditions': typeof layoutTermsAndConditionsRouteRoute
   '/': typeof layoutIndexRoute
 }
 export interface FileRoutesById {
@@ -85,15 +94,30 @@ export interface FileRoutesById {
   '/(layout)/privacy': typeof layoutPrivacyRouteRoute
   '/(layout)/profile': typeof layoutProfileRouteRoute
   '/(layout)/terms': typeof layoutTermsRouteRoute
+  '/(layout)/terms-and-conditions': typeof layoutTermsAndConditionsRouteRoute
   '/(layout)/': typeof layoutIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/contact' | '/cookies' | '/news' | '/privacy' | '/profile' | '/terms' | '/'
+    | '/contact'
+    | '/cookies'
+    | '/news'
+    | '/privacy'
+    | '/profile'
+    | '/terms'
+    | '/terms-and-conditions'
+    | '/'
   fileRoutesByTo: FileRoutesByTo
   to:
-    '/contact' | '/cookies' | '/news' | '/privacy' | '/profile' | '/terms' | '/'
+    | '/contact'
+    | '/cookies'
+    | '/news'
+    | '/privacy'
+    | '/profile'
+    | '/terms'
+    | '/terms-and-conditions'
+    | '/'
   id:
     | '__root__'
     | '/(layout)'
@@ -103,6 +127,7 @@ export interface FileRouteTypes {
     | '/(layout)/privacy'
     | '/(layout)/profile'
     | '/(layout)/terms'
+    | '/(layout)/terms-and-conditions'
     | '/(layout)/'
   fileRoutesById: FileRoutesById
 }
@@ -168,6 +193,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof layoutTermsRouteRouteImport
       parentRoute: typeof layoutRouteRoute
     }
+    '/(layout)/terms-and-conditions': {
+      id: '/(layout)/terms-and-conditions'
+      path: '/terms-and-conditions'
+      fullPath: '/terms-and-conditions'
+      preLoaderRoute: typeof layoutTermsAndConditionsRouteRouteImport
+      parentRoute: typeof layoutRouteRoute
+    }
   }
 }
 
@@ -178,6 +210,7 @@ interface layoutRouteRouteChildren {
   layoutPrivacyRouteRoute: typeof layoutPrivacyRouteRoute
   layoutProfileRouteRoute: typeof layoutProfileRouteRoute
   layoutTermsRouteRoute: typeof layoutTermsRouteRoute
+  layoutTermsAndConditionsRouteRoute: typeof layoutTermsAndConditionsRouteRoute
   layoutIndexRoute: typeof layoutIndexRoute
 }
 
@@ -188,6 +221,7 @@ const layoutRouteRouteChildren: layoutRouteRouteChildren = {
   layoutPrivacyRouteRoute: layoutPrivacyRouteRoute,
   layoutProfileRouteRoute: layoutProfileRouteRoute,
   layoutTermsRouteRoute: layoutTermsRouteRoute,
+  layoutTermsAndConditionsRouteRoute: layoutTermsAndConditionsRouteRoute,
   layoutIndexRoute: layoutIndexRoute,
 }
 
