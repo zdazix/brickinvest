@@ -22,7 +22,7 @@ export const ProjectsSection = () => {
   return (
     <section
       aria-labelledby="projects-heading"
-      className="section-shell grain-surface relative overflow-hidden bg-surface"
+      className="section-shell grain-surface relative overflow-visible bg-surface"
       id="projects"
     >
       <div className="relative mx-auto max-w-[1600px]">
@@ -39,7 +39,7 @@ export const ProjectsSection = () => {
             {projectKeys.map((key, index) => (
               <button
                 aria-label={`View ${t(key)}`}
-                className="group relative grid min-h-36 w-full grid-cols-[5rem_minmax(0,1fr)_2.5rem] items-center gap-7 overflow-hidden border-b border-border/20 px-0 py-8 text-left transition-colors hover:bg-secondary focus-visible:bg-secondary sm:min-h-40"
+                className="group relative z-0 grid min-h-36 w-full grid-cols-[5rem_minmax(0,1fr)_2.5rem] items-center gap-7 overflow-visible border-b border-border/20 px-0 py-8 text-left transition-colors hover:z-20 hover:bg-secondary focus-visible:z-20 focus-visible:bg-secondary sm:min-h-40"
                 data-cursor-project
                 key={key}
                 onClick={() => {
@@ -60,15 +60,20 @@ export const ProjectsSection = () => {
                 <span className="relative z-10 max-w-[22rem] min-w-0 font-primary text-[clamp(1.3rem,2vw,2.1rem)] leading-[1.08] tracking-[-0.018em] text-foreground">
                   {t(key)}
                 </span>
-                <img
-                  alt={t(key)}
-                  className={`absolute top-1/2 right-16 z-0 h-36 w-56 -translate-y-1/2 object-cover opacity-0 grayscale transition-[opacity,filter] duration-500 ease-out group-hover:opacity-100 group-hover:grayscale-0 sm:right-24 sm:h-40 sm:w-[min(50vw,18rem)] ${activeProject === key ? "opacity-100 grayscale-0" : ""}`}
-                  decoding="async"
-                  height="600"
-                  loading="lazy"
-                  src={projectImages[key]}
-                  width="900"
-                />
+                <span
+                  aria-hidden="true"
+                  className={`pointer-events-none absolute top-1/2 right-4 z-0 h-32 w-56 -translate-y-1/2 overflow-hidden bg-foreground opacity-0 grayscale transition-[opacity,filter,transform] duration-500 ease-out group-hover:scale-[1.015] group-hover:opacity-100 group-hover:grayscale-0 sm:right-8 sm:h-[min(50vh,24rem)] sm:w-[min(50vw,42rem)] ${activeProject === key ? "scale-[1.015] opacity-100 grayscale-0" : ""}`}
+                >
+                  <img
+                    alt={t(key)}
+                    className="h-full w-full object-cover"
+                    decoding="async"
+                    height="600"
+                    loading="lazy"
+                    src={projectImages[key]}
+                    width="900"
+                  />
+                </span>
                 <span className="relative z-10 text-xl text-primary/60 transition-transform duration-300 group-hover:translate-x-1">
                   ↗
                 </span>
