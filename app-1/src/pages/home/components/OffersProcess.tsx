@@ -62,8 +62,8 @@ const offerImages = [
   {
     alt: "Legacy and transparency",
     kind: "image",
-    src: "/images/offers/03-08.jpg",
-    position: "center bottom",
+    src: "/images/offers/03-08-tree.jpg",
+    position: "center center",
   },
 ] as const;
 
