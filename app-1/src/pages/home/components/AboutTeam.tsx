@@ -36,7 +36,9 @@ export const AboutTeam = () => {
               className="mt-3 flex min-h-12 items-center border-b border-border/50 pb-3"
             >
               <span className="font-mono text-[10px] tracking-[0.16em] text-muted-foreground uppercase">
-                Role / Position
+                {index === 0
+                  ? "Stanley Kotowski / Property expert analyst"
+                  : "Role / Position"}
               </span>
             </div>
           </article>
