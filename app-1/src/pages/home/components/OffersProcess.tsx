@@ -156,12 +156,12 @@ export const OffersProcess = () => {
                   </div>
 
                   <div
-                    className={`flex min-h-0 flex-col justify-between p-6 sm:p-9 lg:p-8 xl:p-9 ${
+                    className={`flex min-h-0 flex-col justify-start p-6 sm:p-9 lg:p-8 lg:pb-10 xl:p-9 xl:pb-12 ${
                       reversed ? "lg:order-1" : ""
                     }`}
                   >
                     <div className="flex items-start justify-between gap-5">
-                      <p className="font-mono text-[clamp(1rem,1.6vw,1.4rem)] leading-none tracking-[0.08em] text-primary">
+                      <p className="font-mono text-[clamp(0.8rem,1.3vw,1.1rem)] leading-none tracking-[0.08em] text-primary">
                         {stepNumber}
                       </p>
                       <span
@@ -170,16 +170,16 @@ export const OffersProcess = () => {
                       />
                     </div>
 
-                    <div className="mt-10 sm:mt-14 lg:mt-0">
-                      <h3 className="max-w-[24rem] font-primary text-[clamp(2rem,3.7vw,3.8rem)] leading-[0.92] tracking-[-0.04em] text-foreground">
+                    <div className="mt-10 sm:mt-14 lg:mt-12">
+                      <h3 className="max-w-[24rem] font-primary text-[clamp(1.6rem,3vw,3rem)] leading-[0.94] tracking-[-0.04em] text-foreground">
                         {t(key)}
                       </h3>
-                      <p className="mt-4 max-w-[31rem] text-[13px] leading-[1.5] text-muted-foreground sm:mt-6 sm:text-[14px]">
+                      <p className="mt-4 max-w-[31rem] text-[11px] leading-[1.5] text-muted-foreground sm:mt-5 sm:text-[12px]">
                         {t(`${key}Body`)}
                       </p>
                     </div>
 
-                    <div className="mt-7 flex items-center gap-3 border-t border-border/25 pt-3 font-mono text-[8px] tracking-[0.18em] text-muted-foreground uppercase sm:mt-9">
+                    <div className="mt-auto flex items-center gap-3 border-t border-border/25 pt-3 font-mono text-[7px] tracking-[0.16em] text-muted-foreground uppercase sm:mt-auto">
                       <span>BRICKINVEST</span>
                       <span
                         aria-hidden="true"
