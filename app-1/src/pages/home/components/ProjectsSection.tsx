@@ -43,7 +43,7 @@ export const ProjectsSection = () => {
             <button
               aria-expanded={isConsultationOpen}
               aria-label="Get your investment proposal"
-              className="group mt-6 inline-flex cursor-pointer items-center gap-3 border border-border bg-foreground px-5 py-3 font-secondary text-[14px] leading-6 font-semibold tracking-[0.03em] text-background transition-[background-color,color,transform] duration-250 ease-out hover:bg-foreground hover:text-background focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-px"
+              className="group mt-6 inline-flex cursor-pointer items-center gap-3 border border-border bg-foreground px-5 py-3 font-secondary text-[14px] leading-6 font-semibold tracking-[0.03em] text-background transition-[background-color,color,transform] duration-250 ease-out hover:bg-white hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-px"
               data-consultation
               onClick={() => {
                 if (isConsultationOpen) closeConsultation();
