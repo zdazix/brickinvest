@@ -22,7 +22,7 @@ export const AboutTeam = () => {
                   index === 0
                     ? "object-[50%_50%]"
                     : index === penultimateTeamImageIndex
-                      ? "scale-[1.12] object-[50%_18%]"
+                      ? "scale-[1.2] object-[50%_14%]"
                       : index === 5
                         ? "scale-[1.12] object-[50%_28%]"
                         : ""
