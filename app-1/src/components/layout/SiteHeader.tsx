@@ -95,7 +95,7 @@ export const SiteHeader = () => {
         className={`fixed inset-x-0 top-0 z-50 border-b px-4 pt-5 transition-[background-color,border-color,backdrop-filter] duration-300 sm:px-8 sm:pt-7 xl:pt-0 ${isHome ? (isScrolled ? "border-border/15 bg-foreground/60 backdrop-blur-sm" : "border-transparent bg-transparent") : `bg-surface ${isScrolled ? "border-border/30" : "border-border/60"}`}`}
       >
         <header
-          className={`relative z-10 mx-auto flex min-h-[4.5rem] max-w-[1600px] items-center justify-between gap-3 px-1 py-3 xl:min-h-[4.25rem] xl:gap-1 xl:py-1.5 2xl:gap-4 ${isHome ? "text-white" : "text-foreground"}`}
+          className={`site-header relative z-10 mx-auto flex min-h-[4.5rem] max-w-[1600px] items-center justify-between gap-3 px-1 py-3 xl:min-h-[4.25rem] xl:gap-1 xl:py-1.5 2xl:gap-4 ${isHome ? "text-white" : "text-foreground"}`}
         >
           <a
             aria-label={t("brandHome")}
@@ -162,11 +162,11 @@ export const SiteHeader = () => {
           </div>
           <nav
             aria-label={t("primaryNavigation")}
-            className="hidden min-w-0 flex-1 items-center justify-center gap-x-0 gap-y-2 xl:flex 2xl:gap-x-0"
+            className="site-header-nav hidden min-w-0 flex-1 items-center justify-center gap-x-0 gap-y-2 xl:flex 2xl:gap-x-0"
           >
             {navigation.map(({ href, key }) => (
               <a
-                className={`relative py-2 text-center text-[13px] font-semibold tracking-[0.015em] whitespace-nowrap transition-colors duration-250 after:absolute after:right-0 after:bottom-0 after:left-0 after:h-px after:origin-right after:bg-border after:transition-transform after:duration-250 hover:after:origin-left hover:after:scale-x-100 active:text-primary active:after:origin-left active:after:scale-x-100 active:after:bg-primary 2xl:text-[16px] 2xl:tracking-[0.02em] ${activeSection === href.slice(1) ? "text-primary after:scale-x-100" : isHome ? "text-white/85 after:scale-x-0 hover:text-white" : "text-foreground/80 after:scale-x-0 hover:text-foreground"}`}
+                className={`site-header-link relative py-2 text-center text-[13px] font-semibold tracking-[0.015em] whitespace-nowrap transition-colors duration-250 after:absolute after:right-0 after:bottom-0 after:left-0 after:h-px after:origin-right after:bg-border after:transition-transform after:duration-250 hover:after:origin-left hover:after:scale-x-100 active:text-primary active:after:origin-left active:after:scale-x-100 active:after:bg-primary 2xl:text-[16px] 2xl:tracking-[0.02em] ${activeSection === href.slice(1) ? "text-primary after:scale-x-100" : isHome ? "text-white/85 after:scale-x-0 hover:text-white" : "text-foreground/80 after:scale-x-0 hover:text-foreground"}`}
                 href={href}
                 key={href}
                 onClick={() =>

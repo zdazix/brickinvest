@@ -137,6 +137,27 @@
   }
 }
 
+/* Keep the enlarged desktop typography readable when Spanish labels are longer. */
+@media (min-width: 80rem) and (max-width: 95.99rem) {
+  .site-header {
+    min-height: 5.5rem;
+  }
+
+  .site-header-nav {
+    align-content: center;
+    column-gap: 0.5rem;
+    flex-wrap: wrap;
+    row-gap: 0;
+    padding-block: 0.35rem;
+  }
+
+  .site-header-link {
+    font-size: 15px;
+    line-height: 1.25;
+    padding-block: 0.35rem;
+  }
+}
+
 @keyframes location-marquee {
   from {
     transform: translateX(0);
