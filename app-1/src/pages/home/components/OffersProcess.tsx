@@ -129,8 +129,6 @@ export const OffersProcess = () => {
         <div className="flex touch-pan-y">
           {offerKeys.map((key, index) => {
             const image = offerImages[index];
-            const stepNumber = `/03.${String(index + 1).padStart(2, "0")}`;
-
             return (
               <div className="w-full min-w-0 flex-[0_0_100%] pr-0" key={key}>
                 <article className="group grid h-[31rem] overflow-hidden border border-border/35 bg-surface sm:h-[34rem] lg:h-[27rem] lg:grid-cols-[minmax(0,1.22fr)_minmax(0,0.78fr)]">
@@ -152,16 +150,6 @@ export const OffersProcess = () => {
                   </div>
 
                   <div className="flex min-h-0 flex-col justify-start p-6 sm:p-9 lg:p-8 lg:pb-10 xl:p-9 xl:pb-12">
-                    <div className="flex items-start justify-between gap-5">
-                      <p className="font-mono text-[clamp(0.8rem,1.3vw,1.1rem)] leading-none tracking-[0.08em] text-primary">
-                        {stepNumber}
-                      </p>
-                      <span
-                        aria-hidden="true"
-                        className="mt-1 size-2 shrink-0 rounded-full bg-primary"
-                      />
-                    </div>
-
                     <div className="mt-10 sm:mt-14 lg:mt-12">
                       <h3 className="max-w-[24rem] font-primary text-[clamp(1.6rem,3vw,3rem)] leading-[0.94] tracking-[-0.04em] text-foreground">
                         {t(key)}

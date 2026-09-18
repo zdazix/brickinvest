@@ -1,4 +1,3 @@
-import { NumericText } from "@/components/ui/NumericText";
 import { useLocale } from "@/lib/i18n";
 
 import { OffersProcess } from "./OffersProcess";
@@ -15,9 +14,6 @@ export const OffersSection = () => {
       <div className="relative mx-auto max-w-[1600px]">
         <div className="section-grid items-end">
           <div>
-            <p className="section-number">
-              <NumericText>03</NumericText>
-            </p>
             <h2 className="section-title" id="what-we-offer-heading">
               {t("offerHeading")}
             </h2>

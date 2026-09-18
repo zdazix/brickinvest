@@ -25,12 +25,12 @@ export type HomeContent = {
 const homeContent: HomeContent = {
   image: placeholderImage,
   features: [
-    ["Feature title 01", "Feature description text goes here."],
-    ["Feature title 02", "Feature description text goes here."],
-    ["Feature title 03", "Feature description text goes here."],
-    ["Feature title 04", "Feature description text goes here."],
+    ["Feature title", "Feature description text goes here."],
+    ["Feature title", "Feature description text goes here."],
+    ["Feature title", "Feature description text goes here."],
+    ["Feature title", "Feature description text goes here."],
   ],
-  collectionCards: ["Card title 01", "Card title 02", "Card title 03"],
+  collectionCards: ["Card title", "Card title", "Card title"],
   editorialCards: [
     {
       eyebrow: "Eyebrow text",

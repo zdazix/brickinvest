@@ -181,11 +181,9 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
               <p className="text-[11px] tracking-[0.16em] text-primary uppercase">
                 {t("qualification")}
               </p>
-              <p className="font-mono text-[11px] text-[#777168]">
-                <NumericText>
-                  {isContact ? "CONTACT" : `0${step + 1} — 05`}
-                </NumericText>
-              </p>
+              {isContact ? (
+                <p className="font-mono text-[11px] text-[#777168]">CONTACT</p>
+              ) : null}
             </div>
             <div className="mb-6 h-px w-full bg-border/25">
               <div

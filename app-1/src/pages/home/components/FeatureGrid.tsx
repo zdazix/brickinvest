@@ -12,8 +12,7 @@ export const FeatureGrid = ({ features }: FeatureGridProps) => (
     {features.map(([title, description], index) => (
       <FeatureCard
         description={description}
-        index={index}
-        key={title}
+        key={`${title}-${index}`}
         title={title}
       />
     ))}

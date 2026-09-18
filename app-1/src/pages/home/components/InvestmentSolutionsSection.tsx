@@ -4,7 +4,6 @@ import { ArrowUpRight } from "lucide-react";
 
 import { useLocale } from "@/lib/i18n";
 import { trackEvent } from "@/lib/analytics";
-import { NumericText } from "@/components/ui/NumericText";
 
 export const InvestmentSolutionsSection = () => {
   const { t } = useLocale();
@@ -67,9 +66,6 @@ export const InvestmentSolutionsSection = () => {
     >
       <div className="section-grid relative">
         <div>
-          <p className="section-number">
-            <NumericText>07</NumericText>
-          </p>
           <h2 className="section-title" id="investment-solutions-heading">
             {t("investmentHeading")}
           </h2>

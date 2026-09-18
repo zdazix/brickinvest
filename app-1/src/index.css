@@ -91,10 +91,6 @@
     @apply mt-5 max-w-md font-primary text-[clamp(2.25rem,3.6vw,3.3rem)] leading-[0.9] tracking-[-0.035em] text-foreground;
   }
 
-  .section-number {
-    @apply font-mono text-[10px] font-normal tracking-[0.2em] text-primary uppercase;
-  }
-
   .section-label {
     @apply font-mono text-[10px] font-normal tracking-[0.15em] text-primary uppercase;
   }

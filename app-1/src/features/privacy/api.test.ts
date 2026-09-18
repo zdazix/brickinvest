@@ -7,9 +7,9 @@ describe("privacy API", () => {
     const response = await getPrivacySections(new AbortController().signal);
 
     expect(response.data).toHaveLength(10);
-    expect(response.data[0]?.title).toBe("1. Controller identity");
+    expect(response.data[0]?.title).toBe("Controller identity");
     expect(response.data.at(-1)?.title).toBe(
-      "10. Complaints, updates, and contact",
+      "Complaints, updates, and contact",
     );
   });
 });

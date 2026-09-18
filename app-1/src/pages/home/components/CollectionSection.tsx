@@ -24,11 +24,11 @@ export const CollectionSection = ({ cards, image }: CollectionSectionProps) => (
         </p>
       </div>
       <div className="mt-8 grid gap-5 lg:grid-cols-3">
-        {cards.map((title) => (
+        {cards.map((title, index) => (
           <ImageCard
             description="Card description text goes here."
             image={image}
-            key={title}
+            key={`${title}-${index}`}
             title={title}
           />
         ))}

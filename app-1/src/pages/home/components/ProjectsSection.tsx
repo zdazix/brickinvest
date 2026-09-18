@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useConsultation } from "@/components/layout/consultation-context";
 import { useLocale } from "@/lib/i18n";
 import { trackEvent } from "@/lib/analytics";
-import { NumericText } from "@/components/ui/NumericText";
 
 const projectKeys = ["plots", "renovation", "newDevelopment"] as const;
 
@@ -31,9 +30,6 @@ export const ProjectsSection = () => {
       <div className="relative mx-auto max-w-[1600px]">
         <div className="section-grid">
           <div>
-            <p className="section-number">
-              <NumericText>05</NumericText>
-            </p>
             <h2 className="section-title" id="projects-heading">
               {t("projectsHeading")}
             </h2>
@@ -56,7 +52,7 @@ export const ProjectsSection = () => {
             </button>
           </div>
           <div className="border-t border-border/35">
-            {projectKeys.map((key, index) => (
+            {projectKeys.map((key) => (
               <button
                 aria-label={`View ${t(key)}`}
                 className="group relative z-0 grid min-h-36 w-full grid-cols-[5rem_minmax(0,1fr)_2.5rem] items-center gap-7 overflow-visible border-b border-border/20 px-0 py-8 text-left transition-colors hover:z-20 hover:bg-secondary focus-visible:z-20 focus-visible:bg-secondary sm:min-h-40"
@@ -74,9 +70,6 @@ export const ProjectsSection = () => {
                 onMouseLeave={() => setActiveProject(null)}
                 type="button"
               >
-                <span className="section-label relative z-10 pt-1">
-                  <NumericText>{`05.0${index + 1}`}</NumericText>
-                </span>
                 <span className="relative z-10 max-w-[22rem] min-w-0 font-primary text-[clamp(1.3rem,2vw,2.1rem)] leading-[1.08] tracking-[-0.018em] text-foreground">
                   {t(key)}
                 </span>
