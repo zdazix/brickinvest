@@ -104,7 +104,7 @@ export const SiteHeader = () => {
           >
             BRICKINVEST
           </a>
-          <div className="hidden shrink-0 items-center gap-0 xl:flex 2xl:gap-4">
+          <div className="hidden shrink-0 items-center gap-4 xl:flex 2xl:gap-6">
             <a
               aria-label={t("brandHome")}
               className={`font-secondary text-[1.6rem] font-bold tracking-[-0.055em] transition-[color,transform] hover:translate-x-1 hover:text-primary active:text-primary xl:translate-x-3 ${isHome ? "text-white" : ""}`}
