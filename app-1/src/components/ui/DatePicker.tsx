@@ -16,6 +16,7 @@ import { Popover } from "radix-ui";
 import { useMemo, useState } from "react";
 
 import { NumericText } from "@/components/ui/NumericText";
+import { useLocale } from "@/lib/i18n";
 
 type DatePickerProps = {
   readonly "aria-label"?: string;
@@ -44,6 +45,7 @@ export const DatePicker = ({
   placeholder = "...",
   value,
 }: DatePickerProps) => {
+  const { t } = useLocale();
   const [open, setOpen] = useState(false);
   const selectedDate = parseDate(value);
   const [viewMonth, setViewMonth] = useState(selectedDate ?? new Date());
@@ -100,7 +102,7 @@ export const DatePicker = ({
         >
           <div className="mb-3 flex items-center justify-between">
             <button
-              aria-label="Previous month"
+              aria-label={t("previousMonth")}
               className="flex size-9 items-center justify-center rounded-lg transition hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
               onClick={() => setViewMonth((current) => addMonths(current, -1))}
               type="button"
@@ -111,7 +113,7 @@ export const DatePicker = ({
               <NumericText>{format(viewMonth, "MMMM yyyy")}</NumericText>
             </p>
             <button
-              aria-label="Next month"
+              aria-label={t("nextMonth")}
               className="flex size-9 items-center justify-center rounded-lg transition hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
               onClick={() => setViewMonth((current) => addMonths(current, 1))}
               type="button"
@@ -161,7 +163,7 @@ export const DatePicker = ({
               }}
               type="button"
             >
-              Clear date
+              {t("clearDate")}
             </button>
           )}
         </Popover.Content>

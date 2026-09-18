@@ -7,10 +7,12 @@ import {
 
 import { trackEvent } from "@/lib/analytics";
 import { ConsultationContext } from "@/components/layout/consultation-context";
+import { useLocale } from "@/lib/i18n";
 
 type ConsultationView = "form" | "success";
 
 export const ConsultationProvider = ({ children }: PropsWithChildren) => {
+  const { t } = useLocale();
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
   const [consultationView, setConsultationView] =
     useState<ConsultationView>("form");
@@ -58,7 +60,7 @@ export const ConsultationProvider = ({ children }: PropsWithChildren) => {
     event.preventDefault();
     const { name, email, phone } = consultationForm;
     if (!name.trim() || !email.trim() || !phone.trim()) {
-      setConsultationError("Please complete all fields before submitting.");
+      setConsultationError(t("validation"));
       return;
     }
     setIsConsultationSending(true);
@@ -80,14 +82,12 @@ export const ConsultationProvider = ({ children }: PropsWithChildren) => {
           }),
         },
       );
-      if (!response.ok) throw new Error("The request could not be sent.");
+      if (!response.ok) throw new Error(t("requestCouldNotSend"));
       setConsultationView("success");
       trackEvent("generate_lead", { lead_source: "consultation_modal" });
     } catch (error) {
       setConsultationError(
-        error instanceof Error
-          ? error.message
-          : "The request could not be sent.",
+        error instanceof Error ? error.message : t("requestCouldNotSend"),
       );
     } finally {
       setIsConsultationSending(false);
@@ -101,7 +101,7 @@ export const ConsultationProvider = ({ children }: PropsWithChildren) => {
       {children}
       {isConsultationOpen && (
         <div
-          aria-label="REQUEST CONSULTATION"
+          aria-label={t("requestConsultation")}
           aria-modal="true"
           className="consultation-modal fixed inset-0 z-[60] flex items-start justify-center overflow-y-auto bg-foreground/25 px-5 py-4 sm:items-center sm:px-8 sm:py-8"
           onClick={closeConsultation}
@@ -112,7 +112,7 @@ export const ConsultationProvider = ({ children }: PropsWithChildren) => {
             onClick={(event) => event.stopPropagation()}
           >
             <button
-              aria-label="Close consultation dialog"
+              aria-label={t("closeConsultation")}
               className="absolute top-3 right-4 text-xl leading-none font-light text-foreground/55 transition-colors hover:text-primary"
               onClick={closeConsultation}
               type="button"
@@ -132,10 +132,10 @@ export const ConsultationProvider = ({ children }: PropsWithChildren) => {
                         key={field}
                       >
                         {field === "name"
-                          ? "Name"
+                          ? t("nameLabel")
                           : field === "email"
-                            ? "Email"
-                            : "Phone Number"}
+                            ? t("email")
+                            : t("phoneShort")}
                         <input
                           className={`h-10 border-b border-border/40 bg-transparent px-0 text-[15px] tracking-normal transition-[border-color] duration-250 outline-none focus:border-border ${field === "phone" ? "text-[#000]" : "text-foreground"}`}
                           onChange={(event) =>
@@ -154,10 +154,10 @@ export const ConsultationProvider = ({ children }: PropsWithChildren) => {
                           }
                           placeholder={
                             field === "name"
-                              ? "Your name"
+                              ? t("yourName")
                               : field === "email"
-                                ? "Your email"
-                                : "Your phone (optional)"
+                                ? t("yourEmail")
+                                : t("yourPhoneOptional")
                           }
                           value={consultationForm[field]}
                         />
@@ -173,7 +173,9 @@ export const ConsultationProvider = ({ children }: PropsWithChildren) => {
                       disabled={isConsultationSending}
                       type="submit"
                     >
-                      {isConsultationSending ? "Sending…" : "REQUEST"}
+                      {isConsultationSending
+                        ? t("consultationSending")
+                        : t("consultationRequest")}
                     </button>
                   </form>
                 </>
@@ -181,14 +183,14 @@ export const ConsultationProvider = ({ children }: PropsWithChildren) => {
               {consultationView === "success" && (
                 <>
                   <p className="font-primary text-xl leading-tight text-foreground">
-                    Thank you. Your consultation request has been received.
+                    {t("consultationSuccess")}
                   </p>
                   <button
                     className="mt-8 text-[10px] tracking-[0.14em] text-foreground/55 uppercase transition-colors hover:text-primary"
                     onClick={() => setConsultationView("form")}
                     type="button"
                   >
-                    New request
+                    {t("newRequest")}
                   </button>
                 </>
               )}

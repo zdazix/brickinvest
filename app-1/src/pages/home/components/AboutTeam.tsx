@@ -1,3 +1,5 @@
+import { useLocale } from "@/lib/i18n";
+
 const teamImages = [
   "/images/team/team-06.png",
   "/images/team/team-02.png",
@@ -9,9 +11,10 @@ const teamImages = [
 const penultimateTeamImageIndex = teamImages.length - 2;
 
 export const AboutTeam = () => {
+  const { t } = useLocale();
   return (
     <div className="mt-16 border-t border-border/70 pt-8 sm:mt-20 sm:pt-10">
-      <p className="section-label mb-6 text-[#000]">Team</p>
+      <p className="section-label mb-6 text-[#000]">{t("team")}</p>
       <div className="grid grid-cols-1 gap-x-5 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
         {teamImages.map((image, index) => (
           <article className="min-w-0" key={image}>
@@ -32,23 +35,23 @@ export const AboutTeam = () => {
               />
             </div>
             <div
-              aria-label={`Role or position for team member ${index + 1}`}
+              aria-label={`${t("role")} / ${t("position")} ${index + 1}`}
               className="mt-3 flex min-h-12 items-center border-b border-border/50 pb-3"
             >
               <span className="font-mono text-[10px] tracking-[0.16em] text-muted-foreground uppercase">
                 {index === 0
-                  ? "Stanley Kotowski / Property expert analyst"
+                  ? t("teamStanley")
                   : index === 1
-                    ? "Alexander Lupenski / Construction site manager"
+                    ? t("teamAlexander")
                     : index === 2
-                      ? "Antonio Gonsalez / Coonstruction site manager"
+                      ? t("teamAntonio")
                       : index === 3
-                        ? "Santiago Lloreda / Supperior architect"
+                        ? t("teamSantiago")
                         : index === 4
-                          ? "Jose Angel Lampre / Technical architect"
+                          ? t("teamJose")
                           : index === 5
-                            ? "Lili Katchatrian / CEO & Property Investment Strategist"
-                            : "Role / Position"}
+                            ? t("teamLili")
+                            : `${t("role")} / ${t("position")}`}
               </span>
             </div>
           </article>

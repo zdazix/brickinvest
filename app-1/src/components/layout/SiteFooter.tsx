@@ -22,11 +22,11 @@ export const SiteFooter = () => {
         </p>
 
         <nav
-          aria-label="Company navigation"
+          aria-label={t("company")}
           className="min-w-0 sm:justify-self-center"
         >
           <p className="mb-2 text-[12px] tracking-[0.05em] text-[#000]">
-            COMPANY
+            {t("company")}
           </p>
           <div className="flex flex-wrap gap-x-4 gap-y-1.5 text-[#000]">
             {companyLinks.map(({ href, key }) => (
@@ -42,12 +42,17 @@ export const SiteFooter = () => {
         </nav>
 
         <div className="min-w-0 text-[#000] sm:justify-self-end">
-          <h2 className="mb-2 text-[12px] tracking-[0.05em]">Contact us</h2>
+          <h2 className="mb-2 text-[12px] tracking-[0.05em]">
+            {t("contactUs")}
+          </h2>
           <address className="not-italic">
-            <p>Address: Polígono Industrial Nueva Campana, nave n° 73,</p>
+            <p>
+              {t("addressLabel")}: Polígono Industrial Nueva Campana, nave n°
+              73,
+            </p>
             <p>29660 Marbella, Málaga.</p>
             <p>
-              Phone:{" "}
+              {t("phoneLabel")}:{" "}
               <a
                 className="transition-colors hover:text-primary focus-visible:text-primary"
                 href="tel:+34695121585"
@@ -55,18 +60,18 @@ export const SiteFooter = () => {
                 +34 695 121 585
               </a>
             </p>
-            <p>Email:</p>
+            <p>{t("emailLabel")}:</p>
           </address>
 
           <nav
-            aria-label="Legal navigation"
+            aria-label={t("legalNavigation")}
             className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2"
           >
             <a
               className="transition-colors hover:text-primary focus-visible:text-primary"
               href="/terms-and-conditions"
             >
-              Terms &amp; Conditions
+              {t("termsAndConditions")}
             </a>
             <span aria-hidden="true" className="text-border/45">
               |
@@ -75,7 +80,7 @@ export const SiteFooter = () => {
               className="transition-colors hover:text-primary focus-visible:text-primary"
               href="/privacy-policy"
             >
-              Privacy Policy
+              {t("privacyPolicy")}
             </a>
             <span aria-hidden="true" className="text-border/45">
               |
@@ -84,7 +89,7 @@ export const SiteFooter = () => {
               className="transition-colors hover:text-primary focus-visible:text-primary"
               href="/cookies-policy"
             >
-              Cookies Policy
+              {t("cookiesPolicy")}
             </a>
           </nav>
         </div>

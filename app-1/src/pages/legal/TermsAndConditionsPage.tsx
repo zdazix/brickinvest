@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 
 import { PageIntro } from "@/components/ui/PageIntro";
+import { useLocale } from "@/lib/i18n";
 
 type TermsSection = {
   readonly title: string;
@@ -114,77 +115,186 @@ const termsSections: readonly TermsSection[] = [
   },
 ];
 
-export const TermsAndConditionsPage = () => (
-  <main
-    className="grain-surface min-h-dvh bg-background px-5 pt-24 pb-16 sm:px-8 lg:px-12 lg:pt-28 lg:pb-24"
-    id="main-content"
-  >
-    <div className="mx-auto max-w-7xl">
-      <Link
-        className="inline-flex text-[12px] tracking-[0.12em] text-muted-foreground uppercase transition-colors hover:text-foreground focus-visible:text-foreground"
-        to="/"
-      >
-        ← Back to BRICKINVEST home
-      </Link>
+const spanishTermsSections: readonly TermsSection[] = [
+  {
+    title: "Ámbito y aceptación",
+    paragraphs: [
+      "Estos Términos y condiciones regulan el acceso y uso de BRICKINVEST.ES y de sus materiales y formularios de consulta. Al utilizar el sitio confirmas que has leído y entendido estos términos; si no estás de acuerdo, no debes utilizarlo.",
+      "Estos términos se aplican únicamente al uso del sitio web. Cualquier operación inmobiliaria, de desarrollo, intermediación, inversión u otro servicio requerirá un acuerdo escrito independiente.",
+    ],
+  },
+  {
+    title: "Datos de la empresa",
+    paragraphs: [
+      "El sitio es operado bajo la marca BRICKINVEST por Unicom Innovaciones S.L., con CIF B-05385919 y domicilio en Calle Nuestra Señora de Gracia, 26, bajo, Marbella (Málaga), 29602, España.",
+      "La empresa podrá facilitar información legal o de contacto adicional cuando lo exija la ley o cuando se solicite un servicio concreto.",
+    ],
+  },
+  {
+    title: "Carácter informativo del contenido",
+    paragraphs: [
+      "El sitio ofrece información general sobre la empresa, proyectos inmobiliarios y posibles oportunidades. Los proyectos pueden estar propuestos, en revisión o en desarrollo, y la información puede cambiar o no ser completa ni adecuada para tus circunstancias.",
+      "Debes realizar tus propias comprobaciones y obtener asesoramiento profesional independiente antes de tomar decisiones financieras, inmobiliarias o contractuales. La empresa no garantiza que las cifras, imágenes, proyecciones, disponibilidades o descripciones permanezcan exactas o sin cambios.",
+    ],
+  },
+  {
+    title: "Sin asesoramiento ni servicio regulado",
+    paragraphs: [
+      "Nada del sitio constituye asesoramiento financiero, de inversión, jurídico, fiscal, contable, hipotecario u otro asesoramiento profesional. El sitio no sustituye el consejo de un profesional cualificado e independiente.",
+      "El sitio y estos términos no afirman ni sugieren que la empresa esté autorizada o regulada para prestar servicios de inversión. No se declara que una actividad sea adecuada, disponible o lícita para todas las personas o jurisdicciones.",
+    ],
+  },
+  {
+    title: "Sin oferta, solicitud ni garantía",
+    paragraphs: [
+      "El contenido, las descripciones y las comunicaciones iniciadas mediante el sitio tienen finalidad informativa y de consulta preliminar. No constituyen una oferta, invitación a invertir, solicitud, recomendación, compromiso ni promesa de disponibilidad, finalización, ingresos, revalorización o rentabilidad.",
+      "Los ejemplos, estimaciones y proyecciones no garantizan resultados futuros. Toda oportunidad inmobiliaria o de inversión implica riesgos, incluida la posible pérdida de capital, y estará sujeta a su propia diligencia, disponibilidad, condiciones y documentación.",
+    ],
+  },
+  {
+    title: "Consultas y formularios",
+    paragraphs: [
+      "Enviar un formulario, solicitar información o pedir una consulta no crea un contrato, reserva, relación de agencia, compromiso de inversión ni otra obligación vinculante. La empresa podrá contactar contigo para aclarar tu consulta conforme a la normativa de protección de datos.",
+      "Ninguna operación será vinculante hasta que las partes firmen un acuerdo escrito independiente. La empresa podrá rechazar, pausar o cancelar una consulta u oportunidad, sin perjuicio de los derechos obligatorios.",
+    ],
+  },
+  {
+    title: "Responsabilidades del usuario",
+    paragraphs: [
+      "Debes utilizar el sitio de forma lícita y de buena fe. No debes interferir en su funcionamiento, introducir código malicioso, intentar acceder sin autorización, suplantar a otra persona, enviar información ilícita o engañosa ni vulnerar derechos de terceros.",
+      "Si envías información, eres responsable de que sea exacta, actualizada y facilitada lícitamente. No debes enviar marketing no solicitado, recopilar datos de terceros sin permiso ni realizar actividades contrarias a la ley.",
+    ],
+  },
+  {
+    title: "Propiedad intelectual",
+    paragraphs: [
+      "Salvo indicación contraria, el sitio y sus textos, diseño, marca, gráficos, fotografías, software y demás materiales pertenecen a la empresa o se utilizan bajo licencia y están protegidos por las leyes de propiedad intelectual.",
+      "Puedes consultar el sitio y realizar una copia temporal razonable para uso personal no comercial. No puedes reproducir, adaptar, distribuir, publicar, explotar comercialmente ni crear obras derivadas sin permiso escrito, salvo cuando la ley lo permita.",
+    ],
+  },
+  {
+    title: "Sitios y servicios de terceros",
+    paragraphs: [
+      "El sitio puede incluir enlaces a sitios, plataformas o servicios de terceros. Se ofrecen por comodidad y son independientes de la empresa, que no controla ni respalda su contenido, disponibilidad, seguridad, términos o privacidad.",
+      "Debes revisar los términos y la información de privacidad de cada tercero. La empresa no responde por contenidos o servicios de terceros salvo cuando la responsabilidad no pueda excluirse legalmente.",
+    ],
+  },
+  {
+    title: "Disponibilidad y cambios",
+    paragraphs: [
+      "La empresa procura mantener el sitio disponible y útil, pero no garantiza un acceso ininterrumpido, seguro o sin errores. El acceso puede suspenderse o modificarse por motivos técnicos, operativos, de seguridad, mantenimiento o legales.",
+      "La empresa puede actualizar, retirar o corregir contenido y modificar estos términos. La actualización del sitio no obliga a actualizar todos los documentos o comunicaciones relacionados.",
+    ],
+  },
+  {
+    title: "Responsabilidad",
+    paragraphs: [
+      "En la máxima medida permitida por la ley, la empresa no responde por pérdidas indirectas, incidentales, especiales o consecuentes, pérdida de oportunidades o beneficios, ni por la confianza depositada en información incompleta, desactualizada o inadecuada.",
+      "Nada excluye o limita responsabilidades que no puedan excluirse legalmente, incluida la responsabilidad por fraude, dolo o derechos obligatorios de consumidores. Toda limitación se aplica solo en la medida permitida por la ley.",
+    ],
+  },
+  {
+    title: "Privacidad y cookies",
+    paragraphs: [
+      "El tratamiento de datos personales se explica en la Política de privacidad de BRICKINVEST. El uso de cookies y tecnologías similares se explica en la Política de cookies. Estos documentos deben leerse junto con estos términos.",
+      "El sitio está concebido para funcionar conforme al RGPD, la normativa española de protección de datos y la Ley 34/2002 de Servicios de la Sociedad de la Información y del Comercio Electrónico, cuando resulte aplicable.",
+    ],
+  },
+  {
+    title: "Modificaciones",
+    paragraphs: [
+      "La empresa puede modificar estos términos para reflejar cambios en el sitio, sus servicios, la ley o sus operaciones. La versión vigente se identificará por su fecha de entrada en vigor. El uso continuado del sitio después de una actualización implica aceptación en la medida permitida por la ley.",
+    ],
+  },
+  {
+    title: "Ley aplicable y jurisdicción",
+    paragraphs: [
+      "Estos términos se rigen por las leyes de España. Las controversias se someterán a los tribunales competentes conforme a la ley española, respetando las normas imperativas de protección de consumidores y el derecho del consumidor a acudir a los tribunales de su domicilio cuando corresponda.",
+      "Si alguna disposición fuese inválida o inaplicable, las demás continuarán vigentes en la medida permitida por la ley.",
+    ],
+  },
+  {
+    title: "Contacto y avisos legales",
+    paragraphs: [
+      "Para avisos legales o preguntas sobre estos términos, contacta con Unicom Innovaciones S.L. en Calle Nuestra Señora de Gracia, 26, bajo, Marbella (Málaga), 29602, España. El email público no ha sido confirmado y debe añadirse antes de publicar: [PUBLIC CONTACT EMAIL TO BE CONFIRMED].",
+      "Fecha de entrada en vigor: 17 de septiembre de 2026. Este documento es un borrador de términos web y no sustituye la revisión de un abogado cualificado en España.",
+    ],
+  },
+];
 
-      <div className="mt-8">
-        <PageIntro
-          description="Website terms for BRICKINVEST.ES. Please read this draft together with the Privacy Policy and Cookies Policy before using the Website."
-          title="Terms & Conditions"
-        />
-      </div>
-
-      <aside className="mt-14 flex flex-col gap-5 rounded-[2rem] bg-secondary p-7 text-secondary-foreground sm:flex-row sm:items-center sm:justify-between sm:p-9">
-        <div className="max-w-3xl">
-          <p className="text-[15px] font-semibold">Website terms draft</p>
-          <p className="mt-2 text-[15px] leading-6 opacity-70">
-            Effective date: 17 September 2026. This document should be checked
-            by a Spanish-qualified lawyer before publication or use for a
-            specific transaction.
-          </p>
-        </div>
-      </aside>
-
-      <article className="mx-auto mt-10 max-w-7xl rounded-[2rem] border border-border/50 bg-surface px-6 shadow-sm shadow-foreground/5 sm:px-10">
-        {termsSections.map(({ title, paragraphs }) => (
-          <section
-            className="border-t border-border/60 py-10 first:border-t-0 sm:py-12"
-            key={title}
-          >
-            <div className="max-w-4xl">
-              <h2 className="text-2xl tracking-[-0.025em] sm:text-3xl">
-                {title}
-              </h2>
-              <div className="mt-5 space-y-4 text-[15px] leading-7 text-muted-foreground">
-                {paragraphs.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
-              </div>
-            </div>
-          </section>
-        ))}
-      </article>
-
-      <div className="mt-10 flex flex-wrap gap-x-5 gap-y-3 text-[12px] tracking-[0.12em] text-muted-foreground uppercase">
+export const TermsAndConditionsPage = () => {
+  const { locale, t } = useLocale();
+  const sections = locale === "es" ? spanishTermsSections : termsSections;
+  return (
+    <main
+      className="grain-surface min-h-dvh bg-background px-5 pt-24 pb-16 sm:px-8 lg:px-12 lg:pt-28 lg:pb-24"
+      id="main-content"
+    >
+      <div className="mx-auto max-w-7xl">
         <Link
-          className="transition-colors hover:text-foreground focus-visible:text-foreground"
-          to="/privacy-policy"
-        >
-          Privacy Policy
-        </Link>
-        <Link
-          className="transition-colors hover:text-foreground focus-visible:text-foreground"
-          to="/cookies-policy"
-        >
-          Cookies Policy
-        </Link>
-        <Link
-          className="transition-colors hover:text-foreground focus-visible:text-foreground"
+          className="inline-flex text-[12px] tracking-[0.12em] text-muted-foreground uppercase transition-colors hover:text-foreground focus-visible:text-foreground"
           to="/"
         >
-          Home
+          {t("backHome")}
         </Link>
+
+        <div className="mt-8">
+          <PageIntro
+            description={t("legalTermsDescription")}
+            title={t("termsAndConditions")}
+          />
+        </div>
+
+        <aside className="mt-14 flex flex-col gap-5 rounded-[2rem] bg-secondary p-7 text-secondary-foreground sm:flex-row sm:items-center sm:justify-between sm:p-9">
+          <div className="max-w-3xl">
+            <p className="text-[15px] font-semibold">{t("termsDraft")}</p>
+            <p className="mt-2 text-[15px] leading-6 opacity-70">
+              {t("termsDraftNotice")}
+            </p>
+          </div>
+        </aside>
+
+        <article className="mx-auto mt-10 max-w-7xl rounded-[2rem] border border-border/50 bg-surface px-6 shadow-sm shadow-foreground/5 sm:px-10">
+          {sections.map(({ title, paragraphs }) => (
+            <section
+              className="border-t border-border/60 py-10 first:border-t-0 sm:py-12"
+              key={title}
+            >
+              <div className="max-w-4xl">
+                <h2 className="text-2xl tracking-[-0.025em] sm:text-3xl">
+                  {title}
+                </h2>
+                <div className="mt-5 space-y-4 text-[15px] leading-7 text-muted-foreground">
+                  {paragraphs.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+            </section>
+          ))}
+        </article>
+
+        <div className="mt-10 flex flex-wrap gap-x-5 gap-y-3 text-[12px] tracking-[0.12em] text-muted-foreground uppercase">
+          <Link
+            className="transition-colors hover:text-foreground focus-visible:text-foreground"
+            to="/privacy-policy"
+          >
+            {t("privacyPolicy")}
+          </Link>
+          <Link
+            className="transition-colors hover:text-foreground focus-visible:text-foreground"
+            to="/cookies-policy"
+          >
+            {t("cookiesPolicy")}
+          </Link>
+          <Link
+            className="transition-colors hover:text-foreground focus-visible:text-foreground"
+            to="/"
+          >
+            {t("home")}
+          </Link>
+        </div>
       </div>
-    </div>
-  </main>
-);
+    </main>
+  );
+};

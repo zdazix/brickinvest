@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { IconButton } from "@/components/ui/IconButton";
 import { NumericText } from "@/components/ui/NumericText";
+import { useLocale } from "@/lib/i18n";
 
 export type Review = {
   readonly quote: string;
@@ -17,6 +18,7 @@ type ReviewCarouselProps = {
 };
 
 export const ReviewCarousel = ({ reviews }: ReviewCarouselProps) => {
+  const { t } = useLocale();
   const [viewportRef, carouselApi] = useEmblaCarousel({
     align: "start",
     containScroll: "trimSnaps",
@@ -98,7 +100,7 @@ export const ReviewCarousel = ({ reviews }: ReviewCarouselProps) => {
       </div>
       <div className="mt-7 grid grid-cols-3 items-center gap-5">
         <IconButton
-          aria-label="Previous review"
+          aria-label={t("previousReview")}
           className="justify-self-start"
           disabled={!canScrollPrevious}
           onClick={() => carouselApi?.scrollPrev()}
@@ -107,13 +109,13 @@ export const ReviewCarousel = ({ reviews }: ReviewCarouselProps) => {
           <ArrowLeft aria-hidden="true" className="size-4" />
         </IconButton>
         <div
-          aria-label="Select review"
+          aria-label={t("selectReview")}
           className="flex items-center justify-center gap-2"
           role="group"
         >
           {scrollSnaps.map((_, index) => (
             <button
-              aria-label={`Show review group ${index + 1}`}
+              aria-label={`${t("showReviewGroup")} ${index + 1}`}
               aria-pressed={selectedIndex === index}
               className={`h-2 rounded-full transition-[width,background-color] ${
                 selectedIndex === index
@@ -127,7 +129,7 @@ export const ReviewCarousel = ({ reviews }: ReviewCarouselProps) => {
           ))}
         </div>
         <IconButton
-          aria-label="Next review"
+          aria-label={t("nextReview")}
           className="justify-self-end"
           disabled={!canScrollNext}
           onClick={() => carouselApi?.scrollNext()}

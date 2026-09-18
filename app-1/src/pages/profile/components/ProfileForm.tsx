@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/FormControls";
 import { Button } from "@/components/ui/Button";
 import { useProfileMutation } from "@/features/profile/queries";
+import { useLocale } from "@/lib/i18n";
 import {
   profileSchema,
   type ProfileFormValues,
@@ -19,6 +20,7 @@ type ProfileFormProps = {
 };
 
 export const ProfileForm = ({ defaultValues }: ProfileFormProps) => {
+  const { t } = useLocale();
   const {
     formState: { errors, isSubmitting },
     handleSubmit,
@@ -44,20 +46,20 @@ export const ProfileForm = ({ defaultValues }: ProfileFormProps) => {
         <TextField
           autoComplete="name"
           error={errors.displayName?.message}
-          label="Display name"
+          label={t("displayName")}
           {...register("displayName")}
         />
         <TextField
           autoComplete="email"
           error={errors.email?.message}
-          label="Email"
+          label={t("email")}
           type="email"
           {...register("email")}
         />
       </div>
       <TextField
         error={errors.role?.message}
-        label="Role"
+        label={t("role")}
         {...register("role")}
       />
       <div className="grid gap-5 sm:grid-cols-2">
@@ -67,13 +69,13 @@ export const ProfileForm = ({ defaultValues }: ProfileFormProps) => {
           render={({ field }) => (
             <SelectField
               error={errors.accountType?.message}
-              label="Account type"
+              label={t("accountType")}
               name={field.name}
               onBlur={field.onBlur}
               onValueChange={field.onChange}
               options={[
-                { label: "Personal", value: "personal" },
-                { label: "Business", value: "business" },
+                { label: t("personal"), value: "personal" },
+                { label: t("business"), value: "business" },
               ]}
               value={field.value}
             />
@@ -86,7 +88,7 @@ export const ProfileForm = ({ defaultValues }: ProfileFormProps) => {
             <DateField
               error={errors.dateOfBirth?.message}
               id={field.name}
-              label="Date of birth"
+              label={t("dateOfBirth")}
               onBlur={field.onBlur}
               onValueChange={field.onChange}
               value={field.value}
@@ -96,18 +98,18 @@ export const ProfileForm = ({ defaultValues }: ProfileFormProps) => {
       </div>
       <TextAreaField
         error={errors.bio?.message}
-        label="Bio"
+        label={t("bio")}
         {...register("bio")}
       />
       <div className="flex flex-wrap items-center justify-between gap-4">
         <p aria-live="polite" className="text-[13px] text-primary">
-          {profileMutation.isSuccess ? "Profile changes saved." : ""}
+          {profileMutation.isSuccess ? t("profileSaved") : ""}
         </p>
         <Button
           disabled={isSubmitting || profileMutation.isPending}
           type="submit"
         >
-          {profileMutation.isPending ? "Saving…" : "Save profile"}
+          {profileMutation.isPending ? t("saving") : t("saveProfile")}
         </Button>
       </div>
     </form>

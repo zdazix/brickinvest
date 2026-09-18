@@ -9,6 +9,7 @@ import {
 } from "react";
 
 import { createMockAgentChat } from "@/components/chat/mock-agent-chat";
+import { useLocale } from "@/lib/i18n";
 
 type AgentChatProps = {
   className?: string;
@@ -23,6 +24,7 @@ export const AgentChat = ({
   showStatus = true,
   title = "Support agent",
 }: AgentChatProps) => {
+  const { t } = useLocale();
   const [chat] = useState(createMockAgentChat);
   const { error, messages, sendMessage, status } = useChat({ chat });
   const [draft, setDraft] = useState("");
@@ -94,7 +96,7 @@ export const AgentChat = ({
         </span>
         {showStatus && (
           <span className="ml-auto rounded-full bg-muted px-3 py-1 text-[11px] font-medium text-muted-foreground">
-            Not configured
+            {t("notConfigured")}
           </span>
         )}
       </header>
@@ -135,7 +137,7 @@ export const AgentChat = ({
                       target="_blank"
                     >
                       <File aria-hidden="true" className="size-4" />
-                      {part.filename ?? "Attachment"}
+                      {part.filename ?? t("attachment")}
                     </a>
                   );
                 }
@@ -152,12 +154,12 @@ export const AgentChat = ({
         {isWorking && (
           <div className="flex items-center gap-2 text-[11px] text-muted-foreground">
             <Bot aria-hidden="true" className="size-4" />
-            Agent is preparing a demo response…
+            {t("agentPreparing")}
           </div>
         )}
         {error && (
           <p className="rounded-xl bg-danger/10 p-3 text-[13px] text-danger">
-            The demo response could not be created.
+            {t("demoError")}
           </p>
         )}
       </div>
@@ -173,7 +175,7 @@ export const AgentChat = ({
                 <File aria-hidden="true" className="size-3.5 shrink-0" />
                 <span className="truncate">{file.name}</span>
                 <button
-                  aria-label={`Remove ${file.name}`}
+                  aria-label={`${t("remove")} ${file.name}`}
                   className="rounded-full hover:text-danger"
                   onClick={() => removeFile(index)}
                   type="button"
@@ -193,7 +195,7 @@ export const AgentChat = ({
             type="file"
           />
           <button
-            aria-label="Attach files"
+            aria-label={t("attachFiles")}
             className="grid size-10 shrink-0 place-items-center rounded-full text-muted-foreground hover:bg-muted hover:text-foreground"
             onClick={() => fileInputRef.current?.click()}
             type="button"
@@ -201,16 +203,16 @@ export const AgentChat = ({
             <Paperclip aria-hidden="true" className="size-4" />
           </button>
           <textarea
-            aria-label="Message"
+            aria-label={t("message")}
             className="max-h-32 min-h-10 flex-1 resize-none bg-transparent px-1 py-2 text-[13px] outline-none"
             onChange={(event) => setDraft(event.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Write a message"
+            placeholder={t("writeMessage")}
             rows={1}
             value={draft}
           />
           <button
-            aria-label="Send message"
+            aria-label={t("sendMessage")}
             className="grid size-10 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground transition disabled:cursor-not-allowed disabled:opacity-40"
             disabled={!canSend}
             onClick={submit}
@@ -220,7 +222,7 @@ export const AgentChat = ({
           </button>
         </div>
         <p className="mt-2 px-2 text-center text-[11px] text-muted-foreground">
-          Demo only. No messages or files leave this browser.
+          {t("demoPrivacy")}
         </p>
       </footer>
     </section>

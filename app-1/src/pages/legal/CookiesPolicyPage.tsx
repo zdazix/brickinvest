@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 
 import { PageIntro } from "@/components/ui/PageIntro";
+import { useLocale } from "@/lib/i18n";
 
 type CookiesSection = {
   readonly title: string;
@@ -101,77 +102,173 @@ const cookiesSections: readonly CookiesSection[] = [
   },
 ];
 
-export const CookiesPolicyPage = () => (
-  <main
-    className="grain-surface min-h-dvh bg-background px-5 pt-24 pb-16 sm:px-8 lg:px-12 lg:pt-28 lg:pb-24"
-    id="main-content"
-  >
-    <div className="mx-auto max-w-7xl">
-      <Link
-        className="inline-flex text-[12px] tracking-[0.12em] text-muted-foreground uppercase transition-colors hover:text-foreground focus-visible:text-foreground"
-        to="/"
-      >
-        ← Back to BRICKINVEST home
-      </Link>
+const spanishCookiesSections: readonly CookiesSection[] = [
+  {
+    title: "Qué son las cookies",
+    paragraphs: [
+      "Las cookies son pequeños archivos de texto o tecnologías similares que un sitio puede guardar en tu dispositivo o leer desde el navegador. Pueden recordar una configuración, prestar una función, entender el uso del sitio u otros fines descritos en un aviso de cookies.",
+      "Esta política explica la situación identificada en BRICKINVEST.ES y debe leerse junto con la Política de privacidad y los Términos y condiciones.",
+    ],
+  },
+  {
+    title: "Identidad del responsable",
+    paragraphs: [
+      "El responsable de los datos tratados mediante cookies o tecnologías similares es Unicom Innovaciones S.L., bajo la marca BRICKINVEST, con CIF B-05385919 y domicilio en Calle Nuestra Señora de Gracia, 26, bajo, Marbella (Málaga), 29602, España.",
+      "La empresa es responsable del sitio BRICKINVEST.ES, sin perjuicio del papel de los proveedores terceros que operen sus propios servicios.",
+    ],
+  },
+  {
+    title: "Cookies identificadas actualmente",
+    paragraphs: [
+      "La revisión del código actual no ha identificado un nombre de cookie creado por la aplicación ni un proveedor de marketing integrado. La aplicación guarda el idioma seleccionado en localStorage con la clave `brickinvest-locale`; esto es almacenamiento del navegador, no una cookie.",
+      "Existe una integración de analítica condicionada al consentimiento que podría cargar Google Tag Manager o Google Analytics 4 solo si se configuran identificadores de despliegue y se recibe una señal de consentimiento. No hay identificadores ni archivos de entorno en el workspace revisado, por lo que no se confirma ninguna cookie de analítica o marketing.",
+      "Este inventario procede del código y debe completarse con un escaneo del navegador en producción y con la configuración de cada despliegue.",
+    ],
+  },
+  {
+    title: "Tecnologías necesarias y técnicas",
+    paragraphs: [
+      "Las tecnologías estrictamente necesarias pueden utilizarse sin consentimiento cuando resulten imprescindibles para prestar un servicio solicitado, transmitir una comunicación o habilitar una función solicitada. Deben limitarse a ese fin y no utilizarse para analítica o marketing.",
+      "El código revisado no declara actualmente una cookie necesaria con nombre. Cualquier cookie de infraestructura, alojamiento o seguridad debe documentarse antes de publicar esta política.",
+    ],
+  },
+  {
+    title: "Preferencias e idioma",
+    paragraphs: [
+      "El selector de idioma guarda el idioma elegido en localStorage bajo `brickinvest-locale`. Se utiliza para recordar una preferencia y no es una cookie. Puedes eliminarlo desde los controles de datos del sitio del navegador.",
+      "No se ha identificado una cookie independiente de preferencias ni un proveedor de gestión de preferencias.",
+    ],
+  },
+  {
+    title: "Analítica y medición",
+    paragraphs: [
+      "La aplicación contiene una capa opcional de analítica condicionada al consentimiento. Está diseñada para no cargar Google Tag Manager o Google Analytics 4 ni enviar eventos hasta recibir una señal de consentimiento. No se ha configurado ningún identificador de medición en el workspace revisado.",
+      "Si se activa la analítica, deberán identificarse en el consentimiento y en esta política el proveedor, finalidad, nombres, duración, transferencias y garantías. El consentimiento de analítica debe ser independiente y no presumirse por navegar.",
+    ],
+  },
+  {
+    title: "Cookies de marketing y terceros",
+    paragraphs: [
+      "No se ha identificado en el código un tag de marketing, red publicitaria ni cookie de marketing de terceros. La implementación actual no pretende establecer cookies opcionales de marketing.",
+      "Si se añaden contenidos, publicidad, redes sociales u otros proveedores, deben bloquearse hasta obtener consentimiento previo válido cuando sea necesario y documentar sus datos, finalidades, duración, destinatarios y garantías.",
+    ],
+  },
+  {
+    title: "Base legal y consentimiento",
+    paragraphs: [
+      "Conforme al artículo 22.2 de la Ley 34/2002 (LSSI-CE) y las recomendaciones aplicables de la AEPD, las tecnologías estrictamente necesarias pueden quedar exentas cuando corresponda. Las tecnologías no esenciales requieren consentimiento previo, informado y libre antes de instalarse o leerse.",
+      "El consentimiento debe ser específico, granular, informado y tan fácil de rechazar como de aceptar. El diseño debe ofrecer opciones igualmente visibles de Aceptar y Rechazar, configuración por finalidad y una forma de retirar el consentimiento. No debe presumirse por desplazarse, navegar o guardar silencio.",
+    ],
+  },
+  {
+    title: "Controles de consentimiento y limitación actual",
+    paragraphs: [
+      "La aplicación revisada no contiene actualmente banner, centro de preferencias ni controles visibles de Aceptar, Rechazar, Configurar o Retirar. Es una limitación pendiente, no una afirmación de que se haya recogido consentimiento. El hook técnico de analítica no es por sí mismo un mecanismo de consentimiento para usuarios.",
+      "Hasta implementar una interfaz conforme y completar el inventario de producción, las cookies opcionales de analítica, marketing y terceros deben permanecer desactivadas. El navegador también permite borrar o bloquear datos, aunque bloquear tecnologías necesarias puede afectar al funcionamiento.",
+    ],
+  },
+  {
+    title: "Duración y transferencias internacionales",
+    paragraphs: [
+      "No se puede confirmar actualmente la duración de ninguna cookie de la aplicación porque el código no declara cookies propias. El valor `brickinvest-locale` permanece en localStorage hasta que el usuario, el navegador o la aplicación lo eliminen o sustituyan. Todo inventario futuro debe indicar duración y si cada tecnología es de sesión o persistente.",
+      "Si un proveedor futuro trata datos fuera del Espacio Económico Europeo, la transferencia deberá contar con base legal y garantías adecuadas, como decisión de adecuación o cláusulas contractuales tipo cuando corresponda.",
+    ],
+  },
+  {
+    title: "Tus derechos y la Política de privacidad",
+    paragraphs: [
+      "Cuando los datos de cookies o tecnologías similares te identifiquen o puedan vincularse razonablemente contigo, puedes tener derechos de acceso, rectificación, supresión, limitación, oposición, portabilidad y retirada del consentimiento. La Política de privacidad explica el tratamiento y el contacto.",
+      "También puedes reclamar ante la AEPD u otra autoridad competente. Los controles del navegador ayudan a borrar o bloquear tecnologías, pero no sustituyen un mecanismo legal de consentimiento cuando sea necesario.",
+    ],
+  },
+  {
+    title: "Cambios de esta política",
+    paragraphs: [
+      "Podemos actualizar esta política cuando cambien el sitio, sus tecnologías, proveedores, prácticas de consentimiento o la ley. La versión vigente se identificará por su fecha. Los cambios importantes deberán acompañarse de información adecuada y, cuando sea necesario, una nueva elección de consentimiento.",
+    ],
+  },
+  {
+    title: "Contacto y aviso legal",
+    paragraphs: [
+      "Para preguntas sobre cookies o para solicitar información sobre las tecnologías de BRICKINVEST.ES, contacta con Unicom Innovaciones S.L. en Calle Nuestra Señora de Gracia, 26, bajo, Marbella (Málaga), 29602, España. El email público no ha sido confirmado y debe añadirse antes de publicar: [PUBLIC CONTACT EMAIL TO BE CONFIRMED].",
+      "Fecha de entrada en vigor: 18 de septiembre de 2026. Esta Política de cookies es un borrador legal y no sustituye la revisión de un abogado o profesional de privacidad en España, incluido un escaneo del dominio de producción, la infraestructura y las variables de despliegue.",
+    ],
+  },
+];
 
-      <div className="mt-8">
-        <PageIntro
-          description="How BRICKINVEST.ES uses cookies and similar technologies, and how you can control optional technologies."
-          title="Cookies Policy"
-        />
-      </div>
-
-      <aside className="mt-14 flex flex-col gap-5 rounded-[2rem] bg-secondary p-7 text-secondary-foreground sm:flex-row sm:items-center sm:justify-between sm:p-9">
-        <div className="max-w-3xl">
-          <p className="text-[15px] font-semibold">Cookies policy draft</p>
-          <p className="mt-2 text-[15px] leading-6 opacity-70">
-            Effective date: 18 September 2026. The current site does not yet
-            include a user-facing cookie-consent banner or preference center;
-            this limitation must be resolved before enabling optional cookies.
-          </p>
-        </div>
-      </aside>
-
-      <article className="mx-auto mt-10 max-w-7xl rounded-[2rem] border border-border/50 bg-surface px-6 shadow-sm shadow-foreground/5 sm:px-10">
-        {cookiesSections.map(({ title, paragraphs }) => (
-          <section
-            className="border-t border-border/60 py-10 first:border-t-0 sm:py-12"
-            key={title}
-          >
-            <div className="max-w-4xl">
-              <h2 className="text-2xl tracking-[-0.025em] sm:text-3xl">
-                {title}
-              </h2>
-              <div className="mt-5 space-y-4 text-[15px] leading-7 text-muted-foreground">
-                {paragraphs.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
-              </div>
-            </div>
-          </section>
-        ))}
-      </article>
-
-      <div className="mt-10 flex flex-wrap gap-x-5 gap-y-3 text-[12px] tracking-[0.12em] text-muted-foreground uppercase">
+export const CookiesPolicyPage = () => {
+  const { locale, t } = useLocale();
+  const sections = locale === "es" ? spanishCookiesSections : cookiesSections;
+  return (
+    <main
+      className="grain-surface min-h-dvh bg-background px-5 pt-24 pb-16 sm:px-8 lg:px-12 lg:pt-28 lg:pb-24"
+      id="main-content"
+    >
+      <div className="mx-auto max-w-7xl">
         <Link
-          className="transition-colors hover:text-foreground focus-visible:text-foreground"
-          to="/terms-and-conditions"
-        >
-          Terms &amp; Conditions
-        </Link>
-        <Link
-          className="transition-colors hover:text-foreground focus-visible:text-foreground"
-          to="/privacy-policy"
-        >
-          Privacy Policy
-        </Link>
-        <Link
-          className="transition-colors hover:text-foreground focus-visible:text-foreground"
+          className="inline-flex text-[12px] tracking-[0.12em] text-muted-foreground uppercase transition-colors hover:text-foreground focus-visible:text-foreground"
           to="/"
         >
-          Home
+          {t("backHome")}
         </Link>
+
+        <div className="mt-8">
+          <PageIntro
+            description={t("legalCookiesDescription")}
+            title={t("cookiesPolicy")}
+          />
+        </div>
+
+        <aside className="mt-14 flex flex-col gap-5 rounded-[2rem] bg-secondary p-7 text-secondary-foreground sm:flex-row sm:items-center sm:justify-between sm:p-9">
+          <div className="max-w-3xl">
+            <p className="text-[15px] font-semibold">{t("cookiesDraft")}</p>
+            <p className="mt-2 text-[15px] leading-6 opacity-70">
+              {t("cookiesDraftNotice")}
+            </p>
+          </div>
+        </aside>
+
+        <article className="mx-auto mt-10 max-w-7xl rounded-[2rem] border border-border/50 bg-surface px-6 shadow-sm shadow-foreground/5 sm:px-10">
+          {sections.map(({ title, paragraphs }) => (
+            <section
+              className="border-t border-border/60 py-10 first:border-t-0 sm:py-12"
+              key={title}
+            >
+              <div className="max-w-4xl">
+                <h2 className="text-2xl tracking-[-0.025em] sm:text-3xl">
+                  {title}
+                </h2>
+                <div className="mt-5 space-y-4 text-[15px] leading-7 text-muted-foreground">
+                  {paragraphs.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+            </section>
+          ))}
+        </article>
+
+        <div className="mt-10 flex flex-wrap gap-x-5 gap-y-3 text-[12px] tracking-[0.12em] text-muted-foreground uppercase">
+          <Link
+            className="transition-colors hover:text-foreground focus-visible:text-foreground"
+            to="/terms-and-conditions"
+          >
+            {t("termsAndConditions")}
+          </Link>
+          <Link
+            className="transition-colors hover:text-foreground focus-visible:text-foreground"
+            to="/privacy-policy"
+          >
+            {t("privacyPolicy")}
+          </Link>
+          <Link
+            className="transition-colors hover:text-foreground focus-visible:text-foreground"
+            to="/"
+          >
+            {t("home")}
+          </Link>
+        </div>
       </div>
-    </div>
-  </main>
-);
+    </main>
+  );
+};

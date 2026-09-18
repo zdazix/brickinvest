@@ -1,3 +1,5 @@
+import { useLocale } from "@/lib/i18n";
+
 const locations = [
   "MARBELLA",
   "SOTOGRANDE",
@@ -33,14 +35,17 @@ const LocationSequence = ({
   </span>
 );
 
-export const LocationMarquee = () => (
-  <section
-    aria-label="Costa del Sol locations"
-    className="grain-surface overflow-hidden border-[1px] border-t border-b border-border bg-surface py-3 sm:py-4"
-  >
-    <div className="location-marquee-track flex w-max animate-[location-marquee_48s_linear_infinite] items-center font-secondary text-[13px] tracking-[0.12em] text-foreground uppercase sm:text-[15px] sm:[animation-duration:40s]">
-      <LocationSequence />
-      <LocationSequence ariaHidden />
-    </div>
-  </section>
-);
+export const LocationMarquee = () => {
+  const { t } = useLocale();
+  return (
+    <section
+      aria-label={t("locations")}
+      className="grain-surface overflow-hidden border-[1px] border-t border-b border-border bg-surface py-3 sm:py-4"
+    >
+      <div className="location-marquee-track flex w-max animate-[location-marquee_48s_linear_infinite] items-center font-secondary text-[13px] tracking-[0.12em] text-foreground uppercase sm:text-[15px] sm:[animation-duration:40s]">
+        <LocationSequence />
+        <LocationSequence ariaHidden />
+      </div>
+    </section>
+  );
+};

@@ -1,12 +1,12 @@
 import { useLocale } from "@/lib/i18n";
 
 const services = [
-  ["Land Acquisition", "serviceLandBody"],
-  ["Residential Development", "serviceResidentialBody"],
-  ["Commercial Real Estate", "serviceCommercialBody"],
-  ["Hotel and Hospitality", "serviceHotelBody"],
-  ["Business Acquisition", "serviceBusinessBody"],
-  ["Property Management", "servicePropertyBody"],
+  ["serviceLand", "serviceLandBody"],
+  ["serviceResidential", "serviceResidentialBody"],
+  ["serviceCommercial", "serviceCommercialBody"],
+  ["serviceHotel", "serviceHotelBody"],
+  ["serviceBusiness", "serviceBusinessBody"],
+  ["serviceProperty", "servicePropertyBody"],
 ] as const;
 
 export const ServicesSection = () => {
@@ -33,7 +33,7 @@ export const ServicesSection = () => {
                   className="grid min-h-32 grid-cols-[minmax(0,1fr)_minmax(0,1fr)] items-start gap-4 border-b border-border/30 py-8 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] lg:gap-7"
                   key={title}
                 >
-                  <h3 className="subsection-title min-w-0">{title}</h3>
+                  <h3 className="subsection-title min-w-0">{t(title)}</h3>
                   <p className="body-copy min-w-0">{t(body)}</p>
                 </article>
               ))}

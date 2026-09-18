@@ -5,10 +5,12 @@ import { PageIntro } from "@/components/ui/PageIntro";
 import { Loader } from "@/components/ui/Loader";
 import { useContactDetailsQuery } from "@/features/contact/queries";
 import { ContactForm } from "@/pages/contact/components/ContactForm";
+import { useLocale } from "@/lib/i18n";
 
 const contactIcons = { email: Mail, phone: Phone, location: MapPin } as const;
 
 export const ContactPage = () => {
+  const { t } = useLocale();
   const contactQuery = useContactDetailsQuery();
   const contactDetails =
     contactQuery.data?.map((item) => ({
@@ -23,21 +25,23 @@ export const ContactPage = () => {
     >
       <div className="mx-auto max-w-7xl">
         <PageIntro
-          description="Use this page as a practical contact surface with validation, accessible controls, and a clear integration point."
-          title="Let’s start a conversation."
+          description={t("contactPageDescription")}
+          title={t("contactPageTitle")}
         />
         <div className="mt-10 grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:gap-14">
           <aside className="rounded-[2rem] bg-secondary p-7 text-secondary-foreground sm:p-9">
-            <h2 className="text-2xl tracking-[-0.025em]">Contact details</h2>
+            <h2 className="text-2xl tracking-[-0.025em]">
+              {t("contactDetails")}
+            </h2>
             <div className="mt-7">
               {contactQuery.data ? (
                 <IconList items={contactDetails} />
               ) : contactQuery.isError ? (
                 <p className="text-[13px] text-danger">
-                  Contact details could not be loaded.
+                  {t("contactUnavailable")}
                 </p>
               ) : (
-                <Loader label="Loading contact details…" />
+                <Loader label={t("loadingContact")} />
               )}
             </div>
           </aside>

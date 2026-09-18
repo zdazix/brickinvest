@@ -17,43 +17,43 @@ const offerKeys = [
 
 const offerImages = [
   {
-    alt: "Project management planning on a tablet",
+    alt: "offerImageProject",
     kind: "image",
     src: "/images/offers/project-management.jpg",
     position: "center 68%",
   },
   {
-    alt: "In-house construction project",
+    alt: "offerImageConstruction",
     kind: "image",
     src: "/images/offers/03-02.jpg",
     position: "center center",
   },
   {
-    alt: "Architecture and engineering planning",
+    alt: "offerImageArchitecture",
     kind: "image",
     src: "/images/offers/architecture-planning.jpg",
     position: "center center",
   },
   {
-    alt: "Unique development plot",
+    alt: "offerImagePlot",
     kind: "image",
     src: "/images/offers/03-04.jpg",
     position: "center center",
   },
   {
-    alt: "Bespoke ready-made development",
+    alt: "offerImageDevelopment",
     kind: "image",
     src: "/images/offers/03-05.png",
     position: "center center",
   },
   {
-    alt: "Multilingual investor support",
+    alt: "offerImageMultilingual",
     kind: "image",
     src: "/images/offers/03-07.jpg",
     position: "center center",
   },
   {
-    alt: "Legacy and transparency",
+    alt: "offerImageLegacy",
     kind: "image",
     src: "/images/offers/03-08-tree.jpg",
     position: "center center",
@@ -100,7 +100,7 @@ export const OffersProcess = () => {
     <div className="mt-12 min-w-0 sm:mt-16 lg:mt-22">
       <div className="mb-4 flex items-center justify-end gap-2 sm:mb-5">
         <IconButton
-          aria-label="Previous offer"
+          aria-label={t("previousOffer")}
           className="size-9 rounded-none"
           disabled={!canScrollPrevious}
           onClick={() => carouselApi?.scrollPrev()}
@@ -109,7 +109,7 @@ export const OffersProcess = () => {
           <ArrowLeft aria-hidden="true" className="size-4" />
         </IconButton>
         <IconButton
-          aria-label="Next offer"
+          aria-label={t("nextOffer")}
           className="size-9 rounded-none"
           disabled={!canScrollNext}
           onClick={() => carouselApi?.scrollNext()}
@@ -121,7 +121,7 @@ export const OffersProcess = () => {
       </div>
 
       <div
-        aria-label="What we offer horizontal slider"
+        aria-label={t("offersSlider")}
         className="overflow-hidden"
         ref={viewportRef}
         role="region"
@@ -134,7 +134,7 @@ export const OffersProcess = () => {
                 <article className="group grid h-[31rem] overflow-hidden border border-border/35 bg-surface sm:h-[34rem] lg:h-[27rem] lg:grid-cols-[minmax(0,1.22fr)_minmax(0,0.78fr)]">
                   <div className="relative min-h-0 overflow-hidden">
                     <img
-                      alt={image.alt}
+                      alt={t(image.alt)}
                       className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035]"
                       decoding="async"
                       height="1104"
@@ -167,13 +167,13 @@ export const OffersProcess = () => {
       </div>
 
       <div
-        aria-label="Select offer"
+        aria-label={t("selectOffer")}
         className="mt-4 flex items-center justify-center gap-2"
         role="group"
       >
         {scrollSnaps.map((_, index) => (
           <button
-            aria-label={`Show offer ${index + 1}`}
+            aria-label={`${t("selectOffer")} ${index + 1}`}
             aria-pressed={selectedIndex === index}
             className={`h-1.5 rounded-full transition-[width,background-color] ${
               selectedIndex === index

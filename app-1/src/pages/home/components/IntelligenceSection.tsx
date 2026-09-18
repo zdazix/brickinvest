@@ -19,9 +19,7 @@ export const IntelligenceSection = () => {
         <div className="section-grid">
           <div className="min-w-0">
             <h2 className="section-title" id="ai-data-heading">
-              AI &amp; DATA
-              <br />
-              INTELLIGENCE
+              {t("intelligenceHeading")}
             </h2>
           </div>
           <div className="min-w-0">

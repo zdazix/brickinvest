@@ -59,6 +59,47 @@ const questionKeys = [
   "timing",
 ] as const;
 
+const questionTranslationKeys = [
+  "optionOpportunity",
+  "optionBudget",
+  "optionObjective",
+  "optionLocations",
+  "optionTiming",
+] as const;
+
+const answerTranslationKeys: Record<string, string> = {
+  "Investment Property": "optionInvestmentProperty",
+  "Development Opportunity": "optionDevelopmentOpportunity",
+  Land: "optionLand",
+  "Renovation Project": "optionRenovation",
+  "New Development": "optionNewDevelopment",
+  "Not Sure Yet": "optionNotSure",
+  "€500K–€700K": "optionBudget500",
+  "€700K–€1M": "optionBudget700",
+  "€1M–€2M": "optionBudget1M",
+  "€2M–€5M": "optionBudget2M",
+  "€5M+": "optionBudget5M",
+  "What is your primary investment objective?": "optionObjective",
+  "Capital Appreciation": "optionCapital",
+  "Rental Yield": "optionRental",
+  "Development & Resale": "optionResale",
+  "Personal Use + Investment": "optionPersonalUse",
+  "Portfolio Diversification": "optionDiversification",
+  Marbella: "optionMarbella",
+  "Golden Mile": "optionGoldenMile",
+  Estepona: "optionEstepona",
+  Benahavís: "optionBenahavis",
+  Sotogrande: "optionSotogrande",
+  Málaga: "optionMalaga",
+  Other: "optionOther",
+  "Open to Recommendations": "optionRecommendations",
+  Immediately: "optionImmediately",
+  "Within 3 Months": "optionWithinThreeMonths",
+  "3–6 Months": "optionThreeToSixMonths",
+  "6–12 Months": "optionSixToTwelveMonths",
+  "Exploring Opportunities": "optionExploring",
+};
+
 const heroVideos = [
   "/videos/magnific_aerial-cinematic-drone-sh_nTOrDQ7YQD.mp4",
   "/videos/magnific_ultrapremium-cinematic-dr_BmGykOSoQR.mp4",
@@ -148,11 +189,11 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
       className="fixed inset-0 z-50 grid place-items-center bg-foreground/80 p-0 sm:p-4"
       role="dialog"
       aria-modal="true"
-      aria-label="Investor qualification"
+      aria-label={t("investorQualification")}
     >
       <div className="relative flex max-h-dvh min-h-dvh w-full max-w-4xl flex-col overflow-auto border-border/25 bg-secondary p-5 text-secondary-foreground sm:max-h-[90dvh] sm:min-h-0 sm:border sm:p-9">
         <button
-          aria-label="Close qualification"
+          aria-label={t("closeQualification")}
           className="absolute top-5 right-5 p-2"
           onClick={onClose}
         >
@@ -161,18 +202,17 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
         {status === "success" ? (
           <div className="flex min-h-[420px] flex-col items-center justify-center text-center">
             <p className="text-[11px] tracking-[0.16em] text-primary uppercase">
-              THANK YOU
+              {t("thankYou")}
             </p>
             <p className="mt-6 max-w-md font-primary text-2xl leading-tight sm:text-3xl">
-              Your investment profile has been received. Our team will review
-              your requirements and contact you shortly.
+              {t("profileReceived")}
             </p>
             <button
               className="mt-8 text-[11px] tracking-[0.12em] text-foreground/60 uppercase"
               onClick={onClose}
               type="button"
             >
-              CLOSE
+              {t("close")}
             </button>
           </div>
         ) : (
@@ -182,7 +222,9 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                 {t("qualification")}
               </p>
               {isContact ? (
-                <p className="font-mono text-[11px] text-[#777168]">CONTACT</p>
+                <p className="font-mono text-[11px] text-[#777168]">
+                  {t("contactStep")}
+                </p>
               ) : null}
             </div>
             <div className="mb-6 h-px w-full bg-border/25">
@@ -196,7 +238,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
             {!isContact ? (
               <>
                 <h2 className="max-w-2xl font-primary text-3xl leading-[1.04] sm:text-4xl">
-                  {questions[step][0]}
+                  {t(questionTranslationKeys[step])}
                 </h2>
                 <div className="mt-6 grid gap-2 sm:grid-cols-2">
                   {questions[step].slice(1).map((answer) => (
@@ -205,7 +247,9 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                       key={answer}
                       onClick={() => choose(answer)}
                     >
-                      <NumericText>{answer}</NumericText>
+                      <NumericText>
+                        {t(answerTranslationKeys[answer] ?? answer)}
+                      </NumericText>
                       <ArrowUpRight className="size-4 opacity-0 transition group-hover:opacity-100" />
                     </button>
                   ))}
@@ -217,7 +261,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                     onClick={() => setStep((current) => current - 1)}
                     type="button"
                   >
-                    <ChevronLeft className="size-4" /> BACK
+                    <ChevronLeft className="size-4" /> {t("back")}
                   </button>
                   <button
                     className="border border-border bg-foreground px-6 py-3 text-[11px] font-semibold tracking-[0.12em] text-background transition-colors hover:bg-primary hover:text-primary-foreground disabled:opacity-40"
@@ -232,18 +276,17 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                     }}
                     type="button"
                   >
-                    CONTINUE
+                    {t("continue")}
                   </button>
                 </div>
               </>
             ) : (
               <>
                 <h2 className="max-w-2xl font-primary text-2xl leading-[1.04] sm:text-4xl">
-                  RECEIVE YOUR PRIVATE INVESTMENT SELECTION
+                  {t("receiveSelection")}
                 </h2>
                 <p className="mt-4 max-w-2xl text-[15px] leading-[1.45] text-foreground/70">
-                  Leave your details and our team will review your requirements
-                  and contact you with relevant opportunities.
+                  {t("selectionDescription")}
                 </p>
                 <div className="mt-6 grid gap-4 sm:grid-cols-2">
                   <label className="text-[11px] tracking-[0.1em] uppercase">
@@ -284,8 +327,7 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                       setAnswers({ ...answers, consent: e.target.checked })
                     }
                   />{" "}
-                  I agree to receive relevant BRICKINVEST investment
-                  opportunities and updates.
+                  {t("investmentUpdates")}
                 </label>
                 <button
                   className="mt-5 w-full bg-foreground px-6 py-4 text-[11px] tracking-[0.12em] text-background transition-[background-color,color,transform] duration-250 ease-out hover:bg-primary hover:text-primary-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-px disabled:opacity-60"
@@ -295,14 +337,14 @@ const InvestorQuiz = ({ onClose }: { readonly onClose: () => void }) => {
                     void submit();
                   }}
                 >
-                  {status === "sending" ? "SENDING…" : "SUBMIT REQUEST"}
+                  {status === "sending" ? t("sending") : t("submitRequest")}
                 </button>
                 <button
                   className="mt-4 self-start text-[11px] tracking-[0.1em] text-muted-foreground uppercase transition-colors hover:text-primary"
                   onClick={() => setStep((current) => current - 1)}
                   type="button"
                 >
-                  <ChevronLeft className="mr-1 inline size-4" /> BACK
+                  <ChevronLeft className="mr-1 inline size-4" /> {t("back")}
                 </button>
               </>
             )}
@@ -418,7 +460,7 @@ export const HeroSection = () => {
               openQuiz();
             }}
           >
-            <span>REQUEST EXCLUSIVE OFFER</span>
+            <span>{t("requestExclusiveOffer")}</span>
             <ArrowUpRight className="size-4 transition-transform duration-250 ease-out group-hover:translate-x-1" />
           </button>
         </div>

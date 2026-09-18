@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 
 import { PageIntro } from "@/components/ui/PageIntro";
+import { useLocale } from "@/lib/i18n";
 
 type PrivacySection = {
   readonly title: string;
@@ -103,77 +104,174 @@ const privacySections: readonly PrivacySection[] = [
   },
 ];
 
-export const PrivacyPolicyPage = () => (
-  <main
-    className="grain-surface min-h-dvh bg-background px-5 pt-24 pb-16 sm:px-8 lg:px-12 lg:pt-28 lg:pb-24"
-    id="main-content"
-  >
-    <div className="mx-auto max-w-7xl">
-      <Link
-        className="inline-flex text-[12px] tracking-[0.12em] text-muted-foreground uppercase transition-colors hover:text-foreground focus-visible:text-foreground"
-        to="/"
-      >
-        ← Back to BRICKINVEST home
-      </Link>
+const spanishPrivacySections: readonly PrivacySection[] = [
+  {
+    title: "Identidad del responsable",
+    paragraphs: [
+      "El responsable del tratamiento descrito en esta política es Unicom Innovaciones S.L., que opera bajo la marca BRICKINVEST, con CIF B-05385919 y domicilio en Calle Nuestra Señora de Gracia, 26, bajo, Marbella (Málaga), 29602, España.",
+      "Esta política explica cómo pueden tratarse los datos cuando visitas BRICKINVEST.ES, contactas con el equipo o envías una consulta sobre proyectos y oportunidades inmobiliarias.",
+    ],
+  },
+  {
+    title: "Datos personales que recopilamos",
+    paragraphs: [
+      "Según utilices el sitio, podemos recopilar la información que facilites en formularios de contacto, consulta, propuesta de inversión u otras solicitudes, como nombre, email, teléfono, empresa o ubicación, asunto, mensaje e información del proyecto solicitado.",
+      "También podemos recibir datos técnicos y de uso, como dirección IP, navegador, dispositivo, ubicación aproximada derivada de datos técnicos, páginas visitadas, referencia e interacciones. Las cookies se explican en la Política de cookies.",
+      "No envíes datos especialmente protegidos ni información de otra persona salvo que sea necesario, lícito y tengas permiso para hacerlo.",
+    ],
+  },
+  {
+    title: "Cómo utilizamos los datos",
+    paragraphs: [
+      "Podemos utilizar los datos para responder preguntas y solicitudes, organizar consultas, preparar propuestas de inversión o información de proyectos, comunicarnos contigo y valorar cómo podemos ayudarte.",
+      "También podemos operar, proteger y mejorar el sitio, mantener registros, detectar usos indebidos, cumplir obligaciones legales, ejercer o defender reclamaciones y gestionar la actividad de la empresa y sus proveedores.",
+      "No utilizaremos datos de consultas para marketing no relacionado sin una base legal adecuada y, cuando sea necesario, consentimiento. Puedes oponerte al marketing directo en cualquier momento.",
+    ],
+  },
+  {
+    title: "Bases legales del RGPD",
+    paragraphs: [
+      "Tratamos los datos conforme a una o varias bases del RGPD: adoptar medidas previas a tu solicitud, ejecutar un contrato, cumplir una obligación legal, perseguir intereses legítimos que no prevalezcan sobre tus derechos u obtener consentimiento cuando sea necesario.",
+      "Puedes retirar el consentimiento en cualquier momento; la retirada no afecta al tratamiento anterior. Si no facilitas datos necesarios para responder, quizá no podamos atender la consulta.",
+    ],
+  },
+  {
+    title: "Destinatarios y proveedores",
+    paragraphs: [
+      "Podemos compartir datos con proveedores que los tratan en nuestro nombre, como servicios de alojamiento, infraestructura, formularios, comunicaciones, seguridad, analítica o soporte profesional, bajo instrucciones y garantías adecuadas.",
+      "También podemos comunicar información cuando lo exija la ley, un tribunal o autoridad competente, o para proteger derechos y seguridad. No vendemos datos ni los cedemos para marketing propio de terceros sin base legal adecuada.",
+    ],
+  },
+  {
+    title: "Transferencias internacionales",
+    paragraphs: [
+      "Algunos proveedores podrían tratar datos fuera del Espacio Económico Europeo. Cuando ocurra, utilizaremos un mecanismo legal y garantías adecuadas, como una decisión de adecuación o cláusulas contractuales tipo aprobadas, junto con medidas adicionales cuando corresponda.",
+      "Puedes contactar con nosotros para solicitar información adicional sobre las garantías aplicables, salvo restricciones legales.",
+    ],
+  },
+  {
+    title: "Conservación",
+    paragraphs: [
+      "Conservamos los datos solo durante el tiempo razonablemente necesario para responder, mantener registros, gestionar una relación u operación, cumplir obligaciones legales y contables, resolver conflictos y hacer cumplir acuerdos.",
+      "Cuando ya no sean necesarios, los eliminaremos o anonimizaremos cuando sea razonablemente posible, salvo que la ley exija o permita conservarlos más tiempo.",
+    ],
+  },
+  {
+    title: "Tus derechos de protección de datos",
+    paragraphs: [
+      "Con los límites de la ley, puedes solicitar acceso, rectificación, supresión, limitación, oposición y portabilidad, y retirar el consentimiento cuando esa sea la base del tratamiento.",
+      "Puedes ejercer estos derechos contactando con la empresa; podremos verificar tu identidad. También puedes reclamar ante la Agencia Española de Protección de Datos (AEPD) u otra autoridad de control competente.",
+    ],
+  },
+  {
+    title: "Cookies y datos técnicos",
+    paragraphs: [
+      "El sitio puede utilizar tecnologías técnicas estrictamente necesarias y, cuando corresponda, otras cookies o tecnologías similares. Sus categorías, finalidades, proveedores, conservación y consentimiento se describen en la Política de cookies.",
+      "Las cookies no esenciales no deben activarse antes de registrar una elección válida de consentimiento, salvo excepciones legales. Puedes gestionar las opciones disponibles o utilizar los controles del navegador.",
+    ],
+  },
+  {
+    title: "Seguridad",
+    paragraphs: [
+      "Aplicamos medidas técnicas y organizativas razonables para proteger los datos frente a destrucción, pérdida, alteración, divulgación o acceso no autorizados. Ningún sistema puede garantizar seguridad absoluta.",
+      "Debes actuar con cuidado al enviar información y avisarnos si crees que una consulta o cuenta ha sido utilizada sin autorización.",
+    ],
+  },
+  {
+    title: "Menores",
+    paragraphs: [
+      "El sitio y sus formularios no están dirigidos a menores. No solicitamos conscientemente datos de menores. Si crees que un menor ha facilitado datos, contacta con nosotros para que podamos revisarlo y eliminarlos cuando proceda.",
+    ],
+  },
+  {
+    title: "Cambios de esta política",
+    paragraphs: [
+      "Podemos actualizar esta política cuando cambien el sitio, los tratamientos, los proveedores, la ley o nuestras prácticas. La versión vigente se identificará por su fecha y, cuando sea necesario, informaremos de forma adicional o solicitaremos un nuevo consentimiento.",
+      "Esta política pretende proporcionar la información aplicable de los artículos 13 a 22 del RGPD y debe leerse junto con los Términos y la Política de cookies.",
+    ],
+  },
+  {
+    title: "Contacto y aviso legal",
+    paragraphs: [
+      "Para preguntas de privacidad o solicitudes sobre tus datos, contacta con Unicom Innovaciones S.L. en Calle Nuestra Señora de Gracia, 26, bajo, Marbella (Málaga), 29602, España. El email público no ha sido confirmado y debe añadirse antes de publicar: [PUBLIC CONTACT EMAIL TO BE CONFIRMED].",
+      "Este borrador debe leerse junto con el RGPD, la Ley Orgánica 3/2018 y los requisitos de consentimiento de cookies de la LSSI. No se indica ningún DPO porque no ha sido confirmado. Fecha de entrada en vigor: 17 de septiembre de 2026.",
+    ],
+  },
+];
 
-      <div className="mt-8">
-        <PageIntro
-          description="How BRICKINVEST handles personal data when you use BRICKINVEST.ES or contact the team."
-          title="Privacy Policy"
-        />
-      </div>
-
-      <aside className="mt-14 flex flex-col gap-5 rounded-[2rem] bg-secondary p-7 text-secondary-foreground sm:flex-row sm:items-center sm:justify-between sm:p-9">
-        <div className="max-w-3xl">
-          <p className="text-[15px] font-semibold">Privacy policy draft</p>
-          <p className="mt-2 text-[15px] leading-6 opacity-70">
-            Effective date: 17 September 2026. This document should be checked
-            by a Spanish-qualified privacy lawyer before publication or use for
-            a specific processing activity.
-          </p>
-        </div>
-      </aside>
-
-      <article className="mx-auto mt-10 max-w-7xl rounded-[2rem] border border-border/50 bg-surface px-6 shadow-sm shadow-foreground/5 sm:px-10">
-        {privacySections.map(({ title, paragraphs }) => (
-          <section
-            className="border-t border-border/60 py-10 first:border-t-0 sm:py-12"
-            key={title}
-          >
-            <div className="max-w-4xl">
-              <h2 className="text-2xl tracking-[-0.025em] sm:text-3xl">
-                {title}
-              </h2>
-              <div className="mt-5 space-y-4 text-[15px] leading-7 text-muted-foreground">
-                {paragraphs.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
-              </div>
-            </div>
-          </section>
-        ))}
-      </article>
-
-      <div className="mt-10 flex flex-wrap gap-x-5 gap-y-3 text-[12px] tracking-[0.12em] text-muted-foreground uppercase">
+export const PrivacyPolicyPage = () => {
+  const { locale, t } = useLocale();
+  const sections = locale === "es" ? spanishPrivacySections : privacySections;
+  return (
+    <main
+      className="grain-surface min-h-dvh bg-background px-5 pt-24 pb-16 sm:px-8 lg:px-12 lg:pt-28 lg:pb-24"
+      id="main-content"
+    >
+      <div className="mx-auto max-w-7xl">
         <Link
-          className="transition-colors hover:text-foreground focus-visible:text-foreground"
-          to="/terms-and-conditions"
-        >
-          Terms &amp; Conditions
-        </Link>
-        <Link
-          className="transition-colors hover:text-foreground focus-visible:text-foreground"
-          to="/cookies-policy"
-        >
-          Cookies Policy
-        </Link>
-        <Link
-          className="transition-colors hover:text-foreground focus-visible:text-foreground"
+          className="inline-flex text-[12px] tracking-[0.12em] text-muted-foreground uppercase transition-colors hover:text-foreground focus-visible:text-foreground"
           to="/"
         >
-          Home
+          {t("backHome")}
         </Link>
+
+        <div className="mt-8">
+          <PageIntro
+            description={t("legalPrivacyDescription")}
+            title={t("privacyPolicy")}
+          />
+        </div>
+
+        <aside className="mt-14 flex flex-col gap-5 rounded-[2rem] bg-secondary p-7 text-secondary-foreground sm:flex-row sm:items-center sm:justify-between sm:p-9">
+          <div className="max-w-3xl">
+            <p className="text-[15px] font-semibold">{t("privacyDraft")}</p>
+            <p className="mt-2 text-[15px] leading-6 opacity-70">
+              {t("privacyDraftNotice")}
+            </p>
+          </div>
+        </aside>
+
+        <article className="mx-auto mt-10 max-w-7xl rounded-[2rem] border border-border/50 bg-surface px-6 shadow-sm shadow-foreground/5 sm:px-10">
+          {sections.map(({ title, paragraphs }) => (
+            <section
+              className="border-t border-border/60 py-10 first:border-t-0 sm:py-12"
+              key={title}
+            >
+              <div className="max-w-4xl">
+                <h2 className="text-2xl tracking-[-0.025em] sm:text-3xl">
+                  {title}
+                </h2>
+                <div className="mt-5 space-y-4 text-[15px] leading-7 text-muted-foreground">
+                  {paragraphs.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+            </section>
+          ))}
+        </article>
+
+        <div className="mt-10 flex flex-wrap gap-x-5 gap-y-3 text-[12px] tracking-[0.12em] text-muted-foreground uppercase">
+          <Link
+            className="transition-colors hover:text-foreground focus-visible:text-foreground"
+            to="/terms-and-conditions"
+          >
+            {t("termsAndConditions")}
+          </Link>
+          <Link
+            className="transition-colors hover:text-foreground focus-visible:text-foreground"
+            to="/cookies-policy"
+          >
+            {t("cookiesPolicy")}
+          </Link>
+          <Link
+            className="transition-colors hover:text-foreground focus-visible:text-foreground"
+            to="/"
+          >
+            {t("home")}
+          </Link>
+        </div>
       </div>
-    </div>
-  </main>
-);
+    </main>
+  );
+};

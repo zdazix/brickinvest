@@ -3,8 +3,10 @@ import { Loader } from "@/components/ui/Loader";
 import { NewsCard } from "@/components/ui/NewsCard";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { useNewsInfiniteQuery } from "@/features/news/queries";
+import { useLocale } from "@/lib/i18n";
 
 export const NewsPage = () => {
+  const { t } = useLocale();
   const newsQuery = useNewsInfiniteQuery();
 
   return (
@@ -14,15 +16,15 @@ export const NewsPage = () => {
     >
       <div className="mx-auto max-w-7xl">
         <PageIntro
-          description="A generic editorial feed demonstrating paginated server state with an infinite query."
-          title="Latest stories."
+          description={t("newsDescription")}
+          title={t("latestStories")}
         />
         {newsQuery.isError ? (
           <p className="mt-16 text-[13px] text-danger">
-            Stories could not be loaded.
+            {t("storiesCouldNotLoad")}
           </p>
         ) : newsQuery.isPending ? (
-          <Loader className="mt-16" label="Loading stories…" />
+          <Loader className="mt-16" label={t("loadingStories")} />
         ) : (
           <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {newsQuery.items.map((article) => (

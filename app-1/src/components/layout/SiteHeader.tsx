@@ -98,7 +98,7 @@ export const SiteHeader = () => {
           className={`relative z-10 mx-auto flex min-h-[4.5rem] max-w-[1600px] items-center justify-between gap-3 px-1 py-3 lg:min-h-[4.25rem] lg:gap-4 lg:py-1.5 xl:gap-5 ${isHome ? "text-white" : "text-foreground"}`}
         >
           <a
-            aria-label="BRICKINVEST home"
+            aria-label={t("brandHome")}
             className={`order-1 mr-auto shrink-0 font-secondary text-[1.3rem] font-bold tracking-[-0.055em] transition-[color,transform] hover:translate-x-1 hover:text-primary active:text-primary lg:hidden ${isHome ? "text-white" : "text-foreground"}`}
             href="/"
           >
@@ -106,7 +106,7 @@ export const SiteHeader = () => {
           </a>
           <div className="hidden shrink-0 items-center gap-6 lg:flex">
             <a
-              aria-label="BRICKINVEST home"
+              aria-label={t("brandHome")}
               className={`font-secondary text-[1.6rem] font-bold tracking-[-0.055em] transition-[color,transform] hover:translate-x-1 hover:text-primary active:text-primary lg:translate-x-3 ${isHome ? "text-white" : ""}`}
               href="/"
             >
@@ -161,7 +161,7 @@ export const SiteHeader = () => {
             </div>
           </div>
           <nav
-            aria-label="Primary navigation"
+            aria-label={t("primaryNavigation")}
             className="hidden min-w-0 flex-1 items-center justify-center gap-x-4 gap-y-2 lg:flex xl:gap-x-6 2xl:gap-x-9"
           >
             {navigation.map(({ href, key }) => (
@@ -184,14 +184,14 @@ export const SiteHeader = () => {
           >
             <button
               aria-expanded={isConsultationOpen}
-              aria-label="Request consultation"
+              aria-label={t("requestConsultation")}
               className="group flex items-center gap-2.5 border border-border bg-white px-4 py-2.5 font-secondary text-[12px] leading-5 font-semibold tracking-[0.03em] whitespace-nowrap text-foreground transition-[background-color,color,transform] duration-250 ease-out hover:bg-foreground hover:text-background focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-px"
               onClick={(event) => {
                 event.stopPropagation();
                 if (isConsultationOpen) closeConsultation();
                 else openConsultation();
               }}
-              title="Request consultation"
+              title={t("requestConsultation")}
               type="button"
             >
               <ConciergeBell
@@ -199,7 +199,7 @@ export const SiteHeader = () => {
                 className="size-[18px]"
                 strokeWidth={1.6}
               />
-              <span>REQUEST CONSULTATION</span>
+              <span>{t("requestConsultation")}</span>
             </button>
           </div>
 
@@ -209,14 +209,14 @@ export const SiteHeader = () => {
           >
             <button
               aria-expanded={isConsultationOpen}
-              aria-label="Request consultation"
+              aria-label={t("requestConsultation")}
               className={`grid size-12 place-items-center rounded-full transition-colors duration-250 hover:bg-primary/10 hover:text-primary focus-visible:bg-primary/10 focus-visible:text-primary focus-visible:ring-2 focus-visible:ring-ring/60 focus-visible:outline-none active:bg-primary/10 active:text-primary ${isHome ? "text-white/80" : "text-foreground/65"}`}
               onClick={(event) => {
                 event.stopPropagation();
                 if (isConsultationOpen) closeConsultation();
                 else openConsultation();
               }}
-              title="Request consultation"
+              title={t("requestConsultation")}
               type="button"
             >
               <ConciergeBell
@@ -249,7 +249,7 @@ export const SiteHeader = () => {
           id="mobile-navigation"
         >
           <nav
-            aria-label="Mobile primary navigation"
+            aria-label={t("mobileNavigation")}
             className="flex h-full flex-col justify-center gap-0.5 overflow-y-auto px-8 pt-24 pb-12 sm:px-16"
             hidden={!isMenuOpen}
           >

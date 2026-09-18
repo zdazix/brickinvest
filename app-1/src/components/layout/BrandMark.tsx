@@ -2,12 +2,14 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { Leaf } from "lucide-react";
 
 import { scrollCurrentHomeToTop } from "@/lib/navigation/scroll-home";
+import { useLocale } from "@/lib/i18n";
 
 type BrandMarkProps = {
   readonly tone?: "dark" | "light";
 };
 
 export const BrandMark = ({ tone = "dark" }: BrandMarkProps) => {
+  const { t } = useLocale();
   const pathname = useRouterState({
     select: (state) => state.location.pathname,
   });
@@ -25,7 +27,7 @@ export const BrandMark = ({ tone = "dark" }: BrandMarkProps) => {
   if (pathname === "/") {
     return (
       <a
-        aria-label="Brand home"
+        aria-label={t("brandHome")}
         className={className}
         href="/"
         onClick={(event) => scrollCurrentHomeToTop(event, pathname)}
@@ -36,7 +38,7 @@ export const BrandMark = ({ tone = "dark" }: BrandMarkProps) => {
   }
 
   return (
-    <Link aria-label="Brand home" className={className} to="/">
+    <Link aria-label={t("brandHome")} className={className} to="/">
       {content}
     </Link>
   );

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 
 import { Loader } from "@/components/ui/Loader";
+import { useLocale } from "@/lib/i18n";
 
 type InfiniteScrollTriggerProps = {
   readonly disabled?: boolean;
@@ -13,6 +14,7 @@ export const InfiniteScrollTrigger = ({
   isLoading,
   onIntersect,
 }: InfiniteScrollTriggerProps) => {
+  const { t } = useLocale();
   const triggerRef = useRef<HTMLDivElement>(null);
   const onIntersectRef = useRef(onIntersect);
 
@@ -42,12 +44,12 @@ export const InfiniteScrollTrigger = ({
 
   return (
     <div
-      aria-label="Load more items automatically"
+      aria-label={t("loadMoreItems")}
       aria-live="polite"
       className="flex min-h-36 items-center justify-center pt-12 text-[13px] text-muted-foreground"
       ref={triggerRef}
     >
-      {isLoading && <Loader label="Loading more stories…" />}
+      {isLoading && <Loader label={t("loadingMoreStories")} />}
     </div>
   );
 };

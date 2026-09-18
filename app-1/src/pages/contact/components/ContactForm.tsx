@@ -10,8 +10,10 @@ import {
   type ContactFormValues,
 } from "@/pages/contact/contact-schema";
 import { trackEvent } from "@/lib/analytics";
+import { useLocale } from "@/lib/i18n";
 
 export const ContactForm = () => {
+  const { t } = useLocale();
   const {
     formState: { errors },
     handleSubmit,
@@ -43,33 +45,33 @@ export const ContactForm = () => {
         <TextField
           autoComplete="name"
           error={errors.name?.message}
-          label="Name"
+          label={t("nameLabel")}
           {...register("name")}
         />
         <TextField
           autoComplete="email"
           error={errors.email?.message}
-          label="Email"
+          label={t("email")}
           type="email"
           {...register("email")}
         />
       </div>
       <TextField
         error={errors.subject?.message}
-        label="Subject"
+        label={t("subject")}
         {...register("subject")}
       />
       <TextAreaField
         error={errors.message?.message}
-        label="Message"
+        label={t("message")}
         {...register("message")}
       />
       <div className="flex flex-wrap items-center justify-between gap-4">
         <p aria-live="polite" className="text-[13px] text-primary">
-          {contactMutation.isSuccess ? "Message sent successfully." : ""}
+          {contactMutation.isSuccess ? t("messageSent") : ""}
         </p>
         <Button disabled={contactMutation.isPending} type="submit">
-          {contactMutation.isPending ? "Sending…" : "Send message"}
+          {contactMutation.isPending ? t("sending") : t("sendMessage")}
         </Button>
       </div>
     </form>
