@@ -82,7 +82,7 @@ export const SiteFooter = () => {
             </span>
             <a
               className="transition-colors hover:text-primary focus-visible:text-primary"
-              href="/cookies"
+              href="/cookies-policy"
             >
               Cookies Policy
             </a>

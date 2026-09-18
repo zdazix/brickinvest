@@ -177,7 +177,7 @@ export const TermsAndConditionsPage = () => (
         </Link>
         <Link
           className="transition-colors hover:text-foreground focus-visible:text-foreground"
-          to="/cookies"
+          to="/cookies-policy"
         >
           Cookies Policy
         </Link>

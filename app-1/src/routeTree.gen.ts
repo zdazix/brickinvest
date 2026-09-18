@@ -13,6 +13,7 @@ import { Route as layoutRouteRouteImport } from './routes/(layout)/route'
 import { Route as layoutIndexRouteImport } from './routes/(layout)/index'
 import { Route as layoutContactRouteRouteImport } from './routes/(layout)/contact/route'
 import { Route as layoutCookiesRouteRouteImport } from './routes/(layout)/cookies/route'
+import { Route as layoutCookiesPolicyRouteRouteImport } from './routes/(layout)/cookies-policy/route'
 import { Route as layoutNewsRouteRouteImport } from './routes/(layout)/news/route'
 import { Route as layoutPrivacyRouteRouteImport } from './routes/(layout)/privacy/route'
 import { Route as layoutPrivacyPolicyRouteRouteImport } from './routes/(layout)/privacy-policy/route'
@@ -39,6 +40,12 @@ const layoutCookiesRouteRoute = layoutCookiesRouteRouteImport.update({
   path: '/cookies',
   getParentRoute: () => layoutRouteRoute,
 } as any)
+const layoutCookiesPolicyRouteRoute =
+  layoutCookiesPolicyRouteRouteImport.update({
+    id: '/cookies-policy',
+    path: '/cookies-policy',
+    getParentRoute: () => layoutRouteRoute,
+  } as any)
 const layoutNewsRouteRoute = layoutNewsRouteRouteImport.update({
   id: '/news',
   path: '/news',
@@ -75,6 +82,7 @@ const layoutTermsAndConditionsRouteRoute =
 export interface FileRoutesByFullPath {
   '/contact': typeof layoutContactRouteRoute
   '/cookies': typeof layoutCookiesRouteRoute
+  '/cookies-policy': typeof layoutCookiesPolicyRouteRoute
   '/news': typeof layoutNewsRouteRoute
   '/privacy': typeof layoutPrivacyRouteRoute
   '/privacy-policy': typeof layoutPrivacyPolicyRouteRoute
@@ -86,6 +94,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/contact': typeof layoutContactRouteRoute
   '/cookies': typeof layoutCookiesRouteRoute
+  '/cookies-policy': typeof layoutCookiesPolicyRouteRoute
   '/news': typeof layoutNewsRouteRoute
   '/privacy': typeof layoutPrivacyRouteRoute
   '/privacy-policy': typeof layoutPrivacyPolicyRouteRoute
@@ -99,6 +108,7 @@ export interface FileRoutesById {
   '/(layout)': typeof layoutRouteRouteWithChildren
   '/(layout)/contact': typeof layoutContactRouteRoute
   '/(layout)/cookies': typeof layoutCookiesRouteRoute
+  '/(layout)/cookies-policy': typeof layoutCookiesPolicyRouteRoute
   '/(layout)/news': typeof layoutNewsRouteRoute
   '/(layout)/privacy': typeof layoutPrivacyRouteRoute
   '/(layout)/privacy-policy': typeof layoutPrivacyPolicyRouteRoute
@@ -112,6 +122,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/contact'
     | '/cookies'
+    | '/cookies-policy'
     | '/news'
     | '/privacy'
     | '/privacy-policy'
@@ -123,6 +134,7 @@ export interface FileRouteTypes {
   to:
     | '/contact'
     | '/cookies'
+    | '/cookies-policy'
     | '/news'
     | '/privacy'
     | '/privacy-policy'
@@ -135,6 +147,7 @@ export interface FileRouteTypes {
     | '/(layout)'
     | '/(layout)/contact'
     | '/(layout)/cookies'
+    | '/(layout)/cookies-policy'
     | '/(layout)/news'
     | '/(layout)/privacy'
     | '/(layout)/privacy-policy'
@@ -176,6 +189,13 @@ declare module '@tanstack/react-router' {
       path: '/cookies'
       fullPath: '/cookies'
       preLoaderRoute: typeof layoutCookiesRouteRouteImport
+      parentRoute: typeof layoutRouteRoute
+    }
+    '/(layout)/cookies-policy': {
+      id: '/(layout)/cookies-policy'
+      path: '/cookies-policy'
+      fullPath: '/cookies-policy'
+      preLoaderRoute: typeof layoutCookiesPolicyRouteRouteImport
       parentRoute: typeof layoutRouteRoute
     }
     '/(layout)/news': {
@@ -226,6 +246,7 @@ declare module '@tanstack/react-router' {
 interface layoutRouteRouteChildren {
   layoutContactRouteRoute: typeof layoutContactRouteRoute
   layoutCookiesRouteRoute: typeof layoutCookiesRouteRoute
+  layoutCookiesPolicyRouteRoute: typeof layoutCookiesPolicyRouteRoute
   layoutNewsRouteRoute: typeof layoutNewsRouteRoute
   layoutPrivacyRouteRoute: typeof layoutPrivacyRouteRoute
   layoutPrivacyPolicyRouteRoute: typeof layoutPrivacyPolicyRouteRoute
@@ -238,6 +259,7 @@ interface layoutRouteRouteChildren {
 const layoutRouteRouteChildren: layoutRouteRouteChildren = {
   layoutContactRouteRoute: layoutContactRouteRoute,
   layoutCookiesRouteRoute: layoutCookiesRouteRoute,
+  layoutCookiesPolicyRouteRoute: layoutCookiesPolicyRouteRoute,
   layoutNewsRouteRoute: layoutNewsRouteRoute,
   layoutPrivacyRouteRoute: layoutPrivacyRouteRoute,
   layoutPrivacyPolicyRouteRoute: layoutPrivacyPolicyRouteRoute,
