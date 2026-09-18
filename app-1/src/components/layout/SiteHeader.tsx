@@ -95,7 +95,7 @@ export const SiteHeader = () => {
         className={`fixed inset-x-0 top-0 z-50 border-b px-4 pt-5 transition-[background-color,border-color,backdrop-filter] duration-300 sm:px-8 sm:pt-7 xl:pt-0 ${isHome ? (isScrolled ? "border-border/15 bg-foreground/60 backdrop-blur-sm" : "border-transparent bg-transparent") : `bg-surface ${isScrolled ? "border-border/30" : "border-border/60"}`}`}
       >
         <header
-          className={`relative z-10 mx-auto flex min-h-[4.5rem] max-w-[1600px] items-center justify-between gap-3 px-1 py-3 xl:min-h-[4.25rem] xl:gap-5 xl:py-1.5 ${isHome ? "text-white" : "text-foreground"}`}
+          className={`relative z-10 mx-auto flex min-h-[4.5rem] max-w-[1600px] items-center justify-between gap-3 px-1 py-3 xl:min-h-[4.25rem] xl:gap-1 xl:py-1.5 2xl:gap-4 ${isHome ? "text-white" : "text-foreground"}`}
         >
           <a
             aria-label={t("brandHome")}
@@ -104,7 +104,7 @@ export const SiteHeader = () => {
           >
             BRICKINVEST
           </a>
-          <div className="hidden shrink-0 items-center gap-4 xl:flex 2xl:gap-6">
+          <div className="hidden shrink-0 items-center gap-0 xl:flex 2xl:gap-4">
             <a
               aria-label={t("brandHome")}
               className={`font-secondary text-[1.6rem] font-bold tracking-[-0.055em] transition-[color,transform] hover:translate-x-1 hover:text-primary active:text-primary xl:translate-x-3 ${isHome ? "text-white" : ""}`}
@@ -117,7 +117,7 @@ export const SiteHeader = () => {
                 aria-expanded={isLanguageOpen}
                 aria-haspopup="menu"
                 aria-label={t("openLanguage")}
-                className={`flex items-center gap-1.5 px-0.5 py-2 text-[12px] font-semibold tracking-[0.08em] transition-colors hover:text-primary focus-visible:text-primary active:bg-primary/10 active:text-primary ${isHome ? "text-white/80" : "text-foreground/70"}`}
+                className={`flex items-center gap-1.5 px-0.5 py-2 text-[14px] font-semibold tracking-[0.08em] transition-colors hover:text-primary focus-visible:text-primary active:bg-primary/10 active:text-primary xl:gap-2 xl:text-[14px] 2xl:text-[15px] ${isHome ? "text-white/80" : "text-foreground/70"}`}
                 onClick={(event) => {
                   event.stopPropagation();
                   setIsLanguageOpen((open) => !open);
@@ -127,7 +127,7 @@ export const SiteHeader = () => {
                 <span>{selectedLocale.code}</span>
                 <ChevronDown
                   aria-hidden="true"
-                  className={`size-3 transition-transform ${isLanguageOpen ? "rotate-180" : ""}`}
+                  className={`size-3 transition-transform xl:size-3.5 ${isLanguageOpen ? "rotate-180" : ""}`}
                 />
               </button>
               {isLanguageOpen && (
@@ -162,11 +162,11 @@ export const SiteHeader = () => {
           </div>
           <nav
             aria-label={t("primaryNavigation")}
-            className="hidden min-w-0 flex-1 items-center justify-center gap-x-2 gap-y-2 xl:flex 2xl:gap-x-5"
+            className="hidden min-w-0 flex-1 items-center justify-center gap-x-0 gap-y-2 xl:flex 2xl:gap-x-0"
           >
             {navigation.map(({ href, key }) => (
               <a
-                className={`relative py-2 text-center text-[11px] font-semibold tracking-[0.02em] whitespace-nowrap transition-colors duration-250 after:absolute after:right-0 after:bottom-0 after:left-0 after:h-px after:origin-right after:bg-border after:transition-transform after:duration-250 hover:after:origin-left hover:after:scale-x-100 active:text-primary active:after:origin-left active:after:scale-x-100 active:after:bg-primary 2xl:text-[14px] 2xl:tracking-[0.03em] ${activeSection === href.slice(1) ? "text-primary after:scale-x-100" : isHome ? "text-white/85 after:scale-x-0 hover:text-white" : "text-foreground/80 after:scale-x-0 hover:text-foreground"}`}
+                className={`relative py-2 text-center text-[13px] font-semibold tracking-[0.015em] whitespace-nowrap transition-colors duration-250 after:absolute after:right-0 after:bottom-0 after:left-0 after:h-px after:origin-right after:bg-border after:transition-transform after:duration-250 hover:after:origin-left hover:after:scale-x-100 active:text-primary active:after:origin-left active:after:scale-x-100 active:after:bg-primary 2xl:text-[16px] 2xl:tracking-[0.02em] ${activeSection === href.slice(1) ? "text-primary after:scale-x-100" : isHome ? "text-white/85 after:scale-x-0 hover:text-white" : "text-foreground/80 after:scale-x-0 hover:text-foreground"}`}
                 href={href}
                 key={href}
                 onClick={() =>
@@ -185,7 +185,7 @@ export const SiteHeader = () => {
             <button
               aria-expanded={isConsultationOpen}
               aria-label={t("requestConsultation")}
-              className="group flex items-center gap-2 border border-border bg-white px-3 py-2.5 font-secondary text-[11px] leading-5 font-semibold tracking-[0.02em] whitespace-nowrap text-foreground transition-[background-color,color,transform] duration-250 ease-out hover:bg-foreground hover:text-background focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-px 2xl:gap-2.5 2xl:px-4 2xl:text-[12px] 2xl:tracking-[0.03em]"
+              className="group flex items-center gap-1 border border-border bg-white px-2 py-2.5 font-secondary text-[13px] leading-5 font-semibold tracking-[0.015em] whitespace-nowrap text-foreground transition-[background-color,color,transform] duration-250 ease-out hover:bg-foreground hover:text-background focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-px 2xl:gap-2 2xl:px-3 2xl:text-[14px] 2xl:tracking-[0.02em]"
               onClick={(event) => {
                 event.stopPropagation();
                 if (isConsultationOpen) closeConsultation();
@@ -196,7 +196,7 @@ export const SiteHeader = () => {
             >
               <ConciergeBell
                 aria-hidden="true"
-                className="size-4 2xl:size-[18px]"
+                className="size-[18px] 2xl:size-5"
                 strokeWidth={1.6}
               />
               <span>{t("requestConsultation")}</span>
