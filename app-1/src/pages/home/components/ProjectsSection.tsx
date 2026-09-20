@@ -54,7 +54,7 @@ export const ProjectsSection = () => {
           <div className="border-t border-border/35">
             {projectKeys.map((key) => (
               <button
-                aria-label={`View ${t(key)}`}
+                aria-label={`${t("viewProject")} ${t(key)}`}
                 className="group relative z-0 grid min-h-36 w-full grid-cols-[5rem_minmax(0,1fr)_2.5rem] items-center gap-7 overflow-visible border-b border-border/20 px-0 py-8 text-left transition-colors hover:z-20 hover:bg-secondary focus-visible:z-20 focus-visible:bg-secondary sm:min-h-40"
                 data-cursor-project
                 key={key}

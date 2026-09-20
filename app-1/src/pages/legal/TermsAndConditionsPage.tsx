@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { useEffect } from "react";
 
 import { PageIntro } from "@/components/ui/PageIntro";
 import { useLocale } from "@/lib/i18n";
@@ -222,9 +223,124 @@ const spanishTermsSections: readonly TermsSection[] = [
   },
 ];
 
+const swedishTermsSections: readonly TermsSection[] = [
+  {
+    title: "Omfattning och godkännande",
+    paragraphs: [
+      "Dessa webbplatsvillkor reglerar din åtkomst till och användning av BRICKINVEST.ES, dess information och förfrågningsverktyg. Genom att använda webbplatsen bekräftar du att du har läst och förstått villkoren. Om du inte godkänner dem ska du inte använda webbplatsen.",
+      "Villkoren gäller endast webbplatsanvändning. Varje senare fastighets-, utvecklings-, förmedlings- eller investeringstransaktion kräver ett separat skriftligt avtal.",
+    ],
+  },
+  {
+    title: "Företagsuppgifter",
+    paragraphs: [
+      "Webbplatsen drivs under namnet BRICKINVEST av Unicom Innovaciones S.L., med spanskt skattenummer CIF B-05385919 och adress Calle Nuestra Señora de Gracia, 26, bajo, Marbella (Málaga), 29602, Spanien.",
+      "Företaget kan lämna ytterligare juridisk information när det krävs enligt lag eller när en särskild tjänst efterfrågas.",
+    ],
+  },
+  {
+    title: "Informationens karaktär",
+    paragraphs: [
+      "Webbplatsen ger allmän information om företaget, fastighetsprojekt och möjliga möjligheter. Projekt kan vara föreslagna, under granskning eller under utveckling, och informationen kan vara ofullständig eller ändras.",
+      "Gör egna kontroller och inhämta oberoende professionell rådgivning innan du fattar ekonomiska, fastighetsrelaterade eller avtalsmässiga beslut. Företaget garanterar inte att siffror, bilder, prognoser eller tillgänglighetsuppgifter förblir oförändrade.",
+    ],
+  },
+  {
+    title: "Ingen rådgivning eller reglerad tjänst",
+    paragraphs: [
+      "Inget på webbplatsen utgör finansiell, investeringsrelaterad, juridisk, skatterelaterad, redovisningsmässig, hypoteksrelaterad eller annan professionell rådgivning.",
+      "Varken webbplatsen eller dessa villkor anger eller antyder att företaget är licensierat, auktoriserat eller reglerat för att tillhandahålla investeringstjänster.",
+    ],
+  },
+  {
+    title: "Inget erbjudande, ingen uppmaning och ingen garanti",
+    paragraphs: [
+      "Webbplatsens innehåll, projektbeskrivningar och meddelanden är endast avsedda som information och preliminär förfrågan. De utgör inte ett erbjudande, en investeringsinbjudan, rekommendation, utfästelse eller garanti om tillgänglighet, resultat eller avkastning.",
+      "Tidigare resultat, exempel, uppskattningar och prognoser garanterar inte framtida resultat. Alla investeringar innebär risk, inklusive risk för kapitalförlust.",
+    ],
+  },
+  {
+    title: "Förfrågningar och formulär",
+    paragraphs: [
+      "Att skicka ett formulär, begära information eller boka en konsultation skapar inte ett avtal, en reservation, ett agentförhållande eller ett investeringsåtagande för dig eller företaget.",
+      "Ingen transaktion eller tjänst blir bindande förrän parterna har ingått ett separat skriftligt avtal. Företaget kan avböja, pausa eller avsluta en förfrågan med förbehåll för tvingande lagstadgade rättigheter.",
+    ],
+  },
+  {
+    title: "Ditt ansvar",
+    paragraphs: [
+      "Du ska använda webbplatsen lagligt och i god tro. Du får inte störa driften, införa skadlig kod, försöka få obehörig åtkomst, utge dig för någon annan eller lämna olaglig eller vilseledande information.",
+      "När du skickar information ansvarar du för att den är korrekt, aktuell och lagligen tillhandahållen. Du får inte använda webbplatsen för oönskad marknadsföring eller för att kränka andras rättigheter.",
+    ],
+  },
+  {
+    title: "Immateriella rättigheter",
+    paragraphs: [
+      "Om inget annat anges ägs webbplatsen och dess text, design, varumärke, grafik, fotografier, programvara och övriga material av företaget eller används med licens och skyddas av tillämplig lag.",
+      "Du får använda webbplatsen och göra en rimlig tillfällig kopia för privat, icke-kommersiellt bruk. Du får inte reproducera, distribuera eller kommersiellt utnyttja materialet utan skriftligt tillstånd, utom när tvingande lag tillåter det.",
+    ],
+  },
+  {
+    title: "Tredjepartswebbplatser och tjänster",
+    paragraphs: [
+      "Webbplatsen kan innehålla länkar till tredjepartswebbplatser, plattformar eller tjänster. De tillhandahålls av bekvämlighetsskäl och drivs självständigt från företaget.",
+      "Läs respektive tredjeparts villkor och integritetsinformation innan du använder en extern resurs. Företaget ansvarar inte för tredjepartsinnehåll eller tjänster utöver vad lagen kräver.",
+    ],
+  },
+  {
+    title: "Tillgänglighet och ändringar",
+    paragraphs: [
+      "Företaget strävar efter att hålla webbplatsen tillgänglig och användbar men garanterar inte oavbruten, säker eller felfri åtkomst. Åtkomst kan ändras eller avbrytas av tekniska, säkerhetsmässiga, operativa eller juridiska skäl.",
+      "Företaget kan uppdatera, ta bort eller rätta innehåll och ändra dessa villkor enligt avsnittet nedan.",
+    ],
+  },
+  {
+    title: "Ansvarsbegränsning",
+    paragraphs: [
+      "I den utsträckning lagen tillåter ansvarar företaget inte för indirekta eller följdrelaterade förluster, förlorade möjligheter, vinster eller förluster som beror på ofullständig eller inaktuell information.",
+      "Inget i villkoren utesluter ansvar som inte får uteslutas enligt lag, inklusive bedrägeri, uppsåtligt agerande eller tvingande konsumenträttigheter.",
+    ],
+  },
+  {
+    title: "Integritet och cookies",
+    paragraphs: [
+      "Behandlingen av personuppgifter beskrivs i BRICKINVESTs integritetspolicy. Användningen av cookies och liknande teknik beskrivs i cookiepolicyn. Dokumenten ska läsas tillsammans med dessa villkor.",
+      "Webbplatsen är avsedd att användas i enlighet med GDPR, tillämpliga spanska dataskyddsregler och LSSI-CE när det är relevant.",
+    ],
+  },
+  {
+    title: "Ändringar",
+    paragraphs: [
+      "Företaget kan ändra villkoren för att återspegla ändringar på webbplatsen, i tjänsterna, lagen eller verksamheten. Den aktuella versionen anges med ikraftträdandedatum. Fortsatt användning efter publicering innebär godkännande i den utsträckning lagen tillåter.",
+    ],
+  },
+  {
+    title: "Tillämplig lag och domstol",
+    paragraphs: [
+      "Villkoren regleras av Spaniens lagar. Tvister ska hanteras av behöriga spanska domstolar med förbehåll för tvingande konsumentskydd och konsumentens rätt att väcka talan på hemorten när det följer av lag.",
+      "Om någon bestämmelse är ogiltig eller inte kan verkställas fortsätter övriga bestämmelser att gälla i den utsträckning lagen tillåter.",
+    ],
+  },
+  {
+    title: "Kontakt och juridisk information",
+    paragraphs: [
+      "För juridiska meddelanden eller frågor om villkoren, kontakta Unicom Innovaciones S.L. på Calle Nuestra Señora de Gracia, 26, bajo, Marbella (Málaga), 29602, Spanien. Den offentliga e-postadressen är inte bekräftad och måste läggas till före publicering: [PUBLIC CONTACT EMAIL TO BE CONFIRMED].",
+      "Ikraftträdande: 17 september 2026. Detta är ett utkast till webbplatsvillkor och ersätter inte granskning av en jurist med behörighet i Spanien.",
+    ],
+  },
+];
+
 export const TermsAndConditionsPage = () => {
   const { locale, t } = useLocale();
-  const sections = locale === "es" ? spanishTermsSections : termsSections;
+  useEffect(() => {
+    if (locale === "sv") document.title = "Villkor | BRICKINVEST";
+  }, [locale]);
+  const sections =
+    locale === "es"
+      ? spanishTermsSections
+      : locale === "sv"
+        ? swedishTermsSections
+        : termsSections;
   return (
     <main
       className="grain-surface min-h-dvh bg-background px-5 pt-24 pb-16 sm:px-8 lg:px-12 lg:pt-28 lg:pb-24"

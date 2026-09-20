@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { useEffect } from "react";
 
 import { PageIntro } from "@/components/ui/PageIntro";
 import { useLocale } from "@/lib/i18n";
@@ -196,9 +197,111 @@ const spanishCookiesSections: readonly CookiesSection[] = [
   },
 ];
 
+const swedishCookiesSections: readonly CookiesSection[] = [
+  {
+    title: "Vad cookies är",
+    paragraphs: [
+      "Cookies är små textfiler eller liknande teknik som en webbplats kan spara på din enhet eller läsa i webbläsaren. De kan komma ihåg inställningar, tillhandahålla funktioner eller hjälpa till att förstå hur webbplatsen används.",
+      "Policyn ska läsas tillsammans med integritetspolicyn och webbplatsvillkoren.",
+    ],
+  },
+  {
+    title: "Ansvarig organisation",
+    paragraphs: [
+      "Ansvarig för behandlingen genom cookies och liknande teknik är Unicom Innovaciones S.L., under varumärket BRICKINVEST, med CIF B-05385919 och adress Calle Nuestra Señora de Gracia, 26, bajo, Marbella (Málaga), 29602, Spanien.",
+      "Företaget ansvarar för BRICKINVEST.ES, utan att detta ändrar tredje parts ansvar för deras egna tjänster.",
+    ],
+  },
+  {
+    title: "Cookies som för närvarande identifierats",
+    paragraphs: [
+      "Genomgången av den aktuella koden har inte identifierat något cookienamn som skapas av applikationen eller någon integrerad marknadsföringsleverantör. Språkvalet sparas i localStorage med nyckeln `brickinvest-locale`; detta är webbläsarlagring och inte en cookie.",
+      "Det finns ett samtyckesberoende analyslager som kan ladda Google Tag Manager eller Google Analytics 4 endast om mät-ID:n konfigureras och samtycke lämnas. Inga sådana ID:n eller miljövariabler har bekräftats i workspace-granskningen, så inga analys- eller marknadsföringscookies bekräftas.",
+      "Inventeringen kommer från koden och måste kompletteras med en webbläsarskanning i produktion och kontroll av varje deployment.",
+    ],
+  },
+  {
+    title: "Nödvändiga och tekniska cookies",
+    paragraphs: [
+      "Strikt nödvändig teknik kan användas utan samtycke när den krävs för en efterfrågad tjänst, kommunikation eller funktion. Den ska begränsas till detta ändamål och inte användas för analys eller marknadsföring.",
+      "Den granskade koden deklarerar för närvarande ingen namngiven nödvändig cookie. Cookies från hosting, infrastruktur eller säkerhet måste dokumenteras före publicering.",
+    ],
+  },
+  {
+    title: "Inställningar och språk",
+    paragraphs: [
+      "Språkvalet sparas i localStorage under `brickinvest-locale` för att komma ihåg en preferens. Det är inte en cookie och kan raderas via webbläsarens datakontroller.",
+      "Ingen separat cookie eller leverantör för inställningshantering har identifierats.",
+    ],
+  },
+  {
+    title: "Analys och mätning",
+    paragraphs: [
+      "Applikationen innehåller ett valfritt analyslager som är beroende av samtycke. Det är utformat för att inte ladda Google Tag Manager eller Google Analytics 4 och inte skicka händelser innan en samtyckessignal finns. Inget mät-ID är konfigurerat i den granskade miljön.",
+      "Om analys aktiveras måste leverantör, ändamål, namn, lagring, överföringar och skydd anges i samtycket och policyn. Analytiskt samtycke ska vara separat och får inte antas genom surfning.",
+    ],
+  },
+  {
+    title: "Marknadsföring och tredje part",
+    paragraphs: [
+      "Ingen marknadsföringstagg, annonsnätverk eller tredjepartscookie för marknadsföring har identifierats i koden. Den nuvarande implementationen är inte avsedd att sätta valfria marknadsföringscookies.",
+      "Om sociala medier, annonser eller andra leverantörer läggs till ska de blockeras tills giltigt samtycke har lämnats när det krävs, och deras ändamål, lagring, mottagare och skydd ska dokumenteras.",
+    ],
+  },
+  {
+    title: "Rättslig grund och samtycke",
+    paragraphs: [
+      "Enligt artikel 22.2 i spanska LSSI-CE och tillämpliga AEPD-rekommendationer kan strikt nödvändig teknik vara undantagen när den behövs. Icke nödvändig teknik kräver informerat, frivilligt och förhandslämnat samtycke.",
+      "Samtycket ska vara specifikt, tydligt och lika lätt att avvisa som att acceptera, med inställningar per ändamål och möjlighet att återkalla. Det får inte antas genom scrollning, surfning eller tystnad.",
+    ],
+  },
+  {
+    title: "Samtyckeskontroller och aktuell begränsning",
+    paragraphs: [
+      "Den granskade applikationen innehåller för närvarande ingen banner, inställningspanel eller synliga kontroller för att acceptera, avvisa, konfigurera eller återkalla. Detta är en kvarstående implementationbegränsning, inte ett påstående om att samtycke har samlats in.",
+      "Tills en korrekt kontroll och en fullständig produktionsinventering finns ska valfria analys-, marknadsförings- och tredjepartscookies vara avstängda. Webbläsaren kan också radera eller blockera data, men blockering av nödvändig teknik kan påverka funktioner.",
+    ],
+  },
+  {
+    title: "Lagringstid och internationella överföringar",
+    paragraphs: [
+      "Ingen lagringstid för en applikationscookie kan bekräftas eftersom koden inte deklarerar egna cookies. Värdet `brickinvest-locale` finns i localStorage tills användaren, webbläsaren eller applikationen tar bort eller ersätter det. Framtida inventering ska ange lagringstid och om teknik är sessionsbaserad eller beständig.",
+      "Om en framtida leverantör behandlar uppgifter utanför EES ska överföringen ha laglig grund och lämpliga skydd, exempelvis adekvansbeslut eller standardavtalsklausuler.",
+    ],
+  },
+  {
+    title: "Dina rättigheter och integritetspolicyn",
+    paragraphs: [
+      "När cookie- eller teknikuppgifter kan kopplas till dig kan du ha rätt till tillgång, rättelse, radering, begränsning, invändning, dataportabilitet och återkallelse av samtycke. Integritetspolicyn beskriver behandlingen och kontaktvägen.",
+      "Du kan även lämna klagomål till AEPD eller annan behörig myndighet. Webbläsarkontroller hjälper dig att radera eller blockera teknik men ersätter inte ett lagligt samtyckesförfarande när det krävs.",
+    ],
+  },
+  {
+    title: "Ändringar av policyn",
+    paragraphs: [
+      "Vi kan uppdatera policyn när webbplatsen, tekniken, leverantörer, samtyckesrutiner eller lagen ändras. Den aktuella versionen anges med datum. Viktiga ändringar ska åtföljas av lämplig information och vid behov ett nytt samtycke.",
+    ],
+  },
+  {
+    title: "Kontakt och juridisk information",
+    paragraphs: [
+      "För frågor om cookies eller BRICKINVEST.ES teknik, kontakta Unicom Innovaciones S.L. på Calle Nuestra Señora de Gracia, 26, bajo, Marbella (Málaga), 29602, Spanien. Den offentliga e-postadressen är inte bekräftad och måste läggas till före publicering: [PUBLIC CONTACT EMAIL TO BE CONFIRMED].",
+      "Ikraftträdande: 18 september 2026. Detta är ett juridiskt utkast och ersätter inte granskning av jurist eller dataskyddsexpert i Spanien, inklusive skanning av produktionens domän och deployment-konfiguration.",
+    ],
+  },
+];
+
 export const CookiesPolicyPage = () => {
   const { locale, t } = useLocale();
-  const sections = locale === "es" ? spanishCookiesSections : cookiesSections;
+  useEffect(() => {
+    if (locale === "sv") document.title = "Cookiepolicy | BRICKINVEST";
+  }, [locale]);
+  const sections =
+    locale === "es"
+      ? spanishCookiesSections
+      : locale === "sv"
+        ? swedishCookiesSections
+        : cookiesSections;
   return (
     <main
       className="grain-surface min-h-dvh bg-background px-5 pt-24 pb-16 sm:px-8 lg:px-12 lg:pt-28 lg:pb-24"

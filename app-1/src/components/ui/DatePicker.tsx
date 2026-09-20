@@ -29,6 +29,7 @@ type DatePickerProps = {
 };
 
 const weekdays = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
+const swedishWeekdays = ["Sö", "Må", "Ti", "On", "To", "Fr", "Lö"];
 
 const parseDate = (value?: string) => {
   if (!value) return undefined;
@@ -45,7 +46,8 @@ export const DatePicker = ({
   placeholder = "...",
   value,
 }: DatePickerProps) => {
-  const { t } = useLocale();
+  const { locale, t } = useLocale();
+  const weekdayLabels = locale === "sv" ? swedishWeekdays : weekdays;
   const [open, setOpen] = useState(false);
   const selectedDate = parseDate(value);
   const [viewMonth, setViewMonth] = useState(selectedDate ?? new Date());
@@ -122,7 +124,7 @@ export const DatePicker = ({
             </button>
           </div>
           <div className="grid grid-cols-7 text-center">
-            {weekdays.map((weekday) => (
+            {weekdayLabels.map((weekday) => (
               <span
                 className="py-1 text-[11px] font-semibold text-muted-foreground"
                 key={weekday}

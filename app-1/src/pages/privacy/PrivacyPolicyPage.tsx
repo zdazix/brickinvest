@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { useEffect } from "react";
 
 import { PageIntro } from "@/components/ui/PageIntro";
 import { useLocale } from "@/lib/i18n";
@@ -199,9 +200,113 @@ const spanishPrivacySections: readonly PrivacySection[] = [
   },
 ];
 
+const swedishPrivacySections: readonly PrivacySection[] = [
+  {
+    title: "Ansvarig organisation",
+    paragraphs: [
+      "Personuppgiftsansvarig för behandlingen som beskrivs i denna policy är Unicom Innovaciones S.L., som verkar under varumärket BRICKINVEST, med CIF B-05385919 och adress Calle Nuestra Señora de Gracia, 26, bajo, Marbella (Málaga), 29602, Spanien.",
+      "Policyn förklarar hur personuppgifter kan behandlas när du besöker BRICKINVEST.ES, kontaktar teamet eller skickar en förfrågan om fastighetsprojekt och möjligheter.",
+    ],
+  },
+  {
+    title: "Personuppgifter vi samlar in",
+    paragraphs: [
+      "Beroende på hur du använder webbplatsen kan vi samla in uppgifter som du lämnar i kontakt-, konsultations-, investerings- och andra förfrågningsformulär, till exempel namn, e-post, telefonnummer, företag, plats, ämne, meddelande och projektinformation.",
+      "Vi kan också få tekniska uppgifter och användningsinformation som IP-adress, webbläsare, enhet, ungefärlig plats, besökta sidor, hänvisningsinformation och interaktioner. Cookies och liknande teknik beskrivs i cookiepolicyn.",
+      "Skicka inte känsliga personuppgifter eller uppgifter om någon annan om det inte är nödvändigt, lagligt och du har tillstånd.",
+    ],
+  },
+  {
+    title: "Så använder vi personuppgifter",
+    paragraphs: [
+      "Vi kan använda personuppgifter för att svara på frågor, ordna konsultationer, förbereda investeringsförslag eller projektinformation, följa upp en förfrågan och bedöma hur vi kan hjälpa dig.",
+      "Vi kan också driva, säkra, felsöka och förbättra webbplatsen, föra kommunikationsregister, upptäcka missbruk, följa lagkrav, hantera rättsliga anspråk och administrera företaget och dess leverantörer.",
+      "Förfrågningsuppgifter används inte för orelaterad marknadsföring utan lämplig rättslig grund och, när det krävs, ditt samtycke. Du kan när som helst invända mot direktmarknadsföring.",
+    ],
+  },
+  {
+    title: "Rättsliga grunder enligt GDPR",
+    paragraphs: [
+      "Vi behandlar personuppgifter med en eller flera rättsliga grunder enligt GDPR: åtgärder på din begäran före avtal, fullgörande av avtal, rättslig skyldighet, berättigat intresse som att besvara frågor och säkra webbplatsen, eller samtycke när det krävs.",
+      "När behandlingen bygger på samtycke kan du återkalla det när som helst. Återkallelsen påverkar inte lagligheten av tidigare behandling. Om du inte lämnar nödvändiga uppgifter kan vi kanske inte besvara förfrågan.",
+    ],
+  },
+  {
+    title: "Mottagare och tjänsteleverantörer",
+    paragraphs: [
+      "Vi kan dela personuppgifter med leverantörer som behandlar dem för vår räkning, exempelvis för hosting, webbplatsinfrastruktur, formulär, kommunikation, säkerhet, analys eller professionellt stöd. De ska följa våra instruktioner och lämpliga skyddsåtgärder.",
+      "Vi kan också lämna ut uppgifter när det krävs enligt lag eller av domstol eller myndighet, eller för att skydda rättigheter och säkerhet. Vi säljer inte personuppgifter och lämnar inte ut dem för tredje parts orelaterade marknadsföring utan rättslig grund.",
+    ],
+  },
+  {
+    title: "Internationella överföringar",
+    paragraphs: [
+      "Vissa leverantörer kan behandla personuppgifter utanför Europeiska ekonomiska samarbetsområdet. Vid en sådan överföring använder vi en laglig överföringsmekanism och lämpliga skydd, exempelvis adekvansbeslut eller standardavtalsklausuler.",
+      "Du kan kontakta oss enligt avsnittet Kontakt och juridisk information för mer information om relevanta skydd, med förbehåll för lagliga begränsningar.",
+    ],
+  },
+  {
+    title: "Lagringstid",
+    paragraphs: [
+      "Vi sparar personuppgifter endast så länge det är rimligt nödvändigt för ändamålen i denna policy, för att besvara en förfrågan, hantera en relation eller transaktion, följa juridiska krav, lösa tvister och verkställa avtal.",
+      "När uppgifterna inte längre behövs raderar eller anonymiserar vi dem när det är praktiskt möjligt, om inte en längre lagringstid krävs eller tillåts enligt lag.",
+    ],
+  },
+  {
+    title: "Dina dataskyddsrättigheter",
+    paragraphs: [
+      "Med förbehåll för lagens villkor kan du begära tillgång till dina personuppgifter, rättelse, radering, begränsning, invända mot behandling inklusive direktmarknadsföring och få dataportabilitet när rätten gäller. Du kan också återkalla samtycke när behandlingen bygger på samtycke.",
+      "Kontakta företaget för att utöva dina rättigheter. Vi kan behöva kontrollera din identitet. Du har även rätt att lämna klagomål till Agencia Española de Protección de Datos (AEPD) eller annan behörig tillsynsmyndighet.",
+    ],
+  },
+  {
+    title: "Cookies och tekniska uppgifter",
+    paragraphs: [
+      "Webbplatsen kan använda strikt nödvändiga tekniska cookies och, när det är aktuellt, andra cookies eller liknande teknik. Kategorier, ändamål, leverantörer, lagring och samtycke beskrivs i cookiepolicyn.",
+      "Icke nödvändiga cookies ska inte aktiveras innan ett giltigt samtycke har registrerats när samtycke krävs. Du kan hantera val via webbplatsens kontroller eller webbläsarens inställningar, men avstängning av nödvändig teknik kan påverka funktionaliteten.",
+    ],
+  },
+  {
+    title: "Säkerhet",
+    paragraphs: [
+      "Vi använder rimliga tekniska och organisatoriska åtgärder för att skydda personuppgifter mot oavsiktlig eller olaglig förstörelse, förlust, ändring, obehörigt utlämnande och obehörig åtkomst. Inget system kan dock garanteras vara helt säkert.",
+      "Var försiktig när du skickar information och kontakta oss omedelbart om du tror att en förfrågan eller ett konto har använts utan behörighet.",
+    ],
+  },
+  {
+    title: "Barn",
+    paragraphs: [
+      "Webbplatsen och formulären riktar sig inte till barn. Vi ber inte medvetet om eller samlar in barns personuppgifter. Kontakta oss om du tror att ett barn har lämnat uppgifter så bedömer vi om de ska tas bort.",
+    ],
+  },
+  {
+    title: "Ändringar av policyn",
+    paragraphs: [
+      "Vi kan uppdatera integritetspolicyn när webbplatsen, behandlingarna, leverantörerna, lagen eller arbetssätten ändras. Den aktuella versionen anges med ikraftträdandedatum. Vid behov lämnar vi ytterligare information eller ber om samtycke till en väsentlig ändring.",
+      "Policyn är avsedd att ge information enligt GDPR artiklarna 13–22 och ska läsas tillsammans med webbplatsvillkoren och cookiepolicyn.",
+    ],
+  },
+  {
+    title: "Kontakt och juridisk information",
+    paragraphs: [
+      "För integritetsfrågor eller begäran om dina personuppgifter, kontakta Unicom Innovaciones S.L. på Calle Nuestra Señora de Gracia, 26, bajo, Marbella (Málaga), 29602, Spanien. Den offentliga e-postadressen är inte bekräftad och måste läggas till före publicering: [PUBLIC CONTACT EMAIL TO BE CONFIRMED].",
+      "Utkastet ska läsas tillsammans med GDPR, spanska Organic Law 3/2018 och tillämpliga LSSI-krav för cookies. Det ersätter inte granskning av en spansk dataskyddsjurist. Ingen DPO anges eftersom det inte har bekräftats att en sådan finns.",
+      "Ikraftträdande: 17 september 2026.",
+    ],
+  },
+];
+
 export const PrivacyPolicyPage = () => {
   const { locale, t } = useLocale();
-  const sections = locale === "es" ? spanishPrivacySections : privacySections;
+  useEffect(() => {
+    if (locale === "sv") document.title = "Integritetspolicy | BRICKINVEST";
+  }, [locale]);
+  const sections =
+    locale === "es"
+      ? spanishPrivacySections
+      : locale === "sv"
+        ? swedishPrivacySections
+        : privacySections;
   return (
     <main
       className="grain-surface min-h-dvh bg-background px-5 pt-24 pb-16 sm:px-8 lg:px-12 lg:pt-28 lg:pb-24"

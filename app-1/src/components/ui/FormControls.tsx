@@ -8,6 +8,7 @@ import type {
 
 import { DatePicker } from "@/components/ui/DatePicker";
 import { NumericText } from "@/components/ui/NumericText";
+import { useLocale } from "@/lib/i18n";
 
 type FieldShellProps = {
   readonly label: string;
@@ -101,67 +102,75 @@ export const SelectField = ({
   name,
   onBlur,
   onValueChange,
-  placeholder = "Select an option",
+  placeholder,
   value,
-}: SelectFieldProps) => (
-  <div className="grid gap-2 text-[13px] font-semibold">
-    <NumericText>{label}</NumericText>
-    {name && (
-      <input
-        disabled={disabled}
-        name={name}
-        type="hidden"
-        value={value ?? ""}
-      />
-    )}
-    <DropdownMenu.Root modal={false}>
-      <DropdownMenu.Trigger
-        aria-label={label}
-        className="flex min-h-12 w-full cursor-pointer items-center justify-between gap-3 rounded-2xl border border-border/70 bg-background px-4 text-left text-[15px] font-normal transition outline-none focus:border-border focus:ring-2 focus:ring-ring/20 disabled:cursor-not-allowed disabled:opacity-50"
-        disabled={disabled}
-        onBlur={onBlur}
-        type="button"
-      >
-        <span className={value ? undefined : "text-muted-foreground"}>
-          {options.find((option) => option.value === value)?.label ??
-            placeholder}
-        </span>
-        <ChevronDown
-          aria-hidden="true"
-          className="size-4 text-muted-foreground"
+}: SelectFieldProps) => {
+  const { t } = useLocale();
+  const resolvedPlaceholder = placeholder ?? t("selectOption");
+
+  return (
+    <div className="grid gap-2 text-[13px] font-semibold">
+      <NumericText>{label}</NumericText>
+      {name && (
+        <input
+          disabled={disabled}
+          name={name}
+          type="hidden"
+          value={value ?? ""}
         />
-      </DropdownMenu.Trigger>
-      <DropdownMenu.Portal>
-        <DropdownMenu.Content
-          align="start"
-          className="z-50 min-w-(--radix-dropdown-menu-trigger-width) overflow-hidden rounded-2xl border border-border bg-surface p-2 shadow-xl"
-          collisionPadding={16}
-          sideOffset={8}
+      )}
+      <DropdownMenu.Root modal={false}>
+        <DropdownMenu.Trigger
+          aria-label={label}
+          className="flex min-h-12 w-full cursor-pointer items-center justify-between gap-3 rounded-2xl border border-border/70 bg-background px-4 text-left text-[15px] font-normal transition outline-none focus:border-border focus:ring-2 focus:ring-ring/20 disabled:cursor-not-allowed disabled:opacity-50"
+          disabled={disabled}
+          onBlur={onBlur}
+          type="button"
         >
-          <DropdownMenu.RadioGroup onValueChange={onValueChange} value={value}>
-            {options.map((option) => (
-              <DropdownMenu.RadioItem
-                className="relative flex min-h-11 cursor-pointer items-center rounded-xl py-2 pr-9 pl-3 text-[13px] outline-none data-[highlighted]:bg-muted data-[state=checked]:font-semibold data-[state=checked]:text-primary"
-                key={option.value}
-                value={option.value}
-              >
-                {option.label}
-                <DropdownMenu.ItemIndicator className="absolute right-3">
-                  <Check aria-hidden="true" className="size-4" />
-                </DropdownMenu.ItemIndicator>
-              </DropdownMenu.RadioItem>
-            ))}
-          </DropdownMenu.RadioGroup>
-        </DropdownMenu.Content>
-      </DropdownMenu.Portal>
-    </DropdownMenu.Root>
-    {error && (
-      <span className="text-[11px] font-normal text-danger" role="alert">
-        <NumericText>{error}</NumericText>
-      </span>
-    )}
-  </div>
-);
+          <span className={value ? undefined : "text-muted-foreground"}>
+            {options.find((option) => option.value === value)?.label ??
+              resolvedPlaceholder}
+          </span>
+          <ChevronDown
+            aria-hidden="true"
+            className="size-4 text-muted-foreground"
+          />
+        </DropdownMenu.Trigger>
+        <DropdownMenu.Portal>
+          <DropdownMenu.Content
+            align="start"
+            className="z-50 min-w-(--radix-dropdown-menu-trigger-width) overflow-hidden rounded-2xl border border-border bg-surface p-2 shadow-xl"
+            collisionPadding={16}
+            sideOffset={8}
+          >
+            <DropdownMenu.RadioGroup
+              onValueChange={onValueChange}
+              value={value}
+            >
+              {options.map((option) => (
+                <DropdownMenu.RadioItem
+                  className="relative flex min-h-11 cursor-pointer items-center rounded-xl py-2 pr-9 pl-3 text-[13px] outline-none data-[highlighted]:bg-muted data-[state=checked]:font-semibold data-[state=checked]:text-primary"
+                  key={option.value}
+                  value={option.value}
+                >
+                  {option.label}
+                  <DropdownMenu.ItemIndicator className="absolute right-3">
+                    <Check aria-hidden="true" className="size-4" />
+                  </DropdownMenu.ItemIndicator>
+                </DropdownMenu.RadioItem>
+              ))}
+            </DropdownMenu.RadioGroup>
+          </DropdownMenu.Content>
+        </DropdownMenu.Portal>
+      </DropdownMenu.Root>
+      {error && (
+        <span className="text-[11px] font-normal text-danger" role="alert">
+          <NumericText>{error}</NumericText>
+        </span>
+      )}
+    </div>
+  );
+};
 
 type TextAreaFieldProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
   readonly label: string;

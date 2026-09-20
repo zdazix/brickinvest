@@ -18,7 +18,7 @@ export const SiteFooter = () => {
     <footer className="grain-surface w-full bg-[#ddd8cf] px-5 py-8 text-[#000] sm:px-8 lg:px-12">
       <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-7 text-[12px] leading-5 tracking-[0.05em] sm:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)_minmax(0,1.75fr)] sm:items-start sm:gap-8 lg:gap-12">
         <p className="text-[#000] sm:pt-0.5">
-          <NumericText>© 2026. All Rights Reserved.</NumericText>
+          <NumericText>{t("allRightsReserved")}</NumericText>
         </p>
 
         <nav
