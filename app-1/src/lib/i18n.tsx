@@ -7,14 +7,14 @@ import {
 } from "react";
 
 export const locales = [
-  { code: "ENG", flag: "🇬🇧", key: "en", label: "English" },
-  { code: "ESP", flag: "🇪🇸", key: "es", label: "Español" },
-  { code: "SWE", flag: "🇸🇪", key: "sv", label: "Svenska" },
-  { code: "UKR", flag: "🇺🇦", key: "uk", label: "Українська" },
-  { code: "RUS", flag: "🇷🇺", key: "ru", label: "Русский" },
-  { code: "DEU", flag: "🇩🇪", key: "de", label: "Deutsch" },
-  { code: "EST", flag: "🇪🇪", key: "et", label: "Eesti" },
-  { code: "POL", flag: "🇵🇱", key: "pl", label: "Polski" },
+  { code: "EN", flag: "🇬🇧", key: "en", label: "English" },
+  { code: "ES", flag: "🇪🇸", key: "es", label: "Español" },
+  { code: "SV", flag: "🇸🇪", key: "sv", label: "Svenska" },
+  { code: "UK", flag: "🇺🇦", key: "uk", label: "Українська" },
+  { code: "RU", flag: "🇷🇺", key: "ru", label: "Русский" },
+  { code: "DE", flag: "🇩🇪", key: "de", label: "Deutsch" },
+  { code: "ET", flag: "🇪🇪", key: "et", label: "Eesti" },
+  { code: "PL", flag: "🇵🇱", key: "pl", label: "Polski" },
 ] as const;
 
 export type LocaleKey = (typeof locales)[number]["key"];
