@@ -6,7 +6,7 @@ import { useLocale } from "@/lib/i18n";
 import { trackEvent } from "@/lib/analytics";
 
 export const InvestmentSolutionsSection = () => {
-  const { t } = useLocale();
+  const { locale, t } = useLocale();
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "success">("idle");
@@ -65,8 +65,11 @@ export const InvestmentSolutionsSection = () => {
       id="investment-solutions"
     >
       <div className="section-grid relative">
-        <div>
-          <h2 className="section-title" id="investment-solutions-heading">
+        <div className="min-w-0">
+          <h2
+            className={`section-title ${locale === "sv" ? "break-words" : ""}`}
+            id="investment-solutions-heading"
+          >
             {t("investmentHeading")}
           </h2>
         </div>
