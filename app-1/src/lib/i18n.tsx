@@ -693,7 +693,7 @@ const translations: Record<LocaleKey, Dictionary> = {
     offer: "Vad vi erbjuder",
     services: "Våra tjänster",
     projects: "Projekt",
-    solutions: "Investeringslösningar",
+    solutions: "Investeringar",
     intelligence: "AI och dataintelligens",
     trusted:
       "Din pålitliga partner för utveckling och investeringar på Costa del Sol.",
