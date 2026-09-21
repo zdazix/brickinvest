@@ -13,7 +13,7 @@ export const locales = [
   { code: "UK", flag: "🇺🇦", key: "uk", label: "Українська" },
   { code: "RU", flag: "🇷🇺", key: "ru", label: "Русский" },
   { code: "DE", flag: "🇩🇪", key: "de", label: "Deutsch" },
-  { code: "ET", flag: "🇪🇪", key: "et", label: "Eesti" },
+  { code: "EE", flag: "🇪🇪", key: "et", label: "Eesti" },
   { code: "PL", flag: "🇵🇱", key: "pl", label: "Polski" },
 ] as const;
 
