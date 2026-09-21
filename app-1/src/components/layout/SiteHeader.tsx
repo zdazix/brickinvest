@@ -169,7 +169,7 @@ export const SiteHeader = () => {
           >
             {navigation.map(({ href, key }) => (
               <a
-                className={`site-header-link relative block w-full min-w-0 px-1 py-2 text-center text-[13px] leading-[1.15] font-semibold tracking-[0.015em] whitespace-normal transition-colors duration-250 after:absolute after:right-1 after:bottom-0 after:left-1 after:h-px after:origin-right after:bg-border after:transition-transform after:duration-250 hover:after:origin-left hover:after:scale-x-100 active:text-primary active:after:origin-left active:after:scale-x-100 active:after:bg-primary 2xl:text-[15px] 2xl:tracking-[0.02em] ${activeSection === href.slice(1) ? "text-primary after:scale-x-100" : isHome ? "text-white/85 after:scale-x-0 hover:text-white" : "text-foreground/80 after:scale-x-0 hover:text-foreground"}`}
+                className={`site-header-link relative block w-full min-w-0 px-1 py-2 text-center leading-[1.15] font-semibold whitespace-normal transition-colors duration-250 after:absolute after:right-1 after:bottom-0 after:left-1 after:h-px after:origin-right after:bg-border after:transition-transform after:duration-250 hover:after:origin-left hover:after:scale-x-100 active:text-primary active:after:origin-left active:after:scale-x-100 active:after:bg-primary ${isSwedish && key === "solutions" ? "text-[12px] tracking-[0.01em] 2xl:text-[12px] 2xl:tracking-[0.01em]" : "text-[13px] tracking-[0.015em] 2xl:text-[15px] 2xl:tracking-[0.02em]"} ${activeSection === href.slice(1) ? "text-primary after:scale-x-100" : isHome ? "text-white/85 after:scale-x-0 hover:text-white" : "text-foreground/80 after:scale-x-0 hover:text-foreground"}`}
                 href={href}
                 key={href}
                 onClick={() =>
