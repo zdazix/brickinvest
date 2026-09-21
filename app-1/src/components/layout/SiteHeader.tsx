@@ -95,7 +95,7 @@ export const SiteHeader = () => {
         className={`fixed inset-x-0 top-0 z-50 border-b px-4 pt-5 transition-[background-color,border-color,backdrop-filter] duration-300 sm:px-8 sm:pt-7 xl:pt-0 ${isHome ? (isScrolled ? "border-border/15 bg-foreground/60 backdrop-blur-sm" : "border-transparent bg-transparent") : `bg-surface ${isScrolled ? "border-border/30" : "border-border/60"}`}`}
       >
         <header
-          className={`site-header relative z-10 mx-auto flex min-h-[4.5rem] max-w-[1600px] items-center justify-between gap-3 px-1 py-3 xl:min-h-[5.5rem] xl:gap-4 xl:py-2 2xl:min-h-[5rem] 2xl:gap-8 ${isHome ? "text-white" : "text-foreground"}`}
+          className={`site-header relative z-10 mx-auto flex min-h-[4.5rem] max-w-[1600px] items-center justify-between gap-3 px-1 py-3 xl:min-h-[5.5rem] xl:gap-3 xl:py-2 2xl:min-h-[5rem] 2xl:gap-5 ${isHome ? "text-white" : "text-foreground"}`}
         >
           <a
             aria-label={t("brandHome")}
@@ -104,7 +104,7 @@ export const SiteHeader = () => {
           >
             BRICKINVEST
           </a>
-          <div className="hidden shrink-0 items-center gap-5 xl:flex 2xl:gap-7">
+          <div className="hidden shrink-0 items-center gap-4 xl:flex 2xl:gap-5">
             <a
               aria-label={t("brandHome")}
               className={`shrink-0 font-secondary text-[1.6rem] font-bold tracking-[-0.055em] transition-[color,transform] hover:translate-x-1 hover:text-primary active:text-primary ${isHome ? "text-white" : ""}`}
@@ -162,7 +162,7 @@ export const SiteHeader = () => {
           </div>
           <nav
             aria-label={t("primaryNavigation")}
-            className="site-header-nav hidden min-w-0 flex-1 grid-cols-7 items-center gap-x-3 xl:grid 2xl:gap-x-5"
+            className="site-header-nav hidden min-w-0 flex-1 grid-cols-7 items-center gap-x-2 xl:grid 2xl:gap-x-4"
           >
             {navigation.map(({ href, key }) => (
               <a
