@@ -97,7 +97,7 @@ export const InvestmentSolutionsSection = () => {
                     : locale === "es"
                       ? "SOLUCIONES DE"
                       : "INDIVIDUELLE"}
-                </span>
+                </span>{" "}
                 <span className="block whitespace-nowrap">
                   {locale === "et"
                     ? "INVESTEERIMISLAHENDUSED"
