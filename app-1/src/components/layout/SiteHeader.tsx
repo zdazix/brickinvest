@@ -165,7 +165,7 @@ export const SiteHeader = () => {
           </div>
           <nav
             aria-label={t("primaryNavigation")}
-            className={`site-header-nav hidden min-w-0 flex-1 grid-cols-7 items-center xl:grid ${isCompactLocale ? "gap-x-1 2xl:gap-x-3" : "gap-x-2 2xl:gap-x-4"}`}
+            className={`site-header-nav hidden min-w-0 flex-1 grid-cols-7 items-center xl:grid ${locale === "et" ? "et-header-nav" : ""} ${isCompactLocale ? "gap-x-1 2xl:gap-x-3" : "gap-x-2 2xl:gap-x-4"}`}
           >
             {navigation.map(({ href, key }) => (
               <a

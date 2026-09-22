@@ -103,7 +103,8 @@
     @apply font-primary text-[clamp(1.5rem,2.1vw,2.15rem)] leading-[1.08] tracking-[-0.018em] text-foreground;
   }
 
-  .services-item-title {
+  .services-item-title,
+  .why-item-title {
     @apply m-0 min-w-0 font-primary text-[clamp(1.5rem,2.1vw,2.15rem)] leading-[1.08] tracking-[-0.018em] text-foreground;
     font-size: clamp(1.5rem, 2.1vw, 2.15rem);
     line-height: 1.08;
@@ -166,6 +167,51 @@
   .investment-locale-title {
     max-width: none;
     font-size: clamp(2rem, 3vw, 3.3rem);
+  }
+}
+
+@media (max-width: 639px) {
+  .et-intelligence-title {
+    max-width: none;
+    font-size: clamp(1.65rem, 7.8vw, 3.3rem);
+    line-height: 0.9;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+  }
+
+  .et-intelligence-grid {
+    gap: 2.5rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .et-intelligence-title {
+    max-width: none;
+    font-size: clamp(2rem, 3vw, 3.3rem);
+    line-height: 0.9;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .et-intelligence-grid {
+    grid-template-columns: minmax(0, 0.46fr) minmax(0, 0.54fr) !important;
+  }
+
+  .et-header-nav {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) minmax(0, 1.6fr) minmax(
+        0,
+        1.7fr
+      ) !important;
+  }
+
+  .et-header-nav .site-header-link {
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
   }
 }
 

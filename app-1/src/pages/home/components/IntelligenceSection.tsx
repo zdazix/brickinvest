@@ -6,7 +6,8 @@ const intelligenceItems = [
 ] as const;
 
 export const IntelligenceSection = () => {
-  const { t } = useLocale();
+  const { locale, t } = useLocale();
+  const isEstonian = locale === "et";
 
   return (
     <section
@@ -16,13 +17,26 @@ export const IntelligenceSection = () => {
     >
       <div className="pointer-events-none absolute top-0 right-0 h-full w-1/2 bg-[radial-gradient(circle_at_80%_25%,rgba(216,195,154,0.08),transparent_58%)]" />
       <div className="relative mx-auto max-w-[1600px]">
-        <div className="section-grid">
+        <div
+          className={`section-grid ${isEstonian ? "et-intelligence-grid" : ""}`}
+        >
           <div className="min-w-0">
             <h2
-              className="section-title min-w-0 [overflow-wrap:anywhere]"
+              className={`section-title min-w-0 ${isEstonian ? "et-intelligence-title" : "[overflow-wrap:anywhere]"}`}
               id="ai-data-heading"
             >
-              {t("intelligenceHeading")}
+              {isEstonian ? (
+                <>
+                  <span className="block whitespace-nowrap">
+                    TEHISINTELLEKT JA
+                  </span>
+                  <span className="block whitespace-nowrap">
+                    ANDMEINTELLIGENTS
+                  </span>
+                </>
+              ) : (
+                t("intelligenceHeading")
+              )}
             </h2>
           </div>
           <div className="min-w-0">
