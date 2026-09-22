@@ -64,7 +64,11 @@ export const InvestmentSolutionsSection = () => {
       className="section-shell grain-surface relative overflow-hidden bg-background"
       id="investment-solutions"
     >
-      <div className="section-grid relative">
+      <div
+        className={`section-grid relative ${
+          locale === "de" ? "de-investment-grid" : ""
+        }`}
+      >
         <div className="min-w-0">
           <h2
             className={`section-title ${
@@ -85,8 +89,8 @@ export const InvestmentSolutionsSection = () => {
               </>
             ) : locale === "de" ? (
               <>
-                <span className="inline-block">INDIVIDUELLE</span>{" "}
-                <span className="inline-block whitespace-nowrap">
+                <span className="block whitespace-nowrap">INDIVIDUELLE</span>
+                <span className="block whitespace-nowrap">
                   INVESTMENTLÖSUNGEN
                 </span>
               </>
@@ -96,7 +100,13 @@ export const InvestmentSolutionsSection = () => {
           </h2>
         </div>
         <div className="min-w-0">
-          <p className="editorial-intro max-w-[720px]">{t("investmentBody")}</p>
+          <p
+            className={`editorial-intro max-w-[720px] ${
+              locale === "de" ? "de-investment-body" : ""
+            }`}
+          >
+            {t("investmentBody")}
+          </p>
           <div className="mt-10 border-t border-border/30 pt-6">
             {status === "success" ? (
               <p className="font-primary text-2xl text-foreground sm:text-3xl">

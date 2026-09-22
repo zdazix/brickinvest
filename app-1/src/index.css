@@ -127,15 +127,34 @@
 }
 
 @media (max-width: 639px) {
+  .de-investment-grid {
+    gap: 2.5rem;
+  }
+
   .de-investment-title {
     max-width: none;
     display: block;
-    font-size: clamp(1.7rem, 8.5vw, 3.3rem);
+    font-size: clamp(1.65rem, 7.8vw, 3.3rem);
     line-height: 0.9;
     white-space: normal;
     overflow-wrap: normal;
     word-break: normal;
     hyphens: none;
+  }
+
+  .de-investment-body {
+    font-size: clamp(1.15rem, 5.2vw, 2.75rem);
+  }
+}
+
+@media (min-width: 640px) {
+  .de-investment-grid {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  }
+
+  .de-investment-title {
+    max-width: none;
+    font-size: clamp(2rem, 3vw, 3.3rem);
   }
 }
 
