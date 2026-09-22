@@ -43,7 +43,11 @@ export const ServicesSection = () => {
                   <h3
                     className={`subsection-title min-w-0 ${
                       mobileSingleLineServiceTitles.has(title)
-                        ? "text-[clamp(0.78rem,4.5vw,2.15rem)] whitespace-nowrap"
+                        ? `text-[clamp(0.78rem,4.5vw,2.15rem)] whitespace-nowrap ${
+                            title === "serviceProperty"
+                              ? "lg:text-[clamp(1.25rem,1.8vw,2rem)]"
+                              : ""
+                          }`
                         : "[overflow-wrap:anywhere]"
                     }`}
                   >
