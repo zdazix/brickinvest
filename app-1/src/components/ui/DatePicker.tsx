@@ -11,6 +11,7 @@ import {
   startOfMonth,
   startOfWeek,
 } from "date-fns";
+import { de as germanDateLocale } from "date-fns/locale";
 import { CalendarDays, ChevronLeft, ChevronRight } from "lucide-react";
 import { Popover } from "radix-ui";
 import { useMemo, useState } from "react";
@@ -28,8 +29,7 @@ type DatePickerProps = {
   readonly value?: string;
 };
 
-const weekdays = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
-const swedishWeekdays = ["Sö", "Må", "Ti", "On", "To", "Fr", "Lö"];
+const weekdays = ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"];
 
 const parseDate = (value?: string) => {
   if (!value) return undefined;
@@ -38,7 +38,7 @@ const parseDate = (value?: string) => {
 };
 
 export const DatePicker = ({
-  "aria-label": ariaLabel = "Choose date",
+  "aria-label": ariaLabel = "Datum auswählen",
   disabled,
   id,
   onBlur,
@@ -46,16 +46,18 @@ export const DatePicker = ({
   placeholder = "...",
   value,
 }: DatePickerProps) => {
-  const { locale, t } = useLocale();
-  const weekdayLabels = locale === "sv" ? swedishWeekdays : weekdays;
+  const { t } = useLocale();
+  const weekdayLabels = weekdays;
   const [open, setOpen] = useState(false);
   const selectedDate = parseDate(value);
   const [viewMonth, setViewMonth] = useState(selectedDate ?? new Date());
   const days = useMemo(
     () =>
       eachDayOfInterval({
-        start: startOfWeek(startOfMonth(viewMonth)),
-        end: endOfWeek(endOfMonth(viewMonth)),
+        start: startOfWeek(startOfMonth(viewMonth), {
+          locale: germanDateLocale,
+        }),
+        end: endOfWeek(endOfMonth(viewMonth), { locale: germanDateLocale }),
       }),
     [viewMonth],
   );
@@ -84,7 +86,11 @@ export const DatePicker = ({
         >
           <span className={selectedDate ? "" : "text-muted-foreground"}>
             {selectedDate ? (
-              <NumericText>{format(selectedDate, "MMM d, yyyy")}</NumericText>
+              <NumericText>
+                {format(selectedDate, "d. MMM yyyy", {
+                  locale: germanDateLocale,
+                })}
+              </NumericText>
             ) : (
               placeholder
             )}
@@ -112,7 +118,9 @@ export const DatePicker = ({
               <ChevronLeft aria-hidden="true" className="size-4" />
             </button>
             <p aria-live="polite" className="text-[13px] font-bold">
-              <NumericText>{format(viewMonth, "MMMM yyyy")}</NumericText>
+              <NumericText>
+                {format(viewMonth, "MMMM yyyy", { locale: germanDateLocale })}
+              </NumericText>
             </p>
             <button
               aria-label={t("nextMonth")}
@@ -136,7 +144,9 @@ export const DatePicker = ({
               const selected = selectedDate && isSameDay(day, selectedDate);
               return (
                 <button
-                  aria-label={format(day, "MMMM d, yyyy")}
+                  aria-label={format(day, "d. MMMM yyyy", {
+                    locale: germanDateLocale,
+                  })}
                   aria-pressed={Boolean(selected)}
                   className={[
                     "mx-auto flex size-9 items-center justify-center rounded-lg text-[13px] transition outline-none hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring",

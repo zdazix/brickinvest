@@ -13,10 +13,10 @@ export const LegalPage = ({ kind }: LegalPageProps) => {
         <PageIntro
           description={
             isTerms
-              ? "Terms and conditions for using the BRICKINVEST website."
-              : "Information about how BRICKINVEST uses cookies on this website."
+              ? "Nutzungsbedingungen für die BRICKINVEST-Website."
+              : "Informationen darüber, wie BRICKINVEST Cookies auf dieser Website verwendet."
           }
-          title={isTerms ? "Terms & Conditions" : "Cookies Policy"}
+          title={isTerms ? "Nutzungsbedingungen" : "Cookie-Richtlinie"}
         />
       </div>
     </main>

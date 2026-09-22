@@ -12,25 +12,24 @@ export const PrivacyPage = () => {
     >
       <div className="mx-auto max-w-7xl">
         <PageIntro
-          description="How BRICKINVEST handles personal information when you use this website or contact the team."
-          title="BRICKINVEST Privacy Policy"
+          description="Wie BRICKINVEST personenbezogene Daten verarbeitet, wenn Sie diese Website nutzen oder das Team kontaktieren."
+          title="BRICKINVEST-Datenschutzerklärung"
         />
         <aside className="mt-14 flex flex-col gap-5 rounded-[2rem] bg-secondary p-7 text-secondary-foreground sm:flex-row sm:items-center sm:justify-between sm:p-9">
           <div className="max-w-2xl">
-            <p className="text-[15px] font-semibold">Draft for review</p>
+            <p className="text-[15px] font-semibold">Entwurf zur Prüfung</p>
             <p className="mt-2 text-[15px] leading-6 opacity-70">
-              Bracketed placeholders must be completed and this policy requires
-              legal and operational review before publication.
+              Platzhalter in eckigen Klammern müssen ergänzt werden; vor der Veröffentlichung ist eine rechtliche und operative Prüfung erforderlich.
             </p>
           </div>
         </aside>
         <article className="mx-auto mt-10 max-w-7xl rounded-[2rem] border border-border/50 bg-surface px-6 shadow-sm shadow-foreground/5 sm:px-10">
           {privacyQuery.isError ? (
             <p className="py-10 text-[13px] text-danger">
-              The policy sections could not be loaded.
+              Die Abschnitte der Datenschutzerklärung konnten nicht geladen werden.
             </p>
           ) : !privacyQuery.data ? (
-            <Loader className="py-10" label="Loading policy sections…" />
+            <Loader className="py-10" label="Abschnitte werden geladen…" />
           ) : null}
           {privacyQuery.data?.map(({ title, body }) => (
             <section

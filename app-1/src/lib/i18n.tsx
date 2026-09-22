@@ -6,6 +6,8 @@ import {
   type PropsWithChildren,
 } from "react";
 
+import { german } from "@/lib/german";
+
 export const locales = [
   { code: "EN", flag: "🇬🇧", key: "en", label: "English" },
   { code: "ES", flag: "🇪🇸", key: "es", label: "Español" },
@@ -1777,7 +1779,8 @@ export const LocaleProvider = ({ children }: PropsWithChildren) => {
     const saved = window.localStorage.getItem(
       "brickinvest-locale",
     ) as LocaleKey | null;
-    return locales.some((item) => item.key === saved) ? saved! : "ru";
+    void saved;
+    return "de";
   });
   const setLocale = (next: LocaleKey) => {
     setLocaleState(next);
@@ -1788,7 +1791,7 @@ export const LocaleProvider = ({ children }: PropsWithChildren) => {
       locale,
       setLocale,
       t: (key: string) =>
-        russian[key] ?? translations[locale][key] ?? english[key] ?? key,
+        german[key] ?? translations[locale][key] ?? english[key] ?? key,
     }),
     [locale],
   );

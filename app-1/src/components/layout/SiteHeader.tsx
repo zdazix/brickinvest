@@ -7,18 +7,18 @@ import { locales, useLocale, type LocaleKey } from "@/lib/i18n";
 import { trackEvent } from "@/lib/analytics";
 
 const navigation = [
-  { label: "About Us", href: "#about", key: "about" },
-  { label: "Why Us", href: "#why-us", key: "why" },
-  { label: "What We Offer", href: "#what-we-offer", key: "offer" },
-  { label: "Our Services", href: "#services", key: "services" },
+  { label: "Über uns", href: "#about", key: "about" },
+  { label: "Warum wir", href: "#why-us", key: "why" },
+  { label: "Unser Angebot", href: "#what-we-offer", key: "offer" },
+  { label: "Unsere Leistungen", href: "#services", key: "services" },
   { label: "Projects", href: "#projects", key: "projects" },
   {
-    label: "AI & Data Intelligence",
+    label: "KI & Datenintelligenz",
     href: "#ai-data",
     key: "intelligence",
   },
   {
-    label: "Investment Solutions",
+    label: "Investmentlösungen",
     href: "#investment-solutions",
     key: "solutions",
   },

@@ -36,7 +36,7 @@ export const InvestmentSolutionsSection = () => {
             firstName: name,
             email: isEmail ? contact : undefined,
             phone: isEmail ? undefined : contact,
-            source: "Investment Solutions form",
+            source: "Formular für Investmentlösungen",
           }),
         },
       );

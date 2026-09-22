@@ -6,11 +6,11 @@ export const Route = createFileRoute("/(layout)/cookies-policy")({
   component: CookiesPolicyPage,
   head: () => ({
     meta: [
-      { title: "Политика cookie | BRICKINVEST" },
+      { title: "Cookie-Richtlinie | BRICKINVEST" },
       {
         name: "description",
         content:
-          "Политика cookie BRICKINVEST.ES, работающего под управлением Unicom Innovaciones S.L. в Испании.",
+          "Cookie-Richtlinie für BRICKINVEST.ES, betrieben von Unicom Innovaciones S.L. in Spanien.",
       },
     ],
   }),

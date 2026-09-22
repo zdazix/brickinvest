@@ -25,43 +25,46 @@ export type HomeContent = {
 const homeContent: HomeContent = {
   image: placeholderImage,
   features: [
-    ["Преимущество проекта", "Понятная стратегия и контроль каждого этапа."],
+    ["Projektvorteil", "Klare Strategie und Kontrolle in jeder Phase."],
     [
       "Преимущество проекта",
-      "Тщательный анализ рынка и инвестиционного потенциала.",
+      "Sorgfältige Analyse des Marktes und des Investmentpotenzials.",
     ],
     [
       "Преимущество проекта",
-      "Проверенные партнёры и персональное сопровождение.",
+      "Vertrauensvolle Partner und persönliche Betreuung.",
     ],
-    ["Преимущество проекта", "Прозрачная работа от первой встречи до сделки."],
+    [
+      "Projektvorteil",
+      "Transparente Begleitung vom ersten Gespräch bis zum Abschluss.",
+    ],
   ],
   collectionCards: [
-    "Избранная возможность",
-    "Избранная возможность",
-    "Избранная возможность",
+    "Ausgewählte Möglichkeit",
+    "Ausgewählte Möglichkeit",
+    "Ausgewählte Möglichkeit",
   ],
   editorialCards: [
     {
-      eyebrow: "ПОДХОД BRICKINVEST",
-      title: "Решения, основанные на данных",
+      eyebrow: "DER BRICKINVEST-ANSATZ",
+      title: "Entscheidungen auf Datenbasis",
       description:
-        "Мы объединяем локальную экспертизу, аналитику и практическую реализацию, чтобы каждая рекомендация была понятной и обоснованной.",
+        "Wir verbinden lokale Expertise, Analyse und praktische Umsetzung, damit jede Empfehlung nachvollziehbar und fundiert ist.",
     },
     {
-      eyebrow: "ИНВЕСТИЦИОННАЯ СТРАТЕГИЯ",
-      title: "Возможности с ясной перспективой",
+      eyebrow: "INVESTMENTSTRATEGIE",
+      title: "Möglichkeiten mit klarer Perspektive",
       description:
-        "От участка до готового объекта мы помогаем оценить риски, потенциал и следующий шаг для вашего капитала.",
+        "Vom Grundstück bis zum fertigen Objekt helfen wir Ihnen, Risiken, Potenzial und den nächsten Schritt für Ihr Kapital zu bewerten.",
     },
   ],
   reviews: Array.from({ length: 6 }, (_, index) => ({
     quote:
       index === 0
-        ? "Профессиональный подход, понятная коммуникация и сильное знание местного рынка."
-        : `Инвестор отмечает преимущество BRICKINVEST №${index + 1}.`,
-    customer: `Инвестор 0${index + 1}`,
-    detail: "Клиент BRICKINVEST",
+        ? "Professioneller Ansatz, klare Kommunikation und fundiertes Wissen über den lokalen Markt."
+        : `Ein Investor hebt den Vorteil von BRICKINVEST Nr. ${index + 1} hervor.`,
+    customer: `Investor 0${index + 1}`,
+    detail: "BRICKINVEST-Kunde",
     image: placeholderImage,
   })),
 };

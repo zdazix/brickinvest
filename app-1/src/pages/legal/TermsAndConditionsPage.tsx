@@ -2,8 +2,8 @@ import { Link } from "@tanstack/react-router";
 import { useEffect } from "react";
 
 import { PageIntro } from "@/components/ui/PageIntro";
+import { germanTermsSections } from "@/lib/german-legal";
 import { useLocale } from "@/lib/i18n";
-import { russianTermsSections } from "@/lib/russian-legal";
 
 type TermsSection = {
   readonly title: string;
@@ -448,9 +448,9 @@ void [
 export const TermsAndConditionsPage = () => {
   const { t } = useLocale();
   useEffect(() => {
-    document.title = "Условия использования | BRICKINVEST";
+    document.title = "Nutzungsbedingungen | BRICKINVEST";
   }, []);
-  const sections = russianTermsSections;
+  const sections = germanTermsSections;
   return (
     <main
       className="grain-surface min-h-dvh bg-background px-5 pt-24 pb-16 sm:px-8 lg:px-12 lg:pt-28 lg:pb-24"

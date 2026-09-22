@@ -8,7 +8,7 @@ type LoaderProps = {
 
 export const Loader = ({
   className = "",
-  label = "Loading…",
+  label = "Wird geladen…",
   mode = "inline",
 }: LoaderProps) => (
   <div
