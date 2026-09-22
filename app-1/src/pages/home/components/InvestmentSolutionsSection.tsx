@@ -83,6 +83,13 @@ export const InvestmentSolutionsSection = () => {
                 </span>{" "}
                 INVESTERINGSLÖSNINGAR
               </>
+            ) : locale === "de" ? (
+              <>
+                <span className="inline-block">INDIVIDUELLE</span>{" "}
+                <span className="inline-block whitespace-nowrap">
+                  INVESTMENTLÖSUNGEN
+                </span>
+              </>
             ) : (
               t("investmentHeading")
             )}
