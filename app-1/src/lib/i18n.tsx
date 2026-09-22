@@ -21,6 +21,11 @@ export const locales = [
   { code: "PL", flag: "🇵🇱", key: "pl", label: "Polski" },
 ] as const;
 
+export const languageMenuLocales = [
+  ...locales,
+  { code: "CZ", flag: "🇨🇿", key: "cs", label: "Čeština" },
+] as const;
+
 export type LocaleKey = (typeof locales)[number]["key"];
 type Dictionary = Record<string, string>;
 

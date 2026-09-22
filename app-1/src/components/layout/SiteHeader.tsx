@@ -3,7 +3,12 @@ import { useEffect, useState } from "react";
 import { useRouterState } from "@tanstack/react-router";
 
 import { useConsultation } from "@/components/layout/consultation-context";
-import { locales, useLocale, type LocaleKey } from "@/lib/i18n";
+import {
+  languageMenuLocales,
+  locales,
+  useLocale,
+  type LocaleKey,
+} from "@/lib/i18n";
 import { trackEvent } from "@/lib/analytics";
 
 const navigation = [
@@ -139,12 +144,15 @@ export const SiteHeader = () => {
                   className="absolute top-[calc(100%+0.45rem)] left-0 z-20 min-w-40 rounded-md border border-border/80 bg-foreground p-1 shadow-lg"
                   role="menu"
                 >
-                  {locales.map((item) => (
+                  {languageMenuLocales.map((item) => (
                     <button
                       aria-checked={item.key === locale}
-                      className="flex w-full items-center rounded-sm px-2.5 py-1.5 text-left text-[14px] leading-4 text-surface/90 transition-colors hover:bg-primary/15 hover:text-surface focus-visible:bg-primary/15 active:bg-primary/15 active:text-primary"
+                      aria-disabled={item.key === "cs"}
+                      className={`flex w-full items-center rounded-sm px-2.5 py-1.5 text-left text-[14px] leading-4 transition-colors ${item.key === "cs" ? "cursor-not-allowed text-surface/45" : "text-surface/90 hover:bg-primary/15 hover:text-surface focus-visible:bg-primary/15 active:bg-primary/15 active:text-primary"}`}
+                      disabled={item.key === "cs"}
                       key={item.key}
                       onClick={() => {
+                        if (item.key === "cs") return;
                         setLocale(item.key as LocaleKey);
                         if (item.key !== locale) {
                           trackEvent("language_change", { language: item.key });
@@ -280,12 +288,15 @@ export const SiteHeader = () => {
                   className="relative mt-1 min-w-40 rounded-md border border-white/20 bg-[#20211f] p-1 shadow-lg"
                   role="menu"
                 >
-                  {locales.map((item) => (
+                  {languageMenuLocales.map((item) => (
                     <button
                       aria-checked={item.key === locale}
-                      className="flex w-full items-center rounded-sm px-2.5 py-1.5 text-left font-secondary text-[12px] leading-4 text-white/90 transition-colors hover:bg-primary/15 hover:text-white focus-visible:bg-primary/15 active:bg-primary/15 active:text-primary"
+                      aria-disabled={item.key === "cs"}
+                      className={`flex w-full items-center rounded-sm px-2.5 py-1.5 text-left font-secondary text-[12px] leading-4 transition-colors ${item.key === "cs" ? "cursor-not-allowed text-white/45" : "text-white/90 hover:bg-primary/15 hover:text-white focus-visible:bg-primary/15 active:bg-primary/15 active:text-primary"}`}
+                      disabled={item.key === "cs"}
                       key={item.key}
                       onClick={() => {
+                        if (item.key === "cs") return;
                         setLocale(item.key as LocaleKey);
                         if (item.key !== locale) {
                           trackEvent("language_change", { language: item.key });
