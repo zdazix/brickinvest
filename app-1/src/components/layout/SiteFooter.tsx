@@ -60,7 +60,15 @@ export const SiteFooter = () => {
                 +34 695 121 585
               </a>
             </p>
-            <p>{t("emailLabel")}:</p>
+            <p>
+              {t("emailLabel")}:{" "}
+              <a
+                className="transition-colors hover:text-primary focus-visible:text-primary"
+                href="mailto:hello@brickinvest.es"
+              >
+                hello@brickinvest.es
+              </a>
+            </p>
           </address>
 
           <nav
