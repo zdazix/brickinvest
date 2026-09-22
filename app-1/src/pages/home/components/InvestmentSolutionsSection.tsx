@@ -8,7 +8,7 @@ import { trackEvent } from "@/lib/analytics";
 export const InvestmentSolutionsSection = () => {
   const { locale, t } = useLocale();
   const isLongInvestmentLocale =
-    locale === "de" || locale === "et" || locale === "es";
+    locale === "de" || locale === "et" || locale === "es" || locale === "pl";
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "success">("idle");
@@ -75,7 +75,7 @@ export const InvestmentSolutionsSection = () => {
           <h2
             className={`section-title ${
               isLongInvestmentLocale
-                ? `investment-locale-title ${locale === "et" ? "investment-title-et" : locale === "es" ? "investment-title-es" : ""}`
+                ? `investment-locale-title ${locale === "et" ? "investment-title-et" : locale === "es" ? "investment-title-es" : locale === "pl" ? "investment-title-pl" : ""}`
                 : locale === "sv"
                   ? "!text-[clamp(2rem,3.3vw,3.1rem)] break-words"
                   : ""
@@ -96,6 +96,8 @@ export const InvestmentSolutionsSection = () => {
                     ? "INDIVIDUAALSED"
                     : locale === "es"
                       ? "SOLUCIONES DE"
+                      : locale === "pl"
+                        ? "INDYWIDUALNE"
                       : "INDIVIDUELLE"}
                 </span>{" "}
                 <span className="block whitespace-nowrap">
@@ -103,6 +105,8 @@ export const InvestmentSolutionsSection = () => {
                     ? "INVESTEERIMISLAHENDUSED"
                     : locale === "es"
                       ? "INVERSIÓN PERSONALIZADAS"
+                      : locale === "pl"
+                        ? "ROZWIĄZANIA INWESTYCYJNE"
                       : "INVESTMENTLÖSUNGEN"}
                 </span>
               </>

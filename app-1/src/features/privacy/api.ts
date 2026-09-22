@@ -10,44 +10,44 @@ export type PrivacySection = {
 
 const privacySections: readonly PrivacySection[] = [
   {
-    title: "Responsable del tratamiento",
-    body: "Esta política de privacidad se aplica a BRICKINVEST y a este sitio web. La entidad jurídica responsable es [INTRODUCIR LA ENTIDAD JURÍDICA DE BRICKINVEST]. Domicilio social: [INTRODUCIR EL DOMICILIO SOCIAL]. Número registral o fiscal: [INTRODUCIR EL NÚMERO REGISTRAL O FISCAL]. Contacto de privacidad: [INTRODUCIR EL EMAIL DE PRIVACIDAD]. Teléfono: [INTRODUCIR EL TELÉFONO DE PRIVACIDAD].",
+    title: "Administrator danych",
+    body: "Niniejsza polityka prywatności dotyczy BRICKINVEST i tej strony internetowej. Administratorem danych jest [UZUPEŁNIJ PODMIOT PRAWNY BRICKINVEST]. Siedziba: [UZUPEŁNIJ ADRES SIEDZIBY]. Numer rejestrowy lub podatkowy: [UZUPEŁNIJ NUMER]. Kontakt w sprawach prywatności: [UZUPEŁNIJ E-MAIL]. Telefon: [UZUPEŁNIJ TELEFON].",
   },
   {
-    title: "Consentimiento y esta política",
-    body: "Al utilizar este sitio web o enviar información, confirmas que has leído la política. Cuando sea necesario, BRICKINVEST solicitará tu consentimiento antes del tratamiento correspondiente. Las comunicaciones comerciales, las cookies, la analítica y otras actividades basadas en el consentimiento seguirán las opciones registradas mediante [INTRODUCIR EL MECANISMO DE CONSENTIMIENTO]. El consentimiento puede retirarse en cualquier momento mediante [INTRODUCIR EL PROCEDIMIENTO DE RETIRADA].",
+    title: "Zgoda i niniejsza polityka",
+    body: "Korzystając ze strony lub przesyłając informacje, potwierdzasz zapoznanie się z polityką. Gdy jest to wymagane, BRICKINVEST poprosi o zgodę przed odpowiednim przetwarzaniem. Komunikacja marketingowa, cookies, analityka i inne działania oparte na zgodzie będą prowadzone zgodnie z wyborem zapisanym przez [UZUPEŁNIJ MECHANIZM ZGODY]. Zgodę można wycofać w dowolnym momencie poprzez [UZUPEŁNIJ PROCEDURĘ WYCOFANIA].",
   },
   {
-    title: "Información solicitada y recopilada",
-    body: "Según cómo interactúes con BRICKINVEST, los datos pueden incluir datos de contacto, contenido de la consulta, preferencias de inversión, información de uso del sitio, datos del dispositivo y registros, así como datos de consentimiento. Los campos y puntos de recopilación exactos son: [INTRODUCIR LAS CATEGORÍAS Y FUENTES DE DATOS CONFIRMADAS]. No envíes información innecesaria para tu consulta.",
+    title: "Żądane i zbierane informacje",
+    body: "W zależności od sposobu korzystania z BRICKINVEST dane mogą obejmować dane kontaktowe, treść zapytania, preferencje inwestycyjne, informacje o korzystaniu ze strony, dane urządzenia, logi i dane dotyczące zgody. Dokładne pola i źródła zbierania danych to: [UZUPEŁNIJ POTWIERDZONE KATEGORIE I ŹRÓDŁA]. Nie przesyłaj informacji zbędnych dla Twojego zapytania.",
   },
   {
-    title: "Finalidades del tratamiento",
-    body: "BRICKINVEST puede tratar la información para responder a consultas, evaluar y presentar oportunidades inmobiliarias o de inversión adecuadas, prestar los servicios solicitados, operar y proteger el sitio web, gestionar datos, cumplir obligaciones legales y medir el rendimiento del sitio cuando esté permitido. Operaciones de tratamiento adicionales: [INTRODUCIR LAS OPERACIONES DE TRATAMIENTO CONFIRMADAS].",
+    title: "Cele przetwarzania",
+    body: "BRICKINVEST może przetwarzać informacje w celu odpowiadania na zapytania, oceny i przedstawiania odpowiednich możliwości nieruchomościowych lub inwestycyjnych, świadczenia zamówionych usług, obsługi i ochrony strony, zarządzania danymi, wypełniania obowiązków prawnych oraz pomiaru działania strony, gdy jest to dozwolone. Dodatkowe operacje przetwarzania: [UZUPEŁNIJ POTWIERDZONE OPERACJE].",
   },
   {
-    title: "Base jurídica",
-    body: "La base jurídica de cada actividad puede ser el consentimiento, las medidas adoptadas a petición tuya, la ejecución de un contrato, el cumplimiento de una obligación legal o un interés legítimo que no prevalezca sobre tus derechos. BRICKINVEST debe completar este mapa antes de la publicación: [INTRODUCIR LA TABLA DE OPERACIONES Y BASES JURÍDICAS].",
+    title: "Podstawa prawna",
+    body: "Podstawą prawną poszczególnych działań może być zgoda, działania podjęte na Twoje żądanie, wykonanie umowy, obowiązek prawny lub prawnie uzasadniony interes, który nie przeważa nad Twoimi prawami. BRICKINVEST musi uzupełnić tę mapę przed publikacją: [UZUPEŁNIJ TABELĘ OPERACJI I PODSTAW PRAWNYCH].",
   },
   {
-    title: "Conservación",
-    body: "La información se conservará únicamente durante el tiempo necesario para la finalidad correspondiente y para los plazos legales, contables, de litigio o de prescripción aplicables. Los plazos o criterios específicos para cada categoría son: [INTRODUCIR LOS PLAZOS DE CONSERVACIÓN CONFIRMADOS].",
+    title: "Okres przechowywania",
+    body: "Informacje będą przechowywane wyłącznie przez czas potrzebny do realizacji odpowiedniego celu oraz przez obowiązujące okresy prawne, księgowe, procesowe lub przedawnienia. Szczegółowe okresy lub kryteria dla poszczególnych kategorii to: [UZUPEŁNIJ POTWIERDZONE OKRESY PRZECHOWYWANIA].",
   },
   {
-    title: "Destinatarios y transferencias internacionales",
-    body: "La información puede compartirse con proveedores que actúen siguiendo las instrucciones de BRICKINVEST y, cuando sea necesario o esté permitido, con autoridades o asesores profesionales. Las categorías de encargados y proveedores de servicios en la nube son: [INTRODUCIR LOS ENCARGADOS / PROVEEDORES DE NUBE CONFIRMADOS]. Las transferencias internacionales y sus garantías son: [INTRODUCIR LOS DESTINOS Y GARANTÍAS CONFIRMADOS].",
+    title: "Odbiorcy i transfery międzynarodowe",
+    body: "Informacje mogą być udostępniane dostawcom działającym zgodnie z instrukcjami BRICKINVEST oraz, gdy jest to konieczne lub dozwolone, organom i profesjonalnym doradcom. Kategorie podmiotów przetwarzających i dostawców chmurowych to: [UZUPEŁNIJ POTWIERDZONYCH DOSTAWCÓW]. Transfery międzynarodowe i zabezpieczenia to: [UZUPEŁNIJ POTWIERDZONE KRAJE I ZABEZPIECZENIA].",
   },
   {
-    title: "Tus derechos",
-    body: "Conforme a la legislación aplicable, puedes solicitar acceso, rectificación o supresión de tus datos, limitación y portabilidad del tratamiento, oponerte al tratamiento y retirar el consentimiento. Las solicitudes deben enviarse a [INTRODUCIR EL EMAIL O MÉTODO PARA EJERCER DERECHOS]. BRICKINVEST puede solicitar [INTRODUCIR EL REQUISITO DE VERIFICACIÓN DE IDENTIDAD] para proteger los datos personales. Los plazos y límites de respuesta se regirán por la legislación aplicable.",
+    title: "Twoje prawa",
+    body: "Zgodnie z obowiązującym prawem możesz żądać dostępu do danych, ich sprostowania lub usunięcia, ograniczenia i przenoszenia, sprzeciwić się przetwarzaniu oraz wycofać zgodę. Wnioski należy kierować na [UZUPEŁNIJ E-MAIL LUB SPOSÓB REALIZACJI PRAW]. BRICKINVEST może poprosić o [UZUPEŁNIJ WYMÓG WERYFIKACJI TOŻSAMOŚCI] w celu ochrony danych osobowych. Terminy i ograniczenia odpowiedzi wynikają z obowiązujących przepisów.",
   },
   {
-    title: "Seguridad, cookies y analítica",
-    body: "BRICKINVEST aplica medidas organizativas y técnicas adecuadas para proteger la información. Las medidas de seguridad confirmadas son: [INTRODUCIR LAS MEDIDAS DE SEGURIDAD]. Las categorías de cookies, las herramientas de analítica, las opciones de consentimiento y la conservación se describen en [INTRODUCIR LA POLÍTICA DE COOKIES / LOS DETALLES DEL CONSENTIMIENTO]. Configuración actual de analítica y etiquetas: [INTRODUCIR LAS PRÁCTICAS CONFIRMADAS].",
+    title: "Bezpieczeństwo, cookies i analityka",
+    body: "BRICKINVEST stosuje odpowiednie środki organizacyjne i techniczne w celu ochrony informacji. Potwierdzone środki bezpieczeństwa to: [UZUPEŁNIJ ŚRODKI BEZPIECZEŃSTWA]. Kategorie cookies, narzędzia analityczne, opcje zgody i okresy przechowywania opisano w [UZUPEŁNIJ POLITYKĘ COOKIES / SZCZEGÓŁY ZGODY]. Aktualna konfiguracja analityki i tagów: [UZUPEŁNIJ POTWIERDZONE PRAKTYKI].",
   },
   {
-    title: "Reclamaciones, cambios y contacto",
-    body: "Las preguntas o solicitudes pueden enviarse a [INTRODUCIR EL EMAIL DE PRIVACIDAD]. También puedes dirigirte a la autoridad de control competente: [INTRODUCIR LA AUTORIDAD Y LOS DATOS DE CONTACTO]. Fecha de entrada en vigor: [INTRODUCIR LA FECHA]. Última actualización: [INTRODUCIR LA FECHA DE ACTUALIZACIÓN]. Este borrador requiere revisión jurídica y operativa antes de su publicación, incluida la confirmación de todos los datos entre corchetes.",
+    title: "Skargi, zmiany i kontakt",
+    body: "Pytania lub wnioski można przesyłać na [UZUPEŁNIJ E-MAIL DOTYCZĄCY PRYWATNOŚCI]. Możesz również skontaktować się z właściwym organem nadzorczym: [UZUPEŁNIJ ORGAN I DANE KONTAKTOWE]. Data wejścia w życie: [UZUPEŁNIJ DATĘ]. Ostatnia aktualizacja: [UZUPEŁNIJ DATĘ AKTUALIZACJI]. Ten projekt wymaga przeglądu prawnego i operacyjnego przed publikacją, w tym potwierdzenia wszystkich danych w nawiasach.",
   },
 ];
 

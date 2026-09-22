@@ -24,8 +24,7 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
-        title:
-          "BRICKINVEST | Desarrollo inmobiliario e inversiones en la Costa del Sol",
+        title: "BRICKINVEST | Nieruchomości i inwestycje na Costa del Sol",
       },
     ],
     links: [{ rel: "icon", href: "/favicon.svg", type: "image/svg+xml" }],

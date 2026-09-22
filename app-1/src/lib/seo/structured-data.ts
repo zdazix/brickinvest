@@ -14,11 +14,11 @@ export type VerifiedProject = {
 export type BreadcrumbItem = { name: string; url: string };
 
 const serviceNames = [
-  "Land Acquisition",
-  "Residential Development",
-  "Commercial Real Estate",
-  "Hotel and Hospitality",
-  "Business Acquisition",
+  "Nabywanie działek",
+  "Deweloperka mieszkaniowa",
+  "Nieruchomości komercyjne",
+  "Hotele i hotelarstwo",
+  "Nabywanie firm",
 ] as const;
 
 const servedPlaces = [
@@ -70,21 +70,21 @@ export const createHomepageStructuredData = (configuredOrigin?: string) => {
         "@id": organizationId,
         name: "BRICKINVEST",
         description:
-          "Real estate investment and development company operating on the Costa del Sol, Spain.",
+          "Firma inwestująca w nieruchomości i rozwój projektów na Costa del Sol w Hiszpanii.",
         ...(origin ? { url: origin } : {}),
         areaServed: servedPlaces.map((name) => ({
           "@type": "Place",
           name,
         })),
         knowsAbout: [
-          "Real estate investment",
-          "Property investment",
-          "Real estate development",
-          "Land acquisition",
-          "Residential development",
-          "Commercial real estate",
-          "Hotel and hospitality",
-          "Business acquisition",
+          "Inwestycje w nieruchomości",
+          "Inwestycje w nieruchomości",
+          "Rozwój nieruchomości",
+          "Nabywanie działek",
+          "Deweloperka mieszkaniowa",
+          "Nieruchomości komercyjne",
+          "Hotele i hotelarstwo",
+          "Nabywanie firm",
         ],
         hasOfferCatalog: { "@id": catalogId },
       },
@@ -106,7 +106,7 @@ export const createHomepageStructuredData = (configuredOrigin?: string) => {
       {
         "@type": "OfferCatalog",
         "@id": catalogId,
-        name: "BRICKINVEST services",
+        name: "Usługi BRICKINVEST",
         itemListElement: services.map((service) => ({
           "@type": "Offer",
           itemOffered: { "@id": service["@id"] },

@@ -6,10 +6,10 @@ export const Route = createFileRoute("/(layout)/contact")({
   component: ContactPage,
   head: () => ({
     meta: [
-      { title: "Contacto | BRICKINVEST" },
+      { title: "Kontakt | BRICKINVEST" },
       {
         name: "description",
-        content: "Contacta con el equipo de BRICKINVEST.",
+        content: "Skontaktuj się z zespołem BRICKINVEST.",
       },
     ],
   }),

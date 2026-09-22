@@ -8,6 +8,7 @@ import {
 } from "react";
 
 import { estonian } from "@/lib/estonian";
+import { polish } from "@/lib/polish";
 
 export const locales = [
   { code: "EN", flag: "🇬🇧", key: "en", label: "English" },
@@ -1740,22 +1741,7 @@ const translations: Record<LocaleKey, Dictionary> = {
     ...estonian,
   },
   pl: {
-    ...english,
-    about: "O nas",
-    why: "Dlaczego my",
-    offer: "Co oferujemy",
-    services: "Nasze usługi",
-    projects: "Projekty",
-    solutions: "Rozwiązania inwestycyjne",
-    intelligence: "AI i inteligencja danych",
-    trusted: "Twój zaufany partner w rozwoju i inwestycjach na Costa del Sol.",
-    highRoi: "Wysokodochodowe możliwości inwestycji w nieruchomości",
-    qualification: "Kwalifikacja inwestora",
-    details: "DANE",
-    firstName: "Imię",
-    phone: "Numer telefonu z międzynarodowym kierunkowym",
-    return: "Wróć do BRICKINVEST",
-    submit: "POPROŚ O MOJE MOŻLIWOŚCI INWESTYCYJNE",
+    ...polish,
   },
 };
 
@@ -1768,7 +1754,7 @@ const LocaleContext = createContext<LocaleContextValue | null>(null);
 
 export const LocaleProvider = ({ children }: PropsWithChildren) => {
   const [locale, setLocaleState] = useState<LocaleKey>(() => {
-    return "es";
+    return "pl";
   });
   const setLocale = (next: LocaleKey) => {
     setLocaleState(next);
