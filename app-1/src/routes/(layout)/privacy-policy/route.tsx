@@ -6,11 +6,11 @@ export const Route = createFileRoute("/(layout)/privacy-policy")({
   component: PrivacyPolicyPage,
   head: () => ({
     meta: [
-      { title: "Privacy Policy | BRICKINVEST" },
+      { title: "Политика конфиденциальности | BRICKINVEST" },
       {
         name: "description",
         content:
-          "Privacy Policy for BRICKINVEST.ES, operated by Unicom Innovaciones S.L. in Spain.",
+          "Политика конфиденциальности BRICKINVEST.ES, работающего под управлением Unicom Innovaciones S.L. в Испании.",
       },
     ],
   }),

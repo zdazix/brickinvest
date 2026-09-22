@@ -55,7 +55,7 @@ export const ProjectsSection = () => {
             {projectKeys.map((key) => (
               <button
                 aria-label={`${t("viewProject")} ${t(key)}`}
-                className="group relative z-0 grid min-h-36 w-full grid-cols-[5rem_minmax(0,1fr)_2.5rem] items-center gap-7 overflow-visible border-b border-border/20 px-0 py-8 text-left transition-colors hover:z-20 hover:bg-secondary focus-visible:z-20 focus-visible:bg-secondary sm:min-h-40"
+                className="group relative z-0 grid min-h-36 w-full grid-cols-[minmax(0,1fr)_2.5rem] items-center gap-4 overflow-visible border-b border-border/20 px-0 py-8 text-left transition-colors hover:z-20 hover:bg-secondary focus-visible:z-20 focus-visible:bg-secondary sm:min-h-40 sm:gap-7"
                 data-cursor-project
                 key={key}
                 onClick={() => {
@@ -70,7 +70,7 @@ export const ProjectsSection = () => {
                 onMouseLeave={() => setActiveProject(null)}
                 type="button"
               >
-                <span className="relative z-10 max-w-[22rem] min-w-0 font-primary text-[clamp(1.3rem,2vw,2.1rem)] leading-[1.08] tracking-[-0.018em] text-foreground">
+                <span className="relative z-10 min-w-0 max-w-[32rem] break-words font-primary text-[clamp(1.3rem,2vw,2.1rem)] leading-[1.08] tracking-[-0.018em] text-foreground">
                   {t(key)}
                 </span>
                 <span

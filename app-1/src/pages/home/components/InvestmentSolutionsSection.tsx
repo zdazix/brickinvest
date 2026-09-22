@@ -67,7 +67,7 @@ export const InvestmentSolutionsSection = () => {
       <div className="section-grid relative">
         <div className="min-w-0">
           <h2
-            className={`section-title ${locale === "sv" ? "break-words !text-[clamp(2rem,3.3vw,3.1rem)]" : ""}`}
+            className={`section-title ${locale === "sv" ? "!text-[clamp(2rem,3.3vw,3.1rem)] break-words" : ""}`}
             id="investment-solutions-heading"
           >
             {locale === "sv" ? (

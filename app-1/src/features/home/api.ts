@@ -25,33 +25,43 @@ export type HomeContent = {
 const homeContent: HomeContent = {
   image: placeholderImage,
   features: [
-    ["Feature title", "Feature description text goes here."],
-    ["Feature title", "Feature description text goes here."],
-    ["Feature title", "Feature description text goes here."],
-    ["Feature title", "Feature description text goes here."],
+    ["Преимущество проекта", "Понятная стратегия и контроль каждого этапа."],
+    [
+      "Преимущество проекта",
+      "Тщательный анализ рынка и инвестиционного потенциала.",
+    ],
+    [
+      "Преимущество проекта",
+      "Проверенные партнёры и персональное сопровождение.",
+    ],
+    ["Преимущество проекта", "Прозрачная работа от первой встречи до сделки."],
   ],
-  collectionCards: ["Card title", "Card title", "Card title"],
+  collectionCards: [
+    "Избранная возможность",
+    "Избранная возможность",
+    "Избранная возможность",
+  ],
   editorialCards: [
     {
-      eyebrow: "Eyebrow text",
-      title: "H3 content title",
+      eyebrow: "ПОДХОД BRICKINVEST",
+      title: "Решения, основанные на данных",
       description:
-        "Content description text goes here. Replace this copy with information that supports the section title.",
+        "Мы объединяем локальную экспертизу, аналитику и практическую реализацию, чтобы каждая рекомендация была понятной и обоснованной.",
     },
     {
-      eyebrow: "Eyebrow text",
-      title: "H3 content title",
+      eyebrow: "ИНВЕСТИЦИОННАЯ СТРАТЕГИЯ",
+      title: "Возможности с ясной перспективой",
       description:
-        "Content description text goes here. Replace this copy with information that supports the section title.",
+        "От участка до готового объекта мы помогаем оценить риски, потенциал и следующий шаг для вашего капитала.",
     },
   ],
   reviews: Array.from({ length: 6 }, (_, index) => ({
     quote:
       index === 0
-        ? "Review quote placeholder text goes here."
-        : `A customer review can highlight product benefit ${index + 1}.`,
-    customer: `Customer name 0${index + 1}`,
-    detail: "Customer detail",
+        ? "Профессиональный подход, понятная коммуникация и сильное знание местного рынка."
+        : `Инвестор отмечает преимущество BRICKINVEST №${index + 1}.`,
+    customer: `Инвестор 0${index + 1}`,
+    detail: "Клиент BRICKINVEST",
     image: placeholderImage,
   })),
 };
