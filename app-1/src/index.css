@@ -129,8 +129,12 @@
 @media (max-width: 639px) {
   .de-investment-title {
     max-width: none;
-    white-space: nowrap;
-    font-size: clamp(0.72rem, 5vw, 3.3rem);
+    font-size: clamp(2rem, 8.5vw, 3.3rem);
+    line-height: 0.9;
+    white-space: normal;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
   }
 }
 
