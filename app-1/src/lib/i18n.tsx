@@ -696,7 +696,7 @@ const russian: Dictionary = {
 };
 
 const translations: Record<LocaleKey, Dictionary> = {
-  en: russian,
+  en: english,
   es: {
     ...english,
     about: "Sobre nosotros",
@@ -1704,23 +1704,7 @@ const translations: Record<LocaleKey, Dictionary> = {
       "Дата набуття чинності: 18 вересня 2026 року. На сайті ще немає видимого банера згоди на cookie або центру налаштувань; це потрібно вирішити до активації необов’язкових cookie.",
   },
   ru: {
-    ...english,
-    about: "О нас",
-    why: "Почему мы",
-    offer: "Что мы предлагаем",
-    services: "Наши услуги",
-    projects: "Проекты",
-    solutions: "Инвестиционные решения",
-    intelligence: "ИИ и аналитика данных",
-    trusted:
-      "Ваш надежный партнер по развитию и инвестициям на Коста-дель-Соль.",
-    highRoi: "Высокодоходные инвестиционные возможности в недвижимости",
-    qualification: "Квалификация инвестора",
-    details: "ДАННЫЕ",
-    firstName: "Имя",
-    phone: "Телефон с международным кодом",
-    return: "Вернуться в BRICKINVEST",
-    submit: "ЗАПРОСИТЬ МОИ ИНВЕСТИЦИОННЫЕ ВОЗМОЖНОСТИ",
+    ...russian,
   },
   de: {
     ...english,
@@ -1761,6 +1745,10 @@ const LocaleContext = createContext<LocaleContextValue | null>(null);
 
 export const LocaleProvider = ({ children }: PropsWithChildren) => {
   const [locale, setLocaleState] = useState<LocaleKey>(() => {
+    const storedLocale = window.localStorage.getItem("brickinvest-locale");
+    if (locales.some((item) => item.key === storedLocale)) {
+      return storedLocale as LocaleKey;
+    }
     return "cs";
   });
   const setLocale = (next: LocaleKey) => {
