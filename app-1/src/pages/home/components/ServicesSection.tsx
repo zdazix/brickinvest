@@ -9,6 +9,13 @@ const services = [
   ["serviceProperty", "servicePropertyBody"],
 ] as const;
 
+const mobileSingleLineServiceTitles = new Set([
+  "serviceLand",
+  "serviceCommercial",
+  "serviceBusiness",
+  "serviceProperty",
+]);
+
 export const ServicesSection = () => {
   const { t } = useLocale();
 
@@ -35,8 +42,8 @@ export const ServicesSection = () => {
                 >
                   <h3
                     className={`subsection-title min-w-0 ${
-                      title === "serviceLand"
-                        ? "text-[clamp(1rem,5.4vw,2.15rem)] whitespace-nowrap"
+                      mobileSingleLineServiceTitles.has(title)
+                        ? "text-[clamp(0.78rem,4.5vw,2.15rem)] whitespace-nowrap"
                         : "[overflow-wrap:anywhere]"
                     }`}
                   >
