@@ -18,7 +18,10 @@ export const IntelligenceSection = () => {
       <div className="relative mx-auto max-w-[1600px]">
         <div className="section-grid">
           <div className="min-w-0">
-            <h2 className="section-title" id="ai-data-heading">
+            <h2
+              className="section-title min-w-0 [overflow-wrap:anywhere]"
+              id="ai-data-heading"
+            >
               {t("intelligenceHeading")}
             </h2>
           </div>
@@ -30,7 +33,7 @@ export const IntelligenceSection = () => {
                   className="border-b border-border/30 py-8"
                   key={heading}
                 >
-                  <h3 className="subsection-title mt-4 max-w-[650px]">
+                  <h3 className="subsection-title mt-4 max-w-[650px] min-w-0 [overflow-wrap:anywhere]">
                     {t(heading)}
                   </h3>
                   <p className="body-copy mt-7 max-w-[650px]">{t(body)}</p>
