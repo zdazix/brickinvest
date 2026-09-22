@@ -70,7 +70,7 @@ export const ProjectsSection = () => {
                 onMouseLeave={() => setActiveProject(null)}
                 type="button"
               >
-                <span className="relative z-10 min-w-0 max-w-[32rem] break-words font-primary text-[clamp(1.3rem,2vw,2.1rem)] leading-[1.08] tracking-[-0.018em] text-foreground">
+                <span className="relative z-10 max-w-[32rem] min-w-0 font-primary text-[clamp(1.3rem,2vw,2.1rem)] leading-[1.08] tracking-[-0.018em] break-words text-foreground">
                   {t(key)}
                 </span>
                 <span

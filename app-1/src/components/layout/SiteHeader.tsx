@@ -88,7 +88,7 @@ export const SiteHeader = () => {
 
   const selectedLocale =
     locales.find((item) => item.key === locale) ?? locales[0];
-  const isSwedish = locale === "sv";
+  const isCompactLocale = locale === "sv" || locale === "et";
   const closeMenu = () => setIsMenuOpen(false);
   return (
     <>
@@ -96,7 +96,7 @@ export const SiteHeader = () => {
         className={`fixed inset-x-0 top-0 z-50 border-b px-4 pt-5 transition-[background-color,border-color,backdrop-filter] duration-300 sm:px-8 sm:pt-7 xl:pt-0 ${isHome ? (isScrolled ? "border-border/15 bg-foreground/60 backdrop-blur-sm" : "border-transparent bg-transparent") : `bg-surface ${isScrolled ? "border-border/30" : "border-border/60"}`}`}
       >
         <header
-          className={`site-header relative z-10 mx-auto flex min-h-[4.5rem] max-w-[1600px] items-center justify-between gap-3 px-1 py-3 xl:min-h-[5.5rem] xl:py-2 2xl:min-h-[5rem] ${isSwedish ? "xl:gap-2 2xl:gap-4" : "xl:gap-3 2xl:gap-5"} ${isHome ? "text-white" : "text-foreground"}`}
+          className={`site-header relative z-10 mx-auto flex min-h-[4.5rem] max-w-[1600px] items-center justify-between gap-3 px-1 py-3 xl:min-h-[5.5rem] xl:py-2 2xl:min-h-[5rem] ${isCompactLocale ? "xl:gap-2 2xl:gap-4" : "xl:gap-3 2xl:gap-5"} ${isHome ? "text-white" : "text-foreground"}`}
         >
           <a
             aria-label={t("brandHome")}
@@ -106,7 +106,7 @@ export const SiteHeader = () => {
             BRICKINVEST
           </a>
           <div
-            className={`hidden shrink-0 items-center xl:flex ${isSwedish ? "gap-3 2xl:gap-4" : "gap-4 2xl:gap-5"}`}
+            className={`hidden shrink-0 items-center xl:flex ${isCompactLocale ? "gap-3 2xl:gap-4" : "gap-4 2xl:gap-5"}`}
           >
             <a
               aria-label={t("brandHome")}
@@ -165,11 +165,11 @@ export const SiteHeader = () => {
           </div>
           <nav
             aria-label={t("primaryNavigation")}
-            className={`site-header-nav hidden min-w-0 flex-1 grid-cols-7 items-center xl:grid ${isSwedish ? "gap-x-1 2xl:gap-x-3" : "gap-x-2 2xl:gap-x-4"}`}
+            className={`site-header-nav hidden min-w-0 flex-1 grid-cols-7 items-center xl:grid ${isCompactLocale ? "gap-x-1 2xl:gap-x-3" : "gap-x-2 2xl:gap-x-4"}`}
           >
             {navigation.map(({ href, key }) => (
               <a
-                className={`site-header-link relative block w-full min-w-0 px-1 py-2 text-center leading-[1.15] font-semibold whitespace-normal transition-colors duration-250 after:absolute after:right-1 after:bottom-0 after:left-1 after:h-px after:origin-right after:bg-border after:transition-transform after:duration-250 hover:after:origin-left hover:after:scale-x-100 active:text-primary active:after:origin-left active:after:scale-x-100 active:after:bg-primary ${isSwedish && key === "solutions" ? "text-[12px] tracking-[0.01em] 2xl:text-[12px] 2xl:tracking-[0.01em]" : "text-[13px] tracking-[0.015em] 2xl:text-[15px] 2xl:tracking-[0.02em]"} ${activeSection === href.slice(1) ? "text-primary after:scale-x-100" : isHome ? "text-white/85 after:scale-x-0 hover:text-white" : "text-foreground/80 after:scale-x-0 hover:text-foreground"}`}
+                className={`site-header-link relative block w-full min-w-0 px-1 py-2 text-center leading-[1.15] font-semibold whitespace-normal transition-colors duration-250 after:absolute after:right-1 after:bottom-0 after:left-1 after:h-px after:origin-right after:bg-border after:transition-transform after:duration-250 hover:after:origin-left hover:after:scale-x-100 active:text-primary active:after:origin-left active:after:scale-x-100 active:after:bg-primary ${isCompactLocale && key === "solutions" ? "text-[12px] tracking-[0.01em] 2xl:text-[12px] 2xl:tracking-[0.01em]" : "text-[13px] tracking-[0.015em] 2xl:text-[15px] 2xl:tracking-[0.02em]"} ${activeSection === href.slice(1) ? "text-primary after:scale-x-100" : isHome ? "text-white/85 after:scale-x-0 hover:text-white" : "text-foreground/80 after:scale-x-0 hover:text-foreground"}`}
                 href={href}
                 key={href}
                 onClick={() =>

@@ -134,11 +134,11 @@
 }
 
 @media (max-width: 639px) {
-  .de-investment-grid {
+  .investment-locale-grid {
     gap: 2.5rem;
   }
 
-  .de-investment-title {
+  .investment-locale-title {
     max-width: none;
     display: block;
     font-size: clamp(1.65rem, 7.8vw, 3.3rem);
@@ -149,17 +149,21 @@
     hyphens: none;
   }
 
-  .de-investment-body {
+  .investment-locale-body {
     font-size: clamp(1.15rem, 5.2vw, 2.75rem);
+  }
+
+  .investment-title-et {
+    font-size: clamp(1.2rem, 6.5vw, 3.3rem);
   }
 }
 
 @media (min-width: 640px) {
-  .de-investment-grid {
+  .investment-locale-grid {
     grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
   }
 
-  .de-investment-title {
+  .investment-locale-title {
     max-width: none;
     font-size: clamp(2rem, 3vw, 3.3rem);
   }

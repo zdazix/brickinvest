@@ -20,11 +20,11 @@ const articles: readonly NewsArticle[] = Array.from(
   { length: 17 },
   (_, index) => ({
     id: index + 1,
-    category: index % 2 === 0 ? "Markt" : "Journal",
-    date: `${17 - index}. September 2026`,
-    title: `Markt- und Investmentanalyse Nr. ${String(index + 1).padStart(2, "0")}`,
+    category: index % 2 === 0 ? "Turg" : "Ajakiri",
+    date: `${17 - index}. september 2026`,
+    title: `Turu- ja investeerimisanalüüs nr ${String(index + 1).padStart(2, "0")}`,
     summary:
-      "Eine kurze Zusammenfassung vermittelt den Marktkontext und die wichtigsten Faktoren vor der weiteren Lektüre.",
+      "Lühike kokkuvõte tutvustab turu konteksti ja peamisi tegureid enne põhjalikumat lugemist.",
     image: `${import.meta.env.BASE_URL}images/placeholder.svg`,
   }),
 );

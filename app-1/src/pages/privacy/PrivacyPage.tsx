@@ -1,8 +1,10 @@
 import { PageIntro } from "@/components/ui/PageIntro";
 import { Loader } from "@/components/ui/Loader";
 import { usePrivacyQuery } from "@/features/privacy/queries";
+import { useLocale } from "@/lib/i18n";
 
 export const PrivacyPage = () => {
+  const { t } = useLocale();
   const privacyQuery = usePrivacyQuery();
 
   return (
@@ -12,24 +14,24 @@ export const PrivacyPage = () => {
     >
       <div className="mx-auto max-w-7xl">
         <PageIntro
-          description="Wie BRICKINVEST personenbezogene Daten verarbeitet, wenn Sie diese Website nutzen oder das Team kontaktieren."
-          title="BRICKINVEST-Datenschutzerklärung"
+          description={t("legalPrivacyDescription")}
+          title={t("privacyPolicy")}
         />
         <aside className="mt-14 flex flex-col gap-5 rounded-[2rem] bg-secondary p-7 text-secondary-foreground sm:flex-row sm:items-center sm:justify-between sm:p-9">
           <div className="max-w-2xl">
-            <p className="text-[15px] font-semibold">Entwurf zur Prüfung</p>
+            <p className="text-[15px] font-semibold">{t("privacyDraft")}</p>
             <p className="mt-2 text-[15px] leading-6 opacity-70">
-              Platzhalter in eckigen Klammern müssen ergänzt werden; vor der Veröffentlichung ist eine rechtliche und operative Prüfung erforderlich.
+              {t("privacyDraftNotice")}
             </p>
           </div>
         </aside>
         <article className="mx-auto mt-10 max-w-7xl rounded-[2rem] border border-border/50 bg-surface px-6 shadow-sm shadow-foreground/5 sm:px-10">
           {privacyQuery.isError ? (
             <p className="py-10 text-[13px] text-danger">
-              Die Abschnitte der Datenschutzerklärung konnten nicht geladen werden.
+              {t("privacyUnavailable")}
             </p>
           ) : !privacyQuery.data ? (
-            <Loader className="py-10" label="Abschnitte werden geladen…" />
+            <Loader className="py-10" label={t("loadingPrivacy")} />
           ) : null}
           {privacyQuery.data?.map(({ title, body }) => (
             <section

@@ -6,8 +6,8 @@ export const Route = createFileRoute("/(layout)/profile")({
   component: ProfilePage,
   head: () => ({
     meta: [
-      { title: "Profil | BRICKINVEST" },
-      { name: "description", content: "Verwalten Sie Ihre Profildaten." },
+      { title: "Profiil | BRICKINVEST" },
+      { name: "description", content: "Hallake oma profiiliandmeid." },
     ],
   }),
 });

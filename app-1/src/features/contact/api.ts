@@ -18,7 +18,7 @@ export type ContactDetail = {
 const contactDetails: readonly ContactDetail[] = [
   { type: "email", label: "hello@example.com" },
   { type: "phone", label: "+1 000 000 0000" },
-  { type: "location", label: "Marbella, Spanien" },
+  { type: "location", label: "Marbella, Hispaania" },
 ];
 
 export const getContactDetails = async (

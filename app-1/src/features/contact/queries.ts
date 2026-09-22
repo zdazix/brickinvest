@@ -10,5 +10,5 @@ export const useContactDetailsQuery = () =>
 export const useContactMutation = (onSuccess: () => void) =>
   useApiMutation(sendContactMessage, {
     onSuccess,
-    successMessage: "Thanks. Your message has been received.",
+    successMessage: "Aitäh. Teie sõnum on kätte saadud.",
   });

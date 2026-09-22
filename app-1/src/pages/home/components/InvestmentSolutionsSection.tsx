@@ -7,6 +7,7 @@ import { trackEvent } from "@/lib/analytics";
 
 export const InvestmentSolutionsSection = () => {
   const { locale, t } = useLocale();
+  const isLongInvestmentLocale = locale === "de" || locale === "et";
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "success">("idle");
@@ -36,7 +37,7 @@ export const InvestmentSolutionsSection = () => {
             firstName: name,
             email: isEmail ? contact : undefined,
             phone: isEmail ? undefined : contact,
-            source: "Formular für Investmentlösungen",
+            source: "Investeerimislahenduste vorm",
           }),
         },
       );
@@ -66,14 +67,14 @@ export const InvestmentSolutionsSection = () => {
     >
       <div
         className={`section-grid relative ${
-          locale === "de" ? "de-investment-grid" : ""
+          isLongInvestmentLocale ? "investment-locale-grid" : ""
         }`}
       >
         <div className="min-w-0">
           <h2
             className={`section-title ${
-              locale === "de"
-                ? "de-investment-title"
+              isLongInvestmentLocale
+                ? `investment-locale-title ${locale === "et" ? "investment-title-et" : ""}`
                 : locale === "sv"
                   ? "!text-[clamp(2rem,3.3vw,3.1rem)] break-words"
                   : ""
@@ -87,11 +88,15 @@ export const InvestmentSolutionsSection = () => {
                 </span>{" "}
                 INVESTERINGSLÖSNINGAR
               </>
-            ) : locale === "de" ? (
+            ) : isLongInvestmentLocale ? (
               <>
-                <span className="block whitespace-nowrap">INDIVIDUELLE</span>
                 <span className="block whitespace-nowrap">
-                  INVESTMENTLÖSUNGEN
+                  {locale === "et" ? "INDIVIDUAALSED" : "INDIVIDUELLE"}
+                </span>
+                <span className="block whitespace-nowrap">
+                  {locale === "et"
+                    ? "INVESTEERIMISLAHENDUSED"
+                    : "INVESTMENTLÖSUNGEN"}
                 </span>
               </>
             ) : (
@@ -102,7 +107,7 @@ export const InvestmentSolutionsSection = () => {
         <div className="min-w-0">
           <p
             className={`editorial-intro max-w-[720px] ${
-              locale === "de" ? "de-investment-body" : ""
+              isLongInvestmentLocale ? "investment-locale-body" : ""
             }`}
           >
             {t("investmentBody")}

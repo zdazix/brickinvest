@@ -1,8 +1,10 @@
 import { PageIntro } from "@/components/ui/PageIntro";
+import { useLocale } from "@/lib/i18n";
 
 type LegalPageProps = { readonly kind: "cookies" | "terms" };
 
 export const LegalPage = ({ kind }: LegalPageProps) => {
+  const { t } = useLocale();
   const isTerms = kind === "terms";
   return (
     <main
@@ -12,11 +14,9 @@ export const LegalPage = ({ kind }: LegalPageProps) => {
       <div className="mx-auto max-w-7xl">
         <PageIntro
           description={
-            isTerms
-              ? "Nutzungsbedingungen für die BRICKINVEST-Website."
-              : "Informationen darüber, wie BRICKINVEST Cookies auf dieser Website verwendet."
+            isTerms ? t("legalTermsDescription") : t("legalCookiesDescription")
           }
-          title={isTerms ? "Nutzungsbedingungen" : "Cookie-Richtlinie"}
+          title={isTerms ? t("termsAndConditions") : t("cookiesPolicy")}
         />
       </div>
     </main>

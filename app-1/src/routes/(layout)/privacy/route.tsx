@@ -6,11 +6,11 @@ export const Route = createFileRoute("/(layout)/privacy")({
   component: PrivacyPolicyPage,
   head: () => ({
     meta: [
-      { title: "Datenschutzerklärung | BRICKINVEST" },
+      { title: "Privaatsuspoliitika | BRICKINVEST" },
       {
         name: "description",
         content:
-          "Datenschutzerklärung von BRICKINVEST und Informationen zur Verarbeitung personenbezogener Daten.",
+          "BRICKINVESTi privaatsuspoliitika ja teave isikuandmete töötlemise kohta.",
       },
     ],
   }),

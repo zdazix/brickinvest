@@ -3,10 +3,11 @@ import {
   useContext,
   useMemo,
   useState,
+  useEffect,
   type PropsWithChildren,
 } from "react";
 
-import { german } from "@/lib/german";
+import { estonian } from "@/lib/estonian";
 
 export const locales = [
   { code: "EN", flag: "🇬🇧", key: "en", label: "English" },
@@ -1729,23 +1730,7 @@ const translations: Record<LocaleKey, Dictionary> = {
     submit: "MEINE INVESTMENTCHANCEN ANFORDERN",
   },
   et: {
-    ...english,
-    about: "Meist",
-    why: "Miks meie",
-    offer: "Meie pakkumine",
-    services: "Meie teenused",
-    projects: "Projektid",
-    solutions: "Investeerimislahendused",
-    intelligence: "AI ja andmeintelligents",
-    trusted:
-      "Teie usaldusväärne partner Costa del Soli arenduses ja investeeringutes.",
-    highRoi: "Kõrge tootlusega kinnisvaravõimalused",
-    qualification: "Investori kvalifitseerimine",
-    details: "ANDMED",
-    firstName: "Eesnimi",
-    phone: "Rahvusvahelise suunakoodiga telefon",
-    return: "Tagasi BRICKINVESTi",
-    submit: "TAOTLE MINU INVESTEERIMISVÕIMALUSI",
+    ...estonian,
   },
   pl: {
     ...english,
@@ -1776,22 +1761,21 @@ const LocaleContext = createContext<LocaleContextValue | null>(null);
 
 export const LocaleProvider = ({ children }: PropsWithChildren) => {
   const [locale, setLocaleState] = useState<LocaleKey>(() => {
-    const saved = window.localStorage.getItem(
-      "brickinvest-locale",
-    ) as LocaleKey | null;
-    void saved;
-    return "de";
+    return "et";
   });
   const setLocale = (next: LocaleKey) => {
     setLocaleState(next);
     window.localStorage.setItem("brickinvest-locale", next);
   };
+  useEffect(() => {
+    document.documentElement.lang = locale;
+  }, [locale]);
   const value = useMemo(
     () => ({
       locale,
       setLocale,
       t: (key: string) =>
-        german[key] ?? translations[locale][key] ?? english[key] ?? key,
+        translations[locale][key] ?? estonian[key] ?? english[key] ?? key,
     }),
     [locale],
   );

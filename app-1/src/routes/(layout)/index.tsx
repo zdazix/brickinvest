@@ -28,36 +28,36 @@ export const Route = createFileRoute("/(layout)/")({
     meta: [
       {
         title:
-          "BRICKINVEST | Immobilienentwicklung und Investments an der Costa del Sol",
+          "BRICKINVEST | Kinnisvaraarendus ja investeeringud Costa del Solil",
       },
       {
         name: "description",
         content:
-          "BRICKINVEST bietet Immobilieninvestments, Entwicklungen und Projektmöglichkeiten an der Costa del Sol, darunter Marbella, Sotogrande, Estepona und Málaga.",
+          "BRICKINVEST pakub kinnisvarainvesteeringuid, arendusi ja projektivõimalusi Costa del Solil, sealhulgas Marbellas, Sotograndes, Esteponas ja Málagas.",
       },
       { name: "robots", content: "index,follow" },
       {
         property: "og:title",
         content:
-          "BRICKINVEST | Immobilienentwicklung und Investments an der Costa del Sol",
+          "BRICKINVEST | Kinnisvaraarendus ja investeeringud Costa del Solil",
       },
       {
         property: "og:description",
         content:
-          "BRICKINVEST bietet Immobilieninvestments, Entwicklungen und Projektmöglichkeiten an der Costa del Sol, darunter Marbella, Sotogrande, Estepona und Málaga.",
+          "BRICKINVEST pakub kinnisvarainvesteeringuid, arendusi ja projektivõimalusi Costa del Solil, sealhulgas Marbellas, Sotograndes, Esteponas ja Málagas.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:locale", content: "de_DE" },
+      { property: "og:locale", content: "et_EE" },
       { name: "twitter:card", content: "summary" },
       {
         name: "twitter:title",
         content:
-          "BRICKINVEST | Immobilienentwicklung und Investments an der Costa del Sol",
+          "BRICKINVEST | Kinnisvaraarendus ja investeeringud Costa del Solil",
       },
       {
         name: "twitter:description",
         content:
-          "BRICKINVEST bietet Immobilieninvestments, Entwicklungen und Projektmöglichkeiten an der Costa del Sol, darunter Marbella, Sotogrande, Estepona und Málaga.",
+          "BRICKINVEST pakub kinnisvarainvesteeringuid, arendusi ja projektivõimalusi Costa del Solil, sealhulgas Marbellas, Sotograndes, Esteponas ja Málagas.",
       },
     ],
     links: canonicalUrl ? [{ rel: "canonical", href: canonicalUrl }] : [],
