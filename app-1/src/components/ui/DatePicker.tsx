@@ -11,7 +11,7 @@ import {
   startOfMonth,
   startOfWeek,
 } from "date-fns";
-import { de as germanDateLocale } from "date-fns/locale";
+import { es as spanishDateLocale } from "date-fns/locale";
 import { CalendarDays, ChevronLeft, ChevronRight } from "lucide-react";
 import { Popover } from "radix-ui";
 import { useMemo, useState } from "react";
@@ -55,9 +55,9 @@ export const DatePicker = ({
     () =>
       eachDayOfInterval({
         start: startOfWeek(startOfMonth(viewMonth), {
-          locale: germanDateLocale,
+          locale: spanishDateLocale,
         }),
-        end: endOfWeek(endOfMonth(viewMonth), { locale: germanDateLocale }),
+        end: endOfWeek(endOfMonth(viewMonth), { locale: spanishDateLocale }),
       }),
     [viewMonth],
   );
@@ -88,7 +88,7 @@ export const DatePicker = ({
             {selectedDate ? (
               <NumericText>
                 {format(selectedDate, "d. MMM yyyy", {
-                  locale: germanDateLocale,
+                  locale: spanishDateLocale,
                 })}
               </NumericText>
             ) : (
@@ -119,7 +119,7 @@ export const DatePicker = ({
             </button>
             <p aria-live="polite" className="text-[13px] font-bold">
               <NumericText>
-                {format(viewMonth, "MMMM yyyy", { locale: germanDateLocale })}
+                {format(viewMonth, "MMMM yyyy", { locale: spanishDateLocale })}
               </NumericText>
             </p>
             <button
@@ -145,7 +145,7 @@ export const DatePicker = ({
               return (
                 <button
                   aria-label={format(day, "d. MMMM yyyy", {
-                    locale: germanDateLocale,
+                    locale: spanishDateLocale,
                   })}
                   aria-pressed={Boolean(selected)}
                   className={[

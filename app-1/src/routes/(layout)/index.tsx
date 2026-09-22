@@ -28,36 +28,36 @@ export const Route = createFileRoute("/(layout)/")({
     meta: [
       {
         title:
-          "BRICKINVEST | Kinnisvaraarendus ja investeeringud Costa del Solil",
+          "BRICKINVEST | Desarrollo inmobiliario e inversiones en la Costa del Sol",
       },
       {
         name: "description",
         content:
-          "BRICKINVEST pakub kinnisvarainvesteeringuid, arendusi ja projektivõimalusi Costa del Solil, sealhulgas Marbellas, Sotograndes, Esteponas ja Málagas.",
+          "BRICKINVEST ofrece inversiones inmobiliarias, desarrollos y oportunidades de proyectos en la Costa del Sol, incluyendo Marbella, Sotogrande, Estepona y Málaga.",
       },
       { name: "robots", content: "index,follow" },
       {
         property: "og:title",
         content:
-          "BRICKINVEST | Kinnisvaraarendus ja investeeringud Costa del Solil",
+          "BRICKINVEST | Desarrollo inmobiliario e inversiones en la Costa del Sol",
       },
       {
         property: "og:description",
         content:
-          "BRICKINVEST pakub kinnisvarainvesteeringuid, arendusi ja projektivõimalusi Costa del Solil, sealhulgas Marbellas, Sotograndes, Esteponas ja Málagas.",
+          "BRICKINVEST ofrece inversiones inmobiliarias, desarrollos y oportunidades de proyectos en la Costa del Sol, incluyendo Marbella, Sotogrande, Estepona y Málaga.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:locale", content: "et_EE" },
+      { property: "og:locale", content: "es_ES" },
       { name: "twitter:card", content: "summary" },
       {
         name: "twitter:title",
         content:
-          "BRICKINVEST | Kinnisvaraarendus ja investeeringud Costa del Solil",
+          "BRICKINVEST | Desarrollo inmobiliario e inversiones en la Costa del Sol",
       },
       {
         name: "twitter:description",
         content:
-          "BRICKINVEST pakub kinnisvarainvesteeringuid, arendusi ja projektivõimalusi Costa del Solil, sealhulgas Marbellas, Sotograndes, Esteponas ja Málagas.",
+          "BRICKINVEST ofrece inversiones inmobiliarias, desarrollos y oportunidades de proyectos en la Costa del Sol, incluyendo Marbella, Sotogrande, Estepona y Málaga.",
       },
     ],
     links: canonicalUrl ? [{ rel: "canonical", href: canonicalUrl }] : [],

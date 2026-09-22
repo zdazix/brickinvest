@@ -10,44 +10,44 @@ export type PrivacySection = {
 
 const privacySections: readonly PrivacySection[] = [
   {
-    title: "Vastutav töötleja",
-    body: "See privaatsuspoliitika kehtib BRICKINVESTi ja selle veebisaidi kohta. Vastutav juriidiline isik on [SISESTA BRICKINVESTi JURIIDILINE ÜKSUS]. Registrijärgne aadress: [SISESTA REGISTRIJÄRGNE AADRESS]. Registri- või maksukood: [SISESTA REGISTRI- VÕI MAKSUKOOD]. Privaatsuskontakt: [SISESTA PRIVAATSUSE E-POST]. Telefon: [SISESTA PRIVAATSUSE TELEFON].",
+    title: "Responsable del tratamiento",
+    body: "Esta política de privacidad se aplica a BRICKINVEST y a este sitio web. La entidad jurídica responsable es [INTRODUCIR LA ENTIDAD JURÍDICA DE BRICKINVEST]. Domicilio social: [INTRODUCIR EL DOMICILIO SOCIAL]. Número registral o fiscal: [INTRODUCIR EL NÚMERO REGISTRAL O FISCAL]. Contacto de privacidad: [INTRODUCIR EL EMAIL DE PRIVACIDAD]. Teléfono: [INTRODUCIR EL TELÉFONO DE PRIVACIDAD].",
   },
   {
-    title: "Nõusolek ja see poliitika",
-    body: "Seda veebisaiti kasutades või teavet esitades kinnitate, et olete poliitikaga tutvunud. Kui nõusolek on vajalik, küsib BRICKINVEST seda enne vastavat töötlemist. Turundussuhtlus, küpsised, analüüs ja muud nõusolekupõhised tegevused järgivad [SISESTA NÕUSOLEKUMEHHANISM] kaudu salvestatud valikuid. Nõusoleku saab igal ajal tagasi võtta, kasutades [SISESTA TAGASIVÕTMISE KORD].",
+    title: "Consentimiento y esta política",
+    body: "Al utilizar este sitio web o enviar información, confirmas que has leído la política. Cuando sea necesario, BRICKINVEST solicitará tu consentimiento antes del tratamiento correspondiente. Las comunicaciones comerciales, las cookies, la analítica y otras actividades basadas en el consentimiento seguirán las opciones registradas mediante [INTRODUCIR EL MECANISMO DE CONSENTIMIENTO]. El consentimiento puede retirarse en cualquier momento mediante [INTRODUCIR EL PROCEDIMIENTO DE RETIRADA].",
   },
   {
-    title: "Nõutud ja kogutud teave",
-    body: "Sõltuvalt sellest, kuidas BRICKINVESTiga suhtlete, võivad andmed hõlmata kontaktandmeid, päringu sisu, investeerimiseelistusi, veebisaidi kasutusinfot, seadme- ja logiandmeid ning nõusolekuandmeid. Täpsed väljad ja kogumiskohad on: [SISESTA KINNITATUD ANDMEKATEGOORIAD JA ALLIKAD]. Ärge esitage oma päringu jaoks mittevajalikku teavet.",
+    title: "Información solicitada y recopilada",
+    body: "Según cómo interactúes con BRICKINVEST, los datos pueden incluir datos de contacto, contenido de la consulta, preferencias de inversión, información de uso del sitio, datos del dispositivo y registros, así como datos de consentimiento. Los campos y puntos de recopilación exactos son: [INTRODUCIR LAS CATEGORÍAS Y FUENTES DE DATOS CONFIRMADAS]. No envíes información innecesaria para tu consulta.",
   },
   {
-    title: "Töötlemise eesmärgid",
-    body: "BRICKINVEST võib töödelda teavet päringutele vastamiseks, sobivate kinnisvara- või investeerimisvõimaluste hindamiseks ja tutvustamiseks, soovitud teenuste osutamiseks, veebisaidi käitamiseks ja turvamiseks, andmete haldamiseks, õiguslike kohustuste täitmiseks ning veebisaidi toimivuse mõõtmiseks, kui see on lubatud. Täiendavad töötlemistoimingud: [SISESTA KINNITATUD TÖÖTLEMISTOIMINGUD].",
+    title: "Finalidades del tratamiento",
+    body: "BRICKINVEST puede tratar la información para responder a consultas, evaluar y presentar oportunidades inmobiliarias o de inversión adecuadas, prestar los servicios solicitados, operar y proteger el sitio web, gestionar datos, cumplir obligaciones legales y medir el rendimiento del sitio cuando esté permitido. Operaciones de tratamiento adicionales: [INTRODUCIR LAS OPERACIONES DE TRATAMIENTO CONFIRMADAS].",
   },
   {
-    title: "Õiguslik alus",
-    body: "Iga toimingu õiguslik alus võib olla nõusolek, teie taotlusel astutud sammud, lepingu täitmine, õigusliku kohustuse täitmine või õigustatud huvi, mis ei kaalu üles teie õigusi. BRICKINVEST peab enne avaldamist selle kaardistamise lõpetama: [SISESTA TÖÖTLEMISTOIMINGUTE JA ÕIGUSLIKE ALUSTE TABEL].",
+    title: "Base jurídica",
+    body: "La base jurídica de cada actividad puede ser el consentimiento, las medidas adoptadas a petición tuya, la ejecución de un contrato, el cumplimiento de una obligación legal o un interés legítimo que no prevalezca sobre tus derechos. BRICKINVEST debe completar este mapa antes de la publicación: [INTRODUCIR LA TABLA DE OPERACIONES Y BASES JURÍDICAS].",
   },
   {
-    title: "Säilitamine",
-    body: "Teavet säilitatakse ainult nii kaua, kui see on vajalik vastava eesmärgi ning kohaldatava õigusliku, raamatupidamisliku, vaidlus- või aegumistähtaja jaoks. Iga kategooria konkreetsed tähtajad või kriteeriumid on: [SISESTA KINNITATUD SÄILITAMISTÄHTAJAD].",
+    title: "Conservación",
+    body: "La información se conservará únicamente durante el tiempo necesario para la finalidad correspondiente y para los plazos legales, contables, de litigio o de prescripción aplicables. Los plazos o criterios específicos para cada categoría son: [INTRODUCIR LOS PLAZOS DE CONSERVACIÓN CONFIRMADOS].",
   },
   {
-    title: "Saajad ja rahvusvahelised edastused",
-    body: "Teavet võidakse jagada BRICKINVESTi juhiste alusel tegutsevate teenusepakkujatega ning vajaduse või loa korral ametiasutuste või professionaalsete nõustajatega. Volitatud töötlejate ja pilveteenuse pakkujate kategooriad on: [SISESTA KINNITATUD VOLITATUD TÖÖTLEJAD / PILVETEENUSE PAKKUJAD]. Rahvusvahelised edastused ja nende kaitsemeetmed on: [SISESTA KINNITATUD EDASTAMISASUKOHAD JA KAITSEMEETMED].",
+    title: "Destinatarios y transferencias internacionales",
+    body: "La información puede compartirse con proveedores que actúen siguiendo las instrucciones de BRICKINVEST y, cuando sea necesario o esté permitido, con autoridades o asesores profesionales. Las categorías de encargados y proveedores de servicios en la nube son: [INTRODUCIR LOS ENCARGADOS / PROVEEDORES DE NUBE CONFIRMADOS]. Las transferencias internacionales y sus garantías son: [INTRODUCIR LOS DESTINOS Y GARANTÍAS CONFIRMADOS].",
   },
   {
-    title: "Teie õigused",
-    body: "Kohaldatava õiguse alusel võite taotleda juurdepääsu andmetele, nende parandamist või kustutamist, töötlemise piiramist ja ülekandmist, esitada töötlemisele vastuväiteid ning võtta nõusoleku tagasi. Taotlused tuleb saata aadressil või viisil [SISESTA ÕIGUSTE TAOTLEMISE E-POST VÕI MEETOD]. BRICKINVEST võib isikuandmete kaitsmiseks nõuda [SISESTA ISIKUSAMASUSE KONTROLLI NÕUE]. Vastamise tähtajad ja piirangud tulenevad kohaldatavast õigusest.",
+    title: "Tus derechos",
+    body: "Conforme a la legislación aplicable, puedes solicitar acceso, rectificación o supresión de tus datos, limitación y portabilidad del tratamiento, oponerte al tratamiento y retirar el consentimiento. Las solicitudes deben enviarse a [INTRODUCIR EL EMAIL O MÉTODO PARA EJERCER DERECHOS]. BRICKINVEST puede solicitar [INTRODUCIR EL REQUISITO DE VERIFICACIÓN DE IDENTIDAD] para proteger los datos personales. Los plazos y límites de respuesta se regirán por la legislación aplicable.",
   },
   {
-    title: "Turvalisus, küpsised ja analüüs",
-    body: "BRICKINVEST rakendab teabe kaitsmiseks asjakohaseid organisatsioonilisi ja tehnilisi meetmeid. Kinnitatud kaitsemeetmed on: [SISESTA TURVAMEETMED]. Küpsiste kategooriaid, analüüsitööriistu, nõusolekuseadeid ja säilitamist kirjeldatakse dokumendis [SISESTA KÜPSISTE POLIITIKA / NÕUSOLEKU ÜKSIKASJAD]. Praegune analüüsi- ja sildikonfiguratsioon: [SISESTA KINNITATUD PRAKTIKAD].",
+    title: "Seguridad, cookies y analítica",
+    body: "BRICKINVEST aplica medidas organizativas y técnicas adecuadas para proteger la información. Las medidas de seguridad confirmadas son: [INTRODUCIR LAS MEDIDAS DE SEGURIDAD]. Las categorías de cookies, las herramientas de analítica, las opciones de consentimiento y la conservación se describen en [INTRODUCIR LA POLÍTICA DE COOKIES / LOS DETALLES DEL CONSENTIMIENTO]. Configuración actual de analítica y etiquetas: [INTRODUCIR LAS PRÁCTICAS CONFIRMADAS].",
   },
   {
-    title: "Kaebused, muudatused ja kontakt",
-    body: "Küsimused või taotlused võib saata aadressile [SISESTA PRIVAATSUSE E-POST]. Samuti võite pöörduda pädeva järelevalveasutuse poole: [SISESTA JÄRELEVALVEASUTUS JA KONTAKTANDMED]. Jõustumiskuupäev: [SISESTA JÕUSTUMISKUUPÄEV]. Viimati uuendatud: [SISESTA UUENDAMISE KUUPÄEV]. See kavand vajab enne avaldamist õiguslikku ja töökorralduslikku ülevaatust, sealhulgas kõigi nurksulgudes olevate andmete kinnitamist.",
+    title: "Reclamaciones, cambios y contacto",
+    body: "Las preguntas o solicitudes pueden enviarse a [INTRODUCIR EL EMAIL DE PRIVACIDAD]. También puedes dirigirte a la autoridad de control competente: [INTRODUCIR LA AUTORIDAD Y LOS DATOS DE CONTACTO]. Fecha de entrada en vigor: [INTRODUCIR LA FECHA]. Última actualización: [INTRODUCIR LA FECHA DE ACTUALIZACIÓN]. Este borrador requiere revisión jurídica y operativa antes de su publicación, incluida la confirmación de todos los datos entre corchetes.",
   },
 ];
 

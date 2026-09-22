@@ -6,10 +6,10 @@ export const Route = createFileRoute("/(layout)/news")({
   component: NewsPage,
   head: () => ({
     meta: [
-      { title: "Uudised | BRICKINVEST" },
+      { title: "Noticias | BRICKINVEST" },
       {
         name: "description",
-        content: "Lugege BRICKINVESTi viimaseid artikleid.",
+        content: "Lee las últimas noticias y artículos de BRICKINVEST.",
       },
     ],
   }),

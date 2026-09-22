@@ -8,5 +8,5 @@ export const useProfileQuery = () => useApiQuery(profileQueryKey, getProfile);
 
 export const useProfileMutation = () =>
   useApiMutation(updateProfile, {
-    successMessage: "Profiili muudatused on salvestatud.",
+    successMessage: "Los cambios del perfil se han guardado.",
   });

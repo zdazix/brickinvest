@@ -7,7 +7,9 @@ describe("privacy API", () => {
     const response = await getPrivacySections(new AbortController().signal);
 
     expect(response.data).toHaveLength(10);
-    expect(response.data[0]?.title).toBe("Vastutav töötleja");
-    expect(response.data.at(-1)?.title).toBe("Kaebused, muudatused ja kontakt");
+    expect(response.data[0]?.title).toBe("Responsable del tratamiento");
+    expect(response.data.at(-1)?.title).toBe(
+      "Reclamaciones, cambios y contacto",
+    );
   });
 });

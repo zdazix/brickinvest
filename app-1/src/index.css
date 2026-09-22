@@ -157,6 +157,10 @@
   .investment-title-et {
     font-size: clamp(1.2rem, 6.5vw, 3.3rem);
   }
+
+  .investment-title-es {
+    font-size: clamp(1.2rem, 6.8vw, 3.3rem);
+  }
 }
 
 @media (min-width: 640px) {

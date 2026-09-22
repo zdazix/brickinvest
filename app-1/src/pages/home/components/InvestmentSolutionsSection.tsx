@@ -7,7 +7,8 @@ import { trackEvent } from "@/lib/analytics";
 
 export const InvestmentSolutionsSection = () => {
   const { locale, t } = useLocale();
-  const isLongInvestmentLocale = locale === "de" || locale === "et";
+  const isLongInvestmentLocale =
+    locale === "de" || locale === "et" || locale === "es";
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "success">("idle");
@@ -37,7 +38,7 @@ export const InvestmentSolutionsSection = () => {
             firstName: name,
             email: isEmail ? contact : undefined,
             phone: isEmail ? undefined : contact,
-            source: "Investeerimislahenduste vorm",
+            source: "Formulario de soluciones de inversión",
           }),
         },
       );
@@ -74,7 +75,7 @@ export const InvestmentSolutionsSection = () => {
           <h2
             className={`section-title ${
               isLongInvestmentLocale
-                ? `investment-locale-title ${locale === "et" ? "investment-title-et" : ""}`
+                ? `investment-locale-title ${locale === "et" ? "investment-title-et" : locale === "es" ? "investment-title-es" : ""}`
                 : locale === "sv"
                   ? "!text-[clamp(2rem,3.3vw,3.1rem)] break-words"
                   : ""
@@ -91,12 +92,18 @@ export const InvestmentSolutionsSection = () => {
             ) : isLongInvestmentLocale ? (
               <>
                 <span className="block whitespace-nowrap">
-                  {locale === "et" ? "INDIVIDUAALSED" : "INDIVIDUELLE"}
+                  {locale === "et"
+                    ? "INDIVIDUAALSED"
+                    : locale === "es"
+                      ? "SOLUCIONES DE"
+                      : "INDIVIDUELLE"}
                 </span>
                 <span className="block whitespace-nowrap">
                   {locale === "et"
                     ? "INVESTEERIMISLAHENDUSED"
-                    : "INVESTMENTLÖSUNGEN"}
+                    : locale === "es"
+                      ? "INVERSIÓN PERSONALIZADAS"
+                      : "INVESTMENTLÖSUNGEN"}
                 </span>
               </>
             ) : (

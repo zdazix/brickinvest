@@ -6,11 +6,11 @@ export const Route = createFileRoute("/(layout)/terms-and-conditions")({
   component: TermsAndConditionsPage,
   head: () => ({
     meta: [
-      { title: "Kasutustingimused | BRICKINVEST" },
+      { title: "Términos y condiciones | BRICKINVEST" },
       {
         name: "description",
         content:
-          "BRICKINVEST.ESi kasutustingimused, mida haldab Hispaanias tegutsev Unicom Innovaciones S.L.",
+          "Términos y condiciones de BRICKINVEST.ES, gestionados por Unicom Innovaciones S.L. en España.",
       },
     ],
   }),

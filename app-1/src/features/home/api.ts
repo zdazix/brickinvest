@@ -25,33 +25,43 @@ export type HomeContent = {
 const homeContent: HomeContent = {
   image: placeholderImage,
   features: [
-    ["Projekti eelis", "Selge strateegia ja kontroll igas etapis."],
-    ["Projekti eelis", "Turu ja investeerimispotentsiaali põhjalik analüüs."],
-    ["Projekti eelis", "Usaldusväärsed partnerid ja personaalne tugi."],
-    ["Projekti eelis", "Läbipaistev tugi esimesest vestlusest tehingu lõpuni."],
+    ["Ventaja del proyecto", "Estrategia clara y control en cada etapa."],
+    [
+      "Ventaja del proyecto",
+      "Análisis profundo del mercado y del potencial de inversión.",
+    ],
+    ["Ventaja del proyecto", "Socios de confianza y apoyo personalizado."],
+    [
+      "Ventaja del proyecto",
+      "Acompañamiento transparente desde la primera conversación hasta el cierre.",
+    ],
   ],
-  collectionCards: ["Valitud võimalus", "Valitud võimalus", "Valitud võimalus"],
+  collectionCards: [
+    "Oportunidad seleccionada",
+    "Oportunidad seleccionada",
+    "Oportunidad seleccionada",
+  ],
   editorialCards: [
     {
-      eyebrow: "BRICKINVESTi LÄHENEMINE",
-      title: "Andmepõhised otsused",
+      eyebrow: "EL ENFOQUE DE BRICKINVEST",
+      title: "Decisiones basadas en datos",
       description:
-        "Ühendame kohaliku teadmise, analüüsi ja praktilise teostuse, et iga soovitus oleks arusaadav ja põhjendatud.",
+        "Combinamos conocimiento local, análisis y ejecución práctica para que cada recomendación sea clara y esté fundamentada.",
     },
     {
-      eyebrow: "INVESTEERIMISSTRATEEGIA",
-      title: "Selge perspektiiviga võimalused",
+      eyebrow: "ESTRATEGIA DE INVERSIÓN",
+      title: "Oportunidades con una perspectiva clara",
       description:
-        "Krundist valmis objektini aitame hinnata riske, potentsiaali ja teie kapitali järgmist sammu.",
+        "Desde una parcela hasta un activo terminado, ayudamos a evaluar los riesgos, el potencial y el siguiente paso para tu capital.",
     },
   ],
   reviews: Array.from({ length: 6 }, (_, index) => ({
     quote:
       index === 0
-        ? "Professionaalne lähenemine, selge suhtlus ja põhjalik kohaliku turu tundmine."
-        : `Investor tõstab esile BRICKINVESTi eelise nr ${index + 1}.`,
+        ? "Un enfoque profesional, una comunicación clara y un profundo conocimiento del mercado local."
+        : `Un inversor destaca la ventaja de BRICKINVEST n.º ${index + 1}.`,
     customer: `Investor 0${index + 1}`,
-    detail: "BRICKINVESTi klient",
+    detail: "Cliente de BRICKINVEST",
     image: placeholderImage,
   })),
 };

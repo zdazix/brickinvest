@@ -705,6 +705,12 @@ const translations: Record<LocaleKey, Dictionary> = {
       "Tu socio de confianza para el desarrollo y la inversión en la Costa del Sol.",
     highRoi: "Oportunidades inmobiliarias de alta rentabilidad",
     qualification: "Cualificación del inversor",
+    requestReceived: "Solicitud recibida",
+    preparing: "Estamos preparando tus oportunidades.",
+    advisor:
+      "Un asesor de BRICKINVEST se pondrá en contacto contigo con una selección cuidadosamente estudiada.",
+    email: "Correo electrónico",
+    send: "ENVIANDO…",
     details: "DATOS",
     firstName: "Nombre",
     phone: "Teléfono con prefijo internacional",
@@ -849,6 +855,7 @@ const translations: Record<LocaleKey, Dictionary> = {
     consultationSending: "Enviando…",
     consultationRequest: "SOLICITAR",
     consultationSuccess: "Gracias. Hemos recibido tu solicitud de consulta.",
+    translationComingSoon: "Traducción próximamente",
     optionOpportunity: "¿Qué estás buscando?",
     optionInvestmentProperty: "Inmueble de inversión",
     optionDevelopmentOpportunity: "Oportunidad de desarrollo",
@@ -1761,7 +1768,7 @@ const LocaleContext = createContext<LocaleContextValue | null>(null);
 
 export const LocaleProvider = ({ children }: PropsWithChildren) => {
   const [locale, setLocaleState] = useState<LocaleKey>(() => {
-    return "et";
+    return "es";
   });
   const setLocale = (next: LocaleKey) => {
     setLocaleState(next);

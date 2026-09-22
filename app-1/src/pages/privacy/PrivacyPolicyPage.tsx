@@ -2,7 +2,6 @@ import { Link } from "@tanstack/react-router";
 import { useEffect } from "react";
 
 import { PageIntro } from "@/components/ui/PageIntro";
-import { estonianPrivacySections } from "@/lib/estonian-legal";
 import { useLocale } from "@/lib/i18n";
 
 type PrivacySection = {
@@ -403,9 +402,9 @@ void [
 export const PrivacyPolicyPage = () => {
   const { t } = useLocale();
   useEffect(() => {
-    document.title = "Privaatsuspoliitika | BRICKINVEST";
+    document.title = "Política de privacidad | BRICKINVEST";
   }, []);
-  const sections = estonianPrivacySections;
+  const sections = spanishPrivacySections;
   return (
     <main
       className="grain-surface min-h-dvh bg-background px-5 pt-24 pb-16 sm:px-8 lg:px-12 lg:pt-28 lg:pb-24"
