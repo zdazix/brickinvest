@@ -167,6 +167,11 @@
     max-width: 100%;
     font-size: clamp(1.15rem, 6.4vw, 3.3rem);
   }
+
+  .investment-title-pl-line:not(:first-child) {
+    display: inline;
+    white-space: normal;
+  }
 }
 
 @media (min-width: 640px) {

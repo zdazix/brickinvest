@@ -90,26 +90,36 @@ export const InvestmentSolutionsSection = () => {
                 INVESTERINGSLÖSNINGAR
               </>
             ) : isLongInvestmentLocale ? (
-              <>
-                <span className="block whitespace-nowrap">
-                  {locale === "et"
-                    ? "INDIVIDUAALSED"
-                    : locale === "es"
-                      ? "SOLUCIONES DE"
-                      : locale === "pl"
-                        ? "INDYWIDUALNE"
-                      : "INDIVIDUELLE"}
-                </span>{" "}
-                <span className="block whitespace-nowrap">
-                  {locale === "et"
-                    ? "INVESTEERIMISLAHENDUSED"
-                    : locale === "es"
-                      ? "INVERSIÓN PERSONALIZADAS"
-                      : locale === "pl"
-                        ? "ROZWIĄZANIA INWESTYCYJNE"
-                      : "INVESTMENTLÖSUNGEN"}
-                </span>
-              </>
+              locale === "pl" ? (
+                <>
+                  <span className="investment-title-pl-line block whitespace-nowrap">
+                    INDYWIDUALNE
+                  </span>{" "}
+                  <span className="investment-title-pl-line block whitespace-nowrap">
+                    ROZWIĄZANIA
+                  </span>{" "}
+                  <span className="investment-title-pl-line block whitespace-nowrap">
+                    INWESTYCYJNE
+                  </span>
+                </>
+              ) : (
+                <>
+                  <span className="block whitespace-nowrap">
+                    {locale === "et"
+                      ? "INDIVIDUAALSED"
+                      : locale === "es"
+                        ? "SOLUCIONES DE"
+                        : "INDIVIDUELLE"}
+                  </span>{" "}
+                  <span className="block whitespace-nowrap">
+                    {locale === "et"
+                      ? "INVESTEERIMISLAHENDUSED"
+                      : locale === "es"
+                        ? "INVERSIÓN PERSONALIZADAS"
+                        : "INVESTMENTLÖSUNGEN"}
+                  </span>
+                </>
+              )
             ) : (
               t("investmentHeading")
             )}
