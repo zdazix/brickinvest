@@ -33,7 +33,13 @@ export const ServicesSection = () => {
                   className="grid min-h-32 grid-cols-[minmax(0,1fr)_minmax(0,1fr)] items-start gap-4 border-b border-border/30 py-8 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] lg:gap-7"
                   key={title}
                 >
-                  <h3 className="subsection-title min-w-0 [overflow-wrap:anywhere]">
+                  <h3
+                    className={`subsection-title min-w-0 ${
+                      title === "serviceLand"
+                        ? "text-[clamp(1rem,5.4vw,2.15rem)] whitespace-nowrap"
+                        : "[overflow-wrap:anywhere]"
+                    }`}
+                  >
                     {t(title)}
                   </h3>
                   <p className="body-copy min-w-0">{t(body)}</p>
