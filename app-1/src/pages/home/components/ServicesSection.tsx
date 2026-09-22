@@ -9,13 +9,6 @@ const services = [
   ["serviceProperty", "servicePropertyBody"],
 ] as const;
 
-const mobileSingleLineServiceTitles = new Set([
-  "serviceLand",
-  "serviceCommercial",
-  "serviceBusiness",
-  "serviceProperty",
-]);
-
 export const ServicesSection = () => {
   const { t } = useLocale();
 
@@ -37,20 +30,10 @@ export const ServicesSection = () => {
             <div className="border-t border-border/30">
               {services.map(([title, body]) => (
                 <article
-                  className={`grid min-h-32 grid-cols-[minmax(0,1fr)_minmax(0,1fr)] items-start gap-4 border-b border-border/30 py-8 lg:gap-7 ${
-                    title === "serviceProperty"
-                      ? "lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]"
-                      : "lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]"
-                  }`}
+                  className="grid min-h-32 grid-cols-1 items-start gap-4 border-b border-border/30 py-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-7"
                   key={title}
                 >
-                  <h3
-                    className={`subsection-title min-w-0 ${
-                      mobileSingleLineServiceTitles.has(title)
-                        ? "text-[clamp(0.78rem,4.5vw,2.15rem)] whitespace-nowrap"
-                        : "[overflow-wrap:anywhere]"
-                    }`}
-                  >
+                  <h3 className="subsection-title min-w-0 whitespace-nowrap">
                     {t(title)}
                   </h3>
                   <p className="body-copy min-w-0">{t(body)}</p>
