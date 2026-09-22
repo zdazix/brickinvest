@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect } from "react";
 
 import { PageIntro } from "@/components/ui/PageIntro";
-import { polishPrivacySections } from "@/lib/polish-legal";
+import { czechPrivacySections } from "@/lib/czech-legal";
 import { useLocale } from "@/lib/i18n";
 
 type PrivacySection = {
@@ -403,9 +403,9 @@ void [
 export const PrivacyPolicyPage = () => {
   const { t } = useLocale();
   useEffect(() => {
-    document.title = "Polityka prywatności | BRICKINVEST";
+    document.title = "Zásady ochrany soukromí | BRICKINVEST";
   }, []);
-  const sections = polishPrivacySections;
+  const sections = czechPrivacySections;
   return (
     <main
       className="grain-surface min-h-dvh bg-background px-5 pt-24 pb-16 sm:px-8 lg:px-12 lg:pt-28 lg:pb-24"

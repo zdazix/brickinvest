@@ -8,7 +8,7 @@ const intelligenceItems = [
 export const IntelligenceSection = () => {
   const { locale, t } = useLocale();
   const isStructuredHeading =
-    locale === "et" || locale === "es" || locale === "pl";
+    locale === "et" || locale === "es" || locale === "pl" || locale === "cs";
 
   return (
     <section
@@ -33,14 +33,18 @@ export const IntelligenceSection = () => {
                       ? "IA E"
                       : locale === "pl"
                         ? "SZTUCZNA INTELIGENCJA"
-                        : "TEHISINTELLEKT JA"}
+                        : locale === "cs"
+                          ? "UMĚLÁ INTELIGENCE"
+                          : "TEHISINTELLEKT JA"}
                   </span>
                   <span className="block whitespace-nowrap">
                     {locale === "es"
                       ? "INTELIGENCIA DE DATOS"
                       : locale === "pl"
                         ? "I INTELIGENCJA DANYCH"
-                        : "ANDMEINTELLIGENTS"}
+                        : locale === "cs"
+                          ? "A DATOVÁ INTELIGENCE"
+                          : "ANDMEINTELLIGENTS"}
                   </span>
                 </>
               ) : (

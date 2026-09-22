@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect } from "react";
 
 import { PageIntro } from "@/components/ui/PageIntro";
-import { polishCookiesSections } from "@/lib/polish-legal";
+import { czechCookiesSections } from "@/lib/czech-legal";
 import { useLocale } from "@/lib/i18n";
 
 type CookiesSection = {
@@ -396,9 +396,9 @@ void [
 export const CookiesPolicyPage = () => {
   const { t } = useLocale();
   useEffect(() => {
-    document.title = "Polityka cookies | BRICKINVEST";
+    document.title = "Zásady cookies | BRICKINVEST";
   }, []);
-  const sections = polishCookiesSections;
+  const sections = czechCookiesSections;
   return (
     <main
       className="grain-surface min-h-dvh bg-background px-5 pt-24 pb-16 sm:px-8 lg:px-12 lg:pt-28 lg:pb-24"

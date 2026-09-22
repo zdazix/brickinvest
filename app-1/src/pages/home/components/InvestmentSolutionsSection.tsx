@@ -8,7 +8,11 @@ import { trackEvent } from "@/lib/analytics";
 export const InvestmentSolutionsSection = () => {
   const { locale, t } = useLocale();
   const isLongInvestmentLocale =
-    locale === "de" || locale === "et" || locale === "es" || locale === "pl";
+    locale === "de" ||
+    locale === "et" ||
+    locale === "es" ||
+    locale === "pl" ||
+    locale === "cs";
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "success">("idle");
@@ -38,7 +42,7 @@ export const InvestmentSolutionsSection = () => {
             firstName: name,
             email: isEmail ? contact : undefined,
             phone: isEmail ? undefined : contact,
-            source: "Formulario de soluciones de inversión",
+            source: "Formulář investičních řešení",
           }),
         },
       );
@@ -75,7 +79,7 @@ export const InvestmentSolutionsSection = () => {
           <h2
             className={`section-title ${
               isLongInvestmentLocale
-                ? `investment-locale-title ${locale === "et" ? "investment-title-et" : locale === "es" ? "investment-title-es" : locale === "pl" ? "investment-title-pl" : ""}`
+                ? `investment-locale-title ${locale === "et" ? "investment-title-et" : locale === "es" ? "investment-title-es" : locale === "pl" ? "investment-title-pl" : locale === "cs" ? "investment-title-cs" : ""}`
                 : locale === "sv"
                   ? "!text-[clamp(2rem,3.3vw,3.1rem)] break-words"
                   : ""
@@ -100,6 +104,18 @@ export const InvestmentSolutionsSection = () => {
                   </span>{" "}
                   <span className="investment-title-pl-line block whitespace-nowrap">
                     INWESTYCYJNE
+                  </span>
+                </>
+              ) : locale === "cs" ? (
+                <>
+                  <span className="investment-title-cs-line block whitespace-nowrap">
+                    INDIVIDUÁLNÍ
+                  </span>{" "}
+                  <span className="investment-title-cs-line block whitespace-nowrap">
+                    INVESTIČNÍ
+                  </span>{" "}
+                  <span className="investment-title-cs-line block whitespace-nowrap">
+                    ŘEŠENÍ
                   </span>
                 </>
               ) : (

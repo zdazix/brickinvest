@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect } from "react";
 
 import { PageIntro } from "@/components/ui/PageIntro";
-import { polishTermsSections } from "@/lib/polish-legal";
+import { czechTermsSections } from "@/lib/czech-legal";
 import { useLocale } from "@/lib/i18n";
 
 type TermsSection = {
@@ -448,9 +448,9 @@ void [
 export const TermsAndConditionsPage = () => {
   const { t } = useLocale();
   useEffect(() => {
-    document.title = "Warunki korzystania | BRICKINVEST";
+    document.title = "Obchodní podmínky | BRICKINVEST";
   }, []);
-  const sections = polishTermsSections;
+  const sections = czechTermsSections;
   return (
     <main
       className="grain-surface min-h-dvh bg-background px-5 pt-24 pb-16 sm:px-8 lg:px-12 lg:pt-28 lg:pb-24"

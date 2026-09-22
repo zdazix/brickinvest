@@ -11,7 +11,7 @@ import {
   startOfMonth,
   startOfWeek,
 } from "date-fns";
-import { pl as polishDateLocale } from "date-fns/locale";
+import { cs as czechDateLocale } from "date-fns/locale";
 import { CalendarDays, ChevronLeft, ChevronRight } from "lucide-react";
 import { Popover } from "radix-ui";
 import { useMemo, useState } from "react";
@@ -29,7 +29,7 @@ type DatePickerProps = {
   readonly value?: string;
 };
 
-const weekdays = ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"];
+const weekdays = ["Ne", "Po", "Út", "St", "Čt", "Pá", "So"];
 
 const parseDate = (value?: string) => {
   if (!value) return undefined;
@@ -55,9 +55,9 @@ export const DatePicker = ({
     () =>
       eachDayOfInterval({
         start: startOfWeek(startOfMonth(viewMonth), {
-          locale: polishDateLocale,
+          locale: czechDateLocale,
         }),
-        end: endOfWeek(endOfMonth(viewMonth), { locale: polishDateLocale }),
+        end: endOfWeek(endOfMonth(viewMonth), { locale: czechDateLocale }),
       }),
     [viewMonth],
   );
@@ -88,7 +88,7 @@ export const DatePicker = ({
             {selectedDate ? (
               <NumericText>
                 {format(selectedDate, "d. MMM yyyy", {
-                  locale: polishDateLocale,
+                  locale: czechDateLocale,
                 })}
               </NumericText>
             ) : (
@@ -119,7 +119,7 @@ export const DatePicker = ({
             </button>
             <p aria-live="polite" className="text-[13px] font-bold">
               <NumericText>
-                {format(viewMonth, "MMMM yyyy", { locale: polishDateLocale })}
+                {format(viewMonth, "MMMM yyyy", { locale: czechDateLocale })}
               </NumericText>
             </p>
             <button
@@ -145,7 +145,7 @@ export const DatePicker = ({
               return (
                 <button
                   aria-label={format(day, "d. MMMM yyyy", {
-                    locale: polishDateLocale,
+                    locale: czechDateLocale,
                   })}
                   aria-pressed={Boolean(selected)}
                   className={[

@@ -9,7 +9,7 @@ export const Route = createFileRoute("/(layout)/contact")({
       { title: "Kontakt | BRICKINVEST" },
       {
         name: "description",
-        content: "Skontaktuj się z zespołem BRICKINVEST.",
+        content: "Kontaktujte tým BRICKINVEST.",
       },
     ],
   }),

@@ -94,7 +94,11 @@ export const SiteHeader = () => {
   const selectedLocale =
     locales.find((item) => item.key === locale) ?? locales[0];
   const isCompactLocale =
-    locale === "sv" || locale === "et" || locale === "es" || locale === "pl";
+    locale === "sv" ||
+    locale === "et" ||
+    locale === "es" ||
+    locale === "pl" ||
+    locale === "cs";
   const closeMenu = () => setIsMenuOpen(false);
   return (
     <>
@@ -147,12 +151,9 @@ export const SiteHeader = () => {
                   {languageMenuLocales.map((item) => (
                     <button
                       aria-checked={item.key === locale}
-                      aria-disabled={item.key === "cs"}
-                      className={`flex w-full items-center rounded-sm px-2.5 py-1.5 text-left text-[14px] leading-4 transition-colors ${item.key === "cs" ? "cursor-not-allowed text-surface/45" : "text-surface/90 hover:bg-primary/15 hover:text-surface focus-visible:bg-primary/15 active:bg-primary/15 active:text-primary"}`}
-                      disabled={item.key === "cs"}
+                      className="flex w-full items-center rounded-sm px-2.5 py-1.5 text-left text-[14px] leading-4 text-surface/90 transition-colors hover:bg-primary/15 hover:text-surface focus-visible:bg-primary/15 active:bg-primary/15 active:text-primary"
                       key={item.key}
                       onClick={() => {
-                        if (item.key === "cs") return;
                         setLocale(item.key as LocaleKey);
                         if (item.key !== locale) {
                           trackEvent("language_change", { language: item.key });
@@ -174,7 +175,7 @@ export const SiteHeader = () => {
           </div>
           <nav
             aria-label={t("primaryNavigation")}
-            className={`site-header-nav hidden min-w-0 flex-1 grid-cols-7 items-center xl:grid ${locale === "et" || locale === "es" || locale === "pl" ? "et-header-nav" : ""} ${isCompactLocale ? "gap-x-1 2xl:gap-x-3" : "gap-x-2 2xl:gap-x-4"}`}
+            className={`site-header-nav hidden min-w-0 flex-1 grid-cols-7 items-center xl:grid ${locale === "et" || locale === "es" || locale === "pl" || locale === "cs" ? "et-header-nav" : ""} ${isCompactLocale ? "gap-x-1 2xl:gap-x-3" : "gap-x-2 2xl:gap-x-4"}`}
           >
             {navigation.map(({ href, key }) => (
               <a
@@ -291,12 +292,9 @@ export const SiteHeader = () => {
                   {languageMenuLocales.map((item) => (
                     <button
                       aria-checked={item.key === locale}
-                      aria-disabled={item.key === "cs"}
-                      className={`flex w-full items-center rounded-sm px-2.5 py-1.5 text-left font-secondary text-[12px] leading-4 transition-colors ${item.key === "cs" ? "cursor-not-allowed text-white/45" : "text-white/90 hover:bg-primary/15 hover:text-white focus-visible:bg-primary/15 active:bg-primary/15 active:text-primary"}`}
-                      disabled={item.key === "cs"}
+                      className="flex w-full items-center rounded-sm px-2.5 py-1.5 text-left font-secondary text-[12px] leading-4 text-white/90 transition-colors hover:bg-primary/15 hover:text-white focus-visible:bg-primary/15 active:bg-primary/15 active:text-primary"
                       key={item.key}
                       onClick={() => {
-                        if (item.key === "cs") return;
                         setLocale(item.key as LocaleKey);
                         if (item.key !== locale) {
                           trackEvent("language_change", { language: item.key });

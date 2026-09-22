@@ -6,11 +6,11 @@ export const Route = createFileRoute("/(layout)/cookies")({
   component: CookiesPolicyPage,
   head: () => ({
     meta: [
-      { title: "Polityka cookies | BRICKINVEST" },
+      { title: "Zásady cookies | BRICKINVEST" },
       {
         name: "description",
         content:
-          "Polityka cookies BRICKINVEST i wykorzystanie podobnych technologii.",
+          "Zásady cookies BRICKINVEST a používání podobných technologií.",
       },
     ],
   }),

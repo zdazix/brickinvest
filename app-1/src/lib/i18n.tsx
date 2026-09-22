@@ -8,6 +8,7 @@ import {
 } from "react";
 
 import { estonian } from "@/lib/estonian";
+import { czech } from "@/lib/czech";
 import { polish } from "@/lib/polish";
 
 export const locales = [
@@ -19,12 +20,10 @@ export const locales = [
   { code: "DE", flag: "🇩🇪", key: "de", label: "Deutsch" },
   { code: "EE", flag: "🇪🇪", key: "et", label: "Eesti" },
   { code: "PL", flag: "🇵🇱", key: "pl", label: "Polski" },
-] as const;
-
-export const languageMenuLocales = [
-  ...locales,
   { code: "CZ", flag: "🇨🇿", key: "cs", label: "Čeština" },
 ] as const;
+
+export const languageMenuLocales = locales;
 
 export type LocaleKey = (typeof locales)[number]["key"];
 type Dictionary = Record<string, string>;
@@ -1748,6 +1747,9 @@ const translations: Record<LocaleKey, Dictionary> = {
   pl: {
     ...polish,
   },
+  cs: {
+    ...czech,
+  },
 };
 
 type LocaleContextValue = {
@@ -1759,7 +1761,7 @@ const LocaleContext = createContext<LocaleContextValue | null>(null);
 
 export const LocaleProvider = ({ children }: PropsWithChildren) => {
   const [locale, setLocaleState] = useState<LocaleKey>(() => {
-    return "pl";
+    return "cs";
   });
   const setLocale = (next: LocaleKey) => {
     setLocaleState(next);

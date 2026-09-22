@@ -172,6 +172,16 @@
     display: inline;
     white-space: normal;
   }
+
+  .investment-title-cs {
+    max-width: 100%;
+    font-size: clamp(1.15rem, 6.4vw, 3.3rem);
+  }
+
+  .investment-title-cs-line:not(:first-child) {
+    display: inline;
+    white-space: normal;
+  }
 }
 
 @media (min-width: 640px) {

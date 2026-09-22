@@ -10,44 +10,44 @@ export type PrivacySection = {
 
 const privacySections: readonly PrivacySection[] = [
   {
-    title: "Administrator danych",
-    body: "Niniejsza polityka prywatności dotyczy BRICKINVEST i tej strony internetowej. Administratorem danych jest [UZUPEŁNIJ PODMIOT PRAWNY BRICKINVEST]. Siedziba: [UZUPEŁNIJ ADRES SIEDZIBY]. Numer rejestrowy lub podatkowy: [UZUPEŁNIJ NUMER]. Kontakt w sprawach prywatności: [UZUPEŁNIJ E-MAIL]. Telefon: [UZUPEŁNIJ TELEFON].",
+    title: "Správce údajů",
+    body: "Tyto zásady ochrany soukromí se vztahují na BRICKINVEST a tento web. Správcem údajů je [DOPLŇTE PRÁVNÍ SUBJEKT BRICKINVEST]. Sídlo: [DOPLŇTE ADRESU SÍDLA]. Registrační nebo daňové číslo: [DOPLŇTE ČÍSLO]. Kontakt pro ochranu soukromí: [DOPLŇTE E-MAIL]. Telefon: [DOPLŇTE TELEFON].",
   },
   {
-    title: "Zgoda i niniejsza polityka",
-    body: "Korzystając ze strony lub przesyłając informacje, potwierdzasz zapoznanie się z polityką. Gdy jest to wymagane, BRICKINVEST poprosi o zgodę przed odpowiednim przetwarzaniem. Komunikacja marketingowa, cookies, analityka i inne działania oparte na zgodzie będą prowadzone zgodnie z wyborem zapisanym przez [UZUPEŁNIJ MECHANIZM ZGODY]. Zgodę można wycofać w dowolnym momencie poprzez [UZUPEŁNIJ PROCEDURĘ WYCOFANIA].",
+    title: "Souhlas a tyto zásady",
+    body: "Používáním webu nebo odesláním informací potvrzujete, že jste se se zásadami seznámili. Pokud je to nutné, BRICKINVEST si před příslušným zpracováním vyžádá souhlas. Marketingová komunikace, cookies, analytika a další činnosti založené na souhlasu se řídí volbou zaznamenanou prostřednictvím [DOPLŇTE MECHANISMUS SOUHLASU]. Souhlas lze kdykoli odvolat prostřednictvím [DOPLŇTE POSTUP ODVOLÁNÍ].",
   },
   {
-    title: "Żądane i zbierane informacje",
-    body: "W zależności od sposobu korzystania z BRICKINVEST dane mogą obejmować dane kontaktowe, treść zapytania, preferencje inwestycyjne, informacje o korzystaniu ze strony, dane urządzenia, logi i dane dotyczące zgody. Dokładne pola i źródła zbierania danych to: [UZUPEŁNIJ POTWIERDZONE KATEGORIE I ŹRÓDŁA]. Nie przesyłaj informacji zbędnych dla Twojego zapytania.",
+    title: "Požadované a shromažďované informace",
+    body: "V závislosti na používání BRICKINVEST mohou údaje zahrnovat kontaktní údaje, obsah dotazu, investiční preference, informace o používání webu, údaje o zařízení, logy a údaje o souhlasu. Přesná pole a zdroje jsou: [DOPLŇTE POTVRZENÉ KATEGORIE A ZDROJE]. Neodesílejte informace, které pro váš dotaz nejsou potřebné.",
   },
   {
-    title: "Cele przetwarzania",
-    body: "BRICKINVEST może przetwarzać informacje w celu odpowiadania na zapytania, oceny i przedstawiania odpowiednich możliwości nieruchomościowych lub inwestycyjnych, świadczenia zamówionych usług, obsługi i ochrony strony, zarządzania danymi, wypełniania obowiązków prawnych oraz pomiaru działania strony, gdy jest to dozwolone. Dodatkowe operacje przetwarzania: [UZUPEŁNIJ POTWIERDZONE OPERACJE].",
+    title: "Účely zpracování",
+    body: "BRICKINVEST může informace zpracovávat za účelem odpovědí na dotazy, posouzení a představení vhodných realitních nebo investičních příležitostí, poskytování objednaných služeb, provozu a ochrany webu, správy údajů, plnění právních povinností a měření výkonu webu, pokud je to dovoleno. Další operace zpracování: [DOPLŇTE POTVRZENÉ OPERACE].",
   },
   {
-    title: "Podstawa prawna",
-    body: "Podstawą prawną poszczególnych działań może być zgoda, działania podjęte na Twoje żądanie, wykonanie umowy, obowiązek prawny lub prawnie uzasadniony interes, który nie przeważa nad Twoimi prawami. BRICKINVEST musi uzupełnić tę mapę przed publikacją: [UZUPEŁNIJ TABELĘ OPERACJI I PODSTAW PRAWNYCH].",
+    title: "Právní základ",
+    body: "Právním základem jednotlivých činností může být souhlas, kroky provedené na vaši žádost, plnění smlouvy, právní povinnost nebo oprávněný zájem, který nepřevažuje nad vašimi právy. BRICKINVEST musí před zveřejněním doplnit tuto mapu: [DOPLŇTE TABULKU OPERACÍ A PRÁVNÍCH ZÁKLADŮ].",
   },
   {
-    title: "Okres przechowywania",
-    body: "Informacje będą przechowywane wyłącznie przez czas potrzebny do realizacji odpowiedniego celu oraz przez obowiązujące okresy prawne, księgowe, procesowe lub przedawnienia. Szczegółowe okresy lub kryteria dla poszczególnych kategorii to: [UZUPEŁNIJ POTWIERDZONE OKRESY PRZECHOWYWANIA].",
+    title: "Doba uchování",
+    body: "Informace budou uchovávány pouze po dobu potřebnou pro příslušný účel a po dobu vyžadovanou právními, účetními, procesními nebo promlčecími lhůtami. Konkrétní lhůty nebo kritéria pro jednotlivé kategorie jsou: [DOPLŇTE POTVRZENÉ DOBY UCHOVÁVÁNÍ].",
   },
   {
-    title: "Odbiorcy i transfery międzynarodowe",
-    body: "Informacje mogą być udostępniane dostawcom działającym zgodnie z instrukcjami BRICKINVEST oraz, gdy jest to konieczne lub dozwolone, organom i profesjonalnym doradcom. Kategorie podmiotów przetwarzających i dostawców chmurowych to: [UZUPEŁNIJ POTWIERDZONYCH DOSTAWCÓW]. Transfery międzynarodowe i zabezpieczenia to: [UZUPEŁNIJ POTWIERDZONE KRAJE I ZABEZPIECZENIA].",
+    title: "Příjemci a mezinárodní přenosy",
+    body: "Informace mohou být sdíleny s dodavateli jednajícími podle pokynů BRICKINVEST a v nezbytných či povolených případech s úřady nebo odbornými poradci. Kategorie zpracovatelů a cloudových dodavatelů jsou: [DOPLŇTE POTVRZENÉ DODAVATELE]. Mezinárodní přenosy a záruky jsou: [DOPLŇTE POTVRZENÉ ZEMĚ A ZÁRUKY].",
   },
   {
-    title: "Twoje prawa",
-    body: "Zgodnie z obowiązującym prawem możesz żądać dostępu do danych, ich sprostowania lub usunięcia, ograniczenia i przenoszenia, sprzeciwić się przetwarzaniu oraz wycofać zgodę. Wnioski należy kierować na [UZUPEŁNIJ E-MAIL LUB SPOSÓB REALIZACJI PRAW]. BRICKINVEST może poprosić o [UZUPEŁNIJ WYMÓG WERYFIKACJI TOŻSAMOŚCI] w celu ochrony danych osobowych. Terminy i ograniczenia odpowiedzi wynikają z obowiązujących przepisów.",
+    title: "Vaše práva",
+    body: "Podle platných právních předpisů můžete požádat o přístup k údajům, jejich opravu nebo výmaz, omezení a přenositelnost, vznést námitku proti zpracování a odvolat souhlas. Žádosti posílejte na [DOPLŇTE E-MAIL NEBO ZPŮSOB UPLATNĚNÍ PRÁV]. BRICKINVEST může požádat o [DOPLŇTE POŽADAVEK OVĚŘENÍ TOTOŽNOSTI] za účelem ochrany osobních údajů. Lhůty a omezení odpovědi se řídí platnými právními předpisy.",
   },
   {
-    title: "Bezpieczeństwo, cookies i analityka",
-    body: "BRICKINVEST stosuje odpowiednie środki organizacyjne i techniczne w celu ochrony informacji. Potwierdzone środki bezpieczeństwa to: [UZUPEŁNIJ ŚRODKI BEZPIECZEŃSTWA]. Kategorie cookies, narzędzia analityczne, opcje zgody i okresy przechowywania opisano w [UZUPEŁNIJ POLITYKĘ COOKIES / SZCZEGÓŁY ZGODY]. Aktualna konfiguracja analityki i tagów: [UZUPEŁNIJ POTWIERDZONE PRAKTYKI].",
+    title: "Bezpečnost, cookies a analytika",
+    body: "BRICKINVEST používá vhodná organizační a technická opatření k ochraně informací. Potvrzená bezpečnostní opatření jsou: [DOPLŇTE BEZPEČNOSTNÍ OPATŘENÍ]. Kategorie cookies, analytické nástroje, možnosti souhlasu a uchovávání jsou popsány v [DOPLŇTE ZÁSADY COOKIES / PODROBNOSTI SOUHLASU]. Aktuální nastavení analytiky a tagů: [DOPLŇTE POTVRZENÉ POSTUPY].",
   },
   {
-    title: "Skargi, zmiany i kontakt",
-    body: "Pytania lub wnioski można przesyłać na [UZUPEŁNIJ E-MAIL DOTYCZĄCY PRYWATNOŚCI]. Możesz również skontaktować się z właściwym organem nadzorczym: [UZUPEŁNIJ ORGAN I DANE KONTAKTOWE]. Data wejścia w życie: [UZUPEŁNIJ DATĘ]. Ostatnia aktualizacja: [UZUPEŁNIJ DATĘ AKTUALIZACJI]. Ten projekt wymaga przeglądu prawnego i operacyjnego przed publikacją, w tym potwierdzenia wszystkich danych w nawiasach.",
+    title: "Stížnosti, změny a kontakt",
+    body: "Dotazy nebo žádosti lze posílat na [DOPLŇTE E-MAIL PRO OCHRANU SOUKROMÍ]. Obrátit se můžete také na příslušný dozorový úřad: [DOPLŇTE ÚŘAD A KONTAKTNÍ ÚDAJE]. Datum účinnosti: [DOPLŇTE DATUM]. Poslední aktualizace: [DOPLŇTE DATUM AKTUALIZACE]. Tento návrh vyžaduje před zveřejněním právní a provozní kontrolu včetně potvrzení všech údajů v závorkách.",
   },
 ];
 

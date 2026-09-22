@@ -8,5 +8,5 @@ export const useProfileQuery = () => useApiQuery(profileQueryKey, getProfile);
 
 export const useProfileMutation = () =>
   useApiMutation(updateProfile, {
-    successMessage: "Zmiany profilu zostały zapisane.",
+    successMessage: "Změny profilu byly uloženy.",
   });

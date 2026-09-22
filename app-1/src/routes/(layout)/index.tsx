@@ -27,34 +27,34 @@ export const Route = createFileRoute("/(layout)/")({
   head: () => ({
     meta: [
       {
-        title: "BRICKINVEST | Nieruchomości i inwestycje na Costa del Sol",
+        title: "BRICKINVEST | Nemovitosti a investice na Costa del Sol",
       },
       {
         name: "description",
         content:
-          "BRICKINVEST oferuje inwestycje w nieruchomości, projekty deweloperskie i możliwości inwestycyjne na Costa del Sol, w tym w Marbelli, Sotogrande, Esteponie i Maladze.",
+          "BRICKINVEST nabízí investice do nemovitostí, developerské projekty a investiční příležitosti na Costa del Sol včetně Marbelly, Sotogrande, Estepony a Málagy.",
       },
       { name: "robots", content: "index,follow" },
       {
         property: "og:title",
-        content: "BRICKINVEST | Nieruchomości i inwestycje na Costa del Sol",
+        content: "BRICKINVEST | Nemovitosti a investice na Costa del Sol",
       },
       {
         property: "og:description",
         content:
-          "BRICKINVEST oferuje inwestycje w nieruchomości, projekty deweloperskie i możliwości inwestycyjne na Costa del Sol, w tym w Marbelli, Sotogrande, Esteponie i Maladze.",
+          "BRICKINVEST nabízí investice do nemovitostí, developerské projekty a investiční příležitosti na Costa del Sol včetně Marbelly, Sotogrande, Estepony a Málagy.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:locale", content: "pl_PL" },
+      { property: "og:locale", content: "cs_CZ" },
       { name: "twitter:card", content: "summary" },
       {
         name: "twitter:title",
-        content: "BRICKINVEST | Nieruchomości i inwestycje na Costa del Sol",
+        content: "BRICKINVEST | Nemovitosti a investice na Costa del Sol",
       },
       {
         name: "twitter:description",
         content:
-          "BRICKINVEST oferuje inwestycje w nieruchomości, projekty deweloperskie i możliwości inwestycyjne na Costa del Sol, w tym w Marbelli, Sotogrande, Esteponie i Maladze.",
+          "BRICKINVEST nabízí investice do nemovitostí, developerské projekty a investiční příležitosti na Costa del Sol včetně Marbelly, Sotogrande, Estepony a Málagy.",
       },
     ],
     links: canonicalUrl ? [{ rel: "canonical", href: canonicalUrl }] : [],

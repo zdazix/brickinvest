@@ -20,11 +20,11 @@ const articles: readonly NewsArticle[] = Array.from(
   { length: 17 },
   (_, index) => ({
     id: index + 1,
-    category: index % 2 === 0 ? "Rynek" : "Magazyn",
-    date: `${17 - index} września 2026`,
-    title: `Analiza rynku i inwestycji nr ${String(index + 1).padStart(2, "0")}`,
+    category: index % 2 === 0 ? "Trh" : "Magazín",
+    date: `${17 - index}. září 2026`,
+    title: `Analýza trhu a investic č. ${String(index + 1).padStart(2, "0")}`,
     summary:
-      "Krótki opis przedstawia kontekst rynku i najważniejsze czynniki przed lekturą całości.",
+      "Krátký popis představuje kontext trhu a hlavní faktory před přečtením celého článku.",
     image: `${import.meta.env.BASE_URL}images/placeholder.svg`,
   }),
 );

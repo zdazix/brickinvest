@@ -25,38 +25,38 @@ export type HomeContent = {
 const homeContent: HomeContent = {
   image: placeholderImage,
   features: [
-    ["Atut projektu", "Jasna strategia i kontrola na każdym etapie."],
-    ["Atut projektu", "Dogłębna analiza rynku i potencjału inwestycyjnego."],
-    ["Atut projektu", "Zaufani partnerzy i indywidualne wsparcie."],
+    ["Přednost projektu", "Jasná strategie a kontrola v každé fázi."],
+    ["Přednost projektu", "Hloubková analýza trhu a investičního potenciálu."],
+    ["Přednost projektu", "Důvěryhodní partneři a individuální podpora."],
     [
       "Atut projektu",
-      "Przejrzyste wsparcie od pierwszej rozmowy do finalizacji.",
+      "Transparentní podpora od prvního rozhovoru až po dokončení.",
     ],
   ],
   collectionCards: [
-    "Wybrana możliwość",
-    "Wybrana możliwość",
-    "Wybrana możliwość",
+    "Vybraná příležitost",
+    "Vybraná příležitost",
+    "Vybraná příležitost",
   ],
   editorialCards: [
     {
-      eyebrow: "PODEJŚCIE BRICKINVEST",
-      title: "Decyzje oparte na danych",
+      eyebrow: "PŘÍSTUP BRICKINVEST",
+      title: "Rozhodnutí založená na datech",
       description:
-        "Łączymy lokalną wiedzę, analizę i praktyczną realizację, aby każda rekomendacja była jasna i uzasadniona.",
+        "Spojujeme místní znalost, analýzu a praktickou realizaci, aby každé doporučení bylo jasné a podložené.",
     },
     {
-      eyebrow: "STRATEGIA INWESTYCYJNA",
-      title: "Możliwości z jasną perspektywą",
+      eyebrow: "INVESTIČNÍ STRATEGIE",
+      title: "Příležitosti s jasnou perspektivou",
       description:
-        "Od działki po gotowy obiekt pomagamy ocenić ryzyko, potencjał i kolejny krok dla Twojego kapitału.",
+        "Od pozemku po dokončený objekt pomáháme posoudit riziko, potenciál a další krok pro váš kapitál.",
     },
   ],
   reviews: Array.from({ length: 6 }, (_, index) => ({
     quote:
       index === 0
-        ? "Profesjonalne podejście, jasna komunikacja i dogłębna znajomość lokalnego rynku."
-        : `Inwestor podkreśla atut BRICKINVEST nr ${index + 1}.`,
+        ? "Profesionální přístup, jasná komunikace a hluboká znalost místního trhu."
+        : `Investor vyzdvihuje přednost BRICKINVEST č. ${index + 1}.`,
     customer: `Investor 0${index + 1}`,
     detail: "Klient BRICKINVEST",
     image: placeholderImage,

@@ -78,7 +78,7 @@ export const ConsultationProvider = ({ children }: PropsWithChildren) => {
               ? phone
               : `+34${phone.replace(/\D/g, "")}`,
             objective: consultationForm.message.slice(0, 100),
-            source: "Formularz rozwiązań inwestycyjnych",
+              source: "Formulář investičních řešení",
           }),
         },
       );
