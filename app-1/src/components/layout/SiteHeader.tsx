@@ -276,7 +276,7 @@ export const SiteHeader = () => {
               </button>
               {isLanguageOpen && (
                 <div
-                  className="absolute top-[calc(100%+0.45rem)] left-0 z-30 min-w-40 rounded-md border border-white/20 bg-[#20211f] p-1 shadow-lg"
+                  className="relative mt-1 min-w-40 rounded-md border border-white/20 bg-[#20211f] p-1 shadow-lg"
                   role="menu"
                 >
                   {locales.map((item) => (
