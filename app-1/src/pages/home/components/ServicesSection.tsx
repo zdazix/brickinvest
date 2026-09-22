@@ -37,17 +37,17 @@ export const ServicesSection = () => {
             <div className="border-t border-border/30">
               {services.map(([title, body]) => (
                 <article
-                  className="grid min-h-32 grid-cols-[minmax(0,1fr)_minmax(0,1fr)] items-start gap-4 border-b border-border/30 py-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-7"
+                  className={`grid min-h-32 grid-cols-[minmax(0,1fr)_minmax(0,1fr)] items-start gap-4 border-b border-border/30 py-8 lg:gap-7 ${
+                    title === "serviceProperty"
+                      ? "lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]"
+                      : "lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]"
+                  }`}
                   key={title}
                 >
                   <h3
                     className={`subsection-title min-w-0 ${
                       mobileSingleLineServiceTitles.has(title)
-                        ? `text-[clamp(0.78rem,4.5vw,2.15rem)] whitespace-nowrap ${
-                            title === "serviceProperty"
-                              ? "lg:text-[clamp(1.1rem,1.4vw,1.55rem)]"
-                              : ""
-                          }`
+                        ? "text-[clamp(0.78rem,4.5vw,2.15rem)] whitespace-nowrap"
                         : "[overflow-wrap:anywhere]"
                     }`}
                   >
