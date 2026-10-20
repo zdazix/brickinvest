@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as layoutRouteRouteImport } from './routes/(layout)/route'
 import { Route as layoutIndexRouteImport } from './routes/(layout)/index'
+import { Route as layoutLocaleRouteRouteImport } from './routes/(layout)/$locale/route'
 import { Route as layoutContactRouteRouteImport } from './routes/(layout)/contact/route'
 import { Route as layoutCookiesRouteRouteImport } from './routes/(layout)/cookies/route'
 import { Route as layoutCookiesPolicyRouteRouteImport } from './routes/(layout)/cookies-policy/route'
@@ -20,6 +21,16 @@ import { Route as layoutPrivacyPolicyRouteRouteImport } from './routes/(layout)/
 import { Route as layoutProfileRouteRouteImport } from './routes/(layout)/profile/route'
 import { Route as layoutTermsRouteRouteImport } from './routes/(layout)/terms/route'
 import { Route as layoutTermsAndConditionsRouteRouteImport } from './routes/(layout)/terms-and-conditions/route'
+import { Route as layoutLocaleIndexRouteImport } from './routes/(layout)/$locale/index'
+import { Route as layoutLocaleContactRouteRouteImport } from './routes/(layout)/$locale/contact/route'
+import { Route as layoutLocaleCookiesRouteRouteImport } from './routes/(layout)/$locale/cookies/route'
+import { Route as layoutLocaleCookiesPolicyRouteRouteImport } from './routes/(layout)/$locale/cookies-policy/route'
+import { Route as layoutLocaleNewsRouteRouteImport } from './routes/(layout)/$locale/news/route'
+import { Route as layoutLocalePrivacyRouteRouteImport } from './routes/(layout)/$locale/privacy/route'
+import { Route as layoutLocalePrivacyPolicyRouteRouteImport } from './routes/(layout)/$locale/privacy-policy/route'
+import { Route as layoutLocaleProfileRouteRouteImport } from './routes/(layout)/$locale/profile/route'
+import { Route as layoutLocaleTermsRouteRouteImport } from './routes/(layout)/$locale/terms/route'
+import { Route as layoutLocaleTermsAndConditionsRouteRouteImport } from './routes/(layout)/$locale/terms-and-conditions/route'
 
 const layoutRouteRoute = layoutRouteRouteImport.update({
   id: '/(layout)',
@@ -28,6 +39,11 @@ const layoutRouteRoute = layoutRouteRouteImport.update({
 const layoutIndexRoute = layoutIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => layoutRouteRoute,
+} as any)
+const layoutLocaleRouteRoute = layoutLocaleRouteRouteImport.update({
+  id: '/$locale',
+  path: '/$locale',
   getParentRoute: () => layoutRouteRoute,
 } as any)
 const layoutContactRouteRoute = layoutContactRouteRouteImport.update({
@@ -78,8 +94,66 @@ const layoutTermsAndConditionsRouteRoute =
     path: '/terms-and-conditions',
     getParentRoute: () => layoutRouteRoute,
   } as any)
+const layoutLocaleIndexRoute = layoutLocaleIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => layoutLocaleRouteRoute,
+} as any)
+const layoutLocaleContactRouteRoute =
+  layoutLocaleContactRouteRouteImport.update({
+    id: '/contact',
+    path: '/contact',
+    getParentRoute: () => layoutLocaleRouteRoute,
+  } as any)
+const layoutLocaleCookiesRouteRoute =
+  layoutLocaleCookiesRouteRouteImport.update({
+    id: '/cookies',
+    path: '/cookies',
+    getParentRoute: () => layoutLocaleRouteRoute,
+  } as any)
+const layoutLocaleCookiesPolicyRouteRoute =
+  layoutLocaleCookiesPolicyRouteRouteImport.update({
+    id: '/cookies-policy',
+    path: '/cookies-policy',
+    getParentRoute: () => layoutLocaleRouteRoute,
+  } as any)
+const layoutLocaleNewsRouteRoute = layoutLocaleNewsRouteRouteImport.update({
+  id: '/news',
+  path: '/news',
+  getParentRoute: () => layoutLocaleRouteRoute,
+} as any)
+const layoutLocalePrivacyRouteRoute =
+  layoutLocalePrivacyRouteRouteImport.update({
+    id: '/privacy',
+    path: '/privacy',
+    getParentRoute: () => layoutLocaleRouteRoute,
+  } as any)
+const layoutLocalePrivacyPolicyRouteRoute =
+  layoutLocalePrivacyPolicyRouteRouteImport.update({
+    id: '/privacy-policy',
+    path: '/privacy-policy',
+    getParentRoute: () => layoutLocaleRouteRoute,
+  } as any)
+const layoutLocaleProfileRouteRoute =
+  layoutLocaleProfileRouteRouteImport.update({
+    id: '/profile',
+    path: '/profile',
+    getParentRoute: () => layoutLocaleRouteRoute,
+  } as any)
+const layoutLocaleTermsRouteRoute = layoutLocaleTermsRouteRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => layoutLocaleRouteRoute,
+} as any)
+const layoutLocaleTermsAndConditionsRouteRoute =
+  layoutLocaleTermsAndConditionsRouteRouteImport.update({
+    id: '/terms-and-conditions',
+    path: '/terms-and-conditions',
+    getParentRoute: () => layoutLocaleRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
+  '/$locale': typeof layoutLocaleRouteRouteWithChildren
   '/contact': typeof layoutContactRouteRoute
   '/cookies': typeof layoutCookiesRouteRoute
   '/cookies-policy': typeof layoutCookiesPolicyRouteRoute
@@ -90,6 +164,16 @@ export interface FileRoutesByFullPath {
   '/terms': typeof layoutTermsRouteRoute
   '/terms-and-conditions': typeof layoutTermsAndConditionsRouteRoute
   '/': typeof layoutIndexRoute
+  '/$locale/contact': typeof layoutLocaleContactRouteRoute
+  '/$locale/cookies': typeof layoutLocaleCookiesRouteRoute
+  '/$locale/cookies-policy': typeof layoutLocaleCookiesPolicyRouteRoute
+  '/$locale/news': typeof layoutLocaleNewsRouteRoute
+  '/$locale/privacy': typeof layoutLocalePrivacyRouteRoute
+  '/$locale/privacy-policy': typeof layoutLocalePrivacyPolicyRouteRoute
+  '/$locale/profile': typeof layoutLocaleProfileRouteRoute
+  '/$locale/terms': typeof layoutLocaleTermsRouteRoute
+  '/$locale/terms-and-conditions': typeof layoutLocaleTermsAndConditionsRouteRoute
+  '/$locale/': typeof layoutLocaleIndexRoute
 }
 export interface FileRoutesByTo {
   '/contact': typeof layoutContactRouteRoute
@@ -102,10 +186,21 @@ export interface FileRoutesByTo {
   '/terms': typeof layoutTermsRouteRoute
   '/terms-and-conditions': typeof layoutTermsAndConditionsRouteRoute
   '/': typeof layoutIndexRoute
+  '/$locale/contact': typeof layoutLocaleContactRouteRoute
+  '/$locale/cookies': typeof layoutLocaleCookiesRouteRoute
+  '/$locale/cookies-policy': typeof layoutLocaleCookiesPolicyRouteRoute
+  '/$locale/news': typeof layoutLocaleNewsRouteRoute
+  '/$locale/privacy': typeof layoutLocalePrivacyRouteRoute
+  '/$locale/privacy-policy': typeof layoutLocalePrivacyPolicyRouteRoute
+  '/$locale/profile': typeof layoutLocaleProfileRouteRoute
+  '/$locale/terms': typeof layoutLocaleTermsRouteRoute
+  '/$locale/terms-and-conditions': typeof layoutLocaleTermsAndConditionsRouteRoute
+  '/$locale': typeof layoutLocaleIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/(layout)': typeof layoutRouteRouteWithChildren
+  '/(layout)/$locale': typeof layoutLocaleRouteRouteWithChildren
   '/(layout)/contact': typeof layoutContactRouteRoute
   '/(layout)/cookies': typeof layoutCookiesRouteRoute
   '/(layout)/cookies-policy': typeof layoutCookiesPolicyRouteRoute
@@ -116,10 +211,21 @@ export interface FileRoutesById {
   '/(layout)/terms': typeof layoutTermsRouteRoute
   '/(layout)/terms-and-conditions': typeof layoutTermsAndConditionsRouteRoute
   '/(layout)/': typeof layoutIndexRoute
+  '/(layout)/$locale/contact': typeof layoutLocaleContactRouteRoute
+  '/(layout)/$locale/cookies': typeof layoutLocaleCookiesRouteRoute
+  '/(layout)/$locale/cookies-policy': typeof layoutLocaleCookiesPolicyRouteRoute
+  '/(layout)/$locale/news': typeof layoutLocaleNewsRouteRoute
+  '/(layout)/$locale/privacy': typeof layoutLocalePrivacyRouteRoute
+  '/(layout)/$locale/privacy-policy': typeof layoutLocalePrivacyPolicyRouteRoute
+  '/(layout)/$locale/profile': typeof layoutLocaleProfileRouteRoute
+  '/(layout)/$locale/terms': typeof layoutLocaleTermsRouteRoute
+  '/(layout)/$locale/terms-and-conditions': typeof layoutLocaleTermsAndConditionsRouteRoute
+  '/(layout)/$locale/': typeof layoutLocaleIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
+    | '/$locale'
     | '/contact'
     | '/cookies'
     | '/cookies-policy'
@@ -130,6 +236,16 @@ export interface FileRouteTypes {
     | '/terms'
     | '/terms-and-conditions'
     | '/'
+    | '/$locale/contact'
+    | '/$locale/cookies'
+    | '/$locale/cookies-policy'
+    | '/$locale/news'
+    | '/$locale/privacy'
+    | '/$locale/privacy-policy'
+    | '/$locale/profile'
+    | '/$locale/terms'
+    | '/$locale/terms-and-conditions'
+    | '/$locale/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/contact'
@@ -142,9 +258,20 @@ export interface FileRouteTypes {
     | '/terms'
     | '/terms-and-conditions'
     | '/'
+    | '/$locale/contact'
+    | '/$locale/cookies'
+    | '/$locale/cookies-policy'
+    | '/$locale/news'
+    | '/$locale/privacy'
+    | '/$locale/privacy-policy'
+    | '/$locale/profile'
+    | '/$locale/terms'
+    | '/$locale/terms-and-conditions'
+    | '/$locale'
   id:
     | '__root__'
     | '/(layout)'
+    | '/(layout)/$locale'
     | '/(layout)/contact'
     | '/(layout)/cookies'
     | '/(layout)/cookies-policy'
@@ -155,6 +282,16 @@ export interface FileRouteTypes {
     | '/(layout)/terms'
     | '/(layout)/terms-and-conditions'
     | '/(layout)/'
+    | '/(layout)/$locale/contact'
+    | '/(layout)/$locale/cookies'
+    | '/(layout)/$locale/cookies-policy'
+    | '/(layout)/$locale/news'
+    | '/(layout)/$locale/privacy'
+    | '/(layout)/$locale/privacy-policy'
+    | '/(layout)/$locale/profile'
+    | '/(layout)/$locale/terms'
+    | '/(layout)/$locale/terms-and-conditions'
+    | '/(layout)/$locale/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -175,6 +312,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof layoutIndexRouteImport
+      parentRoute: typeof layoutRouteRoute
+    }
+    '/(layout)/$locale': {
+      id: '/(layout)/$locale'
+      path: '/$locale'
+      fullPath: '/$locale'
+      preLoaderRoute: typeof layoutLocaleRouteRouteImport
       parentRoute: typeof layoutRouteRoute
     }
     '/(layout)/contact': {
@@ -240,10 +384,111 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof layoutTermsAndConditionsRouteRouteImport
       parentRoute: typeof layoutRouteRoute
     }
+    '/(layout)/$locale/': {
+      id: '/(layout)/$locale/'
+      path: '/'
+      fullPath: '/$locale/'
+      preLoaderRoute: typeof layoutLocaleIndexRouteImport
+      parentRoute: typeof layoutLocaleRouteRoute
+    }
+    '/(layout)/$locale/contact': {
+      id: '/(layout)/$locale/contact'
+      path: '/contact'
+      fullPath: '/$locale/contact'
+      preLoaderRoute: typeof layoutLocaleContactRouteRouteImport
+      parentRoute: typeof layoutLocaleRouteRoute
+    }
+    '/(layout)/$locale/cookies': {
+      id: '/(layout)/$locale/cookies'
+      path: '/cookies'
+      fullPath: '/$locale/cookies'
+      preLoaderRoute: typeof layoutLocaleCookiesRouteRouteImport
+      parentRoute: typeof layoutLocaleRouteRoute
+    }
+    '/(layout)/$locale/cookies-policy': {
+      id: '/(layout)/$locale/cookies-policy'
+      path: '/cookies-policy'
+      fullPath: '/$locale/cookies-policy'
+      preLoaderRoute: typeof layoutLocaleCookiesPolicyRouteRouteImport
+      parentRoute: typeof layoutLocaleRouteRoute
+    }
+    '/(layout)/$locale/news': {
+      id: '/(layout)/$locale/news'
+      path: '/news'
+      fullPath: '/$locale/news'
+      preLoaderRoute: typeof layoutLocaleNewsRouteRouteImport
+      parentRoute: typeof layoutLocaleRouteRoute
+    }
+    '/(layout)/$locale/privacy': {
+      id: '/(layout)/$locale/privacy'
+      path: '/privacy'
+      fullPath: '/$locale/privacy'
+      preLoaderRoute: typeof layoutLocalePrivacyRouteRouteImport
+      parentRoute: typeof layoutLocaleRouteRoute
+    }
+    '/(layout)/$locale/privacy-policy': {
+      id: '/(layout)/$locale/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/$locale/privacy-policy'
+      preLoaderRoute: typeof layoutLocalePrivacyPolicyRouteRouteImport
+      parentRoute: typeof layoutLocaleRouteRoute
+    }
+    '/(layout)/$locale/profile': {
+      id: '/(layout)/$locale/profile'
+      path: '/profile'
+      fullPath: '/$locale/profile'
+      preLoaderRoute: typeof layoutLocaleProfileRouteRouteImport
+      parentRoute: typeof layoutLocaleRouteRoute
+    }
+    '/(layout)/$locale/terms': {
+      id: '/(layout)/$locale/terms'
+      path: '/terms'
+      fullPath: '/$locale/terms'
+      preLoaderRoute: typeof layoutLocaleTermsRouteRouteImport
+      parentRoute: typeof layoutLocaleRouteRoute
+    }
+    '/(layout)/$locale/terms-and-conditions': {
+      id: '/(layout)/$locale/terms-and-conditions'
+      path: '/terms-and-conditions'
+      fullPath: '/$locale/terms-and-conditions'
+      preLoaderRoute: typeof layoutLocaleTermsAndConditionsRouteRouteImport
+      parentRoute: typeof layoutLocaleRouteRoute
+    }
   }
 }
 
+interface layoutLocaleRouteRouteChildren {
+  layoutLocaleContactRouteRoute: typeof layoutLocaleContactRouteRoute
+  layoutLocaleCookiesRouteRoute: typeof layoutLocaleCookiesRouteRoute
+  layoutLocaleCookiesPolicyRouteRoute: typeof layoutLocaleCookiesPolicyRouteRoute
+  layoutLocaleNewsRouteRoute: typeof layoutLocaleNewsRouteRoute
+  layoutLocalePrivacyRouteRoute: typeof layoutLocalePrivacyRouteRoute
+  layoutLocalePrivacyPolicyRouteRoute: typeof layoutLocalePrivacyPolicyRouteRoute
+  layoutLocaleProfileRouteRoute: typeof layoutLocaleProfileRouteRoute
+  layoutLocaleTermsRouteRoute: typeof layoutLocaleTermsRouteRoute
+  layoutLocaleTermsAndConditionsRouteRoute: typeof layoutLocaleTermsAndConditionsRouteRoute
+  layoutLocaleIndexRoute: typeof layoutLocaleIndexRoute
+}
+
+const layoutLocaleRouteRouteChildren: layoutLocaleRouteRouteChildren = {
+  layoutLocaleContactRouteRoute: layoutLocaleContactRouteRoute,
+  layoutLocaleCookiesRouteRoute: layoutLocaleCookiesRouteRoute,
+  layoutLocaleCookiesPolicyRouteRoute: layoutLocaleCookiesPolicyRouteRoute,
+  layoutLocaleNewsRouteRoute: layoutLocaleNewsRouteRoute,
+  layoutLocalePrivacyRouteRoute: layoutLocalePrivacyRouteRoute,
+  layoutLocalePrivacyPolicyRouteRoute: layoutLocalePrivacyPolicyRouteRoute,
+  layoutLocaleProfileRouteRoute: layoutLocaleProfileRouteRoute,
+  layoutLocaleTermsRouteRoute: layoutLocaleTermsRouteRoute,
+  layoutLocaleTermsAndConditionsRouteRoute:
+    layoutLocaleTermsAndConditionsRouteRoute,
+  layoutLocaleIndexRoute: layoutLocaleIndexRoute,
+}
+
+const layoutLocaleRouteRouteWithChildren =
+  layoutLocaleRouteRoute._addFileChildren(layoutLocaleRouteRouteChildren)
+
 interface layoutRouteRouteChildren {
+  layoutLocaleRouteRoute: typeof layoutLocaleRouteRouteWithChildren
   layoutContactRouteRoute: typeof layoutContactRouteRoute
   layoutCookiesRouteRoute: typeof layoutCookiesRouteRoute
   layoutCookiesPolicyRouteRoute: typeof layoutCookiesPolicyRouteRoute
@@ -257,6 +502,7 @@ interface layoutRouteRouteChildren {
 }
 
 const layoutRouteRouteChildren: layoutRouteRouteChildren = {
+  layoutLocaleRouteRoute: layoutLocaleRouteRouteWithChildren,
   layoutContactRouteRoute: layoutContactRouteRoute,
   layoutCookiesRouteRoute: layoutCookiesRouteRoute,
   layoutCookiesPolicyRouteRoute: layoutCookiesPolicyRouteRoute,

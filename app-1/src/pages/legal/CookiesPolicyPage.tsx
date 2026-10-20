@@ -3,6 +3,11 @@ import { useEffect } from "react";
 
 import { PageIntro } from "@/components/ui/PageIntro";
 import { czechCookiesSections } from "@/lib/czech-legal";
+import { estonianCookiesSections } from "@/lib/estonian-legal";
+import { germanCookiesSections } from "@/lib/german-legal";
+import { polishCookiesSections } from "@/lib/polish-legal";
+import { russianCookiesSections } from "@/lib/russian-legal";
+import { type LocaleKey } from "@/lib/locales";
 import { useLocale } from "@/lib/i18n";
 
 type CookiesSection = {
@@ -28,7 +33,7 @@ const cookiesSections: readonly CookiesSection[] = [
   {
     title: "Cookies currently identified",
     paragraphs: [
-      "A review of the current application source did not identify an application-set cookie name or an embedded marketing-cookie provider. The application currently stores the selected language as localStorage under the key `brickinvest-locale`; this is browser storage, not a cookie. No cookie should be inferred from that storage key.",
+      "A review of the current application source did not identify an application-set cookie name or an embedded marketing-cookie provider. The selected language is identified by the language code in the page URL; the application does not store this preference in localStorage or a cookie.",
       "The application includes a consent-gated analytics integration that can load Google Tag Manager and/or Google Analytics 4 only when deployment identifiers are provided and an analytics-consent event is granted. No such identifiers or environment files are present in the reviewed application workspace, and no analytics or marketing cookie name can therefore be confirmed as currently installed from the source alone.",
       "This is a source-code inventory, not a substitute for checking the live production domain and each deployment configuration. If a deployment adds a provider, tag or cookie, this policy and the cookie inventory must be updated before that technology is enabled.",
     ],
@@ -43,7 +48,7 @@ const cookiesSections: readonly CookiesSection[] = [
   {
     title: "Preferences and language settings",
     paragraphs: [
-      "The language selector stores the selected locale in browser localStorage under `brickinvest-locale`. It is used to remember a display preference and is not a cookie. You can remove it through your browser’s site-data controls; the site may then return to its default language selection.",
+      "The language selector opens the page with the selected language code in its URL. The application does not retain the language preference in browser storage.",
       "No separate preference cookie or preference-management provider is currently identified in the reviewed application source.",
     ],
   },
@@ -78,7 +83,7 @@ const cookiesSections: readonly CookiesSection[] = [
   {
     title: "Storage periods and international transfers",
     paragraphs: [
-      "No application cookie storage period can currently be confirmed because no application-set cookie is declared in the reviewed source. The `brickinvest-locale` localStorage value remains until it is removed by the user, cleared by the browser or replaced by the application. Any future cookie inventory must state each cookie’s duration and whether it is a session or persistent technology.",
+      "No application cookie storage period can currently be confirmed because no application-set cookie is declared in the reviewed source. The language code remains part of the page URL and is not retained as a browser preference. Any future cookie inventory must state each cookie’s duration and whether it is a session or persistent technology.",
       "If a future provider processes cookie or device information outside the European Economic Area, the transfer must have a lawful basis and appropriate safeguards under applicable data protection law, such as an adequacy decision or approved standard contractual clauses where appropriate. The provider and safeguards must be disclosed before activation.",
     ],
   },
@@ -122,7 +127,7 @@ const spanishCookiesSections: readonly CookiesSection[] = [
   {
     title: "Cookies identificadas actualmente",
     paragraphs: [
-      "La revisión del código actual no ha identificado un nombre de cookie creado por la aplicación ni un proveedor de marketing integrado. La aplicación guarda el idioma seleccionado en localStorage con la clave `brickinvest-locale`; esto es almacenamiento del navegador, no una cookie.",
+      "La revisión del código actual no ha identificado un nombre de cookie creado por la aplicación ni un proveedor de marketing integrado. El idioma seleccionado se identifica mediante el código de idioma en la URL; la aplicación no guarda esta preferencia en localStorage ni en una cookie.",
       "Existe una integración de analítica condicionada al consentimiento que podría cargar Google Tag Manager o Google Analytics 4 solo si se configuran identificadores de despliegue y se recibe una señal de consentimiento. No hay identificadores ni archivos de entorno en el workspace revisado, por lo que no se confirma ninguna cookie de analítica o marketing.",
       "Este inventario procede del código y debe completarse con un escaneo del navegador en producción y con la configuración de cada despliegue.",
     ],
@@ -137,7 +142,7 @@ const spanishCookiesSections: readonly CookiesSection[] = [
   {
     title: "Preferencias e idioma",
     paragraphs: [
-      "El selector de idioma guarda el idioma elegido en localStorage bajo `brickinvest-locale`. Se utiliza para recordar una preferencia y no es una cookie. Puedes eliminarlo desde los controles de datos del sitio del navegador.",
+      "El selector de idioma abre la página con el código de idioma elegido en la URL. La aplicación no conserva esta preferencia en el almacenamiento del navegador.",
       "No se ha identificado una cookie independiente de preferencias ni un proveedor de gestión de preferencias.",
     ],
   },
@@ -172,7 +177,7 @@ const spanishCookiesSections: readonly CookiesSection[] = [
   {
     title: "Duración y transferencias internacionales",
     paragraphs: [
-      "No se puede confirmar actualmente la duración de ninguna cookie de la aplicación porque el código no declara cookies propias. El valor `brickinvest-locale` permanece en localStorage hasta que el usuario, el navegador o la aplicación lo eliminen o sustituyan. Todo inventario futuro debe indicar duración y si cada tecnología es de sesión o persistente.",
+      "No se puede confirmar actualmente la duración de ninguna cookie de la aplicación porque el código no declara cookies propias. El código de idioma permanece en la URL de la página y no se guarda como preferencia del navegador. Todo inventario futuro debe indicar duración y si cada tecnología es de sesión o persistente.",
       "Si un proveedor futuro trata datos fuera del Espacio Económico Europeo, la transferencia deberá contar con base legal y garantías adecuadas, como decisión de adecuación o cláusulas contractuales tipo cuando corresponda.",
     ],
   },
@@ -216,7 +221,7 @@ const swedishCookiesSections: readonly CookiesSection[] = [
   {
     title: "Cookies som för närvarande identifierats",
     paragraphs: [
-      "Genomgången av den aktuella koden har inte identifierat något cookienamn som skapas av applikationen eller någon integrerad marknadsföringsleverantör. Språkvalet sparas i localStorage med nyckeln `brickinvest-locale`; detta är webbläsarlagring och inte en cookie.",
+      "Genomgången av den aktuella koden har inte identifierat något cookienamn som skapas av applikationen eller någon integrerad marknadsföringsleverantör. Det valda språket anges med språkkoden i sidans URL; språkvalet sparas inte i localStorage eller i en cookie.",
       "Det finns ett samtyckesberoende analyslager som kan ladda Google Tag Manager eller Google Analytics 4 endast om mät-ID:n konfigureras och samtycke lämnas. Inga sådana ID:n eller miljövariabler har bekräftats i workspace-granskningen, så inga analys- eller marknadsföringscookies bekräftas.",
       "Inventeringen kommer från koden och måste kompletteras med en webbläsarskanning i produktion och kontroll av varje deployment.",
     ],
@@ -231,7 +236,7 @@ const swedishCookiesSections: readonly CookiesSection[] = [
   {
     title: "Inställningar och språk",
     paragraphs: [
-      "Språkvalet sparas i localStorage under `brickinvest-locale` för att komma ihåg en preferens. Det är inte en cookie och kan raderas via webbläsarens datakontroller.",
+      "Språkväljaren öppnar sidan med den valda språkkoden i URL:en. Webbplatsen sparar inte språkvalet i webbläsarens lokala lagring.",
       "Ingen separat cookie eller leverantör för inställningshantering har identifierats.",
     ],
   },
@@ -266,7 +271,7 @@ const swedishCookiesSections: readonly CookiesSection[] = [
   {
     title: "Lagringstid och internationella överföringar",
     paragraphs: [
-      "Ingen lagringstid för en applikationscookie kan bekräftas eftersom koden inte deklarerar egna cookies. Värdet `brickinvest-locale` finns i localStorage tills användaren, webbläsaren eller applikationen tar bort eller ersätter det. Framtida inventering ska ange lagringstid och om teknik är sessionsbaserad eller beständig.",
+      "Ingen lagringstid för en applikationscookie kan bekräftas eftersom koden inte deklarerar egna cookies. Språkkoden finns i sidans URL och sparas inte som en webbläsarinställning. Framtida inventering ska ange lagringstid och om teknik är sessionsbaserad eller beständig.",
       "Om en framtida leverantör behandlar uppgifter utanför EES ska överföringen ha laglig grund och lämpliga skydd, exempelvis adekvansbeslut eller standardavtalsklausuler.",
     ],
   },
@@ -310,7 +315,7 @@ const ukrainianCookiesSections: readonly CookiesSection[] = [
   {
     title: "Виявлені на цей момент cookie",
     paragraphs: [
-      "Перевірка поточного коду не виявила назви cookie, яку створює застосунок, або вбудованого постачальника маркетингових cookie. Обрана мова зберігається в localStorage браузера за ключем `brickinvest-locale`; це сховище браузера, а не cookie.",
+      "Перевірка поточного коду не виявила назви cookie, яку створює застосунок, або вбудованого постачальника маркетингових cookie. Обрану мову визначає код мови в URL сторінки; застосунок не зберігає цей вибір у localStorage або cookie.",
       "Застосунок містить аналітичну інтеграцію, яка залежить від згоди та може завантажувати Google Tag Manager і/або Google Analytics 4 лише після надання ідентифікаторів розгортання та отримання сигналу згоди. У перевіреному робочому просторі таких ідентифікаторів або файлів середовища немає, тому активні аналітичні чи маркетингові cookie не підтверджені лише на підставі коду.",
       "Це інвентаризація вихідного коду, а не заміна перевірки робочого домену та налаштувань кожного розгортання. Якщо розгортання додає постачальника, тег або cookie, цю політику потрібно оновити до активації технології.",
     ],
@@ -325,7 +330,7 @@ const ukrainianCookiesSections: readonly CookiesSection[] = [
   {
     title: "Налаштування та мова",
     paragraphs: [
-      "Перемикач мови зберігає вибрану локаль у localStorage браузера під ключем `brickinvest-locale`. Він використовується для запам’ятовування мовної переваги й не є cookie. Видалити його можна через налаштування даних сайту в браузері.",
+      "Перемикач мови відкриває сторінку з кодом вибраної мови в URL. Застосунок не зберігає мовну перевагу в локальному сховищі браузера.",
       "У перевіреному коді окрему cookie налаштувань або постачальника керування налаштуваннями не виявлено.",
     ],
   },
@@ -360,7 +365,7 @@ const ukrainianCookiesSections: readonly CookiesSection[] = [
   {
     title: "Строки зберігання та міжнародні передачі",
     paragraphs: [
-      "Наразі неможливо підтвердити строк зберігання cookie застосунку, оскільки перевірений код не декларує власних cookie. Значення `brickinvest-locale` у localStorage зберігається, доки користувач, браузер або застосунок не видалить чи не замінить його. Майбутня інвентаризація має вказувати строк кожної технології та те, чи є вона сесійною або постійною.",
+      "Наразі неможливо підтвердити строк зберігання cookie застосунку, оскільки перевірений код не декларує власних cookie. Код мови є частиною URL сторінки та не зберігається як налаштування браузера. Майбутня інвентаризація має вказувати строк кожної технології та те, чи є вона сесійною або постійною.",
       "Якщо майбутній постачальник оброблятиме дані cookie або пристрою за межами Європейської економічної зони, передача повинна мати законну підставу та належні гарантії, наприклад рішення про адекватність або стандартні договірні положення.",
     ],
   },
@@ -386,19 +391,24 @@ const ukrainianCookiesSections: readonly CookiesSection[] = [
   },
 ];
 
-void [
-  cookiesSections,
-  spanishCookiesSections,
-  swedishCookiesSections,
-  ukrainianCookiesSections,
-];
+const localizedCookiesSections: Record<LocaleKey, readonly CookiesSection[]> = {
+  en: cookiesSections,
+  es: spanishCookiesSections,
+  sv: swedishCookiesSections,
+  uk: ukrainianCookiesSections,
+  ru: russianCookiesSections,
+  de: germanCookiesSections,
+  et: estonianCookiesSections,
+  pl: polishCookiesSections,
+  cs: czechCookiesSections,
+};
 
 export const CookiesPolicyPage = () => {
-  const { t } = useLocale();
+  const { locale, t, localizePath } = useLocale();
   useEffect(() => {
-    document.title = "Zásady cookies | BRICKINVEST";
-  }, []);
-  const sections = czechCookiesSections;
+    document.title = `${t("cookiesPolicy")} | BRICKINVEST`;
+  }, [t]);
+  const sections = localizedCookiesSections[locale];
   return (
     <main
       className="grain-surface min-h-dvh bg-background px-5 pt-24 pb-16 sm:px-8 lg:px-12 lg:pt-28 lg:pb-24"
@@ -407,7 +417,7 @@ export const CookiesPolicyPage = () => {
       <div className="mx-auto max-w-7xl">
         <Link
           className="inline-flex text-[12px] tracking-[0.12em] text-muted-foreground uppercase transition-colors hover:text-foreground focus-visible:text-foreground"
-          to="/"
+          to={localizePath("/") as never}
         >
           {t("backHome")}
         </Link>
@@ -451,19 +461,19 @@ export const CookiesPolicyPage = () => {
         <div className="mt-10 flex flex-wrap gap-x-5 gap-y-3 text-[12px] tracking-[0.12em] text-muted-foreground uppercase">
           <Link
             className="transition-colors hover:text-foreground focus-visible:text-foreground"
-            to="/terms-and-conditions"
+            to={localizePath("/terms-and-conditions") as never}
           >
             {t("termsAndConditions")}
           </Link>
           <Link
             className="transition-colors hover:text-foreground focus-visible:text-foreground"
-            to="/privacy-policy"
+            to={localizePath("/privacy-policy") as never}
           >
             {t("privacyPolicy")}
           </Link>
           <Link
             className="transition-colors hover:text-foreground focus-visible:text-foreground"
-            to="/"
+            to={localizePath("/") as never}
           >
             {t("home")}
           </Link>

@@ -113,7 +113,7 @@ export const czechCookiesSections: readonly CzechLegalSection[] = [
   {
     title: "Identifikované technologie",
     paragraphs: [
-      `${companyDetails} Kontrola aktuálního kódu neodhalila pojmenovanou cookie nastavenou aplikací ani integrovaného marketingového poskytovatele. Zvolený jazyk se ukládá v localStorage jako brickinvest-locale; nejde o cookie.`,
+      `${companyDetails} Kontrola aktuálního kódu neodhalila pojmenovanou cookie nastavenou aplikací ani integrovaného marketingového poskytovatele. Zvolený jazyk určuje kód v adrese stránky; jazyková volba se neukládá do localStorage ani do cookie.`,
       "Volitelná analytika může načítat Google Tag Manager nebo Google Analytics 4 pouze po konfiguraci identifikátorů a získání souhlasu.",
     ],
   },
@@ -127,7 +127,7 @@ export const czechCookiesSections: readonly CzechLegalSection[] = [
   {
     title: "Nastavení jazyka a analytika",
     paragraphs: [
-      "Výběr jazyka se ukládá v localStorage pod klíčem brickinvest-locale. Můžete jej odstranit v nastavení dat webu ve svém prohlížeči.",
+      "Přepínač jazyka otevře stránku s odpovídajícím jazykovým kódem v adrese. Web si jazykovou volbu neukládá do místního úložiště prohlížeče.",
       "Volitelná analytika by měla zůstat vypnutá do získání samostatného informovaného souhlasu.",
     ],
   },

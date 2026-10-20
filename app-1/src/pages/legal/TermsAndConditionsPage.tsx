@@ -3,6 +3,11 @@ import { useEffect } from "react";
 
 import { PageIntro } from "@/components/ui/PageIntro";
 import { czechTermsSections } from "@/lib/czech-legal";
+import { estonianTermsSections } from "@/lib/estonian-legal";
+import { germanTermsSections } from "@/lib/german-legal";
+import { polishTermsSections } from "@/lib/polish-legal";
+import { russianTermsSections } from "@/lib/russian-legal";
+import { type LocaleKey } from "@/lib/locales";
 import { useLocale } from "@/lib/i18n";
 
 type TermsSection = {
@@ -438,19 +443,24 @@ const ukrainianTermsSections: readonly TermsSection[] = [
   },
 ];
 
-void [
-  termsSections,
-  spanishTermsSections,
-  swedishTermsSections,
-  ukrainianTermsSections,
-];
+const localizedTermsSections: Record<LocaleKey, readonly TermsSection[]> = {
+  en: termsSections,
+  es: spanishTermsSections,
+  sv: swedishTermsSections,
+  uk: ukrainianTermsSections,
+  ru: russianTermsSections,
+  de: germanTermsSections,
+  et: estonianTermsSections,
+  pl: polishTermsSections,
+  cs: czechTermsSections,
+};
 
 export const TermsAndConditionsPage = () => {
-  const { t } = useLocale();
+  const { locale, t, localizePath } = useLocale();
   useEffect(() => {
-    document.title = "Obchodní podmínky | BRICKINVEST";
-  }, []);
-  const sections = czechTermsSections;
+    document.title = `${t("termsAndConditions")} | BRICKINVEST`;
+  }, [t]);
+  const sections = localizedTermsSections[locale];
   return (
     <main
       className="grain-surface min-h-dvh bg-background px-5 pt-24 pb-16 sm:px-8 lg:px-12 lg:pt-28 lg:pb-24"
@@ -459,7 +469,7 @@ export const TermsAndConditionsPage = () => {
       <div className="mx-auto max-w-7xl">
         <Link
           className="inline-flex text-[12px] tracking-[0.12em] text-muted-foreground uppercase transition-colors hover:text-foreground focus-visible:text-foreground"
-          to="/"
+          to={localizePath("/") as never}
         >
           {t("backHome")}
         </Link>
@@ -503,19 +513,19 @@ export const TermsAndConditionsPage = () => {
         <div className="mt-10 flex flex-wrap gap-x-5 gap-y-3 text-[12px] tracking-[0.12em] text-muted-foreground uppercase">
           <Link
             className="transition-colors hover:text-foreground focus-visible:text-foreground"
-            to="/privacy-policy"
+            to={localizePath("/privacy-policy") as never}
           >
             {t("privacyPolicy")}
           </Link>
           <Link
             className="transition-colors hover:text-foreground focus-visible:text-foreground"
-            to="/cookies-policy"
+            to={localizePath("/cookies-policy") as never}
           >
             {t("cookiesPolicy")}
           </Link>
           <Link
             className="transition-colors hover:text-foreground focus-visible:text-foreground"
-            to="/"
+            to={localizePath("/") as never}
           >
             {t("home")}
           </Link>

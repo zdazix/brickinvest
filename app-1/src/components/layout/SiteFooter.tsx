@@ -12,7 +12,7 @@ const companyLinks = [
 ] as const;
 
 export const SiteFooter = () => {
-  const { t } = useLocale();
+  const { t, localizePath } = useLocale();
 
   return (
     <footer className="grain-surface w-full bg-[#ddd8cf] px-5 py-8 text-[#000] sm:px-8 lg:px-12">
@@ -32,7 +32,7 @@ export const SiteFooter = () => {
             {companyLinks.map(({ href, key }) => (
               <a
                 className="transition-colors hover:text-primary focus-visible:text-primary"
-                href={href}
+                href={`${localizePath("/")}${href}`}
                 key={href}
               >
                 {t(key)}
@@ -77,7 +77,7 @@ export const SiteFooter = () => {
           >
             <a
               className="transition-colors hover:text-primary focus-visible:text-primary"
-              href="/terms-and-conditions"
+              href={localizePath("/terms-and-conditions")}
             >
               {t("termsAndConditions")}
             </a>
@@ -86,7 +86,7 @@ export const SiteFooter = () => {
             </span>
             <a
               className="transition-colors hover:text-primary focus-visible:text-primary"
-              href="/privacy-policy"
+              href={localizePath("/privacy-policy")}
             >
               {t("privacyPolicy")}
             </a>
@@ -95,7 +95,7 @@ export const SiteFooter = () => {
             </span>
             <a
               className="transition-colors hover:text-primary focus-visible:text-primary"
-              href="/cookies-policy"
+              href={localizePath("/cookies-policy")}
             >
               {t("cookiesPolicy")}
             </a>

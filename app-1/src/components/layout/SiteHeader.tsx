@@ -3,12 +3,9 @@ import { useEffect, useState } from "react";
 import { useRouterState } from "@tanstack/react-router";
 
 import { useConsultation } from "@/components/layout/consultation-context";
-import {
-  languageMenuLocales,
-  locales,
-  useLocale,
-  type LocaleKey,
-} from "@/lib/i18n";
+import { languageMenuLocales, localeKeys, locales } from "@/lib/locales";
+import { useLocale } from "@/lib/i18n";
+import { stripLocalePrefix } from "@/lib/locale-routing";
 import { trackEvent } from "@/lib/analytics";
 
 const navigation = [
@@ -33,14 +30,15 @@ export const SiteHeader = () => {
   const pathname = useRouterState({
     select: (state) => state.location.pathname,
   });
-  const isHome = pathname === "/";
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const { closeConsultation, isConsultationOpen, openConsultation } =
     useConsultation();
-  const { locale, setLocale, t } = useLocale();
+  const { locale, setLocale, localizePath, t } = useLocale();
+  const isHome = stripLocalePrefix(pathname, localeKeys) === "/";
+  const homeHref = localizePath("/");
 
   useEffect(() => {
     const updateScrollState = () => setIsScrolled(window.scrollY > 8);
@@ -111,7 +109,7 @@ export const SiteHeader = () => {
           <a
             aria-label={t("brandHome")}
             className={`order-1 mr-auto shrink-0 font-secondary text-[1.3rem] font-bold tracking-[-0.055em] transition-[color,transform] hover:translate-x-1 hover:text-primary active:text-primary xl:hidden ${isHome ? "text-white" : "text-foreground"}`}
-            href="/"
+            href={homeHref}
           >
             BRICKINVEST
           </a>
@@ -121,7 +119,7 @@ export const SiteHeader = () => {
             <a
               aria-label={t("brandHome")}
               className={`shrink-0 font-secondary text-[1.6rem] font-bold tracking-[-0.055em] transition-[color,transform] hover:translate-x-1 hover:text-primary active:text-primary ${isHome ? "text-white" : ""}`}
-              href="/"
+              href={homeHref}
             >
               BRICKINVEST
             </a>
@@ -154,7 +152,7 @@ export const SiteHeader = () => {
                       className="flex w-full items-center rounded-sm px-2.5 py-1.5 text-left text-[14px] leading-4 text-surface/90 transition-colors hover:bg-primary/15 hover:text-surface focus-visible:bg-primary/15 active:bg-primary/15 active:text-primary"
                       key={item.key}
                       onClick={() => {
-                        setLocale(item.key as LocaleKey);
+                        setLocale(item.key);
                         if (item.key !== locale) {
                           trackEvent("language_change", { language: item.key });
                         }
@@ -177,18 +175,21 @@ export const SiteHeader = () => {
             aria-label={t("primaryNavigation")}
             className={`site-header-nav hidden min-w-0 flex-1 grid-cols-7 items-center xl:grid ${locale === "et" || locale === "es" || locale === "pl" || locale === "cs" ? "et-header-nav" : ""} ${isCompactLocale ? "gap-x-1 2xl:gap-x-3" : "gap-x-2 2xl:gap-x-4"}`}
           >
-            {navigation.map(({ href, key }) => (
-              <a
-                className={`site-header-link relative block w-full min-w-0 px-1 py-2 text-center leading-[1.15] font-semibold whitespace-normal transition-colors duration-250 after:absolute after:right-1 after:bottom-0 after:left-1 after:h-px after:origin-right after:bg-border after:transition-transform after:duration-250 hover:after:origin-left hover:after:scale-x-100 active:text-primary active:after:origin-left active:after:scale-x-100 active:after:bg-primary ${isCompactLocale && key === "solutions" ? "text-[12px] tracking-[0.01em] 2xl:text-[12px] 2xl:tracking-[0.01em]" : "text-[13px] tracking-[0.015em] 2xl:text-[15px] 2xl:tracking-[0.02em]"} ${activeSection === href.slice(1) ? "text-primary after:scale-x-100" : isHome ? "text-white/85 after:scale-x-0 hover:text-white" : "text-foreground/80 after:scale-x-0 hover:text-foreground"}`}
-                href={href}
-                key={href}
-                onClick={() =>
-                  trackEvent("navigation_click", { destination: href })
-                }
-              >
-                {t(key)}
-              </a>
-            ))}
+            {navigation.map(({ href, key }) => {
+              const destination = `${homeHref}${href}`;
+              return (
+                <a
+                  className={`site-header-link relative block w-full min-w-0 px-1 py-2 text-center leading-[1.15] font-semibold whitespace-normal transition-colors duration-250 after:absolute after:right-1 after:bottom-0 after:left-1 after:h-px after:origin-right after:bg-border after:transition-transform after:duration-250 hover:after:origin-left hover:after:scale-x-100 active:text-primary active:after:origin-left active:after:scale-x-100 active:after:bg-primary ${isCompactLocale && key === "solutions" ? "text-[12px] tracking-[0.01em] 2xl:text-[12px] 2xl:tracking-[0.01em]" : "text-[13px] tracking-[0.015em] 2xl:text-[15px] 2xl:tracking-[0.02em]"} ${activeSection === href.slice(1) ? "text-primary after:scale-x-100" : isHome ? "text-white/85 after:scale-x-0 hover:text-white" : "text-foreground/80 after:scale-x-0 hover:text-foreground"}`}
+                  href={destination}
+                  key={href}
+                  onClick={() =>
+                    trackEvent("navigation_click", { destination })
+                  }
+                >
+                  {t(key)}
+                </a>
+              );
+            })}
           </nav>
 
           <div
@@ -295,7 +296,7 @@ export const SiteHeader = () => {
                       className="flex w-full items-center rounded-sm px-2.5 py-1.5 text-left font-secondary text-[12px] leading-4 text-white/90 transition-colors hover:bg-primary/15 hover:text-white focus-visible:bg-primary/15 active:bg-primary/15 active:text-primary"
                       key={item.key}
                       onClick={() => {
-                        setLocale(item.key as LocaleKey);
+                        setLocale(item.key);
                         if (item.key !== locale) {
                           trackEvent("language_change", { language: item.key });
                         }
@@ -313,19 +314,22 @@ export const SiteHeader = () => {
                 </div>
               )}
             </div>
-            {navigation.map(({ href, key }) => (
-              <a
-                className="border-b border-white/15 py-3.5 text-left font-secondary text-[clamp(1.2rem,5.75vw,1.62rem)] leading-[1.2] font-semibold tracking-[0.01em] text-white transition-colors hover:text-primary focus-visible:text-primary active:text-primary sm:py-4"
-                href={href}
-                key={href}
-                onClick={() => {
-                  trackEvent("navigation_click", { destination: href });
-                  closeMenu();
-                }}
-              >
-                {t(key)}
-              </a>
-            ))}
+            {navigation.map(({ href, key }) => {
+              const destination = `${homeHref}${href}`;
+              return (
+                <a
+                  className="border-b border-white/15 py-3.5 text-left font-secondary text-[clamp(1.2rem,5.75vw,1.62rem)] leading-[1.2] font-semibold tracking-[0.01em] text-white transition-colors hover:text-primary focus-visible:text-primary active:text-primary sm:py-4"
+                  href={destination}
+                  key={href}
+                  onClick={() => {
+                    trackEvent("navigation_click", { destination });
+                    closeMenu();
+                  }}
+                >
+                  {t(key)}
+                </a>
+              );
+            })}
           </nav>
         </div>
       </div>

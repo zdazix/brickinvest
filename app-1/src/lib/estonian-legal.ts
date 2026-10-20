@@ -122,7 +122,7 @@ export const estonianCookiesSections: readonly EstonianLegalSection[] = [
   {
     title: "Praegu tuvastatud tehnoloogiad",
     paragraphs: [
-      `${companyDetails} Praeguse koodi ülevaatus ei tuvastanud rakenduse seatud küpsist ega sisseehitatud turunduspakkujat. Valitud keel salvestatakse localStorage'is võtme brickinvest-locale all; see on brauseri salvestusruum, mitte küpsis.`,
+      `${companyDetails} Praeguse koodi ülevaatus ei tuvastanud rakenduse seatud küpsist ega sisseehitatud turunduspakkujat. Keele määrab lehe aadressis olev keelekood; keelevalikut ei salvestata localStorage'isse ega küpsisena.`,
       "Rakendus sisaldab nõusolekust sõltuvat analüüsikihti, mis võib Google Tag Manageri või Google Analytics 4 laadida ainult siis, kui mõõtmis-ID-d on seadistatud ja nõusolek antud. Kontrollitud töökeskkonnas ei ole selliseid ID-sid kinnitatud.",
     ],
   },
@@ -136,7 +136,7 @@ export const estonianCookiesSections: readonly EstonianLegalSection[] = [
   {
     title: "Keele seaded ja analüüs",
     paragraphs: [
-      "Keelevalik salvestatakse brauseri localStorage'i võtme brickinvest-locale alla ning selle saab kustutada brauseri saidiandmete seadete kaudu.",
+      "Keelevahetaja avab lehe vastava keelekoodiga aadressis. Veebisait ei salvesta valitud keelt brauseri kohalikku salvestusruumi.",
       "Valikuline analüüs peab kuni eraldi informeeritud nõusoleku saamiseni olema välja lülitatud. Nõusolekut ei tohi tuletada veebisaidi edasisest külastamisest ega kerimisest.",
     ],
   },

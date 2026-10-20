@@ -5,7 +5,7 @@ import { LocationMap } from "@/pages/home/components/LocationMap";
 import { useLocale } from "@/lib/i18n";
 
 export const LocationSection = () => {
-  const { t } = useLocale();
+  const { t, localizePath } = useLocale();
   return (
     <section className="bg-background px-5 py-12 sm:px-8 lg:px-12 lg:py-24">
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
@@ -17,7 +17,7 @@ export const LocationSection = () => {
           <p className="body-copy-muted mt-5">{t("locationDescription")}</p>
           <Link
             className="mt-6 inline-flex items-center gap-2 rounded-full border px-5 py-3 text-[13px] font-semibold"
-            to="/contact"
+            to={localizePath("/contact") as never}
           >
             {t("ctaButton")}
             <ArrowUpRight aria-hidden="true" className="size-4" />

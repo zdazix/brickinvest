@@ -2,60 +2,65 @@ import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 
 import type { HomeContent } from "@/features/home/api";
+import { useLocale } from "@/lib/i18n";
 
 type EditorialSectionProps = {
   readonly cards: HomeContent["editorialCards"];
   readonly image: string;
 };
 
-export const EditorialSection = ({ cards, image }: EditorialSectionProps) => (
-  <section
-    className="bg-background px-5 py-16 sm:px-8 lg:px-12 lg:py-24"
-    id="section-three"
-  >
-    <div className="mx-auto max-w-7xl">
-      <div className="mb-8 max-w-2xl">
-        <p className="text-[11px] text-primary">Section eyebrow</p>
-        <h2 className="mt-4 text-3xl tracking-[-0.03em] sm:text-4xl">
-          H2 editorial section title
-        </h2>
-        <p className="body-copy-muted mt-6">
-          Section description text goes here. Replace it with a clear
-          introduction to the content items.
-        </p>
+export const EditorialSection = ({ cards, image }: EditorialSectionProps) => {
+  const { localizePath } = useLocale();
+
+  return (
+    <section
+      className="bg-background px-5 py-16 sm:px-8 lg:px-12 lg:py-24"
+      id="section-three"
+    >
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-8 max-w-2xl">
+          <p className="text-[11px] text-primary">Section eyebrow</p>
+          <h2 className="mt-4 text-3xl tracking-[-0.03em] sm:text-4xl">
+            H2 editorial section title
+          </h2>
+          <p className="body-copy-muted mt-6">
+            Section description text goes here. Replace it with a clear
+            introduction to the content items.
+          </p>
+        </div>
+        <div className="space-y-20 lg:space-y-28">
+          {cards.map((card, index) => (
+            <article
+              className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-16"
+              key={`${card.title}-${index}`}
+            >
+              <img
+                alt="Image placeholder"
+                className={`aspect-[4/3] size-full rounded-[2rem] object-cover ${index === 1 ? "lg:order-2" : ""}`}
+                decoding="async"
+                height="675"
+                loading="lazy"
+                src={image}
+                width="900"
+              />
+              <div className={index === 1 ? "lg:order-1" : ""}>
+                <p className="text-[11px] text-primary">{card.eyebrow}</p>
+                <h3 className="mt-4 text-3xl tracking-[-0.03em] sm:text-4xl">
+                  {card.title}
+                </h3>
+                <p className="body-copy-muted mt-5">{card.description}</p>
+                <Link
+                  className="mt-6 inline-flex items-center gap-2 text-[13px] font-semibold text-primary"
+                  to={localizePath("/contact") as never}
+                >
+                  Button text
+                  <ArrowUpRight aria-hidden="true" className="size-4" />
+                </Link>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
-      <div className="space-y-20 lg:space-y-28">
-        {cards.map((card, index) => (
-          <article
-            className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-16"
-            key={`${card.title}-${index}`}
-          >
-            <img
-              alt="Image placeholder"
-              className={`aspect-[4/3] size-full rounded-[2rem] object-cover ${index === 1 ? "lg:order-2" : ""}`}
-              decoding="async"
-              height="675"
-              loading="lazy"
-              src={image}
-              width="900"
-            />
-            <div className={index === 1 ? "lg:order-1" : ""}>
-              <p className="text-[11px] text-primary">{card.eyebrow}</p>
-              <h3 className="mt-4 text-3xl tracking-[-0.03em] sm:text-4xl">
-                {card.title}
-              </h3>
-              <p className="body-copy-muted mt-5">{card.description}</p>
-              <Link
-                className="mt-6 inline-flex items-center gap-2 text-[13px] font-semibold text-primary"
-                to="/contact"
-              >
-                Button text
-                <ArrowUpRight aria-hidden="true" className="size-4" />
-              </Link>
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};

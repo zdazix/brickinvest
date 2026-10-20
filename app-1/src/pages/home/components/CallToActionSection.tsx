@@ -4,7 +4,7 @@ import { ButtonLink } from "@/components/ui/Button";
 import { useLocale } from "@/lib/i18n";
 
 export const CallToActionSection = () => {
-  const { t } = useLocale();
+  const { t, localizePath } = useLocale();
   return (
     <section
       className="bg-surface px-5 py-16 text-foreground sm:px-8 lg:px-12 lg:py-24"
@@ -21,7 +21,7 @@ export const CallToActionSection = () => {
           <p className="max-w-md text-[15px] leading-6 text-foreground/65">
             {t("ctaDescription")}
           </p>
-          <ButtonLink className="mt-6" to="/contact">
+          <ButtonLink className="mt-6" to={localizePath("/contact") as never}>
             {t("ctaButton")}
             <ArrowRight aria-hidden="true" className="size-4" />
           </ButtonLink>

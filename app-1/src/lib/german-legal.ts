@@ -125,7 +125,7 @@ export const germanCookiesSections: readonly GermanLegalSection[] = [
   {
     title: "Derzeit identifizierte Technologien",
     paragraphs: [
-      `${companyDetails} Die Prüfung des aktuellen Codes hat kein von der Anwendung gesetztes Cookie und keinen eingebetteten Marketinganbieter bestätigt. Die gewählte Sprache wird unter brickinvest-locale im localStorage gespeichert; dabei handelt es sich um Browserspeicher, nicht um ein Cookie.`,
+      `${companyDetails} Die Prüfung des aktuellen Codes hat kein von der Anwendung gesetztes Cookie und keinen eingebetteten Marketinganbieter bestätigt. Die Sprache wird durch den Sprachcode in der Seitenadresse bestimmt und nicht im localStorage oder in einem Cookie gespeichert.`,
       "Die Anwendung enthält eine einwilligungsabhängige Analyseschicht, die Google Tag Manager oder Google Analytics 4 nur bei konfigurierten Mess-IDs und erteilter Einwilligung laden kann. In der geprüften Arbeitsumgebung sind solche IDs nicht bestätigt.",
     ],
   },
@@ -139,7 +139,7 @@ export const germanCookiesSections: readonly GermanLegalSection[] = [
   {
     title: "Spracheinstellungen und Analyse",
     paragraphs: [
-      "Die Sprachauswahl wird im localStorage unter brickinvest-locale gespeichert und kann über die Website-Dateneinstellungen Ihres Browsers gelöscht werden.",
+      "Die Sprachauswahl öffnet die Seite mit dem entsprechenden Sprachcode in der Adresse. Die Website speichert die Sprachauswahl nicht im lokalen Browserspeicher.",
       "Optionale Analysen müssen bis zu einer gesonderten, informierten Einwilligung deaktiviert bleiben. Eine Einwilligung darf nicht aus dem weiteren Besuch oder Scrollen der Website abgeleitet werden.",
     ],
   },

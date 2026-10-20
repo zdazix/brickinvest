@@ -2,30 +2,18 @@ import {
   createContext,
   useContext,
   useMemo,
-  useState,
   useEffect,
+  useCallback,
   type PropsWithChildren,
 } from "react";
+import { useRouter, useRouterState } from "@tanstack/react-router";
 
 import { estonian } from "@/lib/estonian";
 import { czech } from "@/lib/czech";
+import { localeKeys, type LocaleKey } from "@/lib/locales";
 import { polish } from "@/lib/polish";
+import { getLocaleFromPathname, localizedPathname } from "@/lib/locale-routing";
 
-export const locales = [
-  { code: "EN", flag: "🇬🇧", key: "en", label: "English" },
-  { code: "ES", flag: "🇪🇸", key: "es", label: "Español" },
-  { code: "SV", flag: "🇸🇪", key: "sv", label: "Svenska" },
-  { code: "UK", flag: "🇺🇦", key: "uk", label: "Українська" },
-  { code: "RU", flag: "🇷🇺", key: "ru", label: "Русский" },
-  { code: "DE", flag: "🇩🇪", key: "de", label: "Deutsch" },
-  { code: "EE", flag: "🇪🇪", key: "et", label: "Eesti" },
-  { code: "PL", flag: "🇵🇱", key: "pl", label: "Polski" },
-  { code: "CZ", flag: "🇨🇿", key: "cs", label: "Čeština" },
-] as const;
-
-export const languageMenuLocales = locales;
-
-export type LocaleKey = (typeof locales)[number]["key"];
 type Dictionary = Record<string, string>;
 
 const english: Dictionary = {
@@ -1739,22 +1727,32 @@ const translations: Record<LocaleKey, Dictionary> = {
 type LocaleContextValue = {
   locale: LocaleKey;
   setLocale: (locale: LocaleKey) => void;
+  localizePath: (pathname: string) => string;
   t: (key: string) => string;
 };
 const LocaleContext = createContext<LocaleContextValue | null>(null);
 
 export const LocaleProvider = ({ children }: PropsWithChildren) => {
-  const [locale, setLocaleState] = useState<LocaleKey>(() => {
-    const storedLocale = window.localStorage.getItem("brickinvest-locale");
-    if (locales.some((item) => item.key === storedLocale)) {
-      return storedLocale as LocaleKey;
-    }
-    return "cs";
+  const pathname = useRouterState({
+    select: (state) => state.location.pathname,
   });
-  const setLocale = (next: LocaleKey) => {
-    setLocaleState(next);
-    window.localStorage.setItem("brickinvest-locale", next);
-  };
+  const router = useRouter();
+  const locale = getLocaleFromPathname(pathname, localeKeys, "cs");
+  const localizePath = useCallback(
+    (path: string) => localizedPathname(path, locale, localeKeys),
+    [locale],
+  );
+  const setLocale = useCallback(
+    (next: LocaleKey) => {
+      const nextPath = localizedPathname(pathname, next, localeKeys);
+      if (nextPath === pathname) return;
+
+      router.history.push(
+        `${nextPath}${window.location.search}${window.location.hash}`,
+      );
+    },
+    [pathname, router],
+  );
   useEffect(() => {
     document.documentElement.lang = locale;
   }, [locale]);
@@ -1762,10 +1760,11 @@ export const LocaleProvider = ({ children }: PropsWithChildren) => {
     () => ({
       locale,
       setLocale,
+      localizePath,
       t: (key: string) =>
-        translations[locale][key] ?? estonian[key] ?? english[key] ?? key,
+        translations[locale][key] ?? english[key] ?? estonian[key] ?? key,
     }),
-    [locale],
+    [locale, localizePath, setLocale],
   );
   return (
     <LocaleContext.Provider value={value}>{children}</LocaleContext.Provider>

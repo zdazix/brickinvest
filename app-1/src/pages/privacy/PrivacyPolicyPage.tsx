@@ -3,6 +3,11 @@ import { useEffect } from "react";
 
 import { PageIntro } from "@/components/ui/PageIntro";
 import { czechPrivacySections } from "@/lib/czech-legal";
+import { estonianPrivacySections } from "@/lib/estonian-legal";
+import { germanPrivacySections } from "@/lib/german-legal";
+import { polishPrivacySections } from "@/lib/polish-legal";
+import { russianPrivacySections } from "@/lib/russian-legal";
+import { type LocaleKey } from "@/lib/locales";
 import { useLocale } from "@/lib/i18n";
 
 type PrivacySection = {
@@ -393,19 +398,24 @@ const ukrainianPrivacySections: readonly PrivacySection[] = [
   },
 ];
 
-void [
-  privacySections,
-  spanishPrivacySections,
-  swedishPrivacySections,
-  ukrainianPrivacySections,
-];
+const localizedPrivacySections: Record<LocaleKey, readonly PrivacySection[]> = {
+  en: privacySections,
+  es: spanishPrivacySections,
+  sv: swedishPrivacySections,
+  uk: ukrainianPrivacySections,
+  ru: russianPrivacySections,
+  de: germanPrivacySections,
+  et: estonianPrivacySections,
+  pl: polishPrivacySections,
+  cs: czechPrivacySections,
+};
 
 export const PrivacyPolicyPage = () => {
-  const { t } = useLocale();
+  const { locale, t, localizePath } = useLocale();
   useEffect(() => {
-    document.title = "Zásady ochrany soukromí | BRICKINVEST";
-  }, []);
-  const sections = czechPrivacySections;
+    document.title = `${t("privacyPolicy")} | BRICKINVEST`;
+  }, [t]);
+  const sections = localizedPrivacySections[locale];
   return (
     <main
       className="grain-surface min-h-dvh bg-background px-5 pt-24 pb-16 sm:px-8 lg:px-12 lg:pt-28 lg:pb-24"
@@ -414,7 +424,7 @@ export const PrivacyPolicyPage = () => {
       <div className="mx-auto max-w-7xl">
         <Link
           className="inline-flex text-[12px] tracking-[0.12em] text-muted-foreground uppercase transition-colors hover:text-foreground focus-visible:text-foreground"
-          to="/"
+          to={localizePath("/") as never}
         >
           {t("backHome")}
         </Link>
@@ -458,19 +468,19 @@ export const PrivacyPolicyPage = () => {
         <div className="mt-10 flex flex-wrap gap-x-5 gap-y-3 text-[12px] tracking-[0.12em] text-muted-foreground uppercase">
           <Link
             className="transition-colors hover:text-foreground focus-visible:text-foreground"
-            to="/terms-and-conditions"
+            to={localizePath("/terms-and-conditions") as never}
           >
             {t("termsAndConditions")}
           </Link>
           <Link
             className="transition-colors hover:text-foreground focus-visible:text-foreground"
-            to="/cookies-policy"
+            to={localizePath("/cookies-policy") as never}
           >
             {t("cookiesPolicy")}
           </Link>
           <Link
             className="transition-colors hover:text-foreground focus-visible:text-foreground"
-            to="/"
+            to={localizePath("/") as never}
           >
             {t("home")}
           </Link>

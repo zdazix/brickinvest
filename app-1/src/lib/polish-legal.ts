@@ -113,7 +113,7 @@ export const polishCookiesSections: readonly PolishLegalSection[] = [
   {
     title: "Zidentyfikowane technologie",
     paragraphs: [
-      `${companyDetails} Przegląd aktualnego kodu nie wykazał nazwanej cookie ustawianej przez aplikację ani zintegrowanego dostawcy marketingowego. Wybrany język jest przechowywany w localStorage jako brickinvest-locale; nie jest to cookie.`,
+      `${companyDetails} Przegląd aktualnego kodu nie wykazał nazwanej cookie ustawianej przez aplikację ani zintegrowanego dostawcy marketingowego. Język określa kod w adresie strony; wybór języka nie jest zapisywany w localStorage ani w cookie.`,
       "Opcjonalna analityka może ładować Google Tag Manager lub Google Analytics 4 wyłącznie po konfiguracji identyfikatorów i uzyskaniu zgody.",
     ],
   },
@@ -127,7 +127,7 @@ export const polishCookiesSections: readonly PolishLegalSection[] = [
   {
     title: "Ustawienia języka i analityka",
     paragraphs: [
-      "Wybór języka jest zapisywany w localStorage pod kluczem brickinvest-locale. Możesz usunąć go w ustawieniach danych witryny przeglądarki.",
+      "Przełącznik języka otwiera stronę z odpowiednim kodem języka w adresie. Witryna nie zapisuje wyboru języka w pamięci lokalnej przeglądarki.",
       "Analityka opcjonalna powinna pozostać wyłączona do czasu uzyskania osobnej, świadomej zgody.",
     ],
   },
