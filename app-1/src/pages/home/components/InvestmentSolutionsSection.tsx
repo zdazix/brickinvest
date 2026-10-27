@@ -42,7 +42,7 @@ export const InvestmentSolutionsSection = () => {
             firstName: name,
             email: isEmail ? contact : undefined,
             phone: isEmail ? undefined : contact,
-            source: "Formulář investičních řešení",
+            source: "Investment Solutions form",
           }),
         },
       );
