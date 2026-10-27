@@ -14,11 +14,11 @@ export type VerifiedProject = {
 export type BreadcrumbItem = { name: string; url: string };
 
 const serviceNames = [
-  "Akvizice pozemků",
-  "Rezidenční development",
-  "Komerční nemovitosti",
-  "Hotely a pohostinství",
-  "Akvizice firem",
+  "Land acquisition",
+  "Residential development",
+  "Commercial real estate",
+  "Hotels and hospitality",
+  "Company acquisitions",
 ] as const;
 
 const servedPlaces = [
@@ -70,21 +70,21 @@ export const createHomepageStructuredData = (configuredOrigin?: string) => {
         "@id": organizationId,
         name: "BRICKINVEST",
         description:
-          "Společnost zaměřená na investice do nemovitostí a rozvoj projektů na Costa del Sol ve Španělsku.",
+          "A company focused on real estate investment and development on the Costa del Sol, Spain.",
         ...(origin ? { url: origin } : {}),
         areaServed: servedPlaces.map((name) => ({
           "@type": "Place",
           name,
         })),
         knowsAbout: [
-          "Investice do nemovitostí",
-          "Investice do nemovitostí",
-          "Rozvoj nemovitostí",
-          "Akvizice pozemků",
-          "Rezidenční development",
-          "Komerční nemovitosti",
-          "Hotely a pohostinství",
-          "Akvizice firem",
+          "Real estate investment",
+          "Property investment",
+          "Property development",
+          "Land acquisition",
+          "Residential development",
+          "Commercial real estate",
+          "Hotels and hospitality",
+          "Company acquisitions",
         ],
         hasOfferCatalog: { "@id": catalogId },
       },
@@ -106,7 +106,7 @@ export const createHomepageStructuredData = (configuredOrigin?: string) => {
       {
         "@type": "OfferCatalog",
         "@id": catalogId,
-        name: "Služby BRICKINVEST",
+        name: "BRICKINVEST services",
         itemListElement: services.map((service) => ({
           "@type": "Offer",
           itemOffered: { "@id": service["@id"] },

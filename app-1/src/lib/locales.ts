@@ -14,5 +14,6 @@ export const languageMenuLocales = locales;
 
 export type LocaleKey = (typeof locales)[number]["key"];
 export const localeKeys: readonly LocaleKey[] = locales.map(({ key }) => key);
+export const defaultLocale: LocaleKey = "en";
 export const isLocaleKey = (value: string): value is LocaleKey =>
   localeKeys.includes(value as LocaleKey);

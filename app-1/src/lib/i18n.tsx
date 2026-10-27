@@ -10,7 +10,7 @@ import { useRouter, useRouterState } from "@tanstack/react-router";
 
 import { estonian } from "@/lib/estonian";
 import { czech } from "@/lib/czech";
-import { localeKeys, type LocaleKey } from "@/lib/locales";
+import { defaultLocale, localeKeys, type LocaleKey } from "@/lib/locales";
 import { polish } from "@/lib/polish";
 import { getLocaleFromPathname, localizedPathname } from "@/lib/locale-routing";
 
@@ -1737,7 +1737,7 @@ export const LocaleProvider = ({ children }: PropsWithChildren) => {
     select: (state) => state.location.pathname,
   });
   const router = useRouter();
-  const locale = getLocaleFromPathname(pathname, localeKeys, "cs");
+  const locale = getLocaleFromPathname(pathname, localeKeys, defaultLocale);
   const localizePath = useCallback(
     (path: string) => localizedPathname(path, locale, localeKeys),
     [locale],

@@ -5,11 +5,12 @@ import {
   localizedPathname,
   stripLocalePrefix,
 } from "@/lib/locale-routing";
+import { defaultLocale, localeKeys } from "@/lib/locales";
 
 const locales = ["en", "es", "sv", "uk", "ru", "de", "et", "pl", "cs"] as const;
 
 describe("locale URL helpers", () => {
-  it("reads a supported locale from a direct URL and uses Czech as the default", () => {
+  it("reads a supported locale from a direct URL and falls back to the given default", () => {
     expect(getLocaleFromPathname("/en/contact", locales, "cs")).toBe("en");
     expect(getLocaleFromPathname("/unknown/contact", locales, "cs")).toBe("cs");
   });
@@ -29,5 +30,22 @@ describe("locale URL helpers", () => {
   it("normalizes legacy paths and trailing slashes", () => {
     expect(localizedPathname("/contact/", "es", locales)).toBe("/es/contact");
     expect(stripLocalePrefix("/cs/", locales)).toBe("/");
+  });
+});
+
+describe("site default locale", () => {
+  it("renders English for paths without a locale prefix", () => {
+    expect(defaultLocale).toBe("en");
+    expect(getLocaleFromPathname("/", localeKeys, defaultLocale)).toBe("en");
+    expect(getLocaleFromPathname("/contact", localeKeys, defaultLocale)).toBe(
+      "en",
+    );
+  });
+
+  it("still honours an explicit locale prefix", () => {
+    expect(getLocaleFromPathname("/es", localeKeys, defaultLocale)).toBe("es");
+    expect(
+      getLocaleFromPathname("/cs/contact", localeKeys, defaultLocale),
+    ).toBe("cs");
   });
 });

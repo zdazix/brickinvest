@@ -1,61 +1,29 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { HomePage } from "@/pages/home/HomePage";
+import { defaultLocale } from "@/lib/locales";
+import { getHomeCanonicalUrl, getHomeMetadata } from "@/lib/seo/home-metadata";
 import { createHomepageStructuredData } from "@/lib/seo/structured-data";
 
 const productionUrl = import.meta.env.VITE_BRICKINVEST_PRODUCTION_URL;
 const structuredData = createHomepageStructuredData(productionUrl);
-
-const canonicalUrl = (() => {
-  if (!productionUrl) return undefined;
-  try {
-    const url = new URL(productionUrl);
-    if (
-      url.protocol !== "https:" ||
-      /\.(?:preview|projects)\.amazi\.pro$/i.test(url.hostname)
-    ) {
-      return undefined;
-    }
-    return `${url.origin}/`;
-  } catch {
-    return undefined;
-  }
-})();
+const metadata = getHomeMetadata(defaultLocale);
+const canonicalUrl = getHomeCanonicalUrl();
 
 export const Route = createFileRoute("/(layout)/")({
   component: HomePage,
   head: () => ({
     meta: [
-      {
-        title: "BRICKINVEST | Nemovitosti a investice na Costa del Sol",
-      },
-      {
-        name: "description",
-        content:
-          "BRICKINVEST nabízí investice do nemovitostí, developerské projekty a investiční příležitosti na Costa del Sol včetně Marbelly, Sotogrande, Estepony a Málagy.",
-      },
+      { title: metadata.title },
+      { name: "description", content: metadata.description },
       { name: "robots", content: "index,follow" },
-      {
-        property: "og:title",
-        content: "BRICKINVEST | Nemovitosti a investice na Costa del Sol",
-      },
-      {
-        property: "og:description",
-        content:
-          "BRICKINVEST nabízí investice do nemovitostí, developerské projekty a investiční příležitosti na Costa del Sol včetně Marbelly, Sotogrande, Estepony a Málagy.",
-      },
+      { property: "og:title", content: metadata.title },
+      { property: "og:description", content: metadata.description },
       { property: "og:type", content: "website" },
-      { property: "og:locale", content: "cs_CZ" },
+      { property: "og:locale", content: metadata.locale },
       { name: "twitter:card", content: "summary" },
-      {
-        name: "twitter:title",
-        content: "BRICKINVEST | Nemovitosti a investice na Costa del Sol",
-      },
-      {
-        name: "twitter:description",
-        content:
-          "BRICKINVEST nabízí investice do nemovitostí, developerské projekty a investiční příležitosti na Costa del Sol včetně Marbelly, Sotogrande, Estepony a Málagy.",
-      },
+      { name: "twitter:title", content: metadata.title },
+      { name: "twitter:description", content: metadata.description },
     ],
     links: canonicalUrl ? [{ rel: "canonical", href: canonicalUrl }] : [],
     scripts: [
